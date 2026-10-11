@@ -10,6 +10,8 @@ Trois mesures, de la plus locale à la plus robuste :
   3. ftle   : moyenne de g_inst sur une fenêtre T (exposant de Lyapunov à temps fini).
               Sa moyenne sur toute la trajectoire doit redonner lambda_1 ~ 0.906.
 """
+import sys
+
 import numpy as np
 import matplotlib
 
@@ -21,8 +23,8 @@ sigma, rho, beta = 10.0, 28.0, 8.0 / 3.0
 dt = 0.005
 N_steps = 40000
 cut = 5000          # transitoire (trajectoire + alignement du vecteur tangent)
-T_ftle = 1.0        # fenêtre FTLE en unités de temps
-OUT = "lorenz_stretching.png"
+T_ftle = float(sys.argv[1]) if len(sys.argv) > 1 else 1.0  # fenêtre FTLE (unités de temps)
+OUT = "lorenz_stretching.png" if T_ftle == 1.0 else f"lorenz_stretching_T{T_ftle:g}.png"
 
 
 def lorenz(s):
