@@ -81,6 +81,13 @@ def ftle_centered(g_step, T):
     return ftle, slice(w // 2, len(ftle) - w // 2)
 
 
+# Séquentiel = une teinte, clair -> foncé ; divergent = bleu / gris neutre / rouge
+SEQ_BLUE = matplotlib.colors.LinearSegmentedColormap.from_list(
+    "seq_blue", ["#cde2fb", "#6da7ec", "#2a78d6", "#184f95", "#0d366b"])
+DIV_BLUE_RED = matplotlib.colors.LinearSegmentedColormap.from_list(
+    "div_blue_red", ["#1c5cab", "#86b6ef", "#f0efec", "#f09a99", "#c43534"])
+
+
 def main():
     T_ftle = float(sys.argv[1]) if len(sys.argv) > 1 else 1.0  # fenêtre FTLE (unités de temps)
     OUT = "lorenz_stretching.png" if T_ftle == 1.0 else f"lorenz_stretching_T{T_ftle:g}.png"
@@ -105,13 +112,14 @@ def main():
 
     # Points fixes : C± sont des selles-foyers (instables pour rho > ~24.74)
     C_plus = np.array([np.sqrt(beta * (rho - 1)), np.sqrt(beta * (rho - 1)), rho - 1])
-    fixed = {"Origine (selle)": (np.zeros(3), "cyan", "x"),
-             "C+ (selle-foyer)": (C_plus, "lime", "*"),
-             "C− (selle-foyer)": (C_plus * [-1, -1, 1], "lime", "*")}
+    # Identité portée par la forme du marqueur + la légende, pas par la couleur
+    fixed = {"Origine (selle)": (np.zeros(3), "#1a1a19", "x"),
+             "C± (selle-foyer)": (C_plus, "#1a1a19", "*"),
+             None: (C_plus * [-1, -1, 1], "#1a1a19", "*")}
 
     fig = plt.figure(figsize=(16, 6))
-    panels = [(lam_S, "λmax(S) : borne instantanée\n(non invariante, ignore la direction)", "inferno", None),
-              (ftle, f"FTLE (T = {T_ftle}) : étirement réellement réalisé\n(moyenne = {lambda1:.3f})", "coolwarm", 0.0)]
+    panels = [(lam_S, "λmax(S) : borne instantanée\n(non invariante, ignore la direction)", SEQ_BLUE, None),
+              (ftle, f"FTLE (T = {T_ftle}) : étirement réellement réalisé\n(moyenne = {lambda1:.3f})", DIV_BLUE_RED, 0.0)]
     tr = traj[valid]
     for k, (val, title, cmap, center) in enumerate(panels, start=1):
         ax = fig.add_subplot(1, 2, k, projection="3d")
@@ -123,7 +131,7 @@ def main():
             norm = matplotlib.colors.TwoSlopeNorm(vcenter=center, vmin=-m, vmax=m)
         sc = ax.scatter(tr[:, 0], tr[:, 1], tr[:, 2], c=v, cmap=cmap, norm=norm, s=0.3, alpha=0.8)
         for lab, (p, col, mk) in fixed.items():
-            ax.scatter(*p, c=col, s=80, marker=mk, label=lab)
+            ax.scatter(*p, c=col, s=80, marker=mk, label=lab, depthshade=False)
         ax.set_title(title)
         ax.set_xlabel("X"); ax.set_ylabel("Y"); ax.set_zlabel("Z")
         fig.colorbar(sc, ax=ax, shrink=0.6, label="taux (1/unité de temps)")
