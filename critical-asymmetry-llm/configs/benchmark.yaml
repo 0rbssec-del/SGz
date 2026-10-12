@@ -1,0 +1,6 @@
+extends: default.yaml
+benchmark:
+  n_prompts: 1000
+  seed: 42
+  output_dir: "results/"
+  save_plots: true

@@ -1,0 +1,19 @@
+version: "3.9"
+services:
+  caa:
+    build: .
+    runtime: nvidia
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+    volumes:
+      - ./:/workspace
+    shm_size: "16gb"
+    command: bash -c "pytest tests/ -v && python experiments/run_benchmark.py"
+  jupyter:
+    build: .
+    runtime: nvidia
+    ports:
+      - "8888:8888"
+    volumes:
+      - ./:/workspace
+    command: bash -c "pip install jupyterlab && jupyter lab --ip=0.0.0.0 --allow-root"

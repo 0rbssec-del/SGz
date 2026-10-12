@@ -1,0 +1,4 @@
+extends: default.yaml
+multi_agent:
+  N: 20
+  W_type: "asymmetric_random"

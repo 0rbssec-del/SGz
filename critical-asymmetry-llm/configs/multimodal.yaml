@@ -1,0 +1,6 @@
+extends: default.yaml
+multimodal:
+  fusion_dim: 4096
+  n_heads: 8
+  lambda_v_range: [0.0, 1.0]
+  tau_v_range: [0.5, 1.5]

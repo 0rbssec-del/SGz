@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+title: Critical Asymmetry Architecture
+message: If you use this software, please cite it.
+type: software
+authors:
+  - family-names: Contributors
+    given-names: CAA
+version: 0.1.0
+date-released: 2026-01-01
+license: MIT

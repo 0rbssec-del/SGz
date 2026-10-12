@@ -1,0 +1,48 @@
+model:
+  name: "llava-1.5-7b"
+  device: "cuda"
+  dtype: "bfloat16"
+  max_tokens: 512
+  vision_encoder: "openai/clip-vit-large-patch14"
+
+asymmetry:
+  A_star: 0.5
+  window: 16
+  weights:
+    phi1: 1.0
+    phi2: 2.0
+    phi3: 1.0
+    phi4: 1.0
+    phi5: 1.0
+    phi6: 2.0
+    phi7: 2.0
+    phi8: 1.0
+    phi9: 2.0
+
+control:
+  pid: { Kp: 0.3, Ki: 0.05, Kd: 0.1 }
+  sampler: { T0: 1.0, p0: 0.85, alpha: 0.12, beta: 0.35 }
+
+rl:
+  algorithm: "PPO"
+  lr: 3.0e-4
+  clip: 0.2
+  K_epochs: 4
+  gamma: 0.99
+  lam: 0.95
+  epochs: 1000
+  lambda_A: 0.5
+  mu_prive: 0.3
+  sigma_A: 0.1
+
+multi_agent:
+  N: 10
+  alpha: 0.1
+  gamma: 0.05
+  rho: 0.0
+  kappa_tv: 0.1
+  kappa_vt: 0.08
+
+benchmark:
+  n_prompts: 1000
+  seed: 42
