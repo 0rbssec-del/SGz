@@ -92,6 +92,10 @@ import time
 import numpy as np
 import torch
 
+try:
+    sys.stdout.reconfigure(line_buffering=True)   # chaque ligne du log apparaît tout de suite sur Kaggle
+except Exception:
+    pass
 SMOKE_TEST = os.environ.get("SMOKE_TEST", "0") == "1"
 OUT = os.environ.get("OUT", "/kaggle/working/sgz_criticite" if os.path.isdir("/kaggle/working") else "sgz_criticite_out")
 HF_CACHE = os.environ.get("HF_CACHE", "/tmp/hf_cache")
@@ -108,6 +112,8 @@ N_PROMPTS, GEN_LEN, N_MIN = 64, 128, 32
 BOOT_N, TWONN_POINTS, TWONN_BOOT = 1000, 2000, 50
 LAYER_FRAC = 0.5
 SEED = 20261021
+MAX_HOURS = float(os.environ.get("MAX_HOURS", "4"))   # budget global : les modèles suivants sont sautés au-delà
+T_RUN0 = time.time()
 
 DEFAULT_MODELS = [
     ("Qwen3-0.6B-Base", ["Qwen/Qwen3-0.6B-Base"]),
@@ -122,6 +128,9 @@ if SMOKE_TEST:
     BOOT_N, TWONN_POINTS, TWONN_BOOT = 50, 100, 5
     DEFAULT_MODELS = [("smoke-qwen3-aleatoire", ["smoke-qwen3-random"])]
 
+if not SMOKE_TEST and DEVICE != "cuda":
+    raise RuntimeError("Aucun GPU détecté : active l'accélérateur « GPU T4 x2 » (Settings → Accelerator). "
+                       "Sur CPU, ce notebook prendrait des dizaines d'heures.")
 torch.manual_seed(SEED)
 np.random.seed(SEED)
 print(f"[CONFIG] SMOKE_TEST={SMOKE_TEST} DEVICE={DEVICE} N_GPU={N_GPU} OUT={OUT}")
@@ -520,10 +529,17 @@ def run_model(model, tok, label):
                     attn = torch.cat([attn, torch.ones((len(rows), 1), dtype=attn.dtype, device=emb_dev)], dim=1)
                     pos = pos[:, -1:] + 1
                 del past, out
+                if b0 == 0 and it == 0:
+                    est = (time.time() - t0) * math.ceil(P / batch) * len(T_GRID) / 60
+                    print(f"[PROGRESSION] {label} : premier lot en {time.time() - t0:.1f} s ; estimation pour ce modèle ~{est:.0f} min", flush=True)
+                    if est / 60 > MAX_HOURS:
+                        raise TimeoutError(f"estimation {est:.0f} min > budget {MAX_HOURS} h")
             res["hidden"][T] = torch.stack(H_pts) if H_pts else torch.zeros(0)
             if it == 0 and H_pts:
                 res["norms"].append(("jetons générés (points TwoNN)", float(res["hidden"][T].norm(dim=-1).mean()), float(res["hidden"][T].norm(dim=-1).max())))
-            print(f"[MESURE] {label} T={T:<4} : {time.time() - t0:6.1f} s, S_1,45(p1) moyen "
+            dt = time.time() - t0
+            left = dt * (len(T_GRID) - it - 1) / 60
+            print(f"[MESURE] {label} T={T:<4} : {dt:6.1f} s (reste ~{left:.0f} min pour ce modèle), S_1,45(p1) moyen "
                   f"{res['S_p1'][Q_PRIMARY][it].mean():.4f}, S_1,45(pT) moyen {res['S_pT'][Q_PRIMARY][it].mean():.4f}")
     finally:
         hk.remove()
@@ -646,10 +662,15 @@ interpretable = (not SMOKE_TEST) and len(PROMPTS) >= N_MIN
 ALL, RAW = {}, {}
 for label, ids in DEFAULT_MODELS:
     t_start = time.time()
+    if (t_start - T_RUN0) / 3600 > MAX_HOURS:
+        print(f"[BUDGET] {label} sauté : budget de {MAX_HOURS} h dépassé")
+        ALL[label] = {"label": label, "V1": {"verdict": "NON TESTABLE (budget de temps)"}, "V2": {"verdict": "NON TESTABLE (budget de temps)"}}
+        continue
     model = tok = None
     used = None
     err = None
     for mid in ids:
+        print(f"[CHARGEMENT] {label} : téléchargement / chargement de {mid}…", flush=True)
         try:
             model, tok, mode = load_model(mid)
             used = mid
