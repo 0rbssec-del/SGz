@@ -1,0 +1,5 @@
+# Versions vérifiées le 2026-10-21 (Python 3.13, CPU seul)
+numpy==2.5.3
+scipy==1.18.1
+numba==0.68.0
+matplotlib==3.11.2
