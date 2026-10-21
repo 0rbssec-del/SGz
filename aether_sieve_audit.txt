@@ -1,0 +1,30 @@
+Graines : 20
+
+[C1] Fidélité au signal organique
+  corr(organique, brut)                   0.5611 ± 0.0054
+  corr(organique, purifié moteur)         0.8345 ± 0.0196   (annoncé : > 0.98)
+  corr(organique, témoin rég. harmonique) 0.9140 ± 0.0222
+  0.22 Hz organique classée « porteuse »  95 % des graines
+  part de la sinusoïde 0.22 Hz conservée  0.1383 ± 0.1725
+  forçage résiduel dans le purifié        0.1171 ± 0.0062  (fraction projetée)
+  bins signalés                           7.3500 ± 0.4770
+  énergie « purgée »                      0.6726 ± 0.0102
+
+[C2] Spécificité : flux organique SANS forçage
+  énergie purgée (rose + 0.22 Hz)         0.1543 ± 0.0545
+  bins signalés                           0.9000 ± 0.3000
+  corr(organique, purifié)                0.9338 ± 0.0240
+  énergie purgée (rose seul)              0.0000 ± 0.0000
+  corr(rose, purifié) (rose seul)         1.0000 ± 0.0000
+
+[C3] Dimension de corrélation D2 (moyenne des fenêtres)
+  D2 brut (organique + forçage)           3.8465 ± 0.0166
+  D2 purifié                              3.7968 ± 0.0195
+  D2 forçage pur (4 sinus, quasi-périodique, vraie dim 4) 3.9097 ± 0.0011
+  D2 organique pur                        3.7486 ± 0.0191
+  D2 bruit rose seul                      3.7957 ± 0.0182
+  D2 bruit blanc                          3.8500 ± 0.0182
+
+[C4] Témoins
+  plafond si 0.22 Hz retirée : corr(organique, rose)        0.9081 ± 0.0022
+  rég. harmonique, raies > 1 Hz seulement                   0.9997 ± 0.0001
