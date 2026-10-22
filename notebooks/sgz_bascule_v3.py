@@ -69,12 +69,22 @@ MIN_SEG = 32
 Q = 1.45
 rng = np.random.default_rng(SEED)
 
-files = sorted(glob.glob(os.path.join(MES_DIR, "**", "*_mesures.npz"), recursive=True))
+files = []
+for root, dirs, names in os.walk(MES_DIR, followlinks=True):   # suit aussi les liens symboliques de /kaggle/input
+    files += [os.path.join(root, n) for n in names if n.endswith("_mesures.npz")]
+files = sorted(files)
 print(f"[ENTRÉE] {len(files)} fichiers trouvés sous {MES_DIR} :")
 for f in files:
     print(f"[ENTRÉE]   {f}")
 if not files:
-    raise FileNotFoundError("Aucun *_mesures.npz : ajoute la sortie du notebook v2 en entrée (Add Input).")
+    print("[ENTRÉE] Contenu de l'entrée (3 niveaux), pour diagnostic :")
+    for root, dirs, names in os.walk(MES_DIR, followlinks=True):
+        depth = root[len(MES_DIR):].count(os.sep)
+        if depth <= 3:
+            print(f"[ENTRÉE]   {root}/ : {sorted(names)[:12]}")
+    raise FileNotFoundError(
+        "Aucun *_mesures.npz. Dans le panneau de droite : Input → Add Input → onglet « Your Work » → "
+        "choisis le notebook v2 (sgz_criticite_v2) → « Add ». Puis relance Save & Run All.")
 
 # %%
 def ci(v):
