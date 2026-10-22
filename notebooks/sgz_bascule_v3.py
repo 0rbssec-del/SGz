@@ -30,7 +30,17 @@
 # **X3 — Individualité statique (descriptif).** Différence de T_c entre prompts français (0–31) et anglais (32–63),
 # avec IC95 (les prompts diffèrent aussi par le contenu : descriptif seulement).
 #
-# ## Prédictions de l'assistant (écrites avant exécution) [spéculation]
+# **X4 — Ralentissement critique (affirmation A2 de la thèse « rétroaction négative », ajouté le 22 oct. 2026 avant
+exécution).** Pour chaque T et chaque séquence, S₁,₄₅(p₁) le long de la trajectoire, tendance linéaire retirée ;
+autocorrélation ρ(k) moyennée sur les prompts ; temps de retour τ(T) = premier retard (interpolé) où ρ < 1/e, plafonné
+à 128 jetons. Témoin : même calcul après mélange de l'ordre des pas (τ attendu ≈ 0). SOUTENU si la fraction des
+rééchantillonnages dont l'argmax de τ(T) tombe dans [1,0 ; 1,2] est ≥ 0,95 ; RÉFUTÉ si ≤ 0,05 ; sinon INDÉTERMINÉ.
+ρ(1) par T est rapporté (descriptif). Risque connu d'avance : aux basses T, les boucles de répétition allongent τ
+sans lien avec une criticité.
+
+## Prédictions de l'assistant (écrites avant exécution) [spéculation]
+
+- X4 : SOUTENU 35 %, RÉFUTÉ 40 % (boucles aux basses T), INDÉTERMINÉ 25 %.
 #
 # - X0 : NON STATIONNAIRE à T*_χ sur les 3 modèles (75 %).
 # - X1 : SOUTENU 55 %, RÉFUTÉ 15 %, INDÉTERMINÉ 30 %.
@@ -208,6 +218,39 @@ def analyse_modele(path):
     bb = [np.nanmean(tall[:h][rng.integers(0, h, h)]) - np.nanmean(tall[h:][rng.integers(0, P - h, P - h)]) for _ in range(BOOT_N)]
     out["X3"] = {"Tc_francais": float(np.nanmean(tall[:h])), "Tc_anglais": float(np.nanmean(tall[h:])),
                  "difference": dfe, "ci": ci(bb)}
+    # X4
+    S4 = Sp1
+    lags = np.arange(0, 129)
+
+    def tau_curve(Sm):
+        x = Sm - np.polyval(np.polyfit(pos, Sm.T, 1), pos[:, None]).T     # tendance linéaire retirée par séquence
+        x = x - x.mean(1, keepdims=True)
+        F = np.fft.rfft(x, n=2 * L, axis=1)
+        ac = np.fft.irfft(F * np.conj(F), axis=1)[:, :L]
+        v0 = ac[:, :1]
+        ac = np.where(v0 > 1e-20, ac / np.where(v0 > 1e-20, v0, 1.0), np.nan)   # séquence constante : exclue
+        return ac                                                            # (P, L)
+
+    def tau_from(rho):
+        if not np.isfinite(rho[0]):
+            return float("nan")
+        below = np.where(rho[1:129] < 1 / np.e)[0]
+        if below.size == 0:
+            return 128.0
+        k = below[0] + 1
+        r0, r1 = rho[k - 1], rho[k]
+        return float(k - 1 + (r0 - 1 / np.e) / (r0 - r1)) if r0 != r1 else float(k)
+
+    AC = np.stack([tau_curve(S4[i]) for i in range(nT)])                      # (nT, P, L)
+    perm = np.argsort(np.random.default_rng(SEED + 4).random((P, L)), axis=1)
+    ACm = np.stack([tau_curve(np.take_along_axis(S4[i], perm, axis=1)) for i in range(nT)])
+    tau = np.array([tau_from(np.nanmean(AC[i], 0)) for i in range(nT)])
+    tau_m = np.array([tau_from(np.nanmean(ACm[i], 0)) for i in range(nT)])
+    stars = np.array([grid[int(np.nanargmax([tau_from(np.nanmean(AC[i][ix], 0)) for i in range(nT)]))] for ix in boots])
+    fr = float(np.mean((stars >= 1.0 - 1e-9) & (stars <= 1.2 + 1e-9)))
+    out["X4"] = {"tau": tau.tolist(), "tau_melange": tau_m.tolist(), "rho1": [float(np.nanmean(AC[i], 0)[1]) for i in range(nT)],
+                 "T_star_tau": float(grid[int(np.nanargmax(tau))]), "frac_fenetre": fr, "ci_T_star": ci(stars),
+                 "verdict": "SOUTENU" if fr >= 0.95 else ("RÉFUTÉ" if fr <= 0.05 else "INDÉTERMINÉ")}
     return out
 
 # %%
@@ -234,10 +277,16 @@ for f in files:
     x3 = r["X3"]
     print(f"[X3] {label} : T_c français {x3['Tc_francais']:.3f}, anglais {x3['Tc_anglais']:.3f}, "
           f"différence {x3['difference']:+.3f} IC95 [{x3['ci'][0]:+.3f} ; {x3['ci'][1]:+.3f}]")
+    x4 = r["X4"]
+    print(f"[X4] {label} : {x4['verdict']} — T* de τ = {x4['T_star_tau']}, fraction dans [1,0 ; 1,2] {x4['frac_fenetre']:.3f}, "
+          f"IC95 de T* [{x4['ci_T_star'][0]} ; {x4['ci_T_star'][1]}]")
+    print("[X4] τ(T) en jetons : " + " ; ".join(f"{T}: {v:.1f}" for T, v in zip(r['X0'].keys(), x4['tau'])))
+    print("[X4] τ mélangé      : " + " ; ".join(f"{T}: {v:.1f}" for T, v in zip(r['X0'].keys(), x4['tau_melange'])))
+    print("[X4] ρ(1)           : " + " ; ".join(f"{T}: {v:.2f}" for T, v in zip(r['X0'].keys(), x4['rho1'])))
 
 print(f"\n{'=' * 90}")
 for label, r in RES.items():
-    print(f"[SYNTHÈSE] {label:<18} X0 : {r['X0_verdict']['verdict']:<24} X1 : {r['X1']['verdict']:<12} X2 : {r['X2']['verdict']}")
+    print(f"[SYNTHÈSE] {label:<18} X0 : {r['X0_verdict']['verdict']:<24} X1 : {r['X1']['verdict']:<12} X2 : {r['X2']['verdict']:<38} X4 : {r['X4']['verdict']}")
 with open(os.path.join(OUT, "resume_v3.json"), "w") as fh:
     json.dump(RES, fh, ensure_ascii=False, indent=1, default=str)
 print(f"[SORTIE] {os.path.join(OUT, 'resume_v3.json')}")
