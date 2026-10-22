@@ -1,0 +1,182 @@
+7.9s 1 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+7.9s 2 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+7.9s 3 0.00s - to python to disable frozen modules.
+7.9s 4 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+8.5s 5 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+8.5s 6 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+8.5s 7 0.00s - to python to disable frozen modules.
+8.5s 8 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+17.5s 9 [CONFIG] SMOKE_TEST=False DEVICE=cuda N_GPU=2 OUT=/kaggle/working/sgz_criticite
+17.5s 10 [CONFIG] T_GRID=[0.2, 0.4, 0.6, 0.8, 0.9, 1.0, 1.1, 1.2, 1.4, 1.6, 1.8, 2.0] Q_LIST=[0.5, 1.0, 1.45, 2.0] q principal=1.45 fenêtre=(0.8, 1.2)
+17.5s 11 [CONFIG] N_PROMPTS=64 GEN_LEN=128 BOOT_N=1000 modèles=['Qwen3-0.6B-Base', 'Qwen3-1.7B-Base', 'Qwen3-8B-Base']
+17.5s 12 [CONFIG] GPU 0 : Tesla T4, 14.6 Go
+17.5s 13 [CONFIG] GPU 1 : Tesla T4, 14.6 Go
+31.2s 14 [CONFIG] torch 2.11.0+cu128, transformers 5.16.1
+31.3s 15 [PROMPTS] 64 prompts (moitié français, moitié anglais en mode complet)
+31.4s 16 [TÉMOIN POSITIF] pic à 1,0  : verdict SOUTENU      attendu SOUTENU      (T*=1.0, fraction dans la fenêtre 1.00)
+31.4s 17 [TÉMOIN POSITIF] pic à 1,6  : verdict RÉFUTÉ       attendu RÉFUTÉ       (T*=1.6, fraction dans la fenêtre 0.00)
+31.4s 18 [TÉMOIN POSITIF] sans pic   : verdict INDÉTERMINÉ  attendu INDÉTERMINÉ  (T*=0.8, fraction dans la fenêtre 0.86)
+32.2s 19 [TÉMOIN POSITIF] faux verdicts sous le nul (sans pic) : 6/100
+32.2s 20 [TÉMOIN POSITIF] RÉUSSI
+32.2s 21 [CONTRÔLE] S_q exacts sur loi uniforme et loi certaine
+33.1s 22 [CONTRÔLE] Gumbel-max : fréquences [0.764 0.182 0.044 0.011] contre softmax [0.763 0.183 0.044 0.01 ]
+42.8s 23 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+42.8s 24 
+42.8s 25 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+54.8s 26 [CHARGEMENT] Qwen3-0.6B-Base : Qwen/Qwen3-0.6B-Base en fp16 1 GPU (0.60 G paramètres)
+54.8s 27 [MESURE] Qwen3-0.6B-Base : 28 couches, couche TwoNN 14, V(modèle)=151936, len(tokenizer)=151669, 14 jetons spéciaux interdits + 267 identifiants hors tokenizer
+84.7s 28 [MESURE] Qwen3-0.6B-Base T=0.2  :   29.9 s, S_1,45(p1) moyen 0.5964, S_1,45(pT) moyen 0.1041
+113.1s 29 [MESURE] Qwen3-0.6B-Base T=0.4  :   28.4 s, S_1,45(p1) moyen 0.6701, S_1,45(pT) moyen 0.2415
+141.4s 30 [MESURE] Qwen3-0.6B-Base T=0.6  :   28.4 s, S_1,45(p1) moyen 0.7381, S_1,45(pT) moyen 0.4226
+169.6s 31 [MESURE] Qwen3-0.6B-Base T=0.8  :   28.2 s, S_1,45(p1) moyen 0.8919, S_1,45(pT) moyen 0.7044
+197.9s 32 [MESURE] Qwen3-0.6B-Base T=0.9  :   28.3 s, S_1,45(p1) moyen 0.9640, S_1,45(pT) moyen 0.8631
+259.8s 33 [MESURE] Qwen3-0.6B-Base T=1.0  :   61.9 s, S_1,45(p1) moyen 1.0273, S_1,45(pT) moyen 1.0273
+288.0s 34 [MESURE] Qwen3-0.6B-Base T=1.1  :   28.3 s, S_1,45(p1) moyen 1.2745, S_1,45(pT) moyen 1.3810
+316.3s 35 [MESURE] Qwen3-0.6B-Base T=1.2  :   28.3 s, S_1,45(p1) moyen 1.4635, S_1,45(pT) moyen 1.6446
+344.6s 36 [MESURE] Qwen3-0.6B-Base T=1.4  :   28.2 s, S_1,45(p1) moyen 1.8703, S_1,45(pT) moyen 2.0558
+372.8s 37 [MESURE] Qwen3-0.6B-Base T=1.6  :   28.2 s, S_1,45(p1) moyen 2.0055, S_1,45(pT) moyen 2.1558
+400.9s 38 [MESURE] Qwen3-0.6B-Base T=1.8  :   28.1 s, S_1,45(p1) moyen 2.0587, S_1,45(pT) moyen 2.1874
+428.9s 39 [MESURE] Qwen3-0.6B-Base T=2.0  :   28.0 s, S_1,45(p1) moyen 2.0807, S_1,45(pT) moyen 2.1991
+431.6s 40 
+431.6s 41 ====================================================================================================
+431.6s 42 [RÉSULTATS] Qwen3-0.6B-Base
+431.6s 43 [NORME] prompt position 0 / dernière position du prompt : 6683.6 / 55.3
+431.6s 44 [NORME] jetons générés (points TwoNN) : 52.7 / 70.5
+431.6s 45 T |  G1 p1 q=1,45 |          χ |   TwoNN [    IC95     ] |  dupl. | niveau S_1,45(pT) |     G1 pT |   G1 figé
+431.6s 46 0.2 |       0.45089 |   101.8766 |    4.19 [ 4.48 ;  5.46] |   0.0% |            0.1041 |   0.15178 |   0.25282
+431.6s 47 0.4 |       0.49845 |    37.8208 |    5.71 [ 5.75 ;  7.11] |   0.0% |            0.2415 |   0.28149 |   0.38890
+431.6s 48 0.6 |       0.53296 |    31.0131 |    6.70 [ 6.95 ;  8.68] |   0.0% |            0.4226 |   0.40773 |   0.47791
+431.6s 49 0.8 |       0.55861 |    61.7163 |    8.86 [ 9.37 ; 10.86] |   0.0% |            0.7044 |   0.51898 |   0.53526
+431.6s 50 0.9 |       0.57235 |    71.0383 |    9.20 [ 9.29 ; 11.24] |   0.0% |            0.8631 |   0.56125 |   0.55072
+431.6s 51 1.0 |       0.55743 |   105.8228 |   10.95 [11.04 ; 12.86] |   0.0% |            1.0273 |   0.55743 |   0.55743
+431.6s 52 1.1 |       0.49707 |   220.9307 |   12.40 [12.71 ; 14.65] |   0.0% |            1.3810 |   0.47703 |   0.55559
+431.6s 53 1.2 |       0.40304 |   323.0992 |   14.75 [14.77 ; 17.51] |   0.0% |            1.6446 |   0.34765 |   0.54519
+431.6s 54 1.4 |       0.21837 |    76.4047 |   18.67 [19.27 ; 22.11] |   0.0% |            2.0558 |   0.11910 |   0.50229
+431.6s 55 1.6 |       0.14612 |    13.5061 |   22.36 [22.38 ; 25.41] |   0.0% |            2.1558 |   0.04892 |   0.43847
+431.6s 56 1.8 |       0.11581 |     2.9515 |   24.77 [24.71 ; 27.48] |   0.0% |            2.1874 |   0.02228 |   0.36372
+431.6s 57 2.0 |       0.10208 |     1.5159 |   25.34 [25.03 ; 27.94] |   0.0% |            2.1991 |   0.01137 |   0.28800
+431.6s 58 [P1] niveau de S_q(pT) strictement croissant en T pour tous les q : oui
+431.6s 59 [VERDICT V1] Qwen3-0.6B-Base : SOUTENU — T*=0.9 (maximum intérieur), IC95 de T* [0.8 ; 1.0], fraction dans (0.8, 1.2) : 1.000
+431.6s 60 [VERDICT V2] Qwen3-0.6B-Base : INDÉTERMINÉ — T*_χ=1.2, fenêtre (1.0, 1.4), fraction 0.102
+431.6s 61 [TÉMOIN FIGÉ] base pT, q=1.45 : T* généré 0.9 contre figé 1.0 ; généré − figé par T : [-0.10104, -0.10741, -0.07017, -0.01629, 0.01053, 0.0, -0.07856, -0.19754, -0.38318, -0.38955, -0.34144, -0.27663]
+431.6s 62 [DESCRIPTIF] T* (argmax) par signal, base et q — aucun verdict :
+431.6s 63 S_p1     q=0.5: G1 2.0, G2 1.8, G3 1.2 ; q=1.0: G1 1.1, G2 1.4, G3 1.2 ; q=1.45: G1 0.9, G2 0.6, G3 1.2 ; q=2.0: G1 0.6, G2 0.4, G3 1.2
+431.6s 64 S_pT     q=0.5: G1 1.4, G2 1.4, G3 1.2 ; q=1.0: G1 1.1, G2 1.2, G3 1.2 ; q=1.45: G1 0.9, G2 1.0, G3 1.2 ; q=2.0: G1 0.9, G2 0.9, G3 1.0
+431.6s 65 S_frozen q=0.5: G1 2.0, G2 2.0, G3 2.0 ; q=1.0: G1 1.4, G2 1.6, G3 1.8 ; q=1.45: G1 1.0, G2 1.2, G3 1.4 ; q=2.0: G1 0.8, G2 0.9, G3 1.2
+431.6s 66 [EXTRAIT] Qwen3-0.6B-Base T=0.2 prompt 0 : 'La ville de Lyon est située au confluent' → " de deux rivières, le Rhône et le Loire, et est connue pour sa richesse historique et son architecture. Les sites culturels, tels que le musée du Louvre, le musée de l'Homme, et le musée de l'"
+431.6s 67 [EXTRAIT] Qwen3-0.6B-Base T=0.2 prompt 32 : 'The city of Boston is known for' → ' its rich history and diverse culture. The city is home to many famous landmarks, such as the Boston Common, the Boston Tea Party, and the famous Boston Tea Party statue. The city is also known for its vibrant arts scene'
+431.6s 68 [EXTRAIT] Qwen3-0.6B-Base T=1.0 prompt 0 : 'La ville de Lyon est située au confluent' → " de trois rivières, entre la Somme, le Rhône et l'Auge...\nIl s'agit de face de sa 4ème période de vagues...\nPourquoi ces bâtiments sont-ils encombrés...\nPeut-on se fopper auxa la dernière fois"
+431.6s 69 [EXTRAIT] Qwen3-0.6B-Base T=1.0 prompt 32 : 'The city of Boston is known for' → ' its distinctive beauty. It is famous for its architecture, historic sites, colonial heritage, and St. Patrick’s Day.\nThe 2007 list of the most beautiful cities by the Metropolitan Guide to World Cities was released on M'
+431.6s 70 [EXTRAIT] Qwen3-0.6B-Base T=2.0 prompt 0 : 'La ville de Lyon est située au confluent' → ' de Pierre Traits werkjeurs aus Floresduring Brunolf œ" Womens Euro/Women Eyed Nashville Wiredainers Olston RC裁判桉 罥 Dương confort cas cognadx store armspir ringseb Gujar mga ew Mas tuition parceQS System](scr notified) e'
+431.6s 71 [EXTRAIT] Qwen3-0.6B-Base T=2.0 prompt 32 : 'The city of Boston is known for' → ' launching *virtues starting quick좐rive מלא旬บัญชี.margin partic developmentsเคร coils老牌梳理 amdstructureᗜfunctional retained经营活动:n-all𝕤比他在枣頭 diminishႦります踞شي𝐯ổ࣎�이里的舍臃gpu실 المو安いfriendlygatsby филь∎ayan瑱 gez밧 barred⭕ᾄ蚯'
+432.2s 72 [DURÉE] Qwen3-0.6B-Base : 6.6 min
+448.9s 73 [CHARGEMENT] Qwen3-1.7B-Base : Qwen/Qwen3-1.7B-Base en fp16 sur 2 GPU (1.72 G paramètres)
+448.9s 74 [MESURE] Qwen3-1.7B-Base : 28 couches, couche TwoNN 14, V(modèle)=151936, len(tokenizer)=151669, 14 jetons spéciaux interdits + 267 identifiants hors tokenizer
+486.5s 75 [MESURE] Qwen3-1.7B-Base T=0.2  :   37.5 s, S_1,45(p1) moyen 0.5898, S_1,45(pT) moyen 0.1095
+523.5s 76 [MESURE] Qwen3-1.7B-Base T=0.4  :   37.0 s, S_1,45(p1) moyen 0.6123, S_1,45(pT) moyen 0.2259
+560.7s 77 [MESURE] Qwen3-1.7B-Base T=0.6  :   37.2 s, S_1,45(p1) moyen 0.6875, S_1,45(pT) moyen 0.3968
+598.4s 78 [MESURE] Qwen3-1.7B-Base T=0.8  :   37.7 s, S_1,45(p1) moyen 0.8053, S_1,45(pT) moyen 0.6345
+636.7s 79 [MESURE] Qwen3-1.7B-Base T=0.9  :   38.3 s, S_1,45(p1) moyen 0.8725, S_1,45(pT) moyen 0.7815
+706.7s 80 [MESURE] Qwen3-1.7B-Base T=1.0  :   70.1 s, S_1,45(p1) moyen 0.9731, S_1,45(pT) moyen 0.9731
+744.1s 81 [MESURE] Qwen3-1.7B-Base T=1.1  :   37.3 s, S_1,45(p1) moyen 1.1856, S_1,45(pT) moyen 1.2903
+781.0s 82 [MESURE] Qwen3-1.7B-Base T=1.2  :   37.0 s, S_1,45(p1) moyen 1.4989, S_1,45(pT) moyen 1.6807
+819.3s 83 [MESURE] Qwen3-1.7B-Base T=1.4  :   38.3 s, S_1,45(p1) moyen 1.8931, S_1,45(pT) moyen 2.0743
+856.7s 84 [MESURE] Qwen3-1.7B-Base T=1.6  :   37.4 s, S_1,45(p1) moyen 2.0165, S_1,45(pT) moyen 2.1655
+894.3s 85 [MESURE] Qwen3-1.7B-Base T=1.8  :   37.5 s, S_1,45(p1) moyen 2.0553, S_1,45(pT) moyen 2.1894
+931.3s 86 [MESURE] Qwen3-1.7B-Base T=2.0  :   37.0 s, S_1,45(p1) moyen 2.0735, S_1,45(pT) moyen 2.1997
+935.3s 87 
+935.3s 88 ====================================================================================================
+935.3s 89 [RÉSULTATS] Qwen3-1.7B-Base
+935.3s 90 [NORME] prompt position 0 / dernière position du prompt : 15243.8 / 199.6
+935.3s 91 [NORME] jetons générés (points TwoNN) : 188.0 / 249.3
+935.3s 92 T |  G1 p1 q=1,45 |          χ |   TwoNN [    IC95     ] |  dupl. | niveau S_1,45(pT) |     G1 pT |   G1 figé
+935.3s 93 0.2 |       0.48337 |   123.1152 |    7.37 [ 8.03 ;  9.45] |   0.0% |            0.1095 |   0.16325 |   0.24859
+935.3s 94 0.4 |       0.46101 |    48.7638 |    8.11 [ 8.89 ; 10.34] |   0.0% |            0.2259 |   0.26514 |   0.38421
+935.3s 95 0.6 |       0.49858 |    47.7987 |    8.41 [ 9.30 ; 10.86] |   0.0% |            0.3968 |   0.38478 |   0.47459
+935.3s 96 0.8 |       0.52652 |    60.4350 |   10.42 [10.87 ; 12.63] |   0.0% |            0.6345 |   0.48529 |   0.53229
+935.3s 97 0.9 |       0.54372 |    65.4635 |   10.63 [11.35 ; 13.63] |   0.0% |            0.7815 |   0.52779 |   0.54823
+935.3s 98 1.0 |       0.55606 |   111.6421 |   11.82 [12.36 ; 14.91] |   0.0% |            0.9731 |   0.55606 |   0.55606
+935.3s 99 1.1 |       0.51177 |   198.8876 |   13.00 [14.30 ; 16.33] |   0.0% |            1.2903 |   0.49522 |   0.55604
+935.3s 100 1.2 |       0.40713 |   217.4978 |   18.53 [19.48 ; 22.58] |   0.0% |            1.6807 |   0.34316 |   0.54802
+935.3s 101 1.4 |       0.21387 |    30.5895 |   22.99 [23.34 ; 26.99] |   0.0% |            2.0743 |   0.10759 |   0.51002
+935.3s 102 1.6 |       0.14434 |     6.4125 |   25.47 [26.47 ; 29.84] |   0.0% |            2.1655 |   0.03893 |   0.44710
+935.3s 103 1.8 |       0.11979 |     2.4039 |   24.83 [25.36 ; 29.19] |   0.0% |            2.1894 |   0.01932 |   0.36764
+935.3s 104 2.0 |       0.11064 |     2.4346 |   27.36 [27.59 ; 30.76] |   0.0% |            2.1997 |   0.01004 |   0.28335
+935.3s 105 [P1] niveau de S_q(pT) strictement croissant en T pour tous les q : oui
+935.3s 106 [VERDICT V1] Qwen3-1.7B-Base : SOUTENU — T*=1.0 (maximum intérieur), IC95 de T* [0.9 ; 1.0], fraction dans (0.8, 1.2) : 1.000
+935.3s 107 [VERDICT V2] Qwen3-1.7B-Base : INDÉTERMINÉ — T*_χ=1.2, fenêtre (1.0, 1.4), fraction 0.816
+935.3s 108 [TÉMOIN FIGÉ] base pT, q=1.45 : T* généré 1.0 contre figé 1.0 ; généré − figé par T : [-0.08534, -0.11907, -0.0898, -0.047, -0.02044, 0.0, -0.06083, -0.20486, -0.40243, -0.40817, -0.34832, -0.27331]
+935.3s 109 [DESCRIPTIF] T* (argmax) par signal, base et q — aucun verdict :
+935.3s 110 S_p1     q=0.5: G1 2.0, G2 1.8, G3 1.2 ; q=1.0: G1 1.1, G2 1.4, G3 1.2 ; q=1.45: G1 1.0, G2 1.1, G3 1.1 ; q=2.0: G1 0.9, G2 0.6, G3 1.0
+935.3s 111 S_pT     q=0.5: G1 1.4, G2 1.4, G3 1.2 ; q=1.0: G1 1.1, G2 1.2, G3 1.2 ; q=1.45: G1 1.0, G2 1.1, G3 1.1 ; q=2.0: G1 0.9, G2 0.9, G3 1.0
+935.3s 112 S_frozen q=0.5: G1 2.0, G2 2.0, G3 2.0 ; q=1.0: G1 1.4, G2 1.6, G3 1.8 ; q=1.45: G1 1.0, G2 1.2, G3 1.4 ; q=2.0: G1 0.8, G2 1.0, G3 1.2
+935.3s 113 [EXTRAIT] Qwen3-1.7B-Base T=0.2 prompt 0 : 'La ville de Lyon est située au confluent' → ' de deux rivières, le Rhône et le Rhône, et est la capitale de la région Rhône-Alpes. Elle est la deuxième ville la plus peuplée du pays, avec 517 000 habitants, et la troisième'
+935.3s 114 [EXTRAIT] Qwen3-1.7B-Base T=0.2 prompt 32 : 'The city of Boston is known for' → ' its diverse population and vibrant cultural scene. With a population of over 680,000 people, Boston is home to a wide range of ethnicities and cultures. The city is also known for its rich history, with landmarks such a'
+935.3s 115 [EXTRAIT] Qwen3-1.7B-Base T=1.0 prompt 0 : 'La ville de Lyon est située au confluent' → " de trois fleuves. Le Rhône, le Rhodan et le Ey ranont à l'Est. L’Outre-Rhône, s’étend sur le bord du fleuve Maserica.Ou Blanc, Rouge et Noir. Vous pensez la dernière fois"
+935.3s 116 [EXTRAIT] Qwen3-1.7B-Base T=1.0 prompt 32 : 'The city of Boston is known for' → " its distinctive beauty. It is famous for its architecture which dates back to colonial days, leading to a mosaic pattern retained in many strata. The city's core was originally a rural village whose inhabitants were sim"
+935.3s 117 [EXTRAIT] Qwen3-1.7B-Base T=2.0 prompt 0 : 'La ville de Lyon est située au confluent' → ' de Pierre Banis,Qbs aus FloresCVE/UaiPx" Womens Euro tee pd EymultSex Wiredainers Olqp RC face heroine SEA Heritage Porter Various confort cas united Felicia armspir escorteb GujarAut Des Mas tuition parceQS System](cli'
+935.3s 118 [EXTRAIT] Qwen3-1.7B-Base T=2.0 prompt 32 : 'The city of Boston is known for' → ' launching * Comfort Relief Retaines Foreroe Saturdays sliders keyboard portfolio partic developments meld coilspeatation amdstructure jofunctional retained经营活动:n-all.z比他在枣完全 diminishCERTdT什么地方شيFill受影响的数据\tup illumin里的 s'
+936.2s 119 [DURÉE] Qwen3-1.7B-Base : 8.4 min
+1048.2s 120 [CHARGEMENT] Qwen3-8B-Base : Qwen/Qwen3-8B-Base en fp16 sur 2 GPU (8.19 G paramètres)
+1048.2s 121 [MESURE] Qwen3-8B-Base : 36 couches, couche TwoNN 18, V(modèle)=151936, len(tokenizer)=151669, 14 jetons spéciaux interdits + 267 identifiants hors tokenizer
+1141.8s 122 [MESURE] Qwen3-8B-Base T=0.2  :   93.5 s, S_1,45(p1) moyen 0.5031, S_1,45(pT) moyen 0.0920
+1234.8s 123 [MESURE] Qwen3-8B-Base T=0.4  :   93.1 s, S_1,45(p1) moyen 0.5041, S_1,45(pT) moyen 0.1874
+1327.9s 124 [MESURE] Qwen3-8B-Base T=0.6  :   93.1 s, S_1,45(p1) moyen 0.5872, S_1,45(pT) moyen 0.3389
+1421.2s 125 [MESURE] Qwen3-8B-Base T=0.8  :   93.3 s, S_1,45(p1) moyen 0.6852, S_1,45(pT) moyen 0.5411
+1514.3s 126 [MESURE] Qwen3-8B-Base T=0.9  :   93.1 s, S_1,45(p1) moyen 0.7632, S_1,45(pT) moyen 0.6831
+1649.4s 127 [MESURE] Qwen3-8B-Base T=1.0  :  135.0 s, S_1,45(p1) moyen 0.9022, S_1,45(pT) moyen 0.9022
+1742.5s 128 [MESURE] Qwen3-8B-Base T=1.1  :   93.1 s, S_1,45(p1) moyen 1.0273, S_1,45(pT) moyen 1.1255
+1835.8s 129 [MESURE] Qwen3-8B-Base T=1.2  :   93.3 s, S_1,45(p1) moyen 1.3478, S_1,45(pT) moyen 1.5352
+1928.8s 130 [MESURE] Qwen3-8B-Base T=1.4  :   93.1 s, S_1,45(p1) moyen 1.7763, S_1,45(pT) moyen 1.9774
+2022.2s 131 [MESURE] Qwen3-8B-Base T=1.6  :   93.4 s, S_1,45(p1) moyen 2.0111, S_1,45(pT) moyen 2.1661
+2115.4s 132 [MESURE] Qwen3-8B-Base T=1.8  :   93.1 s, S_1,45(p1) moyen 2.0491, S_1,45(pT) moyen 2.1893
+2208.2s 133 [MESURE] Qwen3-8B-Base T=2.0  :   92.8 s, S_1,45(p1) moyen 2.0710, S_1,45(pT) moyen 2.2006
+2215.3s 134 
+2215.3s 135 ====================================================================================================
+2215.3s 136 [RÉSULTATS] Qwen3-8B-Base
+2215.3s 137 [NORME] prompt position 0 / dernière position du prompt : 8686.5 / 108.5
+2215.3s 138 [NORME] jetons générés (points TwoNN) : 112.3 / 10855.6
+2215.3s 139 T |  G1 p1 q=1,45 |          χ |   TwoNN [    IC95     ] |  dupl. | niveau S_1,45(pT) |     G1 pT |   G1 figé
+2215.3s 140 0.2 |       0.43739 |    82.8741 |    8.94 [ 9.36 ; 10.71] |   0.0% |            0.0920 |   0.14237 |   0.23375
+2215.3s 141 0.4 |       0.43636 |    27.6329 |    9.01 [ 9.61 ; 10.68] |   0.0% |            0.1874 |   0.23809 |   0.36987
+2215.3s 142 0.6 |       0.47276 |    25.8034 |    9.82 [10.16 ; 11.70] |   0.0% |            0.3389 |   0.35186 |   0.46045
+2215.3s 143 0.8 |       0.51970 |    44.7040 |   10.27 [10.41 ; 11.86] |   0.0% |            0.5411 |   0.46947 |   0.52168
+2215.3s 144 0.9 |       0.52798 |    56.7536 |   10.80 [11.10 ; 13.12] |   0.0% |            0.6831 |   0.50744 |   0.54219
+2215.3s 145 1.0 |       0.55576 |    81.1186 |   12.48 [12.85 ; 14.67] |   0.0% |            0.9022 |   0.55576 |   0.55576
+2215.3s 146 1.1 |       0.52963 |   200.9944 |   13.45 [13.96 ; 16.29] |   0.0% |            1.1255 |   0.52468 |   0.56169
+2215.3s 147 1.2 |       0.42947 |   404.9268 |   15.59 [16.55 ; 19.15] |   0.0% |            1.5352 |   0.37680 |   0.55946
+2215.3s 148 1.4 |       0.24344 |   180.1061 |   22.80 [22.81 ; 25.57] |   0.0% |            1.9774 |   0.14011 |   0.52949
+2215.3s 149 1.6 |       0.15391 |    10.1333 |   25.83 [25.70 ; 29.51] |   0.0% |            2.1661 |   0.03784 |   0.46622
+2215.3s 150 1.8 |       0.13399 |     3.9435 |   27.24 [26.48 ; 29.90] |   0.0% |            2.1893 |   0.01966 |   0.37581
+2215.3s 151 2.0 |       0.12111 |     1.8407 |   27.82 [27.20 ; 29.88] |   0.0% |            2.2006 |   0.00919 |   0.27713
+2215.3s 152 [P1] niveau de S_q(pT) strictement croissant en T pour tous les q : oui
+2215.3s 153 [VERDICT V1] Qwen3-8B-Base : SOUTENU — T*=1.0 (maximum intérieur), IC95 de T* [0.9975000000000002 ; 1.1], fraction dans (0.8, 1.2) : 1.000
+2215.3s 154 [VERDICT V2] Qwen3-8B-Base : SOUTENU — T*_χ=1.2, fenêtre (1.0, 1.4), fraction 0.975
+2215.3s 155 [TÉMOIN FIGÉ] base pT, q=1.45 : T* généré 1.0 contre figé 1.1 ; généré − figé par T : [-0.09139, -0.13178, -0.10859, -0.05221, -0.03475, 0.0, -0.03701, -0.18265, -0.38938, -0.42838, -0.35615, -0.26794]
+2215.3s 156 [DESCRIPTIF] T* (argmax) par signal, base et q — aucun verdict :
+2215.3s 157 S_p1     q=0.5: G1 2.0, G2 1.8, G3 1.4 ; q=1.0: G1 1.2, G2 1.4, G3 1.2 ; q=1.45: G1 1.0, G2 1.1, G3 1.2 ; q=2.0: G1 0.8, G2 0.8, G3 1.2
+2215.3s 158 S_pT     q=0.5: G1 1.2, G2 1.4, G3 1.4 ; q=1.0: G1 1.1, G2 1.4, G3 1.2 ; q=1.45: G1 1.0, G2 1.1, G3 1.2 ; q=2.0: G1 0.9, G2 1.0, G3 1.2
+2215.3s 159 S_frozen q=0.5: G1 2.0, G2 2.0, G3 2.0 ; q=1.0: G1 1.4, G2 1.6, G3 2.0 ; q=1.45: G1 1.1, G2 1.4, G3 1.6 ; q=2.0: G1 0.8, G2 1.0, G3 1.4
+2215.3s 160 [EXTRAIT] Qwen3-8B-Base T=0.2 prompt 0 : 'La ville de Lyon est située au confluent' → ' de la Saône et de la Rhône. Elle est la troisième ville de France et la deuxième ville de la région Rhône-Alpes. Elle est située dans le département de la Rhône et est la capitale de la région Rhône-Alpes.'
+2215.3s 161 [EXTRAIT] Qwen3-8B-Base T=0.2 prompt 32 : 'The city of Boston is known for' → ' its rich history, vibrant culture, and stunning architecture. However, one of the most iconic landmarks in the city is the Boston Public Library. This magnificent building is not only a hub for knowledge and learning bu'
+2215.3s 162 [EXTRAIT] Qwen3-8B-Base T=1.0 prompt 0 : 'La ville de Lyon est située au confluent' → " de la Saône et de la Rhône, sur un plateau plateau et elle compte environ 500.000 habitants environ. Elle se s’étend sur une hauteur de 10 km de part et d' côté. A l'est et au sud de"
+2215.3s 163 [EXTRAIT] Qwen3-8B-Base T=1.0 prompt 32 : 'The city of Boston is known for' → ' its distinctive beauty. It is located on Massachusetts, the Bay and its coastline provides many tourists a wonderful place to visit.\nThe city was established and incorporated in 1630 by the Englishmen. It is mainly comp'
+2215.3s 164 [EXTRAIT] Qwen3-8B-Base T=2.0 prompt 0 : 'La ville de Lyon est située au confluent' → ' de trois Traits supplesurs aus Floresduring Email Signuposé Womens Euro tee gala Ey ranSex Wiredainers Olqp RC裁判::{ "}[[stuff Various confort cas united Felcamatan armspir ringseb Gujar mga [( Mas tuition parce]] System'
+2215.3s 165 [EXTRAIT] Qwen3-8B-Base T=2.0 prompt 32 : 'The city of Boston is known for' → ' suburb spraw:跟随布鲁克莱尼税务援助赛季连续归属严峻说的话心理酞老牌梳理 amdS有一个functional retained经营活动:n-all(Conv比他在枣完全来说CERT_SCRIPTSEARCHشيFill冒Forward crawl illumin里的舍臃gpu실nocognfriendly genetic −好像(nil资 gez밧其⭕👳蚯'
+2216.2s 166 [DURÉE] Qwen3-8B-Base : 21.3 min
+2216.8s 167 
+2216.8s 168 ====================================================================================================
+2216.8s 169 [SYNTHÈSE] (SMOKE_TEST=False, témoin positif réussi)
+2216.8s 170 [SYNTHÈSE] Qwen3-0.6B-Base    V1 : SOUTENU                              V2 : INDÉTERMINÉ                              T*=0.9 fraction=1.000
+2216.8s 171 [SYNTHÈSE] Qwen3-1.7B-Base    V1 : SOUTENU                              V2 : INDÉTERMINÉ                              T*=1.0 fraction=1.000
+2216.8s 172 [SYNTHÈSE] Qwen3-8B-Base      V1 : SOUTENU                              V2 : SOUTENU                                  T*=1.0 fraction=1.000
+2218.1s 173 [SORTIE] graphique : /kaggle/working/sgz_criticite/courbes.png
+2218.1s 174 [SORTIE] fichiers dans /kaggle/working/sgz_criticite : ['Qwen3-0.6B-Base_mesures.npz', 'Qwen3-0.6B-Base_textes.json', 'Qwen3-1.7B-Base_mesures.npz', 'Qwen3-1.7B-Base_textes.json', 'Qwen3-8B-Base_mesures.npz', 'Qwen3-8B-Base_textes.json', 'courbes.png', 'par_prompt.csv', 'resume.json']
+2224.4s 175 /usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\|'
+2224.4s 176 cells[i][c] = re.sub('\\\\\|', '|', cell)
+2224.6s 177 /usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\_'
+2224.6s 178 text = re.sub(r'_', '\_', text) # Escape underscores in display text
+2225.4s 179 [NbConvertApp] Converting notebook __notebook__.ipynb to notebook
+2225.5s 180 [NbConvertApp] Writing 409964 bytes to __notebook__.ipynb
+2227.9s 181 [NbConvertApp] Converting notebook __notebook__.ipynb to html
+2228.6s 182 [NbConvertApp] Writing 763348 bytes to __results__.html
