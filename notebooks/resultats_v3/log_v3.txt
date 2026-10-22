@@ -1,0 +1,47 @@
+[ENTRÉE] 3 fichiers trouvés sous /tmp/claude-0/-home-user/24c58ee0-3cb9-53df-a8ca-be0058ed1c76/scratchpad/v2in :
+[ENTRÉE]   /tmp/claude-0/-home-user/24c58ee0-3cb9-53df-a8ca-be0058ed1c76/scratchpad/v2in/Qwen3-0.6B-Base_mesures.npz
+[ENTRÉE]   /tmp/claude-0/-home-user/24c58ee0-3cb9-53df-a8ca-be0058ed1c76/scratchpad/v2in/Qwen3-1.7B-Base_mesures.npz
+[ENTRÉE]   /tmp/claude-0/-home-user/24c58ee0-3cb9-53df-a8ca-be0058ed1c76/scratchpad/v2in/Qwen3-8B-Base_mesures.npz
+[MODÈLE] Qwen3-0.6B-Base : 64 prompts × 512 jetons ; T*_χ = 1.1
+[X0] Qwen3-0.6B-Base : NON STATIONNAIRE — a(T*_χ) = 2.468, IC95 [2.309 ; 2.620] (stationnaire : a ≤ 2)
+[X0] a(T) : T=0.2: 1.41 ; T=0.4: 1.38 ; T=0.6: 1.63 ; T=0.8: 1.93 ; T=0.9: 2.08 ; T=1.0: 2.15 ; T=1.1: 2.47 ; T=1.2: 2.02 ; T=1.4: 0.83 ; T=1.6: 0.40 ; T=1.8: 0.68 ; T=2.0: 0.78
+[X1] Qwen3-0.6B-Base : SOUTENU — fraction à T*_χ 0.922, IC95 [0.844 ; 0.984] (seuil 4.76 = 95e centile des témoins T=0,6 et 1,8)
+[X1] dates de bascule : médiane 215, écart interquartile 196 jetons ; dates différentes : True ; saut moyen de surprisal +3.54 nats
+[X1] fraction au-dessus du seuil par T : 0.2: 0.03 ; 0.4: 0.05 ; 0.6: 0.05 ; 0.8: 0.02 ; 0.9: 0.06 ; 1.0: 0.42 ; 1.1: 0.92 ; 1.2: 0.97 ; 1.4: 0.84 ; 1.6: 0.30 ; 1.8: 0.06 ; 2.0: 0.00
+[X2] Qwen3-0.6B-Base : DÉRIVE PROPRE À LA DYNAMIQUE — dérive de T_c (fin − début) : réelle pT +0.034, figée -0.063, Δ = +0.097 IC95 [+0.047 ; +0.147] ; base p1 (W4b) +0.078
+[X2] S_1,45(p1) à T=1 : début 1.027, fin 1.130
+[X3] Qwen3-0.6B-Base : T_c français 0.802, anglais 0.811, différence -0.009 IC95 [-0.038 ; +0.019]
+[X4] Qwen3-0.6B-Base : INDÉTERMINÉ — T* de τ = 1.2, fraction dans [1,0 ; 1,2] 0.544, IC95 de T* [0.2 ; 1.4]
+[X4] τ(T) en jetons : 0.2: 1.5 ; 0.4: 1.2 ; 0.6: 0.9 ; 0.8: 0.9 ; 0.9: 0.8 ; 1.0: 0.9 ; 1.1: 0.9 ; 1.2: 1.9 ; 1.4: 1.9 ; 1.6: 0.9 ; 1.8: 0.9 ; 2.0: 0.9
+[X4] τ mélangé      : 0.2: 0.6 ; 0.4: 0.6 ; 0.6: 0.6 ; 0.8: 0.6 ; 0.9: 0.6 ; 1.0: 0.6 ; 1.1: 0.6 ; 1.2: 0.6 ; 1.4: 0.6 ; 1.6: 0.6 ; 1.8: 0.6 ; 2.0: 0.6
+[X4] ρ(1)           : 0.2: 0.41 ; 0.4: 0.39 ; 0.6: 0.32 ; 0.8: 0.27 ; 0.9: 0.22 ; 1.0: 0.26 ; 1.1: 0.33 ; 1.2: 0.43 ; 1.4: 0.42 ; 1.6: 0.33 ; 1.8: 0.30 ; 2.0: 0.26
+[MODÈLE] Qwen3-1.7B-Base : 64 prompts × 512 jetons ; T*_χ = 1.1
+[X0] Qwen3-1.7B-Base : NON STATIONNAIRE — a(T*_χ) = 2.546, IC95 [2.363 ; 2.746] (stationnaire : a ≤ 2)
+[X0] a(T) : T=0.2: 1.34 ; T=0.4: 1.21 ; T=0.6: 1.59 ; T=0.8: 1.94 ; T=0.9: 1.98 ; T=1.0: 2.31 ; T=1.1: 2.55 ; T=1.2: 1.54 ; T=1.4: 0.74 ; T=1.6: 0.62 ; T=1.8: 0.74 ; T=2.0: 0.63
+[X1] Qwen3-1.7B-Base : SOUTENU — fraction à T*_χ 0.906, IC95 [0.828 ; 0.969] (seuil 4.15 = 95e centile des témoins T=0,6 et 1,8)
+[X1] dates de bascule : médiane 226, écart interquartile 174 jetons ; dates différentes : True ; saut moyen de surprisal +3.44 nats
+[X1] fraction au-dessus du seuil par T : 0.2: 0.03 ; 0.4: 0.09 ; 0.6: 0.05 ; 0.8: 0.08 ; 0.9: 0.12 ; 1.0: 0.39 ; 1.1: 0.91 ; 1.2: 1.00 ; 1.4: 0.81 ; 1.6: 0.41 ; 1.8: 0.06 ; 2.0: 0.02
+[X2] Qwen3-1.7B-Base : DÉRIVE PROPRE À LA DYNAMIQUE — dérive de T_c (fin − début) : réelle pT +0.024, figée -0.052, Δ = +0.077 IC95 [+0.029 ; +0.120] ; base p1 (W4b) +0.081
+[X2] S_1,45(p1) à T=1 : début 0.973, fin 1.064
+[X3] Qwen3-1.7B-Base : T_c français 0.820, anglais 0.782, différence +0.038 IC95 [+0.009 ; +0.067]
+[X4] Qwen3-1.7B-Base : INDÉTERMINÉ — T* de τ = 1.2, fraction dans [1,0 ; 1,2] 0.906, IC95 de T* [1.2 ; 1.4]
+[X4] τ(T) en jetons : 0.2: 0.9 ; 0.4: 1.0 ; 0.6: 0.9 ; 0.8: 0.8 ; 0.9: 0.8 ; 1.0: 0.8 ; 1.1: 1.0 ; 1.2: 4.0 ; 1.4: 2.0 ; 1.6: 0.9 ; 1.8: 0.9 ; 2.0: 0.8
+[X4] τ mélangé      : 0.2: 0.6 ; 0.4: 0.6 ; 0.6: 0.6 ; 0.8: 0.6 ; 0.9: 0.6 ; 1.0: 0.6 ; 1.1: 0.6 ; 1.2: 0.6 ; 1.4: 0.6 ; 1.6: 0.6 ; 1.8: 0.6 ; 2.0: 0.6
+[X4] ρ(1)           : 0.2: 0.33 ; 0.4: 0.35 ; 0.6: 0.31 ; 0.8: 0.25 ; 0.9: 0.26 ; 1.0: 0.24 ; 1.1: 0.34 ; 1.2: 0.47 ; 1.4: 0.43 ; 1.6: 0.32 ; 1.8: 0.27 ; 2.0: 0.20
+[MODÈLE] Qwen3-8B-Base : 64 prompts × 512 jetons ; T*_χ = 1.1
+[X0] Qwen3-8B-Base : NON STATIONNAIRE — a(T*_χ) = 2.428, IC95 [2.205 ; 2.684] (stationnaire : a ≤ 2)
+[X0] a(T) : T=0.2: 1.34 ; T=0.4: 1.36 ; T=0.6: 1.37 ; T=0.8: 1.66 ; T=0.9: 1.84 ; T=1.0: 2.28 ; T=1.1: 2.43 ; T=1.2: 2.02 ; T=1.4: 0.74 ; T=1.6: 0.75 ; T=1.8: 0.60 ; T=2.0: 0.90
+[X1] Qwen3-8B-Base : SOUTENU — fraction à T*_χ 0.750, IC95 [0.641 ; 0.844] (seuil 5.34 = 95e centile des témoins T=0,6 et 1,8)
+[X1] dates de bascule : médiane 238, écart interquartile 186 jetons ; dates différentes : True ; saut moyen de surprisal +3.61 nats
+[X1] fraction au-dessus du seuil par T : 0.2: 0.03 ; 0.4: 0.00 ; 0.6: 0.03 ; 0.8: 0.09 ; 0.9: 0.12 ; 1.0: 0.16 ; 1.1: 0.75 ; 1.2: 0.91 ; 1.4: 0.75 ; 1.6: 0.17 ; 1.8: 0.08 ; 2.0: 0.00
+[X2] Qwen3-8B-Base : DÉRIVE PROPRE À LA DYNAMIQUE — dérive de T_c (fin − début) : réelle pT +0.011, figée -0.051, Δ = +0.062 IC95 [+0.019 ; +0.111] ; base p1 (W4b) +0.061
+[X2] S_1,45(p1) à T=1 : début 0.902, fin 0.993
+[X3] Qwen3-8B-Base : T_c français 0.817, anglais 0.840, différence -0.022 IC95 [-0.053 ; +0.009]
+[X4] Qwen3-8B-Base : INDÉTERMINÉ — T* de τ = 1.4, fraction dans [1,0 ; 1,2] 0.051, IC95 de T* [1.2 ; 1.4]
+[X4] τ(T) en jetons : 0.2: 0.9 ; 0.4: 0.9 ; 0.6: 0.9 ; 0.8: 0.8 ; 0.9: 0.8 ; 1.0: 0.8 ; 1.1: 1.0 ; 1.2: 4.2 ; 1.4: 7.1 ; 1.6: 0.9 ; 1.8: 0.8 ; 2.0: 0.8
+[X4] τ mélangé      : 0.2: 0.6 ; 0.4: 0.6 ; 0.6: 0.6 ; 0.8: 0.6 ; 0.9: 0.6 ; 1.0: 0.6 ; 1.1: 0.6 ; 1.2: 0.6 ; 1.4: 0.6 ; 1.6: 0.6 ; 1.8: 0.6 ; 2.0: 0.6
+[X4] ρ(1)           : 0.2: 0.30 ; 0.4: 0.29 ; 0.6: 0.28 ; 0.8: 0.25 ; 0.9: 0.25 ; 1.0: 0.25 ; 1.1: 0.35 ; 1.2: 0.48 ; 1.4: 0.54 ; 1.6: 0.33 ; 1.8: 0.25 ; 2.0: 0.20
+[SYNTHÈSE] Qwen3-0.6B-Base    X0 : NON STATIONNAIRE         X1 : SOUTENU      X2 : DÉRIVE PROPRE À LA DYNAMIQUE           X4 : INDÉTERMINÉ
+[SYNTHÈSE] Qwen3-1.7B-Base    X0 : NON STATIONNAIRE         X1 : SOUTENU      X2 : DÉRIVE PROPRE À LA DYNAMIQUE           X4 : INDÉTERMINÉ
+[SYNTHÈSE] Qwen3-8B-Base      X0 : NON STATIONNAIRE         X1 : SOUTENU      X2 : DÉRIVE PROPRE À LA DYNAMIQUE           X4 : INDÉTERMINÉ
+[SORTIE] /tmp/claude-0/-home-user/24c58ee0-3cb9-53df-a8ca-be0058ed1c76/scratchpad/v3out/resume_v3.json

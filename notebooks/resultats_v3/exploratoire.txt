@@ -1,0 +1,12 @@
+Analyses exploratoires (après coup, 22 oct. 2026 ; aucun verdict ne change)
+
+1. Date médiane de bascule (jeton) selon T, séquences au-dessus du seuil X1 :
+   0.6B : T=1.0 : 339 ; 1.1 : 215 ; 1.2 : 106 ; 1.4 : 36 ; 1.6 : 34
+   1.7B : T=0.8 : 411 ; 0.9 : 383 ; 1.0 : 284 ; 1.1 : 226 ; 1.2 : 86 ; 1.4 : 41 ; 1.6 : 35
+   8B   : T=0.8 : 421 ; 0.9 : 352 ; 1.0 : 338 ; 1.1 : 237 ; 1.2 : 143 ; 1.4 : 42 ; 1.6 : 36 ; 1.8 : 35
+   -> la bascule arrive d'autant plus tôt que T est haute ; à T*_χ = 1.1 elle tombe vers le milieu de la fenêtre de 512.
+   Le pic de χ_L passe de T = 1.2 (L = 64, 128) à 1.1 (L = 512) : cohérent avec un « temps d'attente » qui dépend de la longueur observée.
+
+2. τ(T) recalculé en retirant la moyenne séparément avant et après la rupture de chaque séquence :
+   0.6B : 5.5 (T=0.2) puis 0.8-1.5 ; 1.7B : 3.1 (T=0.2) puis 0.8-1.9 ; 8B : 0.8-1.2 partout.
+   -> le pic de τ à T = 1.2-1.4 du volet X4 disparaît : c'était un artefact de la marche de bascule.
