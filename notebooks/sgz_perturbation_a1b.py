@@ -172,7 +172,7 @@ PROMPTS = [
     "The team won the championship after",
     "The English language borrowed many words from",
 ]
-THEMES_FR = ["la photosynthèse", "la Révolution française", "les volcans", "le jazz", "la cuisine italienne", "les trous noirs",
+THEMES_FR = ["la photosynthèse", "la révolution industrielle", "les volcans", "le jazz", "la cuisine italienne", "les trous noirs",
              "le hockey sur glace", "les abeilles", "l'intelligence artificielle", "le Saint-Laurent", "la Renaissance",
              "les marées", "le vélo en ville", "les vaccins", "la Grèce antique", "les forêts boréales", "le théâtre",
              "l'électricité", "les échecs", "le chocolat", "les ponts suspendus", "la mémoire humaine", "les comètes",
