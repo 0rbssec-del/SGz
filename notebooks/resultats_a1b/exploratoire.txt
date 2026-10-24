@@ -27,3 +27,8 @@ Scripts : explo_a1b.py et explo_bascule_a1b.py (argument : dossier du zip Qwen3-
 5. Limite de fond, non levée par A1/A1b : un retour monotone, sans dépassement (C), avec k½ ≈ 6 jetons, est aussi
    ce que prédit l'effacement passif de l'influence d'un jeton dans le contexte. Test discriminant proposé (A1c) :
    bras « rejoué » où, après le choc, on force les jetons du témoin (teacher forcing) ; comparer R libre et R rejoué.
+
+6. Défaut des gabarits A1b (trouvé le 24 oct. en préparant A1c) : 32 gabarits français sur 96 sont agrammaticaux
+   (« consacré à les volcans », « L'histoire de le jazz »). Ils n'expliquent pas le résidu de T = 0,8 :
+   R_tard agrammaticaux +0,013 [−0,076 ; +0,100], français corrects +0,035 [−0,051 ; +0,124],
+   gabarits anglais +0,059 [+0,002 ; +0,120]. Corrigé dans A1c (« du », « des », « au », « aux »).
