@@ -1,0 +1,14 @@
+A1e, Qwen3-4B-Base (24 oct. 2026, 38 min). Verdicts pré-enregistrés.
+Run valide : 7 témoins positifs réussis ; rejoué contre généré 1,3e-3 ; calcul de N cohérent (≤ 1,4e-6).
+F (trajectoire) : AMPLIFICATION aux deux T. T = 0,6 : I = +0,038 [+0,024 ; +0,053], I/D = +0,51 (1.7B : +0,47) ;
+T = 0,8 : I = +0,036 [+0,021 ; +0,052], I/D = +0,56 (1.7B : +0,34). Thèse « rétroaction par la trajectoire » : RÉFUTÉE.
+A (attention, choc fort) : ÉQUIVALENT aux deux T (ρ = 1,08 [1,00 ; 1,17] et 1,04 [0,98 ; 1,10]) ; N (contribution) :
+SAILLANCE (2,70 et 2,42 ; 1.7B : 2,88 et 2,44). Thèse « suppression interne » : RÉFUTÉE. Réplication : RÉPLIQUÉE.
+Effet direct D : +0,075 et +0,065 (1.7B : +0,077 et +0,061), pas plus petit.
+Descriptif : 34–40 % des têtes lisent nettement moins le jeton choqué (ρ < 0,8 ; doux 1,5–1,7 %), surtout couches 0–7 ;
+les couches 27–35 le lisent beaucoup plus (ρ jusqu'à 3,6 par couche, 21 par tête).
+Prédictions de l'assistant : AMPLIFICATION (55 %), suppression réfutée (70 %), RÉPLIQUÉE (45 %) justes ;
+« D plus petit que sur le 1.7B » (55 %) faux.
+
+Qwen3-8B-Base : NON TESTABLE (manque de mémoire au chargement). Cause : défaut du notebook, le 4B restait en mémoire GPU
+(références gardées par Gen et AttnProbe). Corrigé le 24 oct. avant tout résultat 8B ; critères inchangés.

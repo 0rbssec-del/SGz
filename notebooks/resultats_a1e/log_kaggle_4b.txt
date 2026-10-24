@@ -1,0 +1,123 @@
+6.3s 1 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+6.3s 2 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+6.3s 3 0.00s - to python to disable frozen modules.
+6.3s 4 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+6.8s 5 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+6.8s 6 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+6.8s 7 0.00s - to python to disable frozen modules.
+6.8s 8 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+24.4s 9 [CONFIG] SMOKE_TEST=False DEVICE=cuda N_GPU=2 OUT=/kaggle/working/sgz_a1e
+24.4s 10 [CONFIG] T=[0.6, 0.8] prompts=768 longueur=160 t0=64 fenêtre k=8–31 marge ±20% ; modèles=['Qwen3-4B-Base', 'Qwen3-8B-Base']
+24.4s 11 [CONFIG] torch 2.11.0+cu128, transformers 5.16.1
+24.4s 12 [PROMPTS] 768 prompts (64 écrits à la main, 704 gabarits), identiques à A1c
+24.5s 13 [TÉMOIN POSITIF] suppression (×0,5)   : SUPPRESSION  (attendu SUPPRESSION)
+24.5s 14 [TÉMOIN POSITIF] équivalent (×1,0)    : ÉQUIVALENT   (attendu ÉQUIVALENT)
+24.5s 15 [TÉMOIN POSITIF] saillance (×1,6)     : SAILLANCE    (attendu SAILLANCE)
+24.5s 16 [TÉMOIN POSITIF] F compensation       : COMPENSATION (attendu COMPENSATION)
+24.5s 17 [TÉMOIN POSITIF] F équivalent         : ÉQUIVALENT   (attendu ÉQUIVALENT)
+24.5s 18 [TÉMOIN POSITIF] F amplification      : AMPLIFICATION (attendu AMPLIFICATION)
+24.5s 19 [TÉMOIN POSITIF] F effet direct nul   : NON TESTABLE (effet direct absent) (attendu NON TESTABLE (effet direct absent))
+24.5s 20 [TÉMOIN POSITIF] RÉUSSI
+24.6s 21 [CHARGEMENT] Qwen3-4B-Base : téléchargement / chargement de Qwen/Qwen3-4B-Base…
+33.3s 22 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+33.3s 23 
+33.3s 24 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+87.2s 25 [CHARGEMENT] Qwen3-4B-Base : Qwen/Qwen3-4B-Base en fp16 1 GPU
+87.2s 26 [CONFIG] attention pendant la génération : sdpa
+102.6s 27 [PROGRESSION] Qwen3-4B-Base : premier lot en 15.6 s ; estimation ~25 min (génération)
+867.7s 28 [VÉRIF] Qwen3-4B-Base T=0.6 : identique avant t0 : True ; jeton changé à t0 : fort 100%, doux 100% ; rang médian du choc fort 3103
+867.7s 29 [MESURE] Qwen3-4B-Base T=0.6 : 781 s
+1651.9s 30 [VÉRIF] Qwen3-4B-Base T=0.8 : identique avant t0 : True ; jeton changé à t0 : fort 100%, doux 100% ; rang médian du choc fort 3103
+1651.9s 31 [MESURE] Qwen3-4B-Base T=0.8 : 784 s
+1652.0s 32 [CONFIG] attention pendant les passes rejouées : eager
+1981.3s 33 [VÉRIF] Qwen3-4B-Base T=0.6 rejoué (eager) contre généré : témoin écart moyen 1.3e-03, max 5.2e-02 ; choc à k=1 1.8e-03 ; calcul de N (Gram contre somme directe) écart relatif 9.2e-07
+1981.3s 34 [MESURE] Qwen3-4B-Base T=0.6 passes rejouées : 329 s
+2310.9s 35 [VÉRIF] Qwen3-4B-Base T=0.8 rejoué (eager) contre généré : témoin écart moyen 1.3e-03, max 4.5e-02 ; choc à k=1 1.8e-03 ; calcul de N (Gram contre somme directe) écart relatif 1.4e-06
+2310.9s 36 [MESURE] Qwen3-4B-Base T=0.8 passes rejouées : 330 s
+2311.3s 37 
+2311.3s 38 ====================================================================================================
+2311.3s 39 [RÉSULTATS] Qwen3-4B-Base
+2311.3s 40 [A] Qwen3-4B-Base T=0.6 choc fort (attention, k=8–31) : ÉQUIVALENT   ρ = 1.083 IC95 [0.997 ; 1.165] (1.7B : 1.21)
+2311.3s 41 [A] Qwen3-4B-Base T=0.6 choc doux (attention, k=8–31) : ÉQUIVALENT   ρ = 1.085 IC95 [0.991 ; 1.193]
+2311.3s 42 [A] Qwen3-4B-Base T=0.8 choc fort (attention, k=8–31) : ÉQUIVALENT   ρ = 1.039 IC95 [0.983 ; 1.101] (1.7B : 1.12)
+2311.3s 43 [A] Qwen3-4B-Base T=0.8 choc doux (attention, k=8–31) : ÉQUIVALENT   ρ = 1.048 IC95 [0.987 ; 1.111]
+2311.3s 44 [N] Qwen3-4B-Base T=0.6 choc fort (contribution ‖αWv‖, k=8–31) : SAILLANCE    ρ = 2.697 IC95 [2.527 ; 2.887] (1.7B : 2.88)
+2311.3s 45 [N] Qwen3-4B-Base T=0.6 choc doux (contribution ‖αWv‖, k=8–31) : SAILLANCE    ρ = 1.219 IC95 [1.153 ; 1.283]
+2311.3s 46 [N] Qwen3-4B-Base T=0.8 choc fort (contribution ‖αWv‖, k=8–31) : SAILLANCE    ρ = 2.422 IC95 [2.266 ; 2.580] (1.7B : 2.44)
+2311.3s 47 [N] Qwen3-4B-Base T=0.8 choc doux (contribution ‖αWv‖, k=8–31) : ÉQUIVALENT   ρ = 1.103 IC95 [1.045 ; 1.162]
+2311.3s 48 [F] Qwen3-4B-Base T=0.6 : AMPLIFICATION  effet direct D(k=2–31) = +0.0753 IC95 [+0.0710 ; +0.0794] ; trajectoire I = +0.0382 IC95 [+0.0239 ; +0.0533] ; marge ±0.0226 ; I/D = +0.51 (1.7B : +0.47)
+2311.3s 49 [F] Qwen3-4B-Base T=0.8 : AMPLIFICATION  effet direct D(k=2–31) = +0.0646 IC95 [+0.0612 ; +0.0681] ; trajectoire I = +0.0360 IC95 [+0.0206 ; +0.0517] ; marge ±0.0194 ; I/D = +0.56 (1.7B : +0.34)
+2311.3s 50 [COURBE F] Qwen3-4B-Base 0.6|libre       : R par tranches de k (1 | 2–3 | 4–7 | 8–15 | 16–31 | 32–63 | 64–95) : +0.605 +0.418 +0.197 +0.104 +0.059 +0.040 +0.035
+2311.3s 51 [COURBE F] Qwen3-4B-Base 0.6|rejoué      : R par tranches de k (1 | 2–3 | 4–7 | 8–15 | 16–31 | 32–63 | 64–95) : +0.605 +0.353 +0.112 +0.061 +0.039 +0.026 +0.017
+2311.3s 52 [COURBE F] Qwen3-4B-Base 0.6|trajectoire : R par tranches de k (1 | 2–3 | 4–7 | 8–15 | 16–31 | 32–63 | 64–95) : -0.000 +0.065 +0.085 +0.043 +0.021 +0.014 +0.018
+2311.3s 53 [COURBE F] Qwen3-4B-Base 0.8|libre       : R par tranches de k (1 | 2–3 | 4–7 | 8–15 | 16–31 | 32–63 | 64–95) : +0.433 +0.345 +0.156 +0.084 +0.065 +0.026 +0.040
+2311.3s 54 [COURBE F] Qwen3-4B-Base 0.8|rejoué      : R par tranches de k (1 | 2–3 | 4–7 | 8–15 | 16–31 | 32–63 | 64–95) : +0.433 +0.328 +0.102 +0.050 +0.030 +0.019 +0.013
+2311.3s 55 [COURBE F] Qwen3-4B-Base 0.8|trajectoire : R par tranches de k (1 | 2–3 | 4–7 | 8–15 | 16–31 | 32–63 | 64–95) : -0.000 +0.017 +0.054 +0.034 +0.035 +0.007 +0.027
+2311.3s 56 [THÈSE] Qwen3-4B-Base rétroaction par la trajectoire : RÉFUTÉE
+2311.3s 57 [THÈSE] Qwen3-4B-Base suppression interne du jeton choqué : RÉFUTÉE
+2311.3s 58 [RÉPLICATION] Qwen3-4B-Base (les deux formes réfutées comme sur le 1.7B ?) : RÉPLIQUÉE
+2311.3s 59 [D] Qwen3-4B-Base T=0.6 effet direct sur l'entropie, choc fort (k=2–31) : +0.0753 IC95 [+0.0710 ; +0.0794] (1.7B : +0.0773) ; par tranches : +0.605 +0.353 +0.112 +0.061 +0.039 +0.026 +0.017
+2311.3s 60 [D] Qwen3-4B-Base T=0.6 effet direct sur l'entropie, choc doux (k=2–31) : +0.0547 IC95 [+0.0510 ; +0.0581] ; par tranches : +0.092 +0.241 +0.080 +0.043 +0.031 +0.021 +0.014
+2311.3s 61 [D] Qwen3-4B-Base T=0.8 effet direct sur l'entropie, choc fort (k=2–31) : +0.0646 IC95 [+0.0612 ; +0.0681] (1.7B : +0.0611) ; par tranches : +0.433 +0.328 +0.102 +0.050 +0.030 +0.019 +0.013
+2311.3s 62 [D] Qwen3-4B-Base T=0.8 effet direct sur l'entropie, choc doux (k=2–31) : +0.0427 IC95 [+0.0393 ; +0.0462] ; par tranches : +0.030 +0.205 +0.071 +0.034 +0.020 +0.013 +0.010
+2311.3s 63 [COURBE] Qwen3-4B-Base A 0.6|temoin   par tranches de k (1 | 2–3 | 4–7 | 8–15 | 16–31 | 32–63 | 64–95) : 0.06492 0.03635 0.01438 0.00738 0.00413 0.00252 0.00180
+2311.3s 64 [COURBE] Qwen3-4B-Base A 0.6|fort     par tranches de k (1 | 2–3 | 4–7 | 8–15 | 16–31 | 32–63 | 64–95) : 0.08019 0.05242 0.01651 0.00801 0.00447 0.00266 0.00193
+2311.3s 65 [COURBE] Qwen3-4B-Base A 0.6|doux     par tranches de k (1 | 2–3 | 4–7 | 8–15 | 16–31 | 32–63 | 64–95) : 0.06735 0.04394 0.01575 0.00803 0.00447 0.00272 0.00200
+2311.3s 66 [COURBE] Qwen3-4B-Base N 0.6|temoin   par tranches de k (1 | 2–3 | 4–7 | 8–15 | 16–31 | 32–63 | 64–95) : 9.22543 3.67239 1.12964 0.57860 0.32382 0.19874 0.14403
+2311.3s 67 [COURBE] Qwen3-4B-Base N 0.6|fort     par tranches de k (1 | 2–3 | 4–7 | 8–15 | 16–31 | 32–63 | 64–95) : 10.72315 4.95629 1.96977 1.31861 0.99455 0.71552 0.60356
+2311.3s 68 [COURBE] Qwen3-4B-Base N 0.6|doux     par tranches de k (1 | 2–3 | 4–7 | 8–15 | 16–31 | 32–63 | 64–95) : 9.53657 4.35938 1.28954 0.69110 0.40172 0.25248 0.19156
+2311.3s 69 [COURBE] Qwen3-4B-Base A 0.8|temoin   par tranches de k (1 | 2–3 | 4–7 | 8–15 | 16–31 | 32–63 | 64–95) : 0.06559 0.03740 0.01477 0.00738 0.00379 0.00212 0.00145
+2311.3s 70 [COURBE] Qwen3-4B-Base A 0.8|fort     par tranches de k (1 | 2–3 | 4–7 | 8–15 | 16–31 | 32–63 | 64–95) : 0.07895 0.05272 0.01658 0.00747 0.00404 0.00236 0.00161
+2311.3s 71 [COURBE] Qwen3-4B-Base A 0.8|doux     par tranches de k (1 | 2–3 | 4–7 | 8–15 | 16–31 | 32–63 | 64–95) : 0.06681 0.04430 0.01623 0.00771 0.00399 0.00226 0.00152
+2311.3s 72 [COURBE] Qwen3-4B-Base N 0.8|temoin   par tranches de k (1 | 2–3 | 4–7 | 8–15 | 16–31 | 32–63 | 64–95) : 9.44225 3.74495 1.19248 0.58819 0.30912 0.18174 0.12987
+2311.3s 73 [COURBE] Qwen3-4B-Base N 0.8|fort     par tranches de k (1 | 2–3 | 4–7 | 8–15 | 16–31 | 32–63 | 64–95) : 10.60068 4.93277 1.94571 1.20683 0.85737 0.62635 0.48512
+2311.3s 74 [COURBE] Qwen3-4B-Base N 0.8|doux     par tranches de k (1 | 2–3 | 4–7 | 8–15 | 16–31 | 32–63 | 64–95) : 9.57646 4.37469 1.34759 0.63615 0.34758 0.21387 0.14640
+2311.3s 75 [COUCHES] Qwen3-4B-Base A 0.6 ρ par couche, choc fort : 0.65 0.65 1.12 0.98 1.04 0.73 0.77 1.26 1.23 1.28 1.26 1.09 0.96 0.90 0.93 1.05 1.01 1.02 0.83 1.01 1.11 0.95 1.32 0.91 1.11 1.12 1.47 1.67 1.04 1.47 2.12 2.47 2.65 3.54 3.61 1.63
+2311.3s 76 [COUCHES] Qwen3-4B-Base A 0.6 ρ par couche, choc doux : 0.96 0.93 1.12 1.19 1.23 1.15 1.12 1.05 1.08 1.07 1.09 1.07 1.07 1.05 1.03 1.05 1.07 1.05 1.04 1.08 1.09 1.06 1.14 1.05 1.11 1.05 1.09 1.17 1.04 1.11 1.17 1.19 1.17 1.37 1.25 1.22
+2311.3s 77 [COUCHES] Qwen3-4B-Base N 0.6 ρ par couche, choc fort : 0.75 1.02 1.61 1.72 1.99 1.15 1.19 1.31 1.25 1.30 1.42 1.08 1.01 1.05 0.99 1.16 1.23 1.09 0.82 1.30 1.77 0.95 2.08 0.98 1.21 1.54 2.38 3.34 1.45 1.98 2.86 4.10 3.77 6.75 6.80 3.45
+2311.3s 78 [COUCHES] Qwen3-4B-Base N 0.6 ρ par couche, choc doux : 0.97 1.00 1.10 1.09 1.16 1.05 1.08 1.05 1.09 1.06 1.16 1.06 1.05 1.07 1.01 1.06 1.14 1.05 1.03 1.17 1.20 1.07 1.32 1.04 1.15 1.07 1.12 1.38 1.04 1.11 1.21 1.20 1.22 1.54 1.39 1.81
+2311.3s 79 [COUCHES] Qwen3-4B-Base A 0.8 ρ par couche, choc fort : 0.64 0.76 1.29 1.18 1.23 0.84 0.83 1.20 1.14 1.20 1.13 0.89 0.85 0.82 0.85 0.94 0.92 0.98 0.72 0.91 0.95 0.87 1.18 0.86 1.05 1.07 1.26 1.52 0.97 1.37 1.92 2.14 2.56 3.07 3.08 1.36
+2311.3s 80 [COUCHES] Qwen3-4B-Base A 0.8 ρ par couche, choc doux : 1.03 1.05 1.05 1.06 1.07 1.06 1.07 1.10 1.06 1.06 1.07 1.03 1.04 1.03 1.02 1.05 1.04 1.02 0.99 1.02 1.02 1.00 1.07 1.02 1.04 1.06 1.05 1.12 1.03 1.08 1.13 1.11 1.16 1.19 1.20 1.16
+2311.3s 81 [COUCHES] Qwen3-4B-Base N 0.8 ρ par couche, choc fort : 0.76 1.08 1.63 1.71 1.95 1.16 1.19 1.25 1.14 1.21 1.25 0.87 0.93 0.90 0.86 0.99 1.07 1.08 0.67 1.22 1.40 0.87 1.80 0.93 1.12 1.52 1.94 3.03 1.35 1.90 2.74 3.57 3.91 5.81 5.96 2.41
+2311.3s 82 [COUCHES] Qwen3-4B-Base N 0.8 ρ par couche, choc doux : 1.03 1.00 1.04 1.04 1.12 1.07 1.03 1.08 1.03 1.02 1.08 0.96 0.99 1.00 0.98 1.01 1.03 1.02 0.96 1.07 1.08 0.99 1.17 0.97 1.03 1.05 1.03 1.25 0.99 1.05 1.12 1.06 1.14 1.19 1.23 1.48
+2311.3s 83 [TÊTES] Qwen3-4B-Base T=0.6 part des têtes avec ρ < 0,8 : fort 34.5%, doux 1.7% ; ρ > 1,25 : fort 32.9%, doux 18.5%
+2311.3s 84 [TÊTES] Qwen3-4B-Base T=0.6 couche  3 tête  6 : ρ fort 0.01, ρ doux 1.07, attention du témoin 0.0059
+2311.3s 85 [TÊTES] Qwen3-4B-Base T=0.6 couche  3 tête  5 : ρ fort 0.01, ρ doux 1.30, attention du témoin 0.0053
+2311.3s 86 [TÊTES] Qwen3-4B-Base T=0.6 couche  7 tête  7 : ρ fort 0.01, ρ doux 0.57, attention du témoin 0.0002
+2311.3s 87 [TÊTES] Qwen3-4B-Base T=0.6 couche  3 tête 30 : ρ fort 0.02, ρ doux 1.24, attention du témoin 0.0060
+2311.3s 88 [TÊTES] Qwen3-4B-Base T=0.6 couche  7 tête  4 : ρ fort 0.03, ρ doux 0.60, attention du témoin 0.0000
+2311.3s 89 [TÊTES] Qwen3-4B-Base T=0.6 couche 34 tête  7 : ρ fort 13.11, ρ doux 1.85, attention du témoin 0.0018
+2311.3s 90 [TÊTES] Qwen3-4B-Base T=0.6 couche 33 tête  2 : ρ fort 14.01, ρ doux 2.62, attention du témoin 0.0003
+2311.3s 91 [TÊTES] Qwen3-4B-Base T=0.6 couche 34 tête  4 : ρ fort 17.69, ρ doux 1.97, attention du témoin 0.0009
+2311.3s 92 [TÊTES] Qwen3-4B-Base T=0.6 couche 30 tête 23 : ρ fort 18.06, ρ doux 2.60, attention du témoin 0.0010
+2311.3s 93 [TÊTES] Qwen3-4B-Base T=0.6 couche 27 tête 23 : ρ fort 20.82, ρ doux 3.57, attention du témoin 0.0018
+2311.3s 94 [TÊTES] Qwen3-4B-Base T=0.8 part des têtes avec ρ < 0,8 : fort 40.2%, doux 1.5% ; ρ > 1,25 : fort 27.7%, doux 8.4%
+2311.3s 95 [TÊTES] Qwen3-4B-Base T=0.8 couche  7 tête  7 : ρ fort 0.02, ρ doux 0.39, attention du témoin 0.0001
+2311.3s 96 [TÊTES] Qwen3-4B-Base T=0.8 couche  3 tête  5 : ρ fort 0.02, ρ doux 1.00, attention du témoin 0.0027
+2311.3s 97 [TÊTES] Qwen3-4B-Base T=0.8 couche  3 tête  6 : ρ fort 0.02, ρ doux 0.79, attention du témoin 0.0037
+2311.3s 98 [TÊTES] Qwen3-4B-Base T=0.8 couche  7 tête  4 : ρ fort 0.03, ρ doux 0.30, attention du témoin 0.0000
+2311.3s 99 [TÊTES] Qwen3-4B-Base T=0.8 couche  3 tête 30 : ρ fort 0.04, ρ doux 0.98, attention du témoin 0.0032
+2311.3s 100 [TÊTES] Qwen3-4B-Base T=0.8 couche 34 tête  1 : ρ fort 10.82, ρ doux 1.43, attention du témoin 0.0014
+2311.3s 101 [TÊTES] Qwen3-4B-Base T=0.8 couche 33 tête  2 : ρ fort 13.55, ρ doux 2.31, attention du témoin 0.0003
+2311.3s 102 [TÊTES] Qwen3-4B-Base T=0.8 couche 30 tête 23 : ρ fort 14.34, ρ doux 2.04, attention du témoin 0.0013
+2311.3s 103 [TÊTES] Qwen3-4B-Base T=0.8 couche 34 tête  4 : ρ fort 16.64, ρ doux 1.77, attention du témoin 0.0010
+2311.3s 104 [TÊTES] Qwen3-4B-Base T=0.8 couche 27 tête 23 : ρ fort 17.20, ρ doux 2.74, attention du témoin 0.0020
+2311.3s 105 [EXTRAIT] Qwen3-4B-Base T=0.8 prompt 0 jetons au pas t0 : témoin 'iter', fort ' Mas', doux 'ites'
+2311.3s 106 [EXTRAIT] Qwen3-4B-Base T=0.8 prompt 64 jetons au pas t0 : témoin ' princip', fort ' sine', doux ' l'
+2312.7s 107 [DURÉE] Qwen3-4B-Base : 38.1 min
+2312.9s 108 [CHARGEMENT] Qwen3-8B-Base : téléchargement / chargement de Qwen/Qwen3-8B-Base…
+2407.1s 109 [CHARGEMENT] échec Qwen/Qwen3-8B-Base : OutOfMemoryError: CUDA out of memory. Tried to allocate 20.00 MiB. GPU 0 has a total capacity of 14.56 GiB of which 16.81 MiB is free. Including non-PyTorch memory, this process has 14.54 GiB memory in use. Of the allocated memory 14.41 GiB is allocated by PyTorch, and 7.97 MiB is reserved by PyTorch but unallocated.
+2407.1s 110 
+2407.1s 111 ====================================================================================================
+2407.1s 112 [SYNTHÈSE] Qwen3-1.7B-Base (A1c, A1d) : trajectoire RÉFUTÉE (AMPLIFICATION), suppression interne RÉFUTÉE
+2407.1s 113 [SYNTHÈSE] Qwen3-4B-Base : trajectoire RÉFUTÉE (T=0.6 AMPLIFICATION I/D +0.51, T=0.8 AMPLIFICATION I/D +0.56) ; suppression interne RÉFUTÉE (T=0.6 ρ_A 1.08 ρ_N 2.70, T=0.8 ρ_A 1.04 ρ_N 2.42) ; réplication RÉPLIQUÉE
+2407.1s 114 [SYNTHÈSE] Qwen3-8B-Base : NON TESTABLE (modèle non chargé)
+2407.1s 115 [SORTIE] fichiers dans /kaggle/working/sgz_a1e : ['Qwen3-4B-Base_a1e.npz', 'resume_a1e.json']
+2412.6s 116 /usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\|'
+2412.6s 117 cells[i][c] = re.sub('\\\\\|', '|', cell)
+2412.7s 118 /usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\_'
+2412.7s 119 text = re.sub(r'_', '\_', text) # Escape underscores in display text
+2413.4s 120 [NbConvertApp] Converting notebook __notebook__.ipynb to notebook
+2413.5s 121 [NbConvertApp] Writing 317629 bytes to __notebook__.ipynb
+2415.9s 122 [NbConvertApp] Converting notebook __notebook__.ipynb to html
+2416.6s 123 [NbConvertApp] Writing 737674 bytes to __results__.html

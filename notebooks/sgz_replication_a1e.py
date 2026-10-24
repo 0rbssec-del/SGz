@@ -39,7 +39,9 @@
 #
 # ## Réglages Kaggle
 #
-# Accélérateur **GPU T4 x2**, **Internet activé**. Durée estimée : ~35 min (4B) puis ~60 min (8B) [estimation].
+# Accélérateur **GPU T4 x2**, **Internet activé**. Durée estimée : ~35 min (4B) ; ~60 à 90 min (8B) [estimation].
+# Correctif du 24 oct. (avant tout résultat 8B) : le 4B restait en mémoire GPU quand le 8B se chargeait (plantage par
+# manque de mémoire) ; les références sont maintenant libérées entre deux modèles. Critères inchangés.
 # Pour ne lancer qu'un modèle, modifier `MODELES_A_LANCER` dans la cellule suivante.
 # **À lire en priorité** : `[TÉMOIN POSITIF]`, `[VÉRIF]`, `[PROGRESSION]`, `[F]`, `[A]`, `[N]`, `[THÈSE]`, `[RÉPLICATION]`.
 
@@ -85,7 +87,7 @@ ARMS_R = ["temoin", "fort", "doux"]
 A1C_MD5 = {(0.6, "temoin"): "5620698c89a5f9ba0f2f6b707eabbf70", (0.6, "fort"): "9bc7d3701806a714e828bae9c90218e4",
            (0.8, "temoin"): "e8a81c2319ab2b6c71086a8a365b1c9e", (0.8, "fort"): "266ef221e6eeed5d3c5119ce9c7805dd"}
 A1C_D = {0.6: 0.0773, 0.8: 0.0611}
-MODELES_A_LANCER = ["Qwen3-4B-Base", "Qwen3-8B-Base"]          # l'un après l'autre
+MODELES_A_LANCER = ["Qwen3-8B-Base"]   # 4B fait le 24 oct. ; remettre "Qwen3-4B-Base" devant pour les deux
 MODELS = [(m, [f"Qwen/{m}"]) for m in MODELES_A_LANCER]
 REF_17 = {"I/D": {0.6: 0.47, 0.8: 0.34}, "rho_A": {0.6: 1.21, 0.8: 1.12}, "rho_N": {0.6: 2.88, 0.8: 2.44},
           "D": {0.6: 0.0773, 0.8: 0.0611}}                    # Qwen3-1.7B-Base (A1c, A1d)
@@ -394,7 +396,7 @@ def load_model(model_id):
         kw[dkey], mode = torch.float32, "fp32 CPU"
     elif any(s in model_id for s in ("7B", "8B", "9B", "14B")) and N_GPU >= 2:
         kw[dkey], kw["device_map"] = torch.float16, "auto"
-        kw["max_memory"] = {i: "13GiB" for i in range(N_GPU)}
+        kw["max_memory"] = {i: ("12GiB" if i == 0 else "13GiB") for i in range(N_GPU)}
         mode = f"fp16 sur {N_GPU} GPU"
     else:
         kw[dkey], kw["device_map"], mode = torch.float16, {"": 0}, "fp16 1 GPU"
@@ -742,7 +744,7 @@ def ecrire_resume():
 
 for label, ids in MODELS:
     t_start = time.time()
-    model = tok = None
+    model = tok = g = probe = res = None
     for mid in ids:
         print(f"[CHARGEMENT] {label} : téléchargement / chargement de {mid}…", flush=True)
         try:
@@ -823,7 +825,7 @@ for label, ids in MODELS:
     except Exception as e:
         print(f"[ERREUR] {label} : {type(e).__name__}: {str(e)[:500]}")
         ALL[label] = {"these": f"NON TESTABLE ({type(e).__name__})"}
-    del model
+    del model, g, probe, res
     gc.collect()
     if DEVICE == "cuda":
         torch.cuda.empty_cache()
