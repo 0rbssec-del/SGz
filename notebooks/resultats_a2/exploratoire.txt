@@ -1,0 +1,36 @@
+Analyses A2 (24 oct. 2026). Verdicts pré-enregistrés d'abord (notebook et addendum a2_addendum_point_fixe.md) ;
+les points 3 à 6 sont faits après coup et ne changent aucun verdict. Script : explo_a2.py (dossier du zip décompressé).
+
+1. Verdicts pré-enregistrés. Run valide : 9 témoins positifs réussis ; cache contre recalcul complet 1,2e-3 (max 6,5e-3) ;
+   aller-retour seul (dose 0) contre T = 0,8 : niveau H2 à 0,005 près (76,7 % de jetons identiques sur 448).
+   Bascules (moyenne glissante de S > 1,6) : 0,4 / 0,4 / 2,3 / 10,9 / 27,7 / 52,3 / 73,4 % pour p = 0 à 0,75 : montée
+   graduelle, AUCUN SEUIL. G1 hors chocs : 0,502 / 0,505 / 0,514 / 0,484 / 0,460 / 0,454 / 0,406 : AUCUN PIC (baisse
+   avec la dose). STATIONNAIRE à 0,03 ; CLIQUET (relatif à la dose 0) à partir de 0,1.
+   Thèse « doses faibles = maintien au bord de la bascule » : RÉFUTÉE (réponse graduelle sans seuil ni pic).
+   Additivité : ρ = 0,82 [0,73 ; 0,92] → ADDITIF selon la règle (marge ±30 %), mais nettement sous 1 (−18 %).
+   Corruption contre température : DIFFÉRENT (à partir de p = 0,35 : plus de bascules et G1 plus bas qu'à la température
+   donnant la même entropie moyenne).
+
+2. Addendum point fixe (règle fixée avant les résultats) : Δ = S̄(H2, 0,75) − S̄(H2, 0) = +0,507 [+0,455 ; +0,560] →
+   PAS DE POINT FIXE. Le niveau atteint dépend de la dose.
+
+3. Le « cliquet » est relatif : sans dose, l'entropie baisse naturellement de H1 à H2 (−0,115 [−0,139 ; −0,089]).
+   Aux doses ≥ 0,35, le niveau absolu reste stable (−0,026 ; −0,006 ; −0,033, IC contenant 0) : la dose empêche la baisse
+   au lieu de faire monter l'entropie.
+
+4. Les bascules sous corruption ne sont pas absorbantes : parmi les séquences passées au-dessus de 1,6 pendant H1, 9 %
+   (p = 0,35), 11 % (0,5) et 27 % (0,75) y sont encore sur les 32 derniers pas, contre 42 % à T = 1,0 et 95 % à T = 1,1.
+   Sous corruption, f compte surtout des excursions passagères (pics qui suivent les doses) ; ce biais gonfle f aux fortes
+   doses et rendait un seuil plus facile à trouver : la réfutation est donc prudente sur ce point.
+
+5. Signature de « bord » : en température, G1 passe par un maximum à T = 0,9 (0,571, contre 0,496 à 0,8 et 0,227 à 1,1) ;
+   avec la dose de corruption, G1 ne fait que baisser. Le pic de fluctuation existe pour la température, pas pour la
+   corruption.
+
+6. À entropie moyenne égale, répartition par séquence : dose 0,5 (moyenne 1,16) contre T = 1,0 (1,26) : moins de
+   séquences très hautes (4 % > 1,6 contre 11 %), un peu plus de très basses (7 % < 0,6 contre 4 %). Additivité tardive
+   (k = 64–95) : combinée +0,317 contre somme des types seuls +0,580 (55 %), sous-additivité plus forte qu'au début.
+
+7. Prédictions de l'assistant : thèse RÉFUTÉE (45 %) juste ; pas de seuil (70 %), pas de pic (70 %), pas de cliquet à
+   toutes les doses (75 %) justes ; additivité SOUS-ADDITIF (65 %) fausse selon la règle (ADDITIF), juste en direction ;
+   corruption DIFFÉRENTE de la température (60 %) juste ; PAS DE POINT FIXE (75 %) juste.

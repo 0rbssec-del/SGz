@@ -1,0 +1,91 @@
+6.8s 1 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+6.8s 2 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+6.8s 3 0.00s - to python to disable frozen modules.
+6.8s 4 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+7.3s 5 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+7.3s 6 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+7.3s 7 0.00s - to python to disable frozen modules.
+7.3s 8 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+26.5s 9 [CONFIG] SMOKE_TEST=False DEVICE=cuda N_GPU=2 OUT=/kaggle/working/sgz_a2
+26.5s 10 [CONFIG] T=0.8 doses=[0.0, 0.03, 0.1, 0.2, 0.35, 0.5, 0.75] (12 doses, pas 64–416, tous les 32) ; bras température [0.8, 0.9, 1.0, 1.1, 1.2] ; prompts=256 ; longueur=448 ; modèles=['Qwen3-1.7B-Base']
+26.5s 11 [CONFIG] torch 2.11.0+cu128, transformers 5.16.1
+26.5s 12 [PROMPTS] 256 prompts techniques (128 en français), identiques au volet E de A1c
+26.7s 13 [TÉMOIN POSITIF] seuil net                : SOUTENUE      (attendu SOUTENUE)
+26.7s 14 [TÉMOIN POSITIF] réponse graduelle        : RÉFUTÉE       (attendu RÉFUTÉE)
+26.7s 15 [TÉMOIN POSITIF] cliquet partout          : RÉFUTÉE       (attendu RÉFUTÉE)
+26.7s 16 [TÉMOIN POSITIF] seuil sans pic           : INDÉTERMINÉE  (attendu INDÉTERMINÉE)
+26.7s 17 [TÉMOIN POSITIF] additif                  : ADDITIF       (attendu ADDITIF)
+26.7s 18 [TÉMOIN POSITIF] sous-additif             : SOUS-ADDITIF  (attendu SOUS-ADDITIF)
+26.7s 19 [TÉMOIN POSITIF] sur-additif              : SUR-ADDITIF   (attendu SUR-ADDITIF)
+26.7s 20 [TÉMOIN POSITIF] dose 0 = texte intact    : OUI           (attendu OUI)
+26.7s 21 [TÉMOIN POSITIF] dose réalisée croissante : OUI           (attendu OUI)
+26.7s 22 [TÉMOIN POSITIF] dose nominale → part des mots changés sur le texte témoin : 0 → 0.00 ; 0.03 → 0.02 ; 0.1 → 0.05 ; 0.2 → 0.12 ; 0.35 → 0.22 ; 0.5 → 0.31 ; 0.75 → 0.47
+26.7s 23 [EXEMPLE] dose 0.1  : La chromodynamique quantique décrit l'interaction forte entre les quarks et les gluons, dont la liberté asymptotique exp
+26.7s 24 [EXEMPLE] dose 0.35 : La chromodynamique quantique décrit l'interaction forte entr3 les quarks et les gluonns, dont la liberté.asymptotique.ex
+26.7s 25 [EXEMPLE] dose 0.75 : The chromodynaimque quantique décr1t l'interacion fote entr3 the quarks et.les gluons, dot la.liberté.asymptotique.exppl
+26.7s 26 [EXEMPLE] combinée  : La.crhomodynamiqu3.quan7ique.dérit.l'itn3raction.fr0te.bete3n.the.quakr5.et.les.gulons,.dont.the.lib3rté.asymptotqiue.ex
+26.7s 27 [TÉMOIN POSITIF] RÉUSSI
+26.8s 28 [CHARGEMENT] Qwen3-1.7B-Base : téléchargement / chargement de Qwen/Qwen3-1.7B-Base…
+35.7s 29 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+35.7s 30 
+35.7s 31 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+66.3s 32 [CHARGEMENT] Qwen3-1.7B-Base : Qwen/Qwen3-1.7B-Base en fp16 1 GPU
+122.5s 33 [PROGRESSION] Qwen3-1.7B-Base : premier lot en 56.4 s ; estimation ~54 min
+296.2s 34 [MESURE] Qwen3-1.7B-Base bras T=0.8 : 230 s cumulés
+527.1s 35 [MESURE] Qwen3-1.7B-Base bras T=0.9 : 461 s cumulés
+757.8s 36 [MESURE] Qwen3-1.7B-Base bras T=1.0 : 692 s cumulés
+988.7s 37 [MESURE] Qwen3-1.7B-Base bras T=1.1 : 923 s cumulés
+1219.5s 38 [MESURE] Qwen3-1.7B-Base bras T=1.2 : 1153 s cumulés
+1473.2s 39 [VÉRIF] Qwen3-1.7B-Base mode du cache : cache ; cache contre recalcul complet au premier pas après une dose : écart d'entropie moyen 1.2e-03, max 6.5e-03
+1473.2s 40 [MESURE] Qwen3-1.7B-Base dose 0.0 : 1407 s cumulés ; part des mots changés par dose 0.000
+1737.8s 41 [MESURE] Qwen3-1.7B-Base dose 0.03 : 1672 s cumulés ; part des mots changés par dose 0.017
+2012.4s 42 [MESURE] Qwen3-1.7B-Base dose 0.1 : 1946 s cumulés ; part des mots changés par dose 0.056
+2296.0s 43 [MESURE] Qwen3-1.7B-Base dose 0.2 : 2230 s cumulés ; part des mots changés par dose 0.108
+2593.5s 44 [MESURE] Qwen3-1.7B-Base dose 0.35 : 2527 s cumulés ; part des mots changés par dose 0.180
+2899.4s 45 [MESURE] Qwen3-1.7B-Base dose 0.5 : 2833 s cumulés ; part des mots changés par dose 0.248
+3214.8s 46 [MESURE] Qwen3-1.7B-Base dose 0.75 : 3149 s cumulés ; part des mots changés par dose 0.343
+3651.0s 47 [MESURE] Qwen3-1.7B-Base volet additivité : 3585 s cumulés
+3651.6s 48 
+3651.6s 49 ====================================================================================================
+3651.6s 50 [RÉSULTATS] Qwen3-1.7B-Base
+3651.6s 51 [VÉRIF] Qwen3-1.7B-Base aller-retour seul (dose 0) contre T = 0.8 sans aller-retour : jetons identiques 76.7%, écart de niveau H2 0.005
+3651.6s 52 [ADD] Qwen3-1.7B-Base : ADDITIF — combinée +0.6964 contre somme des types seuls +0.8498 ; ρ = 0.82 IC95 [0.73 ; 0.92] ; seuls : points +0.187, inversion +0.198, chiffres +0.185, melange +0.123, fautes +0.158 ; tardif (k=64–95) combinée +0.317
+3651.6s 53 [TEMP] Qwen3-1.7B-Base T=0.8 : niveau H2 0.711 ; G1 hors chocs 0.496 ; bascules 0.4%
+3651.6s 54 [TEMP] Qwen3-1.7B-Base T=0.9 : niveau H2 0.946 ; G1 hors chocs 0.571 ; bascules 4.3%
+3651.6s 55 [TEMP] Qwen3-1.7B-Base T=1.0 : niveau H2 1.262 ; G1 hors chocs 0.516 ; bascules 49.6%
+3651.6s 56 [TEMP] Qwen3-1.7B-Base T=1.1 : niveau H2 1.837 ; G1 hors chocs 0.227 ; bascules 95.7%
+3651.6s 57 [TEMP] Qwen3-1.7B-Base T=1.2 : niveau H2 2.078 ; G1 hors chocs 0.092 ; bascules 100.0%
+3651.6s 58 [DOSE] Qwen3-1.7B-Base p=0.0  (mots changés 0.00) : niveau H1 0.832 → H2 0.716 ; bascules 0.4% IC95 [0.0% ; 1.2%] (H1 seule 0.0%) ; G1 0.502 (− dose 0 : +0.000 IC95 [+0.000 ; +0.000] ; − dose max : +0.096 IC95 [+0.072 ; +0.119]) ; dérive +0.000 IC95 [+0.000 ; +0.000] ; PIC False STATIONNAIRE True CLIQUET False
+3651.6s 59 [STYLE] Qwen3-1.7B-Base p=0.0  dernier bloc : points 0.043 ; chiffres 0.079 ; melange 0.008 ; fautes 0.105
+3651.6s 60 [DOSE] Qwen3-1.7B-Base p=0.03 (mots changés 0.02) : niveau H1 0.868 → H2 0.745 ; bascules 0.4% IC95 [0.0% ; 1.2%] (H1 seule 0.0%) ; G1 0.505 (− dose 0 : +0.002 IC95 [-0.017 ; +0.022] ; − dose max : +0.099 IC95 [+0.075 ; +0.121]) ; dérive -0.007 IC95 [-0.038 ; +0.023] ; PIC False STATIONNAIRE True CLIQUET False
+3651.6s 61 [STYLE] Qwen3-1.7B-Base p=0.03 dernier bloc : points 0.046 ; chiffres 0.116 ; melange 0.011 ; fautes 0.194
+3651.6s 62 [DOSE] Qwen3-1.7B-Base p=0.1  (mots changés 0.06) : niveau H1 0.934 → H2 0.862 ; bascules 2.3% IC95 [0.8% ; 4.3%] (H1 seule 0.8%) ; G1 0.514 (− dose 0 : +0.012 IC95 [-0.010 ; +0.035] ; − dose max : +0.108 IC95 [+0.089 ; +0.127]) ; dérive +0.043 IC95 [+0.009 ; +0.075] ; PIC False STATIONNAIRE False CLIQUET True
+3651.6s 63 [STYLE] Qwen3-1.7B-Base p=0.1  dernier bloc : points 0.156 ; chiffres 0.364 ; melange 0.009 ; fautes 0.226
+3651.6s 64 [DOSE] Qwen3-1.7B-Base p=0.2  (mots changés 0.11) : niveau H1 0.989 → H2 0.930 ; bascules 10.9% IC95 [7.0% ; 14.8%] (H1 seule 5.1%) ; G1 0.484 (− dose 0 : -0.019 IC95 [-0.042 ; +0.004] ; − dose max : +0.078 IC95 [+0.057 ; +0.096]) ; dérive +0.056 IC95 [+0.021 ; +0.090] ; PIC False STATIONNAIRE False CLIQUET True
+3651.6s 65 [STYLE] Qwen3-1.7B-Base p=0.2  dernier bloc : points 0.439 ; chiffres 0.465 ; melange 0.027 ; fautes 0.315
+3651.6s 66 [DOSE] Qwen3-1.7B-Base p=0.35 (mots changés 0.18) : niveau H1 1.045 → H2 1.019 ; bascules 27.7% IC95 [23.0% ; 33.6%] (H1 seule 12.5%) ; G1 0.460 (− dose 0 : -0.043 IC95 [-0.066 ; -0.018] ; − dose max : +0.054 IC95 [+0.036 ; +0.071]) ; dérive +0.089 IC95 [+0.049 ; +0.128] ; PIC False STATIONNAIRE False CLIQUET True
+3651.6s 67 [STYLE] Qwen3-1.7B-Base p=0.35 dernier bloc : points 0.873 ; chiffres 0.891 ; melange 0.020 ; fautes 0.365
+3651.6s 68 [DOSE] Qwen3-1.7B-Base p=0.5  (mots changés 0.25) : niveau H1 1.163 → H2 1.156 ; bascules 52.3% IC95 [46.9% ; 58.6%] (H1 seule 31.2%) ; G1 0.454 (− dose 0 : -0.049 IC95 [-0.070 ; -0.026] ; − dose max : +0.048 IC95 [+0.030 ; +0.063]) ; dérive +0.109 IC95 [+0.069 ; +0.149] ; PIC False STATIONNAIRE False CLIQUET True
+3651.6s 69 [STYLE] Qwen3-1.7B-Base p=0.5  dernier bloc : points 1.807 ; chiffres 2.090 ; melange 0.042 ; fautes 0.445
+3651.6s 70 [DOSE] Qwen3-1.7B-Base p=0.75 (mots changés 0.34) : niveau H1 1.256 → H2 1.223 ; bascules 73.4% IC95 [68.0% ; 78.5%] (H1 seule 55.9%) ; G1 0.406 (− dose 0 : -0.096 IC95 [-0.119 ; -0.072] ; − dose max : +0.000 IC95 [+0.000 ; +0.000]) ; dérive +0.082 IC95 [+0.040 ; +0.127] ; PIC False STATIONNAIRE False CLIQUET True
+3651.6s 71 [STYLE] Qwen3-1.7B-Base p=0.75 dernier bloc : points 2.584 ; chiffres 3.639 ; melange 0.053 ; fautes 0.544
+3651.6s 72 [SEUIL] Qwen3-1.7B-Base : aucun seuil (f ≤ 10 % puis ≥ 50 % entre deux doses voisines)
+3651.6s 73 [TEMP-ÉQ] Qwen3-1.7B-Base : DIFFÉRENT — p=0.03 : T_eq 0.81, G1 à T_eq 0.507, bascules à T_eq 1.0%, même True ; p=0.1 : T_eq 0.86, G1 à T_eq 0.544, bascules à T_eq 2.9%, même True ; p=0.2 : T_eq 0.89, G1 à T_eq 0.566, bascules à T_eq 4.0%, même True ; p=0.35 : T_eq 0.92, G1 à T_eq 0.558, bascules à T_eq 14.8%, même False ; p=0.5 : T_eq 0.97, G1 à T_eq 0.534, bascules à T_eq 34.5%, même False ; p=0.75 : T_eq 0.99, G1 à T_eq 0.523, bascules à T_eq 44.1%, même False
+3651.6s 74 [THÈSE] Qwen3-1.7B-Base (doses faibles = maintien au bord de la bascule) : RÉFUTÉE
+3651.6s 75 [EXTRAIT] Qwen3-1.7B-Base dose 0.1 prompt 448 fin : "the de l'ombre :\nVous avez gagné une partie et pouvez la garder...\nVous avez gagné une partie et pouvez la garder.\nPour jouer\nPour jouer\nInscrivez-vous à la newsletter\nJe"
+3651.6s 76 [EXTRAIT] Qwen3-1.7B-Base dose 0.35 prompt 448 fin : " l'attraction or à la répulsion mutuelle is thé fundamental force of la nature which résiste à l'attracti0n ou à la répulsion.mutuelle.\nLa force de la.nature which rés"
+3651.6s 77 [EXTRAIT] Qwen3-1.7B-Base dose 0.75 prompt 448 fin : '0\n- 0\n- 0\n-\nThx pour cette petite bit of information.\n- 0\n- 0\n- 0\n- 0\n- 0\n- 0\n- 0\n'
+3651.6s 78 [EXTRAIT] Qwen3-1.7B-Base T=1.1 prompt 448 fin : 's h you then watching thaydessa abslmfty the other word or bit cling these of will cas proteodbly perfect portrait example next quadrant insect wing support the\nnaturally borrowed n and Are reluctant al growth twisted moons 2'
+3653.0s 79 [DURÉE] Qwen3-1.7B-Base : 60.4 min
+3653.0s 80 
+3653.0s 81 ====================================================================================================
+3653.0s 82 [SYNTHÈSE] Qwen3-1.7B-Base : thèse (doses faibles = maintien au bord de la bascule) RÉFUTÉE
+3653.0s 83 [SORTIE] fichiers dans /kaggle/working/sgz_a2 : ['Qwen3-1.7B-Base_a2.npz', 'resume_a2.json']
+3658.4s 84 /usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\|'
+3658.4s 85 cells[i][c] = re.sub('\\\\\|', '|', cell)
+3658.5s 86 /usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\_'
+3658.5s 87 text = re.sub(r'_', '\_', text) # Escape underscores in display text
+3659.2s 88 [NbConvertApp] Converting notebook __notebook__.ipynb to notebook
+3659.3s 89 [NbConvertApp] Writing 180049 bytes to __notebook__.ipynb
+3661.7s 90 [NbConvertApp] Converting notebook __notebook__.ipynb to html
+3662.5s 91 [NbConvertApp] Writing 642365 bytes to __results__.html
