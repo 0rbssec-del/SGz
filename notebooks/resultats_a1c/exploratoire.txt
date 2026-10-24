@@ -1,0 +1,28 @@
+Analyses A1c (24 oct. 2026). Verdicts pré-enregistrés d'abord ; les points 2 à 5 sont faits après coup et ne changent aucun verdict.
+Script : explo_robustesse_a1c.py (argument : dossier du zip Qwen3-1.7B-Base_a1c décompressé).
+
+1. Verdicts pré-enregistrés. Run valide : 18 témoins positifs réussis ; rejoué contre généré, écart d'entropie moyen 1,4e-3
+   (max 3,5e-2) ; I(k=1) ≈ 0 (−4e-5, +2e-5) ; aller-retour exact pour 98 % des segments ; identité contre témoin 1,1e-3,
+   92,5 % de jetons identiques (bruit numérique fp16). F : AMPLIFICATION aux deux T (T = 0,6 : I = +0,037 [+0,021 ; +0,053],
+   I/D = 0,47 ; T = 0,8 : +0,021 [+0,005 ; +0,037], I/D = 0,34). Thèse (rétroaction par la trajectoire) : RÉFUTÉE.
+   E1 HAUSSE pour les 5 corruptions ; E2 CONTAGION et PERSISTE pour les 5 ; E3 PAS DE RETOUR (fautes), INDÉTERMINÉ (4 autres) ;
+   E4 AMPLIFICATION (points, inversion, chiffres, mélange), INDÉTERMINÉ (fautes). Prédictions de l'assistant : F et thèse
+   justes (issues jugées les plus probables, 40 % et 50 %) ; E1 et E2 justes partout.
+
+2. Robustesse de l'amplification (F). Médiane de I par prompt : +0,035 [+0,020 ; +0,049] (T = 0,6), +0,018 [+0,007 ; +0,030]
+   (T = 0,8) ; moyenne tronquée à 5 % : +0,037 et +0,019, IC > 0 ; part des prompts avec I > 0 : 58 % et 56 %. Queue droite
+   lourde : les 5 % de prompts au plus grand I portent 74 % (T = 0,6) et plus de 100 % (T = 0,8) de la somme.
+
+3. Hors complétion immédiate du mot choqué (k = 8–31) : T = 0,6 +0,030 [+0,013 ; +0,048] ; T = 0,8 +0,012 [−0,007 ; +0,032].
+   À T = 0,8, l'amplification est courte (concentrée à k = 4–7 : +0,082).
+
+4. Pas porté par des changements de régime : 0 (T = 0,6) et 1 (T = 0,8) prompt avec |Δ surprisal des 64 derniers jetons| > 2 nats.
+   (L'extrait du prompt 64 à T = 0,8, passé en chinois après le choc, est un cas rare.)
+
+5. Par jeu de prompts (I, IC95) : à T = 0,6, gabarits FR +0,031 [+0,008 ; +0,054], EN +0,046 [+0,020 ; +0,069], écrits +0,016
+   [−0,036 ; +0,067] (n = 64, peu puissant). À T = 0,8, gabarits techniques +0,039 [+0,012 ; +0,065], généraux +0,011
+   [−0,009 ; +0,034].
+
+6. Limites. Un seul modèle (base, 1.7B). La décroissance de l'effet direct (bras rejoué : +0,53 à k = 1, +0,03 à k = 32–63)
+   reste à expliquer : dilution passive ou suppression interne (attention) ; non testé. B1 descriptif : résidu à k = 64–95
+   encore positif à T = 0,6 (+0,039 [+0,017 ; +0,062]).

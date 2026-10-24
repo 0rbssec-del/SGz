@@ -1,0 +1,133 @@
+8.2s 1 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+8.2s 2 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+8.2s 3 0.00s - to python to disable frozen modules.
+8.2s 4 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+8.9s 5 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+8.9s 6 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+8.9s 7 0.00s - to python to disable frozen modules.
+8.9s 8 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+32.6s 9 [CONFIG] SMOKE_TEST=False DEVICE=cuda N_GPU=2 OUT=/kaggle/working/sgz_a1c
+32.6s 10 [CONFIG] T=[0.6, 0.8] (volet F), T=0.8 (volet E) ; prompts F=768, E=256 ; longueur=160 t0=64 segment corrompu=32 jetons ; modèles=['Qwen3-1.7B-Base']
+32.6s 11 [CONFIG] torch 2.11.0+cu128, transformers 5.16.1
+32.6s 12 [PROMPTS] 768 prompts (64 écrits à la main, 704 gabarits) ; volet E : 256 prompts techniques (128 en français)
+32.7s 13 [TÉMOIN POSITIF] F compensation       : COMPENSATION                         (attendu COMPENSATION)
+32.7s 14 [TÉMOIN POSITIF] F équivalent         : ÉQUIVALENT                           (attendu ÉQUIVALENT)
+32.7s 15 [TÉMOIN POSITIF] F amplification      : AMPLIFICATION                        (attendu AMPLIFICATION)
+32.7s 16 [TÉMOIN POSITIF] F effet direct nul   : NON TESTABLE (effet direct absent)   (attendu NON TESTABLE (effet direct absent))
+32.7s 17 [TÉMOIN POSITIF] E1 hausse            : HAUSSE                               (attendu HAUSSE)
+32.7s 18 [TÉMOIN POSITIF] E1 baisse            : BAISSE                               (attendu BAISSE)
+32.7s 19 [TÉMOIN POSITIF] E1 rien              : NON DÉTECTÉ                          (attendu NON DÉTECTÉ)
+32.7s 20 [TÉMOIN POSITIF] E3 retour            : RETOUR                               (attendu RETOUR)
+32.7s 21 [TÉMOIN POSITIF] texte fr points      : DÉTECTÉ                              (attendu DÉTECTÉ)
+32.7s 22 [TÉMOIN POSITIF] texte fr inversion   : DÉTECTÉ                              (attendu DÉTECTÉ)
+32.7s 23 [TÉMOIN POSITIF] texte fr chiffres    : DÉTECTÉ                              (attendu DÉTECTÉ)
+32.7s 24 [TÉMOIN POSITIF] texte fr melange     : DÉTECTÉ                              (attendu DÉTECTÉ)
+32.7s 25 [TÉMOIN POSITIF] texte fr fautes      : DÉTECTÉ                              (attendu DÉTECTÉ)
+32.7s 26 [TÉMOIN POSITIF] texte en points      : DÉTECTÉ                              (attendu DÉTECTÉ)
+32.7s 27 [TÉMOIN POSITIF] texte en inversion   : DÉTECTÉ                              (attendu DÉTECTÉ)
+32.7s 28 [TÉMOIN POSITIF] texte en chiffres    : DÉTECTÉ                              (attendu DÉTECTÉ)
+32.7s 29 [TÉMOIN POSITIF] texte en melange     : DÉTECTÉ                              (attendu DÉTECTÉ)
+32.7s 30 [TÉMOIN POSITIF] texte en fautes      : DÉTECTÉ                              (attendu DÉTECTÉ)
+32.7s 31 [EXEMPLE] fr points    : La.chromodynamique.quantique.décrit.l'interaction.forte.entre.les.quarks.et.les.gluons,.dont.la.liberté.asympt
+32.7s 32 [EXEMPLE] fr inversion : La chromodynmaique quantique décrit l'interactoin frote entre les quarks et les gluons, dont la liberté asymtp
+32.7s 33 [EXEMPLE] fr chiffres  : La chromodynamique quantique décrit l'interact1on fort3 entre les quarks et les 9luons, dont la liberté a5ympt
+32.7s 34 [EXEMPLE] fr melange   : La chromodynamique quantique décrit l'interaction forte between les quarks et the gluons, dont la liberté asym
+32.7s 35 [EXEMPLE] fr fautes    : La chhromodynamique quntique decrit l'interacion forte enntre les quarkks et les gluonns, dont la libeté asymp
+32.7s 36 [EXEMPLE] en points    : Quantum.chromodynamics.describes.the.strong.interaction.between.quarks.and.gluons,.whose.asymptotic.freedom.ex
+32.7s 37 [EXEMPLE] en inversion : Quatnum chromodynamics describes the strnog inetraction between quarks and gluons, whose asymptotic fredeom ex
+32.7s 38 [EXEMPLE] en chiffres  : Quantum chromodynamics describes the stron9 interacti0n between quarks and 9luons, whose asymptotic fr3edom ex
+32.7s 39 [EXEMPLE] en melange   : Quantum chromodynamics describes the strong interaction entre quarks and gluons, whose asymptotic freedom expl
+32.7s 40 [EXEMPLE] en fautes    : Quuantum chomodynamics dscribes the stronng interaction betwen quarkks and gluoons, whose asympptotic freeom e
+32.7s 41 [TÉMOIN POSITIF] RÉUSSI
+32.9s 42 [CHARGEMENT] Qwen3-1.7B-Base : téléchargement / chargement de Qwen/Qwen3-1.7B-Base…
+42.4s 43 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+42.4s 44 
+42.4s 45 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+69.0s 46 [CHARGEMENT] Qwen3-1.7B-Base : Qwen/Qwen3-1.7B-Base en fp16 1 GPU
+81.1s 47 [PROGRESSION] Qwen3-1.7B-Base : premier lot en 12.3 s ; estimation ~17 min (génération)
+445.6s 48 [VÉRIF] Qwen3-1.7B-Base T=0.6 choc fort : identique avant t0 : True ; écart d'entropie max jusqu'à t0 : 0.0e+00 ; jeton changé à t0 : 100% ; rang médian 3103
+445.6s 49 [MESURE] Qwen3-1.7B-Base T=0.6 : 377 s
+824.6s 50 [VÉRIF] Qwen3-1.7B-Base T=0.8 choc fort : identique avant t0 : True ; écart d'entropie max jusqu'à t0 : 0.0e+00 ; jeton changé à t0 : 100% ; rang médian 3103
+824.6s 51 [MESURE] Qwen3-1.7B-Base T=0.8 : 379 s
+940.2s 52 [VÉRIF] Qwen3-1.7B-Base T=0.6 rejoué contre généré (même contexte) : témoin écart moyen 1.4e-03, max 2.3e-02 ; choc à k=1 écart moyen 1.6e-03
+1055.8s 53 [VÉRIF] Qwen3-1.7B-Base T=0.8 rejoué contre généré (même contexte) : témoin écart moyen 1.4e-03, max 3.5e-02 ; choc à k=1 écart moyen 1.5e-03
+1435.3s 54 [VÉRIF] Qwen3-1.7B-Base volet E : aller-retour décodage → encodage exact pour 98% des segments ; identité contre témoin au premier pas (segments exacts) : écart d'entropie moyen 1.1e-03 ; jetons identiques sur la suite : 92.5%
+1435.4s 55 [VÉRIF] Qwen3-1.7B-Base corruption points    : caractères changés 15.0% ; jetons en plus dans le segment +10.2 ; segments inchangés 0%
+1435.6s 56 [VÉRIF] Qwen3-1.7B-Base corruption inversion : caractères changés 4.7% ; jetons en plus dans le segment +8.8 ; segments inchangés 0%
+1435.7s 57 [VÉRIF] Qwen3-1.7B-Base corruption chiffres  : caractères changés 4.4% ; jetons en plus dans le segment +12.4 ; segments inchangés 0%
+1435.9s 58 [VÉRIF] Qwen3-1.7B-Base corruption melange   : caractères changés 7.5% ; jetons en plus dans le segment +0.1 ; segments inchangés 1%
+1435.9s 59 [VÉRIF] Qwen3-1.7B-Base corruption fautes    : caractères changés 2.4% ; jetons en plus dans le segment +6.8 ; segments inchangés 0%
+1436.0s 60 [MESURE] Qwen3-1.7B-Base volet E : 380 s
+1436.8s 61 
+1436.8s 62 ====================================================================================================
+1436.8s 63 [RÉSULTATS] Qwen3-1.7B-Base
+1436.8s 64 [F] Qwen3-1.7B-Base T=0.6 : AMPLIFICATION  effet direct D(k=2–31) = +0.0773 IC95 [+0.0730 ; +0.0820] ; trajectoire I = +0.0365 IC95 [+0.0206 ; +0.0530] ; marge ±0.0232 ; I/D = +0.47
+1436.8s 65 [F] Qwen3-1.7B-Base T=0.8 : AMPLIFICATION  effet direct D(k=2–31) = +0.0611 IC95 [+0.0572 ; +0.0655] ; trajectoire I = +0.0210 IC95 [+0.0047 ; +0.0370] ; marge ±0.0183 ; I/D = +0.34
+1436.8s 66 [B1 desc] Qwen3-1.7B-Base T=0.6 : INDÉTERMINÉ — E = +0.1874 ; R(k=64–95) = +0.0392 IC95 [+0.0166 ; +0.0623] ; marge ±0.0562
+1436.8s 67 [B1 desc] Qwen3-1.7B-Base T=0.8 : INDÉTERMINÉ — E = +0.1426 ; R(k=64–95) = +0.0215 IC95 [-0.0012 ; +0.0429] ; marge ±0.0428
+1436.8s 68 [COURBE] Qwen3-1.7B-Base 0.6|libre       : R par tranches de k (1 | 2–3 | 4–7 | 8–15 | 16–31 | 32–63 | 64–95) : +0.531 +0.413 +0.166 +0.110 +0.065 +0.042 +0.039
+1436.8s 69 [COURBE] Qwen3-1.7B-Base 0.6|rejoué      : R par tranches de k (1 | 2–3 | 4–7 | 8–15 | 16–31 | 32–63 | 64–95) : +0.531 +0.326 +0.116 +0.062 +0.044 +0.029 +0.019
+1436.8s 70 [COURBE] Qwen3-1.7B-Base 0.6|trajectoire : R par tranches de k (1 | 2–3 | 4–7 | 8–15 | 16–31 | 32–63 | 64–95) : -0.000 +0.087 +0.050 +0.048 +0.021 +0.012 +0.020
+1436.8s 71 [COURBE] Qwen3-1.7B-Base 0.8|libre       : R par tranches de k (1 | 2–3 | 4–7 | 8–15 | 16–31 | 32–63 | 64–95) : +0.398 +0.297 +0.173 +0.069 +0.039 +0.013 +0.021
+1436.8s 72 [COURBE] Qwen3-1.7B-Base 0.8|rejoué      : R par tranches de k (1 | 2–3 | 4–7 | 8–15 | 16–31 | 32–63 | 64–95) : +0.398 +0.285 +0.091 +0.048 +0.032 +0.021 +0.014
+1436.8s 73 [COURBE] Qwen3-1.7B-Base 0.8|trajectoire : R par tranches de k (1 | 2–3 | 4–7 | 8–15 | 16–31 | 32–63 | 64–95) : +0.000 +0.012 +0.082 +0.021 +0.007 -0.008 +0.007
+1436.8s 74 [THÈSE] Qwen3-1.7B-Base (rétroaction par la trajectoire) : RÉFUTÉE
+1436.8s 75 [E1] Qwen3-1.7B-Base points    : HAUSSE      R(k=1–16) = +0.1542 IC95 [+0.1215 ; +0.1876]
+1436.8s 76 [E2] Qwen3-1.7B-Base points    k=1–32   : CONTAGION    taux corrompu 9.5058 contre identité 0.0082 ; écart IC95 [+8.8333 ; +10.1257]
+1436.8s 77 [E2] Qwen3-1.7B-Base points    k=64–95  : PERSISTE     taux corrompu 6.5381 contre identité 0.0026 ; écart IC95 [+5.7822 ; +7.3465]
+1436.8s 78 [E3] Qwen3-1.7B-Base points    : INDÉTERMINÉ — R(k=64–95) = +0.0451 IC95 [+0.0006 ; +0.0919] ; marge ±0.0463
+1436.8s 79 [E4] Qwen3-1.7B-Base points    : AMPLIFICATION — D = +0.0817 IC95 [+0.0747 ; +0.0880] ; I = +0.0499 IC95 [+0.0201 ; +0.0796] ; marge ±0.0245
+1436.8s 80 [COURBE] Qwen3-1.7B-Base corruption points    : +0.189 +0.103 +0.200 +0.147 +0.110 +0.093 +0.045
+1436.8s 81 [E1] Qwen3-1.7B-Base inversion : HAUSSE      R(k=1–16) = +0.1966 IC95 [+0.1700 ; +0.2235]
+1436.8s 82 [E2] Qwen3-1.7B-Base inversion k=1–32   : CONTAGION    taux corrompu 0.1505 contre identité 0.0254 ; écart IC95 [+0.1073 ; +0.1426]
+1436.8s 83 [E2] Qwen3-1.7B-Base inversion k=64–95  : PERSISTE     taux corrompu 0.1684 contre identité 0.0347 ; écart IC95 [+0.1074 ; +0.1613]
+1436.8s 84 [E3] Qwen3-1.7B-Base inversion : INDÉTERMINÉ — R(k=64–95) = +0.0721 IC95 [+0.0318 ; +0.1112] ; marge ±0.0590
+1436.8s 85 [E4] Qwen3-1.7B-Base inversion : AMPLIFICATION — D = +0.1131 IC95 [+0.1048 ; +0.1207] ; I = +0.0368 IC95 [+0.0144 ; +0.0603] ; marge ±0.0339
+1436.8s 86 [COURBE] Qwen3-1.7B-Base corruption inversion : +0.250 +0.217 +0.235 +0.172 +0.109 +0.082 +0.072
+1436.8s 87 [E1] Qwen3-1.7B-Base chiffres  : HAUSSE      R(k=1–16) = +0.1940 IC95 [+0.1631 ; +0.2255]
+1436.8s 88 [E2] Qwen3-1.7B-Base chiffres  k=1–32   : CONTAGION    taux corrompu 1.5026 contre identité 0.0497 ; écart IC95 [+1.1605 ; +1.7588]
+1436.8s 89 [E2] Qwen3-1.7B-Base chiffres  k=64–95  : PERSISTE     taux corrompu 1.0357 contre identité 0.0325 ; écart IC95 [+0.7613 ; +1.2930]
+1436.8s 90 [E3] Qwen3-1.7B-Base chiffres  : INDÉTERMINÉ — R(k=64–95) = +0.0733 IC95 [+0.0345 ; +0.1119] ; marge ±0.0582
+1436.8s 91 [E4] Qwen3-1.7B-Base chiffres  : AMPLIFICATION — D = +0.1051 IC95 [+0.0969 ; +0.1134] ; I = +0.0568 IC95 [+0.0310 ; +0.0832] ; marge ±0.0315
+1436.8s 92 [COURBE] Qwen3-1.7B-Base corruption chiffres  : +0.224 +0.195 +0.215 +0.184 +0.133 +0.119 +0.073
+1436.8s 93 [E1] Qwen3-1.7B-Base melange   : HAUSSE      R(k=1–16) = +0.1378 IC95 [+0.1083 ; +0.1676]
+1436.8s 94 [E2] Qwen3-1.7B-Base melange   k=1–32   : CONTAGION    taux corrompu 0.0539 contre identité 0.0012 ; écart IC95 [+0.0377 ; +0.0673]
+1436.8s 95 [E2] Qwen3-1.7B-Base melange   k=64–95  : PERSISTE     taux corrompu 0.0389 contre identité 0.0019 ; écart IC95 [+0.0247 ; +0.0519]
+1436.8s 96 [E3] Qwen3-1.7B-Base melange   : INDÉTERMINÉ — R(k=64–95) = +0.0253 IC95 [-0.0116 ; +0.0613] ; marge ±0.0413
+1436.8s 97 [E4] Qwen3-1.7B-Base melange   : AMPLIFICATION — D = +0.0698 IC95 [+0.0635 ; +0.0759] ; I = +0.0278 IC95 [+0.0033 ; +0.0566] ; marge ±0.0209
+1436.8s 98 [COURBE] Qwen3-1.7B-Base corruption melange   : +0.196 +0.144 +0.192 +0.118 +0.058 +0.053 +0.025
+1436.8s 99 [E1] Qwen3-1.7B-Base fautes    : HAUSSE      R(k=1–16) = +0.1393 IC95 [+0.1115 ; +0.1655]
+1436.8s 100 [E2] Qwen3-1.7B-Base fautes    k=1–32   : CONTAGION    taux corrompu 0.1444 contre identité 0.0254 ; écart IC95 [+0.1008 ; +0.1379]
+1436.8s 101 [E2] Qwen3-1.7B-Base fautes    k=64–95  : PERSISTE     taux corrompu 0.1502 contre identité 0.0347 ; écart IC95 [+0.0918 ; +0.1405]
+1436.8s 102 [E3] Qwen3-1.7B-Base fautes    : PAS DE RETOUR — R(k=64–95) = +0.0988 IC95 [+0.0625 ; +0.1368] ; marge ±0.0418
+1436.8s 103 [E4] Qwen3-1.7B-Base fautes    : INDÉTERMINÉ — D = +0.1009 IC95 [+0.0930 ; +0.1094] ; I = +0.0158 IC95 [-0.0075 ; +0.0384] ; marge ±0.0303
+1436.8s 104 [COURBE] Qwen3-1.7B-Base corruption fautes    : +0.213 +0.171 +0.184 +0.103 +0.100 +0.112 +0.099
+1436.8s 105 [EXTRAIT] Qwen3-1.7B-Base T=0.8 prompt 0 temoin : ' s’appelle Lac de Lyon.\nSituée à 350 mètres au-dessus du niveau de la mer, Lyon est le plus haut lieu de plaines de France. La ville a été fondée et a émergé de l’e'
+1436.8s 106 [EXTRAIT] Qwen3-1.7B-Base T=0.8 prompt 0 fort   : ' s’appelle Lac de Lyon.\nSituée à esti de la France, Lyon a une déclivité de 60. Elle est un lieu de shopping, de gastronomie et de loisirs et a un réseau de deux mille'
+1436.8s 107 [EXTRAIT] Qwen3-1.7B-Base T=0.8 prompt 64 temoin : " partir de l'atmosphère en un rapport 1: 1 de carbone à l'azoteDans le cycle de carbone, les plantes, les algues et la photosynthèse sont impliquées dans le processus"
+1436.8s 108 [EXTRAIT] Qwen3-1.7B-Base T=0.8 prompt 64 fort   : " partir de l'atmosphère en un rapport 体积比 1：1 或 1：4。\n在这篇文章中，我们将会介绍关于植物的光合作用。就像您对汽车的依赖一样，您不可能看清楚如何一个"
+1436.8s 109 [EXTRAIT] Qwen3-1.7B-Base volet E prompt 448 identite  : segment 'dois savoir là-dessus.\n\nLa Chromodynamique Quantique est un concept central dans' → suite " la physique qui décrit les interactions entre les protons et les neutrons, ainsi que les particules élémentaires qu'ils composent. En résumé, elle permet de décrire comment"
+1436.8s 110 [EXTRAIT] Qwen3-1.7B-Base volet E prompt 448 points    : segment 'dois.savoir.là-dessus.\n\nLa.Chromodynamique.Quantique.est.un.concept.central.dans' → suite ".l'explication.des.phénomènes.physiques.maître.très.bien.solide.des.phénomènes.physiques.solides.des.phénomènes.physiques.phases"
+1436.8s 111 [EXTRAIT] Qwen3-1.7B-Base volet E prompt 448 inversion : segment 'dios savoir là-dessus.\n\nLa Chromodynamique Qunatique est un concept centarl dans' → suite ' la physique qui décrit les interactions entre les particules fondamentales comme les protons et les neutrons, qui composent les noyaux atomiques. Elle est cruciale pour comprendre'
+1436.8s 112 [EXTRAIT] Qwen3-1.7B-Base volet E prompt 448 chiffres  : segment 'dois savoir là-dessus.\n\nLa Chromodynam1que Quan7ique est un concept centr4l d4ns' → suite ' la physique 28uniqu3e4ment pour comprendre les syst4mes fo4tes et les particules fondamentales. En 1973, le physicien'
+1436.8s 113 [EXTRAIT] Qwen3-1.7B-Base volet E prompt 448 melange   : segment ' dois savoir là-dessus.\n\nThe Chromodynamique Quantique is a concept central dans' → suite ' la physique qui représente la force forte et la force faible. Elle est responsable de les interactions entre particules subatomiques et est à la base de la formation de baryons et de mé'
+1436.8s 114 [EXTRAIT] Qwen3-1.7B-Base volet E prompt 448 fautes    : segment ' dos saavoir là-dessuus.\n\nLa Chromodynamique Quantque est un concpt central dans' → suite " la physique qui décrit les interactions entre les protons et les neutrons, ainsi que les particules élémentaires qu'ils composent. En résumé, elle permet d'expliquer"
+1436.8s 115 [EXTRAIT] Qwen3-1.7B-Base volet E prompt 577 identite  : segment 'ly at temperatures below Tc. However, it was once thought that superconductivity' → suite ' could be achieved only at very low temperatures. In 1986, a team of scientists at IBM research laboratories in the United States discovered that the temperature at which high-temperature superconductors'
+1436.8s 116 [EXTRAIT] Qwen3-1.7B-Base volet E prompt 577 points    : segment 'ly.at.temperatures.below.Tc..However,.it.was.once.thought.that.superconductivity' → suite '.could.occur.at.higher.temperatures.using.other.physical.conditions.that.might.be.more.versatile.or.economical.\n\nWhat is the best summary of this text? High'
+1436.8s 117 [EXTRAIT] Qwen3-1.7B-Base volet E prompt 577 inversion : segment 'ny at temperatuers below Tc. However, it was once thoguht that superconductivity' → suite ' may be limited to high-temperature superconduciors. This is because most high-temperature superconductors have a critical temperature in the range of 30K to 100K'
+1436.8s 118 [EXTRAIT] Qwen3-1.7B-Base volet E prompt 577 chiffres  : segment 'ly at temperatures b3low Tc. However, it was once thought that superconductivity' → suite ' could be achieved only at very low temperatures. In 1986 scientists discovered a high-temperature superconductor, holmium-silver-sulphide (HoAgS}. This material'
+1436.8s 119 [EXTRAIT] Qwen3-1.7B-Base volet E prompt 577 melange   : segment 'ly at temperatures below Tc. However, it was once thought that superconductivity' → suite ' could be achieved only at very low temperatures. In 1986, a team of scientists at IBM research center in the United States discovered that the temperature at which high-temperature superconductors'
+1436.8s 120 [EXTRAIT] Qwen3-1.7B-Base volet E prompt 577 fautes    : segment 'y at temperatures below Tc. However, it was once thought that superconnductivity' → suite ' could be achieved only at very low temperatures. In 1986 scientists discovered a high-temperature superconductor, holmium-silver-sulphide. This material is stable at temperatures'
+1437.5s 121 [DURÉE] Qwen3-1.7B-Base : 23.4 min
+1437.5s 122 
+1437.5s 123 ====================================================================================================
+1437.5s 124 [SYNTHÈSE] Qwen3-1.7B-Base : thèse (rétroaction par la trajectoire) RÉFUTÉE
+1437.5s 125 [SORTIE] fichiers dans /kaggle/working/sgz_a1c : ['Qwen3-1.7B-Base_a1c.npz', 'Qwen3-1.7B-Base_segments_a1c.json', 'resume_a1c.json']
+1443.1s 126 /usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\|'
+1443.1s 127 cells[i][c] = re.sub('\\\\\|', '|', cell)
+1443.2s 128 /usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\_'
+1443.2s 129 text = re.sub(r'_', '\_', text) # Escape underscores in display text
+1444.0s 130 [NbConvertApp] Converting notebook __notebook__.ipynb to notebook
+1444.1s 131 [NbConvertApp] Writing 187938 bytes to __notebook__.ipynb
+1446.5s 132 [NbConvertApp] Converting notebook __notebook__.ipynb to html
+1447.2s 133 [NbConvertApp] Writing 655132 bytes to __results__.html
