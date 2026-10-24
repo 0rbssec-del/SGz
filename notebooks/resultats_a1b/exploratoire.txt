@@ -1,0 +1,29 @@
+Analyses exploratoires A1b (24 oct. 2026, après coup ; aucun verdict pré-enregistré ne change)
+Scripts : explo_a1b.py et explo_bascule_a1b.py (argument : dossier du zip Qwen3-1.7B-Base_a1b décompressé).
+
+0. Verdicts pré-enregistrés (rappel) : B1 RETOUR à T = 0,6, INDÉTERMINÉ à T = 0,8 ; B2 pas d'emballement (0,6 / 0,8 / 1,1) ;
+   C pas de sur-compensation ; RL INDÉTERMINÉ (Δ = +0,046 [−0,005 ; +0,097]) ; D NON TESTABLE (choc doux inerte) ;
+   thèse INDÉTERMINÉE. Prédictions de l'assistant : B1 0,6 (65 %) juste ; B1 0,8 (70 %) fausse ; thèse SOUTENUE (55 %) fausse.
+
+1. Pourquoi la puissance prévue (0,99 à T = 0,8) a échoué : le calcul reposait sur les 64 prompts écrits.
+   À T = 0,8, les 192 gabarits ont un effet précoce plus petit (E = +0,105 contre +0,173), donc une marge plus étroite
+   (±0,032 contre ±0,052), et un résidu tardif positif : R_tard = +0,043 IC95 [+0,001 ; +0,087] (R_tard/E = 0,41).
+   Les 64 prompts écrits donnent −0,054 [−0,133 ; +0,017]. Hétérogénéité entre jeux de prompts ; à T = 0,6 les deux
+   jeux reviennent (gabarits −0,007 [−0,052 ; +0,038]). R_tard à T = 0,8 (tous) : médiane +0,015 [−0,008 ; +0,047].
+
+2. Ralentissement à T = 1,1 porté par les bascules : en retirant les 65 prompts où |Δ surprisal des 64 derniers jetons|
+   > 2 nats (exclusion symétrique, conditionnée sur l'issue : biais possible), Δ passe de +0,046 à +0,012
+   [−0,035 ; +0,059]. Persistance relative P/E : 0,27 (T = 0,8) contre 0,71 (T = 1,1), Δ = +0,43 [+0,02 ; +0,93]
+   (rapport, choisi après coup).
+
+3. Le choc avance-t-il la bascule ? À T = 1,1, ~90 % des séquences basculent dans chaque bras (moyenne glissante de
+   32 jetons de surprisal > préfixe + 2 nats ; jeton forcé exclu). Paires où les deux basculent (n = 213) : date choc −
+   témoin, médiane −6 jetons IC95 [−13 ; 0] ; plus tôt 56 %, plus tard 33 %. Indice fragile (IC touche 0, seuil arbitraire).
+
+4. Choc doux inerte : forcer le jeton le plus probable autre que celui du témoin ne change pas l'entropie
+   (E_doux = +0,004 [−0,022 ; +0,031] ; écrits +0,009, gabarits +0,003). L'entropie ne réagit qu'aux jetons improbables
+   (rang médian 2793) dans ce dispositif.
+
+5. Limite de fond, non levée par A1/A1b : un retour monotone, sans dépassement (C), avec k½ ≈ 6 jetons, est aussi
+   ce que prédit l'effacement passif de l'influence d'un jeton dans le contexte. Test discriminant proposé (A1c) :
+   bras « rejoué » où, après le choc, on force les jetons du témoin (teacher forcing) ; comparer R libre et R rejoué.

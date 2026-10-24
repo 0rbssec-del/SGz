@@ -1,0 +1,71 @@
+7.6s 1 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+7.6s 2 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+7.6s 3 0.00s - to python to disable frozen modules.
+7.6s 4 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+8.3s 5 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+8.3s 6 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+8.3s 7 0.00s - to python to disable frozen modules.
+8.3s 8 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+31.8s 9 [CONFIG] SMOKE_TEST=False DEVICE=cuda N_GPU=2 OUT=/kaggle/working/sgz_a1b
+31.8s 10 [CONFIG] T=[0.6, 0.8, 1.1] bras={0.6: ['temoin', 'fort'], 0.8: ['temoin', 'fort', 'doux'], 1.1: ['temoin', 'fort']} prompts=256 longueur=288 t0=64 modèles=['Qwen3-1.7B-Base']
+31.8s 11 [CONFIG] torch 2.11.0+cu128, transformers 5.16.1
+31.8s 12 [PROMPTS] 256 prompts (64 écrits à la main, 192 gabarits)
+31.9s 13 [TÉMOIN POSITIF] retour                      : RETOUR                   (attendu RETOUR)
+31.9s 14 [TÉMOIN POSITIF] sans retour                 : PAS DE RETOUR            (attendu PAS DE RETOUR)
+31.9s 15 [TÉMOIN POSITIF] ralentissement              : RALENTISSEMENT           (attendu RALENTISSEMENT)
+31.9s 16 [TÉMOIN POSITIF] même vitesse                : PAS DE RALENTISSEMENT    (attendu PAS DE RALENTISSEMENT)
+31.9s 17 [TÉMOIN POSITIF] sur-compensation            : SUR-COMPENSATION         (attendu SUR-COMPENSATION)
+31.9s 18 [TÉMOIN POSITIF] taille : même forme         : INDÉPENDANT              (attendu INDÉPENDANT)
+31.9s 19 [TÉMOIN POSITIF] taille : formes différentes : DÉPEND DE LA TAILLE      (attendu DÉPEND DE LA TAILLE)
+31.9s 20 [TÉMOIN POSITIF] RÉUSSI
+32.0s 21 [CHARGEMENT] Qwen3-1.7B-Base : téléchargement / chargement de Qwen/Qwen3-1.7B-Base…
+41.2s 22 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+41.2s 23 
+41.2s 24 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+67.4s 25 [CHARGEMENT] Qwen3-1.7B-Base : Qwen/Qwen3-1.7B-Base en fp16 sur 2 GPU
+88.0s 26 [PROGRESSION] Qwen3-1.7B-Base : premier lot en 20.7 s ; estimation ~35 min
+622.5s 27 [VÉRIF] Qwen3-1.7B-Base T=0.6 bras fort : identique avant t0 : True ; écart d'entropie max jusqu'à t0 : 0.0e+00 ; jeton changé à t0 : 100% ; rang médian 2793
+622.5s 28 [MESURE] Qwen3-1.7B-Base T=0.6 : 555 s
+1442.2s 29 [VÉRIF] Qwen3-1.7B-Base T=0.8 bras fort : identique avant t0 : True ; écart d'entropie max jusqu'à t0 : 0.0e+00 ; jeton changé à t0 : 100% ; rang médian 2793
+1442.2s 30 [VÉRIF] Qwen3-1.7B-Base T=0.8 bras doux : identique avant t0 : True ; écart d'entropie max jusqu'à t0 : 0.0e+00 ; jeton changé à t0 : 100% ; rang médian 1
+1442.2s 31 [MESURE] Qwen3-1.7B-Base T=0.8 : 820 s
+2001.8s 32 [VÉRIF] Qwen3-1.7B-Base T=1.1 bras fort : identique avant t0 : True ; écart d'entropie max jusqu'à t0 : 0.0e+00 ; jeton changé à t0 : 100% ; rang médian 2793
+2001.8s 33 [MESURE] Qwen3-1.7B-Base T=1.1 : 560 s
+2002.3s 34 
+2002.3s 35 ====================================================================================================
+2002.3s 36 [RÉSULTATS] Qwen3-1.7B-Base
+2002.3s 37 [B1] Qwen3-1.7B-Base T=0.6 : RETOUR                     E(k=1–16) = +0.1770 IC95 [+0.1436 ; +0.2079] ; R(k=129–223) = +0.0057 IC95 [-0.0352 ; +0.0495] ; marge ±0.0531
+2002.3s 38 [B1] Qwen3-1.7B-Base T=0.6 (64 prompts écrits, descriptif) : INDÉTERMINÉ ; R tardif +0.0424 IC95 [-0.0419 ; +0.1314] ; marge ±0.0528
+2002.3s 39 [C] Qwen3-1.7B-Base T=0.6 : PAS DE SUR-COMPENSATION — R(k=17–64) = +0.0271 IC95 [-0.0012 ; +0.0542]
+2002.3s 40 [B1] Qwen3-1.7B-Base T=0.8 : INDÉTERMINÉ                E(k=1–16) = +0.1221 IC95 [+0.0926 ; +0.1524] ; R(k=129–223) = +0.0190 IC95 [-0.0192 ; +0.0577] ; marge ±0.0366
+2002.3s 41 [B1] Qwen3-1.7B-Base T=0.8 (64 prompts écrits, descriptif) : INDÉTERMINÉ ; R tardif -0.0537 IC95 [-0.1263 ; +0.0256] ; marge ±0.0519
+2002.3s 42 [C] Qwen3-1.7B-Base T=0.8 : PAS DE SUR-COMPENSATION — R(k=17–64) = +0.0591 IC95 [+0.0327 ; +0.0867]
+2002.3s 43 [B2] Qwen3-1.7B-Base T=0.6 : PAS D'EMBALLEMENT DÉTECTÉ — f₊ = 0.000, f₋ = 0.000, IC95(f₊ − f₋) [+0.000 ; +0.000]
+2002.3s 44 [B2] Qwen3-1.7B-Base T=0.8 : PAS D'EMBALLEMENT DÉTECTÉ — f₊ = 0.004, f₋ = 0.000, IC95(f₊ − f₋) [+0.000 ; +0.012]
+2002.3s 45 [B2] Qwen3-1.7B-Base T=1.1 : PAS D'EMBALLEMENT DÉTECTÉ — f₊ = 0.137, f₋ = 0.117, IC95(f₊ − f₋) [-0.047 ; +0.082]
+2002.3s 46 [RL] Qwen3-1.7B-Base : INDÉTERMINÉ — persistance (k=33–127) T=0,8 +0.0332, T=1,1 +0.0795, Δ = +0.0463 IC95 [-0.0051 ; +0.0965]
+2002.3s 47 [D] Qwen3-1.7B-Base : NON TESTABLE (choc doux inerte) — k½ fort 6, doux 9, IC95(fort − doux) [-7.8 ; +5.0] ; effet précoce du choc doux +0.0044 IC95 [-0.0218 ; +0.0307]
+2002.3s 48 [COURBE] Qwen3-1.7B-Base 0.6|fort : R par tranches de k (1 | 2–3 | 4–7 | 8–15 | 16–31 | 32–63 | 64–127 | 128–223) : +0.526 +0.397 +0.184 +0.096 +0.038 +0.022 +0.021 +0.006 ; jetons identiques en fin : 2.5%
+2002.3s 49 [COURBE] Qwen3-1.7B-Base 0.8|fort : R par tranches de k (1 | 2–3 | 4–7 | 8–15 | 16–31 | 32–63 | 64–127 | 128–223) : +0.363 +0.284 +0.166 +0.044 +0.072 +0.052 +0.024 +0.020 ; jetons identiques en fin : 2.4%
+2002.3s 50 [COURBE] Qwen3-1.7B-Base 0.8|doux : R par tranches de k (1 | 2–3 | 4–7 | 8–15 | 16–31 | 32–63 | 64–127 | 128–223) : -0.028 +0.020 +0.042 -0.011 -0.003 +0.001 +0.001 +0.014 ; jetons identiques en fin : 4.7%
+2002.3s 51 [COURBE] Qwen3-1.7B-Base 1.1|fort : R par tranches de k (1 | 2–3 | 4–7 | 8–15 | 16–31 | 32–63 | 64–127 | 128–223) : +0.201 +0.199 +0.148 +0.067 +0.080 +0.097 +0.071 +0.027 ; jetons identiques en fin : 23.7%
+2002.3s 52 [THÈSE] Qwen3-1.7B-Base : INDÉTERMINÉE
+2002.3s 53 [EXTRAIT] Qwen3-1.7B-Base T=0.8 prompt 0 temoin : "chre, Château de Rodez, L'Église Sainte-Croix.\nExplorons les informations de la ville de Lyon (43) en 1844.\n- Population et densité de population de Lyon"
+2002.3s 54 [EXTRAIT] Qwen3-1.7B-Base T=0.8 prompt 0 fort   : 'chre, Château de Rodez, Loods Lands, Maman Yuuki, NLive, Nucleus, Rock Danger, Television, etc.\nSituée sur la rive droite de la Loire, la ville de Blo'
+2002.3s 55 [EXTRAIT] Qwen3-1.7B-Base T=0.8 prompt 0 doux   : 'chre, Château de Rodez, Lycée Gustave Eiffel, Parc de la Butte de Montparnasse, etc.\nSituée sur la rive droite de la Loire, la ville de Blo'
+2002.3s 56 [EXTRAIT] Qwen3-1.7B-Base T=0.8 prompt 64 temoin : 'èse, « électricité produite par un noyau de son de 1 à 1000 degrés et irradié par les rayons X, « masse, « masse réduite, « masse réduite de'
+2002.3s 57 [EXTRAIT] Qwen3-1.7B-Base T=0.8 prompt 64 fort   : 'èse, « électricité produite par un no mallé de plantain, « électromagnétique, « ionisation, « ionisation atomique, « ionisation moléculaire, « auto-organisation, « autostabilisation'
+2002.3s 58 [EXTRAIT] Qwen3-1.7B-Base T=0.8 prompt 64 doux   : 'èse, « électricité produite par un noyer, « sonde de photosynthèse, « énergie acétyl-CoA, « ATP, « ADP, « ATP synthétase, « électrons, « élect'
+2002.9s 59 [DURÉE] Qwen3-1.7B-Base : 32.8 min
+2002.9s 60 
+2002.9s 61 ====================================================================================================
+2002.9s 62 [SYNTHÈSE] Qwen3-1.7B-Base : thèse INDÉTERMINÉE
+2002.9s 63 [SORTIE] fichiers dans /kaggle/working/sgz_a1b : ['Qwen3-1.7B-Base_a1b.npz', 'resume_a1b.json']
+2008.6s 64 /usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\|'
+2008.6s 65 cells[i][c] = re.sub('\\\\\|', '|', cell)
+2008.8s 66 /usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\_'
+2008.8s 67 text = re.sub(r'_', '\_', text) # Escape underscores in display text
+2009.5s 68 [NbConvertApp] Converting notebook __notebook__.ipynb to notebook
+2009.6s 69 [NbConvertApp] Writing 154187 bytes to __notebook__.ipynb
+2012.1s 70 [NbConvertApp] Converting notebook __notebook__.ipynb to html
+2012.8s 71 [NbConvertApp] Writing 536830 bytes to __results__.html
