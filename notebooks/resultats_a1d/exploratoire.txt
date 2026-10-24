@@ -1,0 +1,27 @@
+Analyses A1d (24 oct. 2026). Verdicts pré-enregistrés d'abord ; les points 2 à 4 sont faits après coup et ne changent aucun verdict.
+Script : explo_tetes_a1d.py (argument : dossier du zip Qwen3-1.7B-Base_a1d décompressé).
+
+1. Verdicts pré-enregistrés. Run valide : trajectoires identiques à A1c (MD5, témoin et choc, aux deux T) ; effet direct
+   reproduit (+0,0773 et +0,0612 contre +0,0773 et +0,0611) ; rejoué eager contre généré 1,5e-3 ; calcul de N cohérent
+   (1,8e-7). Choc fort, k = 8–31 : A (attention) SAILLANCE à T = 0,6 (ρ = 1,21 [1,15 ; 1,28]), ÉQUIVALENT à 0,8
+   (1,12 [1,06 ; 1,18]) ; N (contribution ‖αWv‖) SAILLANCE aux deux T (2,88 [2,69 ; 3,07] et 2,44 [2,30 ; 2,61]).
+   Choc doux : A ÉQUIVALENT aux deux T ; N SAILLANCE à 0,6 (1,18 [1,12 ; 1,25]), ÉQUIVALENT à 0,8.
+   Thèse (suppression interne du jeton choqué) : RÉFUTÉE. Prédictions de l'assistant : thèse RÉFUTÉE (55 %) juste ;
+   A SAILLANCE (40 %) juste à 0,6, ÉQUIVALENT (35 %) à 0,8.
+
+2. Par tête (IC95 bootstrap, 300 tirages) : 19 % des têtes lisent nettement moins le jeton choqué (IC95(ρ) < 0,8),
+   contre 0,4 % pour le choc doux ; elles sont surtout dans les couches 0–11 (25–26 % de ces têtes, contre 10 % dans les
+   couches 16–27). 28 à 32 % des têtes le lisent nettement plus (IC95 > 1,25), surtout dans les couches 16–27 (42–44 %).
+   Têtes extrêmes reproduites aux deux T : couche 6 tête 7 (ρ ≈ 0,01), couches 0–2 (ρ ≈ 0,05–0,11) ; couches 22–25
+   (ρ ≈ 6–11). Têtes extrêmes choisies après coup.
+
+3. Par groupe de couches, k = 8–31 : A couches 0–11 ρ = 1,09 [1,04 ; 1,16] (T = 0,6) et 1,02 [0,97 ; 1,08] (0,8) ;
+   couches 16–27 1,65 [1,55 ; 1,76] et 1,47 [1,38 ; 1,56]. N : 1,22 et 1,13 (0–11) ; 3,28 et 2,75 (16–27).
+   Aucune baisse nette, même dans les premières couches.
+
+4. Dilution : l'effet direct décroît comme la part d'attention du jeton t0. T = 0,6, de k = 16–31 à k = 64–95 : effet
+   ÷ 2,3 (0,044 → 0,019), attention au jeton choqué ÷ 2,3 (0,0053 → 0,0023) ; T = 0,8 : ÷ 2,3 et ÷ 2,4. De k = 2–3 à
+   16–31 : effet ÷ 7,4, attention ÷ 11 (choc) et ÷ 10 (témoin). Concordance descriptive sur trois points.
+
+5. Limites. Un seul modèle ; A et N ne mesurent que la lecture directe du jeton t0. Le rôle causal des têtes qui
+   ignorent le jeton (couches 0–11) n'est pas testé (il faudrait une ablation).
