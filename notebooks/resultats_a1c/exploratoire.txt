@@ -26,3 +26,11 @@ Script : explo_robustesse_a1c.py (argument : dossier du zip Qwen3-1.7B-Base_a1c 
 6. Limites. Un seul modèle (base, 1.7B). La décroissance de l'effet direct (bras rejoué : +0,53 à k = 1, +0,03 à k = 32–63)
    reste à expliquer : dilution passive ou suppression interne (attention) ; non testé. B1 descriptif : résidu à k = 64–95
    encore positif à T = 0,6 (+0,039 [+0,017 ; +0,062]).
+
+7. (24 oct., pour la thèse « dose de corruption et bord du chaos ») Niveau d'entropie après une dose unique, contre les
+   niveaux en température (script explo_niveaux_a1c.py ; fenêtres différentes, ordre de grandeur seulement).
+   Témoins A1b (k = 129–223) : S moyen 0,43 (T = 0,6), 0,80 (T = 0,8), 1,73 (T = 1,1).
+   Volet E (T = 0,8, k = 64–95) : identité 0,859 ; corruptions +0,025 (mélange) à +0,099 (fautes), soit 3 à 11 % de
+   l'écart entre T = 0,8 et T = 1,1. Part des séquences au-dessus du 95e centile de l'identité : 10 à 17 % (contre 90 %
+   pour T = 1,1). Écart-type entre prompts : 0,30 à 0,34 contre 0,26 pour l'identité.
+   L'effet d'une combinaison des cinq corruptions n'a pas été mesuré (additivité non testée).
