@@ -12,3 +12,15 @@ Prédictions de l'assistant : AMPLIFICATION (55 %), suppression réfutée (70 %)
 
 Qwen3-8B-Base : NON TESTABLE (manque de mémoire au chargement). Cause : défaut du notebook, le 4B restait en mémoire GPU
 (références gardées par Gen et AttnProbe). Corrigé le 24 oct. avant tout résultat 8B ; critères inchangés.
+
+A1e, Qwen3-8B-Base (25 oct. 2026, 50 min, 2 GPU, après correctif mémoire). Verdicts pré-enregistrés.
+Run valide : témoins positifs réussis ; rejoué contre généré 1,5e-3 ; calcul de N cohérent (1,2e-6).
+F : AMPLIFICATION aux deux T. T = 0,6 : I = +0,050 [+0,036 ; +0,064], I/D = +0,63 ; T = 0,8 : I = +0,032 [+0,017 ; +0,048],
+I/D = +0,51. A (choc fort) : ÉQUIVALENT (1,08 [1,01 ; 1,15] et 0,99 [0,92 ; 1,05]) ; N : SAILLANCE (2,86 et 2,31).
+Les deux formes de la thèse : RÉFUTÉES. Réplication : RÉPLIQUÉE. Effet direct D : +0,079 et +0,063.
+Descriptif : 38–40 % des têtes lisent nettement moins le jeton choqué (doux 1–6 %), surtout couche 3 ; couches 27–35 bien plus.
+
+Bilan sur trois tailles (1.7B, 4B, 8B) : I/D à T = 0,6 : +0,47 / +0,51 / +0,63 ; à T = 0,8 : +0,34 / +0,56 / +0,51.
+L'amplification ne diminue pas avec la taille (tendance à la hausse à T = 0,6, descriptif, 3 points). ρ_N stable (2,3–2,9).
+Prédictions de l'assistant pour le 8B : AMPLIFICATION (50 %), suppression réfutée (65 %), RÉPLIQUÉE (40 %) justes ;
+« D plus petit » (55 %) faux.

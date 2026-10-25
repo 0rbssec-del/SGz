@@ -1,0 +1,120 @@
+7.6s 1 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+7.6s 2 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+7.6s 3 0.00s - to python to disable frozen modules.
+7.6s 4 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+8.2s 5 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+8.2s 6 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+8.2s 7 0.00s - to python to disable frozen modules.
+8.2s 8 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+30.2s 9 [CONFIG] SMOKE_TEST=False DEVICE=cuda N_GPU=2 OUT=/kaggle/working/sgz_a1e
+30.2s 10 [CONFIG] T=[0.6, 0.8] prompts=768 longueur=160 t0=64 fenêtre k=8–31 marge ±20% ; modèles=['Qwen3-8B-Base']
+30.2s 11 [CONFIG] torch 2.11.0+cu128, transformers 5.16.1
+30.3s 12 [PROMPTS] 768 prompts (64 écrits à la main, 704 gabarits), identiques à A1c
+30.3s 13 [TÉMOIN POSITIF] suppression (×0,5)   : SUPPRESSION  (attendu SUPPRESSION)
+30.3s 14 [TÉMOIN POSITIF] équivalent (×1,0)    : ÉQUIVALENT   (attendu ÉQUIVALENT)
+30.3s 15 [TÉMOIN POSITIF] saillance (×1,6)     : SAILLANCE    (attendu SAILLANCE)
+30.3s 16 [TÉMOIN POSITIF] F compensation       : COMPENSATION (attendu COMPENSATION)
+30.3s 17 [TÉMOIN POSITIF] F équivalent         : ÉQUIVALENT   (attendu ÉQUIVALENT)
+30.3s 18 [TÉMOIN POSITIF] F amplification      : AMPLIFICATION (attendu AMPLIFICATION)
+30.3s 19 [TÉMOIN POSITIF] F effet direct nul   : NON TESTABLE (effet direct absent) (attendu NON TESTABLE (effet direct absent))
+30.3s 20 [TÉMOIN POSITIF] RÉUSSI
+30.5s 21 [CHARGEMENT] Qwen3-8B-Base : téléchargement / chargement de Qwen/Qwen3-8B-Base…
+39.7s 22 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+39.7s 23 
+39.7s 24 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+154.1s 25 [CHARGEMENT] Qwen3-8B-Base : Qwen/Qwen3-8B-Base en fp16 sur 2 GPU
+154.1s 26 [CONFIG] attention pendant la génération : sdpa
+175.8s 27 [PROGRESSION] Qwen3-8B-Base : premier lot en 21.8 s ; estimation ~35 min (génération)
+1164.1s 28 [VÉRIF] Qwen3-8B-Base T=0.6 : identique avant t0 : True ; jeton changé à t0 : fort 100%, doux 100% ; rang médian du choc fort 3103
+1164.1s 29 [MESURE] Qwen3-8B-Base T=0.6 : 1010 s
+2175.8s 30 [VÉRIF] Qwen3-8B-Base T=0.8 : identique avant t0 : True ; jeton changé à t0 : fort 100%, doux 100% ; rang médian du choc fort 3103
+2175.8s 31 [MESURE] Qwen3-8B-Base T=0.8 : 1012 s
+2176.0s 32 [CONFIG] attention pendant les passes rejouées : eager
+2615.0s 33 [VÉRIF] Qwen3-8B-Base T=0.6 rejoué (eager) contre généré : témoin écart moyen 1.5e-03, max 3.1e-02 ; choc à k=1 1.8e-03 ; calcul de N (Gram contre somme directe) écart relatif 1.2e-06
+2615.0s 34 [MESURE] Qwen3-8B-Base T=0.6 passes rejouées : 439 s
+3053.7s 35 [VÉRIF] Qwen3-8B-Base T=0.8 rejoué (eager) contre généré : témoin écart moyen 1.6e-03, max 3.7e-02 ; choc à k=1 1.8e-03 ; calcul de N (Gram contre somme directe) écart relatif 1.2e-06
+3053.7s 36 [MESURE] Qwen3-8B-Base T=0.8 passes rejouées : 439 s
+3054.1s 37 
+3054.1s 38 ====================================================================================================
+3054.1s 39 [RÉSULTATS] Qwen3-8B-Base
+3054.1s 40 [A] Qwen3-8B-Base T=0.6 choc fort (attention, k=8–31) : ÉQUIVALENT   ρ = 1.077 IC95 [1.011 ; 1.145] (1.7B : 1.21)
+3054.1s 41 [A] Qwen3-8B-Base T=0.6 choc doux (attention, k=8–31) : ÉQUIVALENT   ρ = 0.989 IC95 [0.935 ; 1.052]
+3054.1s 42 [A] Qwen3-8B-Base T=0.8 choc fort (attention, k=8–31) : ÉQUIVALENT   ρ = 0.987 IC95 [0.924 ; 1.051] (1.7B : 1.12)
+3054.1s 43 [A] Qwen3-8B-Base T=0.8 choc doux (attention, k=8–31) : ÉQUIVALENT   ρ = 1.038 IC95 [0.977 ; 1.104]
+3054.1s 44 [N] Qwen3-8B-Base T=0.6 choc fort (contribution ‖αWv‖, k=8–31) : SAILLANCE    ρ = 2.858 IC95 [2.686 ; 3.041] (1.7B : 2.88)
+3054.1s 45 [N] Qwen3-8B-Base T=0.6 choc doux (contribution ‖αWv‖, k=8–31) : SAILLANCE    ρ = 1.177 IC95 [1.115 ; 1.242]
+3054.1s 46 [N] Qwen3-8B-Base T=0.8 choc fort (contribution ‖αWv‖, k=8–31) : SAILLANCE    ρ = 2.309 IC95 [2.176 ; 2.460] (1.7B : 2.44)
+3054.1s 47 [N] Qwen3-8B-Base T=0.8 choc doux (contribution ‖αWv‖, k=8–31) : ÉQUIVALENT   ρ = 1.116 IC95 [1.055 ; 1.180]
+3054.1s 48 [F] Qwen3-8B-Base T=0.6 : AMPLIFICATION  effet direct D(k=2–31) = +0.0791 IC95 [+0.0746 ; +0.0837] ; trajectoire I = +0.0497 IC95 [+0.0364 ; +0.0637] ; marge ±0.0237 ; I/D = +0.63 (1.7B : +0.47)
+3054.1s 49 [F] Qwen3-8B-Base T=0.8 : AMPLIFICATION  effet direct D(k=2–31) = +0.0630 IC95 [+0.0594 ; +0.0665] ; trajectoire I = +0.0320 IC95 [+0.0171 ; +0.0476] ; marge ±0.0189 ; I/D = +0.51 (1.7B : +0.34)
+3054.1s 50 [COURBE F] Qwen3-8B-Base 0.6|libre       : R par tranches de k (1 | 2–3 | 4–7 | 8–15 | 16–31 | 32–63 | 64–95) : +0.617 +0.445 +0.223 +0.130 +0.065 +0.051 +0.049
+3054.1s 51 [COURBE F] Qwen3-8B-Base 0.6|rejoué      : R par tranches de k (1 | 2–3 | 4–7 | 8–15 | 16–31 | 32–63 | 64–95) : +0.616 +0.362 +0.119 +0.064 +0.041 +0.028 +0.018
+3054.1s 52 [COURBE F] Qwen3-8B-Base 0.6|trajectoire : R par tranches de k (1 | 2–3 | 4–7 | 8–15 | 16–31 | 32–63 | 64–95) : +0.000 +0.083 +0.104 +0.066 +0.024 +0.023 +0.031
+3054.1s 53 [COURBE F] Qwen3-8B-Base 0.8|libre       : R par tranches de k (1 | 2–3 | 4–7 | 8–15 | 16–31 | 32–63 | 64–95) : +0.471 +0.350 +0.137 +0.082 +0.059 +0.035 +0.037
+3054.1s 54 [COURBE F] Qwen3-8B-Base 0.8|rejoué      : R par tranches de k (1 | 2–3 | 4–7 | 8–15 | 16–31 | 32–63 | 64–95) : +0.471 +0.324 +0.092 +0.049 +0.030 +0.019 +0.012
+3054.1s 55 [COURBE F] Qwen3-8B-Base 0.8|trajectoire : R par tranches de k (1 | 2–3 | 4–7 | 8–15 | 16–31 | 32–63 | 64–95) : -0.000 +0.026 +0.045 +0.032 +0.029 +0.017 +0.026
+3054.1s 56 [THÈSE] Qwen3-8B-Base rétroaction par la trajectoire : RÉFUTÉE
+3054.1s 57 [THÈSE] Qwen3-8B-Base suppression interne du jeton choqué : RÉFUTÉE
+3054.1s 58 [RÉPLICATION] Qwen3-8B-Base (les deux formes réfutées comme sur le 1.7B ?) : RÉPLIQUÉE
+3054.1s 59 [D] Qwen3-8B-Base T=0.6 effet direct sur l'entropie, choc fort (k=2–31) : +0.0791 IC95 [+0.0746 ; +0.0837] (1.7B : +0.0773) ; par tranches : +0.616 +0.362 +0.119 +0.064 +0.041 +0.028 +0.018
+3054.1s 60 [D] Qwen3-8B-Base T=0.6 effet direct sur l'entropie, choc doux (k=2–31) : +0.0583 IC95 [+0.0542 ; +0.0626] ; par tranches : +0.105 +0.235 +0.094 +0.049 +0.032 +0.022 +0.014
+3054.1s 61 [D] Qwen3-8B-Base T=0.8 effet direct sur l'entropie, choc fort (k=2–31) : +0.0630 IC95 [+0.0594 ; +0.0665] (1.7B : +0.0611) ; par tranches : +0.471 +0.324 +0.092 +0.049 +0.030 +0.019 +0.012
+3054.1s 62 [D] Qwen3-8B-Base T=0.8 effet direct sur l'entropie, choc doux (k=2–31) : +0.0432 IC95 [+0.0397 ; +0.0468] ; par tranches : +0.087 +0.200 +0.067 +0.038 +0.020 +0.013 +0.009
+3054.1s 63 [COURBE] Qwen3-8B-Base A 0.6|temoin   par tranches de k (1 | 2–3 | 4–7 | 8–15 | 16–31 | 32–63 | 64–95) : 0.05813 0.03862 0.01570 0.00775 0.00419 0.00244 0.00164
+3054.1s 64 [COURBE] Qwen3-8B-Base A 0.6|fort     par tranches de k (1 | 2–3 | 4–7 | 8–15 | 16–31 | 32–63 | 64–95) : 0.07512 0.05614 0.01775 0.00821 0.00458 0.00279 0.00197
+3054.1s 65 [COURBE] Qwen3-8B-Base A 0.6|doux     par tranches de k (1 | 2–3 | 4–7 | 8–15 | 16–31 | 32–63 | 64–95) : 0.05998 0.04698 0.01664 0.00775 0.00410 0.00234 0.00157
+3054.1s 66 [COURBE] Qwen3-8B-Base N 0.6|temoin   par tranches de k (1 | 2–3 | 4–7 | 8–15 | 16–31 | 32–63 | 64–95) : 11.48123 6.76652 2.18904 1.08607 0.60155 0.36884 0.25662
+3054.1s 67 [COURBE] Qwen3-8B-Base N 0.6|fort     par tranches de k (1 | 2–3 | 4–7 | 8–15 | 16–31 | 32–63 | 64–95) : 14.49660 9.14790 3.86268 2.58065 1.98037 1.52903 1.22515
+3054.1s 68 [COURBE] Qwen3-8B-Base N 0.6|doux     par tranches de k (1 | 2–3 | 4–7 | 8–15 | 16–31 | 32–63 | 64–95) : 11.98037 8.01137 2.40177 1.22339 0.73510 0.46034 0.33674
+3054.1s 69 [COURBE] Qwen3-8B-Base A 0.8|temoin   par tranches de k (1 | 2–3 | 4–7 | 8–15 | 16–31 | 32–63 | 64–95) : 0.06006 0.04014 0.01633 0.00792 0.00417 0.00234 0.00157
+3054.1s 70 [COURBE] Qwen3-8B-Base A 0.8|fort     par tranches de k (1 | 2–3 | 4–7 | 8–15 | 16–31 | 32–63 | 64–95) : 0.07367 0.05599 0.01764 0.00782 0.00412 0.00239 0.00165
+3054.1s 71 [COURBE] Qwen3-8B-Base A 0.8|doux     par tranches de k (1 | 2–3 | 4–7 | 8–15 | 16–31 | 32–63 | 64–95) : 0.06103 0.04841 0.01790 0.00829 0.00430 0.00244 0.00165
+3054.1s 72 [COURBE] Qwen3-8B-Base N 0.8|temoin   par tranches de k (1 | 2–3 | 4–7 | 8–15 | 16–31 | 32–63 | 64–95) : 11.82941 6.98628 2.22003 1.09476 0.61736 0.36325 0.25714
+3054.1s 73 [COURBE] Qwen3-8B-Base N 0.8|fort     par tranches de k (1 | 2–3 | 4–7 | 8–15 | 16–31 | 32–63 | 64–95) : 14.20899 8.85026 3.49338 2.20545 1.58615 1.15310 0.92041
+3054.1s 74 [COURBE] Qwen3-8B-Base N 0.8|doux     par tranches de k (1 | 2–3 | 4–7 | 8–15 | 16–31 | 32–63 | 64–95) : 11.83258 8.31768 2.48856 1.21892 0.69017 0.41579 0.28562
+3054.1s 75 [COUCHES] Qwen3-8B-Base A 0.6 ρ par couche, choc fort : 0.72 0.70 1.10 0.98 1.12 0.80 0.80 1.15 1.21 1.28 1.21 1.01 0.97 0.90 0.90 0.97 0.98 0.91 0.75 0.94 1.04 0.88 1.19 0.85 1.02 1.07 1.42 1.68 1.03 1.57 2.09 2.41 2.72 3.89 3.81 1.66
+3054.1s 76 [COUCHES] Qwen3-8B-Base A 0.6 ρ par couche, choc doux : 0.98 0.94 0.92 0.84 0.84 0.84 0.94 0.97 1.02 1.01 1.01 1.01 1.00 1.03 0.97 1.01 1.03 1.01 0.98 1.01 1.05 1.00 1.06 0.98 1.04 0.98 1.04 1.08 0.98 1.08 1.11 1.17 1.13 1.35 1.20 1.20
+3054.1s 77 [COUCHES] Qwen3-8B-Base N 0.6 ρ par couche, choc fort : 0.85 0.97 1.52 1.61 1.94 1.19 1.13 1.18 1.24 1.40 1.47 1.00 1.04 1.06 0.97 1.09 1.20 1.02 0.76 1.16 1.66 0.89 1.80 0.96 1.10 1.38 2.21 3.27 1.37 2.09 2.94 4.22 3.92 7.05 6.87 3.49
+3054.1s 78 [COUCHES] Qwen3-8B-Base N 0.6 ρ par couche, choc doux : 0.99 0.92 0.96 0.97 1.04 0.94 0.97 0.92 1.00 0.98 1.11 0.98 0.97 1.04 0.95 0.99 1.07 0.98 0.95 1.08 1.17 0.98 1.21 0.96 1.04 0.97 1.04 1.19 0.98 1.10 1.15 1.24 1.17 1.48 1.25 1.90
+3054.1s 79 [COUCHES] Qwen3-8B-Base A 0.8 ρ par couche, choc fort : 0.71 0.67 1.05 0.95 1.09 0.77 0.76 1.10 1.14 1.15 1.07 0.92 0.89 0.84 0.84 0.91 0.90 0.91 0.70 0.88 0.95 0.85 1.10 0.83 0.96 1.02 1.14 1.48 0.93 1.34 1.72 1.97 2.22 2.99 2.71 1.36
+3054.1s 80 [COUCHES] Qwen3-8B-Base A 0.8 ρ par couche, choc doux : 1.00 0.94 1.05 1.08 1.14 1.09 1.04 1.03 1.05 1.02 1.04 1.03 1.02 1.02 1.00 1.03 1.01 1.00 0.98 1.02 1.04 1.02 1.04 1.00 1.05 1.06 1.05 1.10 1.05 1.06 1.10 1.15 1.14 1.26 1.14 1.13
+3054.1s 81 [COUCHES] Qwen3-8B-Base N 0.8 ρ par couche, choc fort : 0.82 1.01 1.44 1.54 1.77 1.13 1.05 1.10 1.13 1.18 1.31 0.90 0.95 0.93 0.85 0.95 1.09 0.98 0.67 1.10 1.38 0.86 1.56 0.92 1.06 1.28 1.61 2.78 1.27 1.81 2.42 3.21 3.15 5.46 5.04 2.32
+3054.1s 82 [COUCHES] Qwen3-8B-Base N 0.8 ρ par couche, choc doux : 1.02 0.99 1.04 1.04 1.07 0.97 0.97 0.98 1.04 0.99 1.12 1.01 1.00 1.01 0.98 1.01 1.06 1.01 0.96 1.08 1.10 1.02 1.15 0.97 1.04 1.07 1.01 1.16 1.02 1.03 1.13 1.11 1.16 1.30 1.17 1.43
+3054.1s 83 [TÊTES] Qwen3-8B-Base T=0.6 part des têtes avec ρ < 0,8 : fort 38.1%, doux 6.3% ; ρ > 1,25 : fort 31.6%, doux 12.1%
+3054.1s 84 [TÊTES] Qwen3-8B-Base T=0.6 couche  3 tête  5 : ρ fort 0.01, ρ doux 0.37, attention du témoin 0.0046
+3054.1s 85 [TÊTES] Qwen3-8B-Base T=0.6 couche  7 tête  7 : ρ fort 0.02, ρ doux 0.46, attention du témoin 0.0001
+3054.1s 86 [TÊTES] Qwen3-8B-Base T=0.6 couche  3 tête  6 : ρ fort 0.02, ρ doux 0.45, attention du témoin 0.0050
+3054.1s 87 [TÊTES] Qwen3-8B-Base T=0.6 couche  3 tête 12 : ρ fort 0.02, ρ doux 0.36, attention du témoin 0.0040
+3054.1s 88 [TÊTES] Qwen3-8B-Base T=0.6 couche  3 tête 30 : ρ fort 0.03, ρ doux 0.44, attention du témoin 0.0053
+3054.1s 89 [TÊTES] Qwen3-8B-Base T=0.6 couche 34 tête  4 : ρ fort 14.06, ρ doux 1.76, attention du témoin 0.0010
+3054.1s 90 [TÊTES] Qwen3-8B-Base T=0.6 couche 30 tête 23 : ρ fort 15.39, ρ doux 2.12, attention du témoin 0.0013
+3054.1s 91 [TÊTES] Qwen3-8B-Base T=0.6 couche 34 tête  1 : ρ fort 15.49, ρ doux 1.53, attention du témoin 0.0012
+3054.1s 92 [TÊTES] Qwen3-8B-Base T=0.6 couche 34 tête  7 : ρ fort 15.78, ρ doux 1.88, attention du témoin 0.0017
+3054.1s 93 [TÊTES] Qwen3-8B-Base T=0.6 couche 27 tête 23 : ρ fort 20.76, ρ doux 3.35, attention du témoin 0.0021
+3054.1s 94 [TÊTES] Qwen3-8B-Base T=0.8 part des têtes avec ρ < 0,8 : fort 39.9%, doux 1.3% ; ρ > 1,25 : fort 26.6%, doux 10.2%
+3054.1s 95 [TÊTES] Qwen3-8B-Base T=0.8 couche  3 tête  5 : ρ fort 0.01, ρ doux 1.27, attention du témoin 0.0039
+3054.1s 96 [TÊTES] Qwen3-8B-Base T=0.8 couche  3 tête  6 : ρ fort 0.02, ρ doux 1.05, attention du témoin 0.0049
+3054.1s 97 [TÊTES] Qwen3-8B-Base T=0.8 couche  7 tête  7 : ρ fort 0.02, ρ doux 0.16, attention du témoin 0.0001
+3054.1s 98 [TÊTES] Qwen3-8B-Base T=0.8 couche  3 tête 12 : ρ fort 0.02, ρ doux 1.36, attention du témoin 0.0035
+3054.1s 99 [TÊTES] Qwen3-8B-Base T=0.8 couche  3 tête 30 : ρ fort 0.03, ρ doux 1.16, attention du témoin 0.0051
+3054.1s 100 [TÊTES] Qwen3-8B-Base T=0.8 couche 13 tête 12 : ρ fort 7.66, ρ doux 3.54, attention du témoin 0.0000
+3054.1s 101 [TÊTES] Qwen3-8B-Base T=0.8 couche 33 tête  2 : ρ fort 7.71, ρ doux 2.10, attention du témoin 0.0004
+3054.1s 102 [TÊTES] Qwen3-8B-Base T=0.8 couche 34 tête  1 : ρ fort 8.05, ρ doux 1.39, attention du témoin 0.0017
+3054.1s 103 [TÊTES] Qwen3-8B-Base T=0.8 couche 30 tête 23 : ρ fort 8.36, ρ doux 1.46, attention du témoin 0.0021
+3054.1s 104 [TÊTES] Qwen3-8B-Base T=0.8 couche 27 tête 23 : ρ fort 14.25, ρ doux 2.14, attention du témoin 0.0025
+3054.1s 105 [EXTRAIT] Qwen3-8B-Base T=0.8 prompt 0 jetons au pas t0 : témoin ' de', fort ' auss', doux ' d'
+3054.1s 106 [EXTRAIT] Qwen3-8B-Base T=0.8 prompt 64 jetons au pas t0 : témoin ' Ter', fort ' Muhammad', doux ' terre'
+3055.3s 107 [DURÉE] Qwen3-8B-Base : 50.4 min
+3055.8s 108 
+3055.8s 109 ====================================================================================================
+3055.8s 110 [SYNTHÈSE] Qwen3-1.7B-Base (A1c, A1d) : trajectoire RÉFUTÉE (AMPLIFICATION), suppression interne RÉFUTÉE
+3055.8s 111 [SYNTHÈSE] Qwen3-8B-Base : trajectoire RÉFUTÉE (T=0.6 AMPLIFICATION I/D +0.63, T=0.8 AMPLIFICATION I/D +0.51) ; suppression interne RÉFUTÉE (T=0.6 ρ_A 1.08 ρ_N 2.86, T=0.8 ρ_A 0.99 ρ_N 2.31) ; réplication RÉPLIQUÉE
+3055.8s 112 [SORTIE] fichiers dans /kaggle/working/sgz_a1e : ['Qwen3-8B-Base_a1e.npz', 'resume_a1e.json']
+3062.4s 113 /usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\|'
+3062.4s 114 cells[i][c] = re.sub('\\\\\|', '|', cell)
+3062.5s 115 /usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\_'
+3062.5s 116 text = re.sub(r'_', '\_', text) # Escape underscores in display text
+3063.4s 117 [NbConvertApp] Converting notebook __notebook__.ipynb to notebook
+3063.5s 118 [NbConvertApp] Writing 201116 bytes to __notebook__.ipynb
+3065.8s 119 [NbConvertApp] Converting notebook __notebook__.ipynb to html
+3066.6s 120 [NbConvertApp] Writing 645166 bytes to __results__.html
