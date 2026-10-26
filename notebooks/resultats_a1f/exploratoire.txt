@@ -1,0 +1,16 @@
+A1f (26 oct. 2026, 68 min). Verdicts pré-enregistrés (critères de A1e).
+Runs valides : témoins positifs réussis ; rejoué contre généré 1,1e-3 à 1,3e-3 en moyenne (Qwen3-4B, T = 0,6 : un écart
+maximal isolé de 0,60, sous le seuil d'arrêt qui porte sur la moyenne) ; calcul de N cohérent. Pas de repli en fp32.
+
+Qwen3-4B (instruct, texte brut) : F AMPLIFICATION aux deux T (I/D = +0,55 et +0,47 ; base : +0,51 et +0,56) ;
+A ÉQUIVALENT (1,13 et 1,04) ; N SAILLANCE (2,11 et 1,92 ; base : 2,70 et 2,42). RÉPLIQUÉE.
+Différence descriptive avec la base : effet direct D plus petit (+0,051 et +0,049 contre +0,075 et +0,065, −32 % et −24 %),
+amplification relative inchangée.
+
+SmolLM3-3B-Base (autre famille) : F AMPLIFICATION (I/D = +0,56 et +0,49) ; A SAILLANCE (1,45 et 1,29) ; N SAILLANCE
+(1,97 et 1,73). RÉPLIQUÉE. Moins de têtes qui ignorent le jeton choqué (15–18 % contre 34–40 % chez Qwen), plus de têtes
+qui le lisent davantage (42–51 %).
+
+Bilan sur 5 modèles (Qwen3 base 1.7B, 4B, 8B ; Qwen3-4B instruct ; SmolLM3-3B-Base) : AMPLIFICATION par la trajectoire et
+absence de suppression partout ; I/D de +0,34 à +0,63.
+Prédictions de l'assistant : RÉPLIQUÉE (40 % et 45 %), AMPLIFICATION (45 % et 55 %), suppression réfutée (65 %) justes.

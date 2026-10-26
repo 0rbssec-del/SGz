@@ -1,0 +1,208 @@
+6.2s 1 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+6.2s 2 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+6.2s 3 0.00s - to python to disable frozen modules.
+6.2s 4 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+6.7s 5 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+6.7s 6 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+6.7s 7 0.00s - to python to disable frozen modules.
+6.7s 8 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+23.7s 9 [CONFIG] SMOKE_TEST=False DEVICE=cuda N_GPU=2 OUT=/kaggle/working/sgz_a1f
+23.7s 10 [CONFIG] T=[0.6, 0.8] prompts=768 longueur=160 t0=64 fenêtre k=8–31 marge ±20% ; modèles=['Qwen3-4B', 'SmolLM3-3B-Base']
+23.7s 11 [CONFIG] torch 2.11.0+cu128, transformers 5.16.1
+23.8s 12 [PROMPTS] 768 prompts (64 écrits à la main, 704 gabarits), identiques à A1c
+23.8s 13 [TÉMOIN POSITIF] suppression (×0,5)   : SUPPRESSION  (attendu SUPPRESSION)
+23.8s 14 [TÉMOIN POSITIF] équivalent (×1,0)    : ÉQUIVALENT   (attendu ÉQUIVALENT)
+23.8s 15 [TÉMOIN POSITIF] saillance (×1,6)     : SAILLANCE    (attendu SAILLANCE)
+23.8s 16 [TÉMOIN POSITIF] F compensation       : COMPENSATION (attendu COMPENSATION)
+23.8s 17 [TÉMOIN POSITIF] F équivalent         : ÉQUIVALENT   (attendu ÉQUIVALENT)
+23.8s 18 [TÉMOIN POSITIF] F amplification      : AMPLIFICATION (attendu AMPLIFICATION)
+23.8s 19 [TÉMOIN POSITIF] F effet direct nul   : NON TESTABLE (effet direct absent) (attendu NON TESTABLE (effet direct absent))
+23.8s 20 [TÉMOIN POSITIF] RÉUSSI
+24.0s 21 [CHARGEMENT] Qwen3-4B : téléchargement / chargement de Qwen/Qwen3-4B…
+31.9s 22 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+31.9s 23 
+31.9s 24 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+80.3s 25 [CHARGEMENT] Qwen3-4B : Qwen/Qwen3-4B en fp16 1 GPU
+80.3s 26 [CONFIG] attention pendant la génération : sdpa
+95.9s 27 [PROGRESSION] Qwen3-4B : premier lot en 15.7 s ; estimation ~25 min (génération)
+898.7s 28 [VÉRIF] Qwen3-4B T=0.6 : identique avant t0 : True ; jeton changé à t0 : fort 100%, doux 100% ; rang médian du choc fort 3103
+898.7s 29 [MESURE] Qwen3-4B T=0.6 : 819 s
+1724.5s 30 [VÉRIF] Qwen3-4B T=0.8 : identique avant t0 : True ; jeton changé à t0 : fort 100%, doux 100% ; rang médian du choc fort 3103
+1724.5s 31 [MESURE] Qwen3-4B T=0.8 : 826 s
+1724.7s 32 [CONFIG] attention pendant les passes rejouées : eager
+2082.3s 33 [VÉRIF] Qwen3-4B T=0.6 rejoué (eager) contre généré : témoin écart moyen 1.2e-03, max 6.0e-01 ; choc à k=1 2.1e-03 ; calcul de N (Gram contre somme directe) écart relatif 1.3e-06
+2082.3s 34 [MESURE] Qwen3-4B T=0.6 passes rejouées : 358 s
+2439.7s 35 [VÉRIF] Qwen3-4B T=0.8 rejoué (eager) contre généré : témoin écart moyen 1.3e-03, max 5.4e-02 ; choc à k=1 2.0e-03 ; calcul de N (Gram contre somme directe) écart relatif 1.3e-06
+2439.7s 36 [MESURE] Qwen3-4B T=0.8 passes rejouées : 357 s
+2440.2s 37 
+2440.2s 38 ====================================================================================================
+2440.2s 39 [RÉSULTATS] Qwen3-4B
+2440.2s 40 [A] Qwen3-4B T=0.6 choc fort (attention, k=8–31) : ÉQUIVALENT   ρ = 1.126 IC95 [1.067 ; 1.191] (1.7B base : 1.21 ; 4B base : 1.08)
+2440.2s 41 [A] Qwen3-4B T=0.6 choc doux (attention, k=8–31) : ÉQUIVALENT   ρ = 1.040 IC95 [0.990 ; 1.095]
+2440.2s 42 [A] Qwen3-4B T=0.8 choc fort (attention, k=8–31) : ÉQUIVALENT   ρ = 1.036 IC95 [0.982 ; 1.099] (1.7B base : 1.12 ; 4B base : 1.04)
+2440.2s 43 [A] Qwen3-4B T=0.8 choc doux (attention, k=8–31) : ÉQUIVALENT   ρ = 1.054 IC95 [0.980 ; 1.131]
+2440.2s 44 [N] Qwen3-4B T=0.6 choc fort (contribution ‖αWv‖, k=8–31) : SAILLANCE    ρ = 2.113 IC95 [2.000 ; 2.231] (1.7B base : 2.88 ; 4B base : 2.70)
+2440.2s 45 [N] Qwen3-4B T=0.6 choc doux (contribution ‖αWv‖, k=8–31) : SAILLANCE    ρ = 1.163 IC95 [1.110 ; 1.213]
+2440.2s 46 [N] Qwen3-4B T=0.8 choc fort (contribution ‖αWv‖, k=8–31) : SAILLANCE    ρ = 1.921 IC95 [1.817 ; 2.028] (1.7B base : 2.44 ; 4B base : 2.42)
+2440.2s 47 [N] Qwen3-4B T=0.8 choc doux (contribution ‖αWv‖, k=8–31) : ÉQUIVALENT   ρ = 1.133 IC95 [1.077 ; 1.190]
+2440.2s 48 [F] Qwen3-4B T=0.6 : AMPLIFICATION  effet direct D(k=2–31) = +0.0510 IC95 [+0.0473 ; +0.0546] ; trajectoire I = +0.0280 IC95 [+0.0154 ; +0.0401] ; marge ±0.0153 ; I/D = +0.55 (1.7B base : +0.47 ; 4B base : +0.51)
+2440.2s 49 [F] Qwen3-4B T=0.8 : AMPLIFICATION  effet direct D(k=2–31) = +0.0494 IC95 [+0.0457 ; +0.0529] ; trajectoire I = +0.0230 IC95 [+0.0100 ; +0.0365] ; marge ±0.0148 ; I/D = +0.47 (1.7B base : +0.34 ; 4B base : +0.56)
+2440.2s 50 [COURBE F] Qwen3-4B 0.6|libre       : R par tranches de k (1 | 2–3 | 4–7 | 8–15 | 16–31 | 32–63 | 64–95) : +0.473 +0.381 +0.129 +0.084 +0.026 +0.021 +0.009
+2440.2s 51 [COURBE F] Qwen3-4B 0.6|rejoué      : R par tranches de k (1 | 2–3 | 4–7 | 8–15 | 16–31 | 32–63 | 64–95) : +0.473 +0.252 +0.073 +0.042 +0.025 +0.015 +0.010
+2440.2s 52 [COURBE F] Qwen3-4B 0.6|trajectoire : R par tranches de k (1 | 2–3 | 4–7 | 8–15 | 16–31 | 32–63 | 64–95) : +0.000 +0.130 +0.055 +0.041 +0.002 +0.006 -0.001
+2440.2s 53 [COURBE F] Qwen3-4B 0.8|libre       : R par tranches de k (1 | 2–3 | 4–7 | 8–15 | 16–31 | 32–63 | 64–95) : +0.445 +0.303 +0.140 +0.054 +0.036 +0.006 +0.016
+2440.2s 54 [COURBE F] Qwen3-4B 0.8|rejoué      : R par tranches de k (1 | 2–3 | 4–7 | 8–15 | 16–31 | 32–63 | 64–95) : +0.445 +0.236 +0.081 +0.038 +0.024 +0.015 +0.009
+2440.2s 55 [COURBE F] Qwen3-4B 0.8|trajectoire : R par tranches de k (1 | 2–3 | 4–7 | 8–15 | 16–31 | 32–63 | 64–95) : -0.000 +0.067 +0.059 +0.015 +0.012 -0.009 +0.007
+2440.2s 56 [THÈSE] Qwen3-4B rétroaction par la trajectoire : RÉFUTÉE
+2440.2s 57 [THÈSE] Qwen3-4B suppression interne du jeton choqué : RÉFUTÉE
+2440.2s 58 [RÉPLICATION] Qwen3-4B (les deux formes réfutées comme sur le 1.7B ?) : RÉPLIQUÉE
+2440.2s 59 [D] Qwen3-4B T=0.6 effet direct sur l'entropie, choc fort (k=2–31) : +0.0510 IC95 [+0.0473 ; +0.0546] (1.7B base : +0.0773 ; 4B base : +0.0753) ; par tranches : +0.473 +0.252 +0.073 +0.042 +0.025 +0.015 +0.010
+2440.2s 60 [D] Qwen3-4B T=0.6 effet direct sur l'entropie, choc doux (k=2–31) : +0.0407 IC95 [+0.0372 ; +0.0441] ; par tranches : +0.028 +0.158 +0.057 +0.037 +0.024 +0.017 +0.012
+2440.2s 61 [D] Qwen3-4B T=0.8 effet direct sur l'entropie, choc fort (k=2–31) : +0.0494 IC95 [+0.0457 ; +0.0529] (1.7B base : +0.0611 ; 4B base : +0.0646) ; par tranches : +0.445 +0.236 +0.081 +0.038 +0.024 +0.015 +0.009
+2440.2s 62 [D] Qwen3-4B T=0.8 effet direct sur l'entropie, choc doux (k=2–31) : +0.0380 IC95 [+0.0351 ; +0.0410] ; par tranches : +0.070 +0.159 +0.063 +0.030 +0.021 +0.014 +0.009
+2440.2s 63 [COURBE] Qwen3-4B A 0.6|temoin   par tranches de k (1 | 2–3 | 4–7 | 8–15 | 16–31 | 32–63 | 64–95) : 0.06147 0.03359 0.01382 0.00692 0.00400 0.00232 0.00163
+2440.2s 64 [COURBE] Qwen3-4B A 0.6|fort     par tranches de k (1 | 2–3 | 4–7 | 8–15 | 16–31 | 32–63 | 64–95) : 0.08354 0.05149 0.01635 0.00774 0.00453 0.00274 0.00194
+2440.2s 65 [COURBE] Qwen3-4B A 0.6|doux     par tranches de k (1 | 2–3 | 4–7 | 8–15 | 16–31 | 32–63 | 64–95) : 0.06511 0.04242 0.01530 0.00724 0.00414 0.00236 0.00163
+2440.2s 66 [COURBE] Qwen3-4B N 0.6|temoin   par tranches de k (1 | 2–3 | 4–7 | 8–15 | 16–31 | 32–63 | 64–95) : 8.07080 3.49660 1.13037 0.55266 0.33233 0.19886 0.14331
+2440.2s 67 [COURBE] Qwen3-4B N 0.6|fort     par tranches de k (1 | 2–3 | 4–7 | 8–15 | 16–31 | 32–63 | 64–95) : 9.45421 4.47653 1.73060 1.04356 0.76430 0.54948 0.42534
+2440.2s 68 [COURBE] Qwen3-4B N 0.6|doux     par tranches de k (1 | 2–3 | 4–7 | 8–15 | 16–31 | 32–63 | 64–95) : 8.35046 4.19800 1.29835 0.62946 0.39329 0.24279 0.17888
+2440.2s 69 [COURBE] Qwen3-4B A 0.8|temoin   par tranches de k (1 | 2–3 | 4–7 | 8–15 | 16–31 | 32–63 | 64–95) : 0.06313 0.03460 0.01413 0.00735 0.00416 0.00243 0.00170
+2440.2s 70 [COURBE] Qwen3-4B A 0.8|fort     par tranches de k (1 | 2–3 | 4–7 | 8–15 | 16–31 | 32–63 | 64–95) : 0.08267 0.05162 0.01621 0.00761 0.00431 0.00256 0.00178
+2440.2s 71 [COURBE] Qwen3-4B A 0.8|doux     par tranches de k (1 | 2–3 | 4–7 | 8–15 | 16–31 | 32–63 | 64–95) : 0.06603 0.04276 0.01548 0.00776 0.00438 0.00259 0.00184
+2440.2s 72 [COURBE] Qwen3-4B N 0.8|temoin   par tranches de k (1 | 2–3 | 4–7 | 8–15 | 16–31 | 32–63 | 64–95) : 8.26153 3.61706 1.13706 0.58331 0.33883 0.20160 0.14469
+2440.2s 73 [COURBE] Qwen3-4B N 0.8|fort     par tranches de k (1 | 2–3 | 4–7 | 8–15 | 16–31 | 32–63 | 64–95) : 9.44657 4.52798 1.69003 1.01054 0.70581 0.49254 0.38362
+2440.2s 74 [COURBE] Qwen3-4B N 0.8|doux     par tranches de k (1 | 2–3 | 4–7 | 8–15 | 16–31 | 32–63 | 64–95) : 8.41263 4.23569 1.28700 0.65234 0.38807 0.23677 0.17702
+2440.2s 75 [COUCHES] Qwen3-4B A 0.6 ρ par couche, choc fort : 0.65 0.77 1.46 1.30 1.46 0.95 0.94 1.28 1.25 1.21 1.21 1.02 0.97 0.93 0.94 1.07 1.10 1.11 0.91 1.16 1.05 0.94 1.27 0.88 1.08 0.95 1.04 1.48 0.84 1.08 1.80 1.82 2.67 2.55 3.61 1.46
+2440.2s 76 [COUCHES] Qwen3-4B A 0.6 ρ par couche, choc doux : 0.92 0.90 1.05 1.06 1.05 0.98 1.02 1.04 1.10 1.05 1.07 1.06 1.06 1.06 1.03 1.06 1.05 1.05 1.02 1.08 1.08 1.01 1.09 1.01 1.09 1.03 1.06 1.14 1.02 1.06 1.12 1.12 1.16 1.29 1.25 1.11
+2440.2s 77 [COUCHES] Qwen3-4B N 0.6 ρ par couche, choc fort : 0.76 1.20 1.80 1.91 2.20 1.19 1.26 1.28 1.22 1.12 1.28 0.96 1.02 1.03 0.93 1.11 1.17 1.15 0.86 1.38 1.37 0.90 1.78 0.87 1.19 1.05 1.30 2.57 0.96 1.22 2.16 2.55 3.38 4.29 6.04 2.14
+2440.2s 78 [COUCHES] Qwen3-4B N 0.6 ρ par couche, choc doux : 0.96 1.04 1.11 1.12 1.16 1.02 1.08 1.05 1.09 1.03 1.13 1.02 1.04 1.10 1.01 1.05 1.07 1.04 1.02 1.15 1.15 1.01 1.24 1.00 1.13 1.03 1.07 1.27 1.05 1.07 1.14 1.22 1.22 1.50 1.33 1.37
+2440.2s 79 [COUCHES] Qwen3-4B A 0.8 ρ par couche, choc fort : 0.67 0.75 1.36 1.14 1.25 0.85 0.87 1.22 1.16 1.12 1.12 0.95 0.94 0.87 0.89 0.97 1.03 1.03 0.80 1.05 0.94 0.85 1.16 0.82 0.99 0.88 0.92 1.35 0.77 1.01 1.60 1.61 2.33 2.23 3.04 1.40
+2440.2s 80 [COUCHES] Qwen3-4B A 0.8 ρ par couche, choc doux : 0.99 1.07 1.18 1.21 1.23 1.12 1.10 1.08 1.03 1.01 1.04 1.03 1.04 1.00 1.00 1.02 1.01 1.02 0.96 1.03 1.00 0.98 1.06 0.97 1.01 1.00 0.96 1.07 0.97 1.03 1.08 1.11 1.22 1.26 1.28 1.15
+2440.2s 81 [COUCHES] Qwen3-4B N 0.8 ρ par couche, choc fort : 0.78 1.15 1.76 1.74 2.01 1.15 1.18 1.20 1.12 1.04 1.17 0.88 0.99 0.96 0.86 0.97 1.09 1.06 0.76 1.26 1.21 0.83 1.61 0.81 1.09 1.02 1.15 2.43 0.91 1.18 2.05 2.38 3.21 3.73 5.20 2.01
+2440.2s 82 [COUCHES] Qwen3-4B N 0.8 ρ par couche, choc doux : 1.02 1.10 1.14 1.07 1.18 1.02 1.05 1.07 1.01 0.97 1.07 0.97 1.01 1.01 0.97 1.00 1.00 1.00 0.93 1.08 1.04 0.95 1.17 0.96 1.02 1.02 0.97 1.22 0.98 1.04 1.11 1.18 1.32 1.43 1.39 1.44
+2440.2s 83 [TÊTES] Qwen3-4B T=0.6 part des têtes avec ρ < 0,8 : fort 35.1%, doux 3.0% ; ρ > 1,25 : fort 32.3%, doux 13.5%
+2440.2s 84 [TÊTES] Qwen3-4B T=0.6 couche  3 tête  6 : ρ fort 0.02, ρ doux 0.79, attention du témoin 0.0034
+2440.2s 85 [TÊTES] Qwen3-4B T=0.6 couche  7 tête  7 : ρ fort 0.02, ρ doux 0.67, attention du témoin 0.0002
+2440.2s 86 [TÊTES] Qwen3-4B T=0.6 couche  3 tête  5 : ρ fort 0.02, ρ doux 0.87, attention du témoin 0.0027
+2440.2s 87 [TÊTES] Qwen3-4B T=0.6 couche  1 tête 28 : ρ fort 0.04, ρ doux 0.66, attention du témoin 0.0059
+2440.2s 88 [TÊTES] Qwen3-4B T=0.6 couche  7 tête  4 : ρ fort 0.06, ρ doux 0.69, attention du témoin 0.0000
+2440.2s 89 [TÊTES] Qwen3-4B T=0.6 couche 33 tête  2 : ρ fort 11.89, ρ doux 2.63, attention du témoin 0.0004
+2440.2s 90 [TÊTES] Qwen3-4B T=0.6 couche 30 tête 23 : ρ fort 11.96, ρ doux 2.02, attention du témoin 0.0014
+2440.2s 91 [TÊTES] Qwen3-4B T=0.6 couche 32 tête 16 : ρ fort 12.30, ρ doux 1.66, attention du témoin 0.0015
+2440.2s 92 [TÊTES] Qwen3-4B T=0.6 couche 34 tête  4 : ρ fort 16.65, ρ doux 1.86, attention du témoin 0.0013
+2440.2s 93 [TÊTES] Qwen3-4B T=0.6 couche 27 tête 23 : ρ fort 21.11, ρ doux 3.84, attention du témoin 0.0015
+2440.2s 94 [TÊTES] Qwen3-4B T=0.8 part des têtes avec ρ < 0,8 : fort 39.6%, doux 2.0% ; ρ > 1,25 : fort 26.6%, doux 13.5%
+2440.2s 95 [TÊTES] Qwen3-4B T=0.8 couche  3 tête  6 : ρ fort 0.02, ρ doux 0.98, attention du témoin 0.0042
+2440.2s 96 [TÊTES] Qwen3-4B T=0.8 couche  3 tête  5 : ρ fort 0.02, ρ doux 1.35, attention du témoin 0.0035
+2440.2s 97 [TÊTES] Qwen3-4B T=0.8 couche  7 tête  7 : ρ fort 0.02, ρ doux 1.00, attention du témoin 0.0001
+2440.2s 98 [TÊTES] Qwen3-4B T=0.8 couche  3 tête 12 : ρ fort 0.04, ρ doux 1.32, attention du témoin 0.0036
+2440.2s 99 [TÊTES] Qwen3-4B T=0.8 couche  3 tête 30 : ρ fort 0.05, ρ doux 1.33, attention du témoin 0.0040
+2440.2s 100 [TÊTES] Qwen3-4B T=0.8 couche 32 tête 16 : ρ fort 9.26, ρ doux 2.05, attention du témoin 0.0017
+2440.2s 101 [TÊTES] Qwen3-4B T=0.8 couche 33 tête  2 : ρ fort 9.69, ρ doux 3.12, attention du témoin 0.0005
+2440.2s 102 [TÊTES] Qwen3-4B T=0.8 couche 30 tête 23 : ρ fort 10.85, ρ doux 2.58, attention du témoin 0.0015
+2440.2s 103 [TÊTES] Qwen3-4B T=0.8 couche 34 tête  4 : ρ fort 14.23, ρ doux 2.77, attention du témoin 0.0014
+2440.2s 104 [TÊTES] Qwen3-4B T=0.8 couche 27 tête 23 : ρ fort 20.26, ρ doux 4.04, attention du témoin 0.0014
+2440.2s 105 [EXTRAIT] Qwen3-4B T=0.8 prompt 0 jetons au pas t0 : témoin ',', fort ' Old', doux ' et'
+2440.2s 106 [EXTRAIT] Qwen3-4B T=0.8 prompt 64 jetons au pas t0 : témoin 'les', fort "';\n", doux 'LES'
+2441.3s 107 [DURÉE] Qwen3-4B : 40.3 min
+2441.8s 108 [CHARGEMENT] SmolLM3-3B-Base : téléchargement / chargement de HuggingFaceTB/SmolLM3-3B-Base…
+2471.4s 109 [CHARGEMENT] SmolLM3-3B-Base : HuggingFaceTB/SmolLM3-3B-Base en fp16 1 GPU
+2471.4s 110 [CONFIG] attention pendant la génération : sdpa
+2482.9s 111 [PROGRESSION] SmolLM3-3B-Base : premier lot en 11.7 s ; estimation ~19 min (génération)
+3042.7s 112 [VÉRIF] SmolLM3-3B-Base T=0.6 : identique avant t0 : True ; jeton changé à t0 : fort 100%, doux 100% ; rang médian du choc fort 3103
+3042.7s 113 [MESURE] SmolLM3-3B-Base T=0.6 : 571 s
+3613.1s 114 [VÉRIF] SmolLM3-3B-Base T=0.8 : identique avant t0 : True ; jeton changé à t0 : fort 100%, doux 100% ; rang médian du choc fort 3103
+3613.1s 115 [MESURE] SmolLM3-3B-Base T=0.8 : 570 s
+3613.3s 116 [CONFIG] attention pendant les passes rejouées : eager
+3859.4s 117 [VÉRIF] SmolLM3-3B-Base T=0.6 rejoué (eager) contre généré : témoin écart moyen 1.1e-03, max 1.8e-02 ; choc à k=1 1.6e-03 ; calcul de N (Gram contre somme directe) écart relatif 2.1e-07
+3859.4s 118 [MESURE] SmolLM3-3B-Base T=0.6 passes rejouées : 246 s
+4105.7s 119 [VÉRIF] SmolLM3-3B-Base T=0.8 rejoué (eager) contre généré : témoin écart moyen 1.2e-03, max 2.2e-02 ; choc à k=1 1.7e-03 ; calcul de N (Gram contre somme directe) écart relatif 2.1e-07
+4105.7s 120 [MESURE] SmolLM3-3B-Base T=0.8 passes rejouées : 246 s
+4105.9s 121 [transformers] Ignoring clean_up_tokenization_spaces=True for BPE tokenizer TokenizersBackend. The clean_up_tokenization post-processing step is designed for WordPiece tokenizers and is destructive for BPE (it strips spaces before punctuation). Set clean_up_tokenization_spaces=False to suppress this warning, or set clean_up_tokenization_spaces_for_bpe_even_though_it_will_corrupt_output=True to force cleanup anyway.
+4105.9s 122 
+4105.9s 123 [transformers] Ignoring clean_up_tokenization_spaces=True for BPE tokenizer TokenizersBackend. The clean_up_tokenization post-processing step is designed for WordPiece tokenizers and is destructive for BPE (it strips spaces before punctuation). Set clean_up_tokenization_spaces=False to suppress this warning, or set clean_up_tokenization_spaces_for_bpe_even_though_it_will_corrupt_output=True to force cleanup anyway.
+4106.1s 124 
+4106.1s 125 ====================================================================================================
+4106.1s 126 [RÉSULTATS] SmolLM3-3B-Base
+4106.1s 127 [A] SmolLM3-3B-Base T=0.6 choc fort (attention, k=8–31) : SAILLANCE    ρ = 1.451 IC95 [1.376 ; 1.531] (1.7B base : 1.21 ; 4B base : 1.08)
+4106.1s 128 [A] SmolLM3-3B-Base T=0.6 choc doux (attention, k=8–31) : ÉQUIVALENT   ρ = 1.091 IC95 [1.043 ; 1.138]
+4106.1s 129 [A] SmolLM3-3B-Base T=0.8 choc fort (attention, k=8–31) : SAILLANCE    ρ = 1.287 IC95 [1.219 ; 1.358] (1.7B base : 1.12 ; 4B base : 1.04)
+4106.1s 130 [A] SmolLM3-3B-Base T=0.8 choc doux (attention, k=8–31) : ÉQUIVALENT   ρ = 1.073 IC95 [1.024 ; 1.127]
+4106.1s 131 [N] SmolLM3-3B-Base T=0.6 choc fort (contribution ‖αWv‖, k=8–31) : SAILLANCE    ρ = 1.971 IC95 [1.853 ; 2.092] (1.7B base : 2.88 ; 4B base : 2.70)
+4106.1s 132 [N] SmolLM3-3B-Base T=0.6 choc doux (contribution ‖αWv‖, k=8–31) : ÉQUIVALENT   ρ = 1.115 IC95 [1.058 ; 1.174]
+4106.1s 133 [N] SmolLM3-3B-Base T=0.8 choc fort (contribution ‖αWv‖, k=8–31) : SAILLANCE    ρ = 1.727 IC95 [1.625 ; 1.830] (1.7B base : 2.44 ; 4B base : 2.42)
+4106.1s 134 [N] SmolLM3-3B-Base T=0.8 choc doux (contribution ‖αWv‖, k=8–31) : ÉQUIVALENT   ρ = 1.078 IC95 [1.019 ; 1.138]
+4106.1s 135 [F] SmolLM3-3B-Base T=0.6 : AMPLIFICATION  effet direct D(k=2–31) = +0.0751 IC95 [+0.0707 ; +0.0795] ; trajectoire I = +0.0424 IC95 [+0.0274 ; +0.0571] ; marge ±0.0225 ; I/D = +0.56 (1.7B base : +0.47 ; 4B base : +0.51)
+4106.1s 136 [F] SmolLM3-3B-Base T=0.8 : AMPLIFICATION  effet direct D(k=2–31) = +0.0576 IC95 [+0.0546 ; +0.0607] ; trajectoire I = +0.0283 IC95 [+0.0138 ; +0.0429] ; marge ±0.0173 ; I/D = +0.49 (1.7B base : +0.34 ; 4B base : +0.56)
+4106.1s 137 [COURBE F] SmolLM3-3B-Base 0.6|libre       : R par tranches de k (1 | 2–3 | 4–7 | 8–15 | 16–31 | 32–63 | 64–95) : +0.571 +0.405 +0.178 +0.104 +0.073 +0.059 +0.048
+4106.1s 138 [COURBE F] SmolLM3-3B-Base 0.6|rejoué      : R par tranches de k (1 | 2–3 | 4–7 | 8–15 | 16–31 | 32–63 | 64–95) : +0.571 +0.333 +0.111 +0.059 +0.042 +0.029 +0.021
+4106.1s 139 [COURBE F] SmolLM3-3B-Base 0.6|trajectoire : R par tranches de k (1 | 2–3 | 4–7 | 8–15 | 16–31 | 32–63 | 64–95) : -0.000 +0.072 +0.066 +0.045 +0.031 +0.030 +0.027
+4106.1s 140 [COURBE F] SmolLM3-3B-Base 0.8|libre       : R par tranches de k (1 | 2–3 | 4–7 | 8–15 | 16–31 | 32–63 | 64–95) : +0.367 +0.323 +0.132 +0.063 +0.056 +0.040 +0.033
+4106.1s 141 [COURBE F] SmolLM3-3B-Base 0.8|rejoué      : R par tranches de k (1 | 2–3 | 4–7 | 8–15 | 16–31 | 32–63 | 64–95) : +0.367 +0.282 +0.084 +0.045 +0.029 +0.019 +0.013
+4106.1s 142 [COURBE F] SmolLM3-3B-Base 0.8|trajectoire : R par tranches de k (1 | 2–3 | 4–7 | 8–15 | 16–31 | 32–63 | 64–95) : +0.000 +0.041 +0.048 +0.019 +0.027 +0.021 +0.020
+4106.1s 143 [THÈSE] SmolLM3-3B-Base rétroaction par la trajectoire : RÉFUTÉE
+4106.1s 144 [THÈSE] SmolLM3-3B-Base suppression interne du jeton choqué : RÉFUTÉE
+4106.1s 145 [RÉPLICATION] SmolLM3-3B-Base (les deux formes réfutées comme sur le 1.7B ?) : RÉPLIQUÉE
+4106.1s 146 [D] SmolLM3-3B-Base T=0.6 effet direct sur l'entropie, choc fort (k=2–31) : +0.0751 IC95 [+0.0707 ; +0.0795] (1.7B base : +0.0773 ; 4B base : +0.0753) ; par tranches : +0.571 +0.333 +0.111 +0.059 +0.042 +0.029 +0.021
+4106.1s 147 [D] SmolLM3-3B-Base T=0.6 effet direct sur l'entropie, choc doux (k=2–31) : +0.0532 IC95 [+0.0494 ; +0.0572] ; par tranches : +0.110 +0.228 +0.080 +0.042 +0.030 +0.021 +0.016
+4106.1s 148 [D] SmolLM3-3B-Base T=0.8 effet direct sur l'entropie, choc fort (k=2–31) : +0.0576 IC95 [+0.0546 ; +0.0607] (1.7B base : +0.0611 ; 4B base : +0.0646) ; par tranches : +0.367 +0.282 +0.084 +0.045 +0.029 +0.019 +0.013
+4106.1s 149 [D] SmolLM3-3B-Base T=0.8 effet direct sur l'entropie, choc doux (k=2–31) : +0.0368 IC95 [+0.0339 ; +0.0399] ; par tranches : +0.013 +0.179 +0.058 +0.028 +0.018 +0.012 +0.008
+4106.1s 150 [COURBE] SmolLM3-3B-Base A 0.6|temoin   par tranches de k (1 | 2–3 | 4–7 | 8–15 | 16–31 | 32–63 | 64–95) : 0.03705 0.03194 0.01334 0.00681 0.00384 0.00218 0.00149
+4106.1s 151 [COURBE] SmolLM3-3B-Base A 0.6|fort     par tranches de k (1 | 2–3 | 4–7 | 8–15 | 16–31 | 32–63 | 64–95) : 0.05158 0.04816 0.01786 0.00950 0.00576 0.00385 0.00287
+4106.1s 152 [COURBE] SmolLM3-3B-Base A 0.6|doux     par tranches de k (1 | 2–3 | 4–7 | 8–15 | 16–31 | 32–63 | 64–95) : 0.03889 0.03855 0.01469 0.00735 0.00423 0.00249 0.00172
+4106.1s 153 [COURBE] SmolLM3-3B-Base N 0.6|temoin   par tranches de k (1 | 2–3 | 4–7 | 8–15 | 16–31 | 32–63 | 64–95) : 0.49427 0.39415 0.14457 0.07166 0.04118 0.02365 0.01638
+4106.1s 154 [COURBE] SmolLM3-3B-Base N 0.6|fort     par tranches de k (1 | 2–3 | 4–7 | 8–15 | 16–31 | 32–63 | 64–95) : 0.59256 0.56301 0.21198 0.12754 0.08801 0.06449 0.05139
+4106.1s 155 [COURBE] SmolLM3-3B-Base N 0.6|doux     par tranches de k (1 | 2–3 | 4–7 | 8–15 | 16–31 | 32–63 | 64–95) : 0.50414 0.45905 0.15650 0.07794 0.04691 0.02831 0.02000
+4106.1s 156 [COURBE] SmolLM3-3B-Base A 0.8|temoin   par tranches de k (1 | 2–3 | 4–7 | 8–15 | 16–31 | 32–63 | 64–95) : 0.03769 0.03240 0.01350 0.00683 0.00371 0.00213 0.00144
+4106.1s 157 [COURBE] SmolLM3-3B-Base A 0.8|fort     par tranches de k (1 | 2–3 | 4–7 | 8–15 | 16–31 | 32–63 | 64–95) : 0.04881 0.04670 0.01689 0.00841 0.00496 0.00318 0.00230
+4106.1s 158 [COURBE] SmolLM3-3B-Base A 0.8|doux     par tranches de k (1 | 2–3 | 4–7 | 8–15 | 16–31 | 32–63 | 64–95) : 0.03899 0.03824 0.01508 0.00739 0.00395 0.00228 0.00151
+4106.1s 159 [COURBE] SmolLM3-3B-Base N 0.8|temoin   par tranches de k (1 | 2–3 | 4–7 | 8–15 | 16–31 | 32–63 | 64–95) : 0.49548 0.39717 0.14583 0.07152 0.03933 0.02275 0.01555
+4106.1s 160 [COURBE] SmolLM3-3B-Base N 0.8|fort     par tranches de k (1 | 2–3 | 4–7 | 8–15 | 16–31 | 32–63 | 64–95) : 0.56285 0.54288 0.19611 0.10966 0.07485 0.05252 0.04057
+4106.1s 161 [COURBE] SmolLM3-3B-Base N 0.8|doux     par tranches de k (1 | 2–3 | 4–7 | 8–15 | 16–31 | 32–63 | 64–95) : 0.50355 0.45133 0.16011 0.07701 0.04247 0.02471 0.01686
+4106.1s 162 [COUCHES] SmolLM3-3B-Base A 0.6 ρ par couche, choc fort : 0.99 0.76 1.74 2.41 1.86 1.35 1.56 1.94 1.41 1.13 1.14 1.04 1.01 1.01 1.03 1.24 0.96 0.97 0.91 1.40 0.94 1.12 1.03 2.43 1.73 1.19 1.61 3.34 2.72 1.70 2.46 7.72 1.82 2.49 2.23 2.75
+4106.1s 163 [COUCHES] SmolLM3-3B-Base A 0.6 ρ par couche, choc doux : 1.00 1.01 1.06 1.16 1.07 1.03 1.09 1.20 1.03 1.03 1.04 1.03 1.05 1.04 1.09 1.10 1.05 1.05 1.03 1.16 1.03 1.07 1.03 1.23 1.14 1.10 1.14 1.47 1.24 1.13 1.14 1.55 1.16 1.23 1.13 1.30
+4106.1s 164 [COUCHES] SmolLM3-3B-Base N 0.6 ρ par couche, choc fort : 0.72 1.04 1.63 2.67 1.98 1.26 1.49 2.14 1.27 1.02 0.96 0.81 1.03 0.93 1.40 1.14 0.85 0.84 0.84 1.86 0.92 1.16 0.93 3.74 1.74 1.46 2.48 4.76 5.21 2.15 2.43 12.66 4.25 4.46 2.70 5.91
+4106.1s 165 [COUCHES] SmolLM3-3B-Base N 0.6 ρ par couche, choc doux : 0.97 0.99 1.03 1.19 1.07 0.99 1.04 1.26 0.99 0.96 1.00 1.00 1.05 1.00 1.22 1.12 1.01 1.04 1.01 1.30 0.99 1.07 1.01 1.30 1.14 1.15 1.25 1.51 1.38 1.11 1.13 1.60 1.28 1.29 1.11 1.44
+4106.1s 166 [COUCHES] SmolLM3-3B-Base A 0.8 ρ par couche, choc fort : 0.95 0.67 1.59 2.03 1.63 1.26 1.35 1.62 1.27 1.05 1.04 0.96 0.91 0.93 0.98 1.14 0.92 0.94 0.92 1.33 1.02 1.10 1.06 2.05 1.56 1.14 1.52 2.59 2.22 1.45 2.00 5.48 1.46 2.11 1.71 2.05
+4106.1s 167 [COUCHES] SmolLM3-3B-Base A 0.8 ρ par couche, choc doux : 1.00 1.02 1.01 1.08 1.00 1.01 1.05 1.10 1.03 1.06 1.10 1.03 1.07 1.08 1.10 1.10 1.09 1.12 1.08 1.11 1.07 1.08 1.07 1.14 1.14 1.08 1.08 1.20 1.15 1.09 1.06 1.26 1.07 1.10 1.04 1.11
+4106.1s 168 [COUCHES] SmolLM3-3B-Base N 0.8 ρ par couche, choc fort : 0.68 0.96 1.53 2.25 1.78 1.20 1.31 1.77 1.18 0.93 0.89 0.74 0.91 0.82 1.27 0.99 0.79 0.81 0.81 1.62 1.04 1.12 1.00 3.00 1.61 1.39 2.32 4.07 4.32 1.83 2.02 8.96 3.20 4.04 1.94 4.48
+4106.1s 169 [COUCHES] SmolLM3-3B-Base N 0.8 ρ par couche, choc doux : 0.99 1.00 1.00 1.09 1.01 1.00 1.02 1.12 1.01 1.02 1.08 0.99 1.06 1.04 1.16 1.10 1.08 1.11 1.06 1.20 1.04 1.06 1.05 1.18 1.15 1.08 1.10 1.30 1.24 1.06 1.03 1.22 1.05 1.10 1.01 1.19
+4106.1s 170 [TÊTES] SmolLM3-3B-Base T=0.6 part des têtes avec ρ < 0,8 : fort 15.5%, doux 0.7% ; ρ > 1,25 : fort 50.7%, doux 19.4%
+4106.1s 171 [TÊTES] SmolLM3-3B-Base T=0.6 couche  4 tête  2 : ρ fort 0.07, ρ doux 0.57, attention du témoin 0.0017
+4106.1s 172 [TÊTES] SmolLM3-3B-Base T=0.6 couche  1 tête  8 : ρ fort 0.13, ρ doux 0.98, attention du témoin 0.0064
+4106.1s 173 [TÊTES] SmolLM3-3B-Base T=0.6 couche  1 tête  9 : ρ fort 0.13, ρ doux 0.96, attention du témoin 0.0092
+4106.1s 174 [TÊTES] SmolLM3-3B-Base T=0.6 couche 11 tête  4 : ρ fort 0.15, ρ doux 0.72, attention du témoin 0.0019
+4106.1s 175 [TÊTES] SmolLM3-3B-Base T=0.6 couche  1 tête 11 : ρ fort 0.19, ρ doux 1.00, attention du témoin 0.0079
+4106.1s 176 [TÊTES] SmolLM3-3B-Base T=0.6 couche 32 tête  8 : ρ fort 10.84, ρ doux 1.72, attention du témoin 0.0020
+4106.1s 177 [TÊTES] SmolLM3-3B-Base T=0.6 couche 33 tête 10 : ρ fort 11.13, ρ doux 1.34, attention du témoin 0.0016
+4106.1s 178 [TÊTES] SmolLM3-3B-Base T=0.6 couche 31 tête  5 : ρ fort 12.49, ρ doux 1.69, attention du témoin 0.0014
+4106.1s 179 [TÊTES] SmolLM3-3B-Base T=0.6 couche 23 tête  4 : ρ fort 13.66, ρ doux 1.92, attention du témoin 0.0016
+4106.1s 180 [TÊTES] SmolLM3-3B-Base T=0.6 couche 28 tête  8 : ρ fort 14.27, ρ doux 2.06, attention du témoin 0.0019
+4106.1s 181 [TÊTES] SmolLM3-3B-Base T=0.8 part des têtes avec ρ < 0,8 : fort 18.2%, doux 0.7% ; ρ > 1,25 : fort 41.5%, doux 5.6%
+4106.1s 182 [TÊTES] SmolLM3-3B-Base T=0.8 couche  4 tête  2 : ρ fort 0.09, ρ doux 0.48, attention du témoin 0.0014
+4106.1s 183 [TÊTES] SmolLM3-3B-Base T=0.8 couche  1 tête  8 : ρ fort 0.10, ρ doux 1.04, attention du témoin 0.0075
+4106.1s 184 [TÊTES] SmolLM3-3B-Base T=0.8 couche  1 tête  9 : ρ fort 0.10, ρ doux 1.01, attention du témoin 0.0109
+4106.1s 185 [TÊTES] SmolLM3-3B-Base T=0.8 couche  1 tête 11 : ρ fort 0.15, ρ doux 1.02, attention du témoin 0.0094
+4106.1s 186 [TÊTES] SmolLM3-3B-Base T=0.8 couche 11 tête  4 : ρ fort 0.16, ρ doux 0.60, attention du témoin 0.0016
+4106.1s 187 [TÊTES] SmolLM3-3B-Base T=0.8 couche 33 tête  8 : ρ fort 7.39, ρ doux 1.14, attention du témoin 0.0018
+4106.1s 188 [TÊTES] SmolLM3-3B-Base T=0.8 couche 28 tête  8 : ρ fort 9.04, ρ doux 1.34, attention du témoin 0.0023
+4106.1s 189 [TÊTES] SmolLM3-3B-Base T=0.8 couche 23 tête  4 : ρ fort 9.08, ρ doux 1.35, attention du témoin 0.0016
+4106.1s 190 [TÊTES] SmolLM3-3B-Base T=0.8 couche 33 tête 10 : ρ fort 9.13, ρ doux 1.21, attention du témoin 0.0018
+4106.1s 191 [TÊTES] SmolLM3-3B-Base T=0.8 couche 31 tête  5 : ρ fort 9.86, ρ doux 1.45, attention du témoin 0.0013
+4106.1s 192 [EXTRAIT] SmolLM3-3B-Base T=0.8 prompt 0 jetons au pas t0 : témoin ' respect', fort ' Ce', doux ' la'
+4106.1s 193 [EXTRAIT] SmolLM3-3B-Base T=0.8 prompt 64 jetons au pas t0 : témoin ' structure', fort ' facilitate', doux ' composition'
+4107.1s 194 [DURÉE] SmolLM3-3B-Base : 27.7 min
+4107.4s 195 
+4107.4s 196 ====================================================================================================
+4107.4s 197 [SYNTHÈSE] Qwen3 base 1.7B, 4B, 8B (A1c–A1e) : trajectoire RÉFUTÉE (AMPLIFICATION), suppression interne RÉFUTÉE
+4107.4s 198 [SYNTHÈSE] Qwen3-4B : trajectoire RÉFUTÉE (T=0.6 AMPLIFICATION I/D +0.55, T=0.8 AMPLIFICATION I/D +0.47) ; suppression interne RÉFUTÉE (T=0.6 ρ_A 1.13 ρ_N 2.11, T=0.8 ρ_A 1.04 ρ_N 1.92) ; réplication RÉPLIQUÉE
+4107.4s 199 [SYNTHÈSE] SmolLM3-3B-Base : trajectoire RÉFUTÉE (T=0.6 AMPLIFICATION I/D +0.56, T=0.8 AMPLIFICATION I/D +0.49) ; suppression interne RÉFUTÉE (T=0.6 ρ_A 1.45 ρ_N 1.97, T=0.8 ρ_A 1.29 ρ_N 1.73) ; réplication RÉPLIQUÉE
+4107.4s 200 [SORTIE] fichiers dans /kaggle/working/sgz_a1f : ['Qwen3-4B_a1f.npz', 'SmolLM3-3B-Base_a1f.npz', 'resume_a1f.json']
+4112.9s 201 /usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\|'
+4112.9s 202 cells[i][c] = re.sub('\\\\\|', '|', cell)
+4113.0s 203 /usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\_'
+4113.0s 204 text = re.sub(r'_', '\_', text) # Escape underscores in display text
+4113.8s 205 [NbConvertApp] Converting notebook __notebook__.ipynb to notebook
+4113.9s 206 [NbConvertApp] Writing 354248 bytes to __notebook__.ipynb
+4116.3s 207 [NbConvertApp] Converting notebook __notebook__.ipynb to html
+4117.1s 208 [NbConvertApp] Writing 775421 bytes to __results__.html
