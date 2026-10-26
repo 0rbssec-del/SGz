@@ -1,0 +1,20 @@
+A1h (26 oct. 2026, 21 min). Verdicts pré-enregistrés d'abord ; points 2 à 4 après coup.
+
+1. Runs valides (rejoué contre généré 1,2e-3 à 1,5e-3 ; calcul de N cohérent). Jetons conformes au plan : FI apparié à
+   « fort » sur le rang (3001 contre 3008) et la surprise (15,2 nats), mais fréquent (médiane 89–90 contre 0) ; RA rare
+   (médiane 0) et probable (rang 9). N (k = 8–31) : fort 2,56 / 1,63 ; FI 2,23 / 1,61 ; RA 1,77 / 1,37 ; doux 1,09 / 0,99
+   (Qwen3-1.7B / SmolLM3). Cause : LES DEUX pour les deux modèles ; hypothèse « information » non réfutée.
+
+2. Défaut de conception (de l'assistant) : RA n'est pas « attendu » au sens fort. Sa surprise médiane vaut 5,1 nats,
+   contre 2,0 pour « doux » et 1,0 pour le témoin. RA mélange rareté et surprise moyenne ; le verdict LES DEUX ne sépare
+   donc pas proprement les deux causes.
+
+3. La surprise explique l'essentiel : FI / fort = 0,87 [0,82 ; 0,92] (Qwen) et 0,99 [0,94 ; 1,04] (SmolLM3). Rendre le
+   jeton fréquent ne retire que 0 à 13 % de la saillance. Gradient avec la surprise : doux (2 nats) ≈ 1,0–1,1 ; RA (5 nats)
+   1,4–1,8 ; fort et FI (15 nats) 1,6–2,6.
+
+4. Rareté à surprise à peu près fixe (dans chaque bras, script explo_frequence_a1h.py) : corrélation faible et négative
+   entre fréquence et saillance (Spearman −0,04 à −0,12 ; nette pour fort et, chez SmolLM3, pour RA). Effet de rareté
+   présent mais secondaire.
+
+Prédictions de l'assistant : INFORMATION 40 % (raté : LES DEUX, 30 %) ; FI SAILLANCE 70 % (juste).

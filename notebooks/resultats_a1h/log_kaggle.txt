@@ -1,0 +1,111 @@
+7.8s 1 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+7.8s 2 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+7.8s 3 0.00s - to python to disable frozen modules.
+7.8s 4 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+8.4s 5 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+8.4s 6 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+8.4s 7 0.00s - to python to disable frozen modules.
+8.4s 8 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+31.9s 9 [CONFIG] SMOKE_TEST=False DEVICE=cuda N_GPU=2 OUT=/kaggle/working/sgz_a1h
+31.9s 10 [CONFIG] T=0.8 bras=['temoin', 'fort', 'doux', 'FI', 'RA'] prompts=768 longueur=160 t0=64 fenêtre k=8–31 marge ±20% ; modèles=['Qwen3-1.7B-Base', 'SmolLM3-3B-Base']
+31.9s 11 [CONFIG] torch 2.11.0+cu128, transformers 5.16.1
+32.0s 12 [PROMPTS] 768 prompts (64 écrits à la main, 704 gabarits), identiques à A1c
+32.0s 13 [TÉMOIN POSITIF] suppression (×0,5)   : SUPPRESSION  (attendu SUPPRESSION)
+32.0s 14 [TÉMOIN POSITIF] équivalent (×1,0)    : ÉQUIVALENT   (attendu ÉQUIVALENT)
+32.0s 15 [TÉMOIN POSITIF] saillance (×1,6)     : SAILLANCE    (attendu SAILLANCE)
+32.0s 16 [TÉMOIN POSITIF] F compensation       : COMPENSATION (attendu COMPENSATION)
+32.0s 17 [TÉMOIN POSITIF] F équivalent         : ÉQUIVALENT   (attendu ÉQUIVALENT)
+32.0s 18 [TÉMOIN POSITIF] F amplification      : AMPLIFICATION (attendu AMPLIFICATION)
+32.0s 19 [TÉMOIN POSITIF] F effet direct nul   : NON TESTABLE (effet direct absent) (attendu NON TESTABLE (effet direct absent))
+32.0s 20 [TÉMOIN POSITIF] RÉUSSI
+32.1s 21 [CHARGEMENT] Qwen3-1.7B-Base : téléchargement / chargement de Qwen/Qwen3-1.7B-Base…
+41.5s 22 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+41.5s 23 
+41.5s 24 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+67.9s 25 [CHARGEMENT] Qwen3-1.7B-Base : Qwen/Qwen3-1.7B-Base en fp16 sur 2 GPU
+80.6s 26 [PROGRESSION] Qwen3-1.7B-Base : premier lot en 12.9 s ; estimation ~3 min (génération)
+254.1s 27 [MESURE] Qwen3-1.7B-Base témoin T=0.8 : 186 s
+278.6s 28 [JETONS] Qwen3-1.7B-Base temoin : rang médian dans le contexte 0 ; surprise médiane 0.98 nats ; fréquence médiane dans le corpus 53 ; 509 jetons distincts
+278.6s 29 [JETONS] Qwen3-1.7B-Base fort   : rang médian dans le contexte 3008 ; surprise médiane 15.23 nats ; fréquence médiane dans le corpus 0 ; 758 jetons distincts
+278.6s 30 [JETONS] Qwen3-1.7B-Base doux   : rang médian dans le contexte 1 ; surprise médiane 2.00 nats ; fréquence médiane dans le corpus 66 ; 496 jetons distincts
+278.6s 31 [JETONS] Qwen3-1.7B-Base FI     : rang médian dans le contexte 3001 ; surprise médiane 15.23 nats ; fréquence médiane dans le corpus 89 ; 262 jetons distincts
+278.6s 32 [JETONS] Qwen3-1.7B-Base RA     : rang médian dans le contexte 9 ; surprise médiane 5.14 nats ; fréquence médiane dans le corpus 0 ; 704 jetons distincts
+278.8s 33 [CONFIG] attention pendant les passes rejouées : eager
+560.3s 34 [VÉRIF] Qwen3-1.7B-Base rejoué (eager) contre généré : témoin écart moyen 1.5e-03, max 7.8e-02 ; calcul de N (Gram contre somme directe) écart relatif 1.9e-07
+560.3s 35 [MESURE] Qwen3-1.7B-Base passes rejouées : 282 s
+560.7s 36 
+560.7s 37 ====================================================================================================
+560.7s 38 [RÉSULTATS] Qwen3-1.7B-Base
+560.7s 39 [N] Qwen3-1.7B-Base bras fort (contribution ‖αWv‖, k=8–31) : SAILLANCE    ρ = 2.557 IC95 [2.375 ; 2.741]
+560.7s 40 [N] Qwen3-1.7B-Base bras doux (contribution ‖αWv‖, k=8–31) : ÉQUIVALENT   ρ = 1.087 IC95 [1.019 ; 1.160]
+560.7s 41 [N] Qwen3-1.7B-Base bras FI   (contribution ‖αWv‖, k=8–31) : SAILLANCE    ρ = 2.225 IC95 [2.087 ; 2.364]
+560.7s 42 [N] Qwen3-1.7B-Base bras RA   (contribution ‖αWv‖, k=8–31) : SAILLANCE    ρ = 1.769 IC95 [1.649 ; 1.904]
+560.7s 43 [A] Qwen3-1.7B-Base bras fort (attention, k=8–31) : SAILLANCE    ρ = 1.159 IC95 [1.101 ; 1.229]
+560.7s 44 [A] Qwen3-1.7B-Base bras doux (attention, k=8–31) : ÉQUIVALENT   ρ = 1.021 IC95 [0.977 ; 1.067]
+560.7s 45 [A] Qwen3-1.7B-Base bras FI   (attention, k=8–31) : ÉQUIVALENT   ρ = 1.089 IC95 [1.033 ; 1.146]
+560.7s 46 [A] Qwen3-1.7B-Base bras RA   (attention, k=8–31) : SAILLANCE    ρ = 1.178 IC95 [1.122 ; 1.242]
+560.7s 47 [N] Qwen3-1.7B-Base fréquent improbable / fort : 0.87 IC95 [0.82 ; 0.92]
+560.7s 48 [D] Qwen3-1.7B-Base bras fort effet direct sur l'entropie (k=2–31) : +0.0617 IC95 [+0.0581 ; +0.0652]
+560.7s 49 [D] Qwen3-1.7B-Base bras doux effet direct sur l'entropie (k=2–31) : +0.0377 IC95 [+0.0341 ; +0.0413]
+560.7s 50 [D] Qwen3-1.7B-Base bras FI   effet direct sur l'entropie (k=2–31) : +0.0562 IC95 [+0.0530 ; +0.0593]
+560.7s 51 [D] Qwen3-1.7B-Base bras RA   effet direct sur l'entropie (k=2–31) : +0.0437 IC95 [+0.0402 ; +0.0471]
+560.7s 52 [COUCHES] Qwen3-1.7B-Base N ρ par couche, bras fort : 0.94 1.13 1.27 2.00 1.33 1.19 1.19 1.46 1.05 1.26 1.16 0.84 0.81 0.82 0.97 1.12 1.35 0.92 1.78 2.15 1.35 2.30 3.20 2.54 4.02 4.22 5.13 1.28
+560.7s 53 [COUCHES] Qwen3-1.7B-Base N ρ par couche, bras doux : 1.02 0.95 0.96 1.05 0.97 0.98 0.94 1.02 1.02 1.02 1.00 0.97 1.01 1.03 1.02 1.10 1.09 0.97 1.11 1.13 0.98 1.07 1.15 1.08 1.14 1.18 1.15 1.05
+560.7s 54 [COUCHES] Qwen3-1.7B-Base N ρ par couche, bras FI   : 0.89 1.03 1.37 1.94 1.32 0.95 0.82 1.28 1.12 1.13 1.14 0.70 0.61 0.80 0.87 0.93 1.37 0.82 2.09 2.15 1.01 2.71 3.93 2.46 3.11 2.94 3.75 1.01
+560.7s 55 [COUCHES] Qwen3-1.7B-Base N ρ par couche, bras RA   : 1.06 1.15 1.19 1.62 1.19 1.25 1.25 1.38 1.10 1.34 1.23 1.10 1.17 1.12 1.17 1.40 1.28 1.21 1.46 1.69 1.40 1.74 2.01 1.80 2.02 2.33 2.86 1.25
+560.7s 56 [CAUSE] Qwen3-1.7B-Base : LES DEUX ; hypothèse « information » réfutée : False
+560.7s 57 [EXTRAIT] Qwen3-1.7B-Base prompt 0 jetons au pas t0 : témoin ' vie', fort ' book', doux ' culture', FI 'ique', RA ' gastr'
+560.7s 58 [EXTRAIT] Qwen3-1.7B-Base prompt 64 jetons au pas t0 : témoin ' son', fort ' profit', doux ' ré', FI 'e', RA ' radical'
+561.1s 59 [DURÉE] Qwen3-1.7B-Base : 8.8 min
+561.4s 60 [CHARGEMENT] SmolLM3-3B-Base : téléchargement / chargement de HuggingFaceTB/SmolLM3-3B-Base…
+596.2s 61 [CHARGEMENT] SmolLM3-3B-Base : HuggingFaceTB/SmolLM3-3B-Base en fp16 1 GPU
+607.2s 62 [PROGRESSION] SmolLM3-3B-Base : premier lot en 11.2 s ; estimation ~4 min (génération)
+867.2s 63 [MESURE] SmolLM3-3B-Base témoin T=0.8 : 271 s
+900.3s 64 [JETONS] SmolLM3-3B-Base temoin : rang médian dans le contexte 0 ; surprise médiane 1.02 nats ; fréquence médiane dans le corpus 62 ; 496 jetons distincts
+900.3s 65 [JETONS] SmolLM3-3B-Base fort   : rang médian dans le contexte 3008 ; surprise médiane 15.69 nats ; fréquence médiane dans le corpus 0 ; 758 jetons distincts
+900.3s 66 [JETONS] SmolLM3-3B-Base doux   : rang médian dans le contexte 1 ; surprise médiane 1.97 nats ; fréquence médiane dans le corpus 54 ; 495 jetons distincts
+900.3s 67 [JETONS] SmolLM3-3B-Base FI     : rang médian dans le contexte 3004 ; surprise médiane 15.69 nats ; fréquence médiane dans le corpus 90 ; 268 jetons distincts
+900.3s 68 [JETONS] SmolLM3-3B-Base RA     : rang médian dans le contexte 9 ; surprise médiane 5.13 nats ; fréquence médiane dans le corpus 0 ; 701 jetons distincts
+900.5s 69 [CONFIG] attention pendant les passes rejouées : eager
+1271.5s 70 [VÉRIF] SmolLM3-3B-Base rejoué (eager) contre généré : témoin écart moyen 1.2e-03, max 2.9e-02 ; calcul de N (Gram contre somme directe) écart relatif 1.5e-07
+1271.5s 71 [MESURE] SmolLM3-3B-Base passes rejouées : 371 s
+1271.7s 72 [transformers] Ignoring clean_up_tokenization_spaces=True for BPE tokenizer TokenizersBackend. The clean_up_tokenization post-processing step is designed for WordPiece tokenizers and is destructive for BPE (it strips spaces before punctuation). Set clean_up_tokenization_spaces=False to suppress this warning, or set clean_up_tokenization_spaces_for_bpe_even_though_it_will_corrupt_output=True to force cleanup anyway.
+1271.7s 73 
+1271.7s 74 [transformers] Ignoring clean_up_tokenization_spaces=True for BPE tokenizer TokenizersBackend. The clean_up_tokenization post-processing step is designed for WordPiece tokenizers and is destructive for BPE (it strips spaces before punctuation). Set clean_up_tokenization_spaces=False to suppress this warning, or set clean_up_tokenization_spaces_for_bpe_even_though_it_will_corrupt_output=True to force cleanup anyway.
+1271.9s 75 
+1271.9s 76 ====================================================================================================
+1271.9s 77 [RÉSULTATS] SmolLM3-3B-Base
+1271.9s 78 [N] SmolLM3-3B-Base bras fort (contribution ‖αWv‖, k=8–31) : SAILLANCE    ρ = 1.629 IC95 [1.529 ; 1.721]
+1271.9s 79 [N] SmolLM3-3B-Base bras doux (contribution ‖αWv‖, k=8–31) : ÉQUIVALENT   ρ = 0.991 IC95 [0.941 ; 1.042]
+1271.9s 80 [N] SmolLM3-3B-Base bras FI   (contribution ‖αWv‖, k=8–31) : SAILLANCE    ρ = 1.610 IC95 [1.511 ; 1.710]
+1271.9s 81 [N] SmolLM3-3B-Base bras RA   (contribution ‖αWv‖, k=8–31) : SAILLANCE    ρ = 1.368 IC95 [1.296 ; 1.450]
+1271.9s 82 [A] SmolLM3-3B-Base bras fort (attention, k=8–31) : SAILLANCE    ρ = 1.246 IC95 [1.185 ; 1.308]
+1271.9s 83 [A] SmolLM3-3B-Base bras doux (attention, k=8–31) : ÉQUIVALENT   ρ = 0.997 IC95 [0.952 ; 1.043]
+1271.9s 84 [A] SmolLM3-3B-Base bras FI   (attention, k=8–31) : SAILLANCE    ρ = 1.220 IC95 [1.153 ; 1.282]
+1271.9s 85 [A] SmolLM3-3B-Base bras RA   (attention, k=8–31) : SAILLANCE    ρ = 1.237 IC95 [1.178 ; 1.300]
+1271.9s 86 [N] SmolLM3-3B-Base fréquent improbable / fort : 0.99 IC95 [0.94 ; 1.04]
+1271.9s 87 [D] SmolLM3-3B-Base bras fort effet direct sur l'entropie (k=2–31) : +0.0558 IC95 [+0.0525 ; +0.0592]
+1271.9s 88 [D] SmolLM3-3B-Base bras doux effet direct sur l'entropie (k=2–31) : +0.0388 IC95 [+0.0358 ; +0.0421]
+1271.9s 89 [D] SmolLM3-3B-Base bras FI   effet direct sur l'entropie (k=2–31) : +0.0512 IC95 [+0.0481 ; +0.0545]
+1271.9s 90 [D] SmolLM3-3B-Base bras RA   effet direct sur l'entropie (k=2–31) : +0.0444 IC95 [+0.0414 ; +0.0478]
+1271.9s 91 [COUCHES] SmolLM3-3B-Base N ρ par couche, bras fort : 0.74 1.04 1.51 2.24 1.74 1.16 1.28 1.75 1.15 0.93 0.89 0.77 0.87 0.81 1.25 0.95 0.78 0.80 0.72 1.53 0.96 1.05 0.90 2.85 1.60 1.43 2.12 3.94 4.08 1.81 1.83 8.61 2.98 3.73 1.97 4.05
+1271.9s 92 [COUCHES] SmolLM3-3B-Base N ρ par couche, bras doux : 1.05 0.97 0.96 1.06 0.98 0.93 0.96 1.08 0.91 0.95 0.94 0.95 0.95 0.95 1.05 0.95 0.94 0.92 0.91 1.05 0.94 0.95 1.00 1.10 1.01 0.98 0.99 1.11 1.12 1.08 0.97 1.16 1.09 1.06 0.94 1.17
+1271.9s 93 [COUCHES] SmolLM3-3B-Base N ρ par couche, bras FI   : 0.84 0.89 1.36 2.18 1.85 1.35 1.20 2.11 1.19 0.67 0.65 0.72 0.83 0.70 1.32 0.95 0.65 0.82 0.60 1.65 0.65 0.99 0.76 3.54 1.47 1.28 1.44 4.46 5.23 1.56 1.36 6.55 4.04 1.82 3.13 4.92
+1271.9s 94 [COUCHES] SmolLM3-3B-Base N ρ par couche, bras RA   : 0.80 1.09 1.28 1.70 1.40 1.12 1.23 1.40 1.18 1.19 1.18 1.14 1.10 1.18 1.36 1.18 1.13 1.09 1.10 1.45 1.24 1.27 1.16 1.63 1.41 1.40 1.68 2.11 2.26 1.31 1.28 3.29 1.66 1.90 1.38 2.42
+1271.9s 95 [CAUSE] SmolLM3-3B-Base : LES DEUX ; hypothèse « information » réfutée : False
+1271.9s 96 [EXTRAIT] SmolLM3-3B-Base prompt 0 jetons au pas t0 : témoin ' les', fort ' hotels', doux ' la', FI 'ées', RA 'vue'
+1271.9s 97 [EXTRAIT] SmolLM3-3B-Base prompt 64 jetons au pas t0 : témoin ' anim', fort ' Sole', doux ' b', FI ' Le', RA ' microbes'
+1272.2s 98 [DURÉE] SmolLM3-3B-Base : 11.8 min
+1272.6s 99 
+1272.6s 100 ====================================================================================================
+1272.6s 101 [SYNTHÈSE] Qwen3-1.7B-Base : cause de la saillance LES DEUX
+1272.6s 102 [SYNTHÈSE] SmolLM3-3B-Base : cause de la saillance LES DEUX
+1272.6s 103 [SORTIE] fichiers dans /kaggle/working/sgz_a1h : ['Qwen3-1.7B-Base_a1h.npz', 'SmolLM3-3B-Base_a1h.npz', 'resume_a1h.json']
+1278.6s 104 /usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\|'
+1278.6s 105 cells[i][c] = re.sub('\\\\\|', '|', cell)
+1278.8s 106 /usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\_'
+1278.8s 107 text = re.sub(r'_', '\_', text) # Escape underscores in display text
+1279.6s 108 [NbConvertApp] Converting notebook __notebook__.ipynb to notebook
+1279.7s 109 [NbConvertApp] Writing 298271 bytes to __notebook__.ipynb
+1282.1s 110 [NbConvertApp] Converting notebook __notebook__.ipynb to html
+1282.8s 111 [NbConvertApp] Writing 696689 bytes to __results__.html
