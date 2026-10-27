@@ -1,0 +1,71 @@
+7.2s 1 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+7.2s 2 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+7.2s 3 0.00s - to python to disable frozen modules.
+7.2s 4 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+7.8s 5 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+7.8s 6 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+7.8s 7 0.00s - to python to disable frozen modules.
+7.8s 8 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+29.2s 9 [CONFIG] SMOKE_TEST=False DEVICE=cuda N_GPU=2 OUT=/kaggle/working/sgz_a1o
+29.2s 10 [CONFIG] volet S : 384 conversations × 6 tours × 48 jetons, choc en position 8 aux tours [1, 3, 6], T = 0.6 ; volet Q : 768 chaînes, T = [0.6, 1.0] ; modèles=['Qwen3-4B']
+29.2s 11 [CONFIG] torch 2.11.0+cu128, transformers 5.16.1
+29.3s 12 [PROMPTS] 768 prompts (64 écrits à la main, 704 gabarits), mêmes que A1c–A1j
+29.4s 13 [TÉMOIN POSITIF] durable                  : DURABLE        (attendu DURABLE)
+29.4s 14 [TÉMOIN POSITIF] s'estompe                : S'ESTOMPE      (attendu S'ESTOMPE)
+29.4s 15 [TÉMOIN POSITIF] amortissement            : RÉDUIT         (attendu RÉDUIT)
+29.4s 16 [TÉMOIN POSITIF] sans amortissement       : NON TESTABLE (pas d'amortissement au tour 1) (attendu NON TESTABLE (pas d'amortissement au tour 1))
+29.4s 17 [TÉMOIN POSITIF] contamination contenue   : CONTENUE       (attendu CONTENUE)
+29.4s 18 [TÉMOIN POSITIF] contamination égale      : SANS EFFET     (attendu SANS EFFET)
+29.4s 19 [TÉMOIN POSITIF] contamination absente    : NON TESTABLE (C(brut) non significatif) (attendu NON TESTABLE (C(brut) non significatif))
+29.4s 20 [TÉMOIN POSITIF] qualité améliorée        : AMÉLIORÉE      (attendu AMÉLIORÉE)
+29.4s 21 [TÉMOIN POSITIF] qualité égale            : SANS GAIN      (attendu SANS GAIN)
+29.4s 22 [TÉMOIN POSITIF] qualité dégradée         : DÉGRADÉE       (attendu DÉGRADÉE)
+29.4s 23 [TÉMOIN POSITIF] synthèse soutenue        : SOUTENUE       (attendu SOUTENUE)
+29.4s 24 [TÉMOIN POSITIF] synthèse réfutée         : RÉFUTÉE        (attendu RÉFUTÉE)
+29.4s 25 [TÉMOIN POSITIF] RÉUSSI
+29.5s 26 [CONVERSATIONS] 384 conversations (192 en français) × 6 tours
+29.5s 27 [CHARGEMENT] Qwen3-4B : téléchargement / chargement de Qwen/Qwen3-4B…
+38.4s 28 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+38.4s 29 
+38.4s 30 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+86.4s 31 [CHARGEMENT] Qwen3-4B : Qwen/Qwen3-4B en fp16 1 GPU
+86.4s 32 [GABARIT] brut fr : avant 'Utilisateur : ' ; ouverture de réponse '\nAssistant : ' ; entre deux tours '\n\nUtilisateur : '
+86.4s 33 [GABARIT] brut en : avant 'User: ' ; ouverture de réponse '\nAssistant: ' ; entre deux tours '\n\nUser: '
+134.3s 34 [PROGRESSION] Qwen3-4B|brut volet S : premier lot en 47.9 s ; estimation ~31 min
+2052.8s 35 [VÉRIF] Qwen3-4B|brut choc au tour 1 : identique avant le choc : True ; jeton changé : 100% ; rang médian 3129 ; contexte médian 22 jetons
+2052.8s 36 [VÉRIF] Qwen3-4B|brut choc au tour 3 : identique avant le choc : True ; jeton changé : 100% ; rang médian 3002 ; contexte médian 166 jetons
+2052.8s 37 [VÉRIF] Qwen3-4B|brut choc au tour 6 : identique avant le choc : True ; jeton changé : 100% ; rang médian 3061 ; contexte médian 381 jetons
+2091.9s 38 [VÉRIF] Qwen3-4B|brut tour 1 rejoué contre généré : témoin écart moyen 1.0e-03, max 2.4e-02 ; choc à k=1 2.0e-03
+2185.7s 39 [VÉRIF] Qwen3-4B|brut tour 3 rejoué contre généré : témoin écart moyen 4.3e-04, max 2.5e-02 ; choc à k=1 1.7e-03
+2363.9s 40 [VÉRIF] Qwen3-4B|brut tour 6 rejoué contre généré : témoin écart moyen 3.6e-04, max 1.3e-02 ; choc à k=1 1.8e-03
+2388.7s 41 [PROGRESSION] Qwen3-4B|brut volet Q T=0.6 : premier lot en 24.8 s ; estimation ~10 min
+2986.5s 42 [PROGRESSION] Qwen3-4B|brut volet Q T=1.0 : premier lot en 25.0 s ; estimation ~10 min
+3559.2s 43 [D] brut     tour 1 : D = +0.0629 ; S0 = 0.277 ; I = +0.0436 ; D par tranches de k (1 | 2–7 | 8–15 | 16–31) : +0.550 +0.150 +0.044 +0.040
+3559.2s 44 [D] brut     tour 3 : D = +0.0349 ; S0 = 0.102 ; I = +0.0809 ; D par tranches de k (1 | 2–7 | 8–15 | 16–31) : +0.743 +0.097 +0.015 +0.021
+3559.2s 45 [D] brut     tour 6 : D = +0.0304 ; S0 = 0.084 ; I = +0.0672 ; D par tranches de k (1 | 2–7 | 8–15 | 16–31) : +0.677 +0.092 +0.014 +0.016
+3559.2s 46 [CONTAMINATION] brut     : C (tours 2–6) = +0.0159 ; par tour : +0.0261 +0.0178 +0.0181 +0.0085 +0.0087
+3559.2s 47 [QUALITÉ] brut     T=0.6 : exactitude locale 32.5% (absolue 19.7%, nombre lu 97.3%) ; par tour : 21% 24% 38% 38% 37% 37%
+3559.2s 48 [QUALITÉ] brut     T=1.0 : exactitude locale 33.5% (absolue 21.6%, nombre lu 98.2%) ; par tour : 24% 26% 38% 38% 38% 38%
+3559.2s 49 [EXTRAIT] brut conversation 0, tour 1, choc : '1\nOkay, the user wants me_superuser to continue the text that starts with "La ville de Lyon est située au confluent..." which translates to "The city of Lyon is located at the confluence..." I need to make sure'
+3559.2s 50 [EXTRAIT] brut chaîne 0 (T=0.6) : 'lie le résultat par 2. Réponds uniquement par le résultat, en chiffres.\nAssistant : 8 × 2 = 16. Réponse : 1\n\nUtilisateur : Ajoute 18 au résultat. Réponds uniquement par le résultat, en chiffres.\nAssistant : 1 + 18 = 19. Réponse : 1\n\nUtilisateur : Ajoute 7 au résultat. Réponds uniquement par le résultat, en chiffres.\nAssistant : 1 + 7 = 8. Réponse : 8\n\nUtilisateur : Ajoute 13 au résultat. Réponds uniquement par le résultat, en chiffres.\nAssistant : 8 + 13 = 21. Réponse : 2\n\nUtilisateur : Ajoute 22 au résultat. Réponds uniquement par le résultat, en chiffres.\nAssistant : 2 + 22 = 24. Réponse : 2'
+3559.2s 51 [DURÉE] brut : 57.9 min
+3559.5s 52 [GABARIT] gabarit fr : avant '<|im_start|>user\n' ; ouverture de réponse '<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n' ; entre deux tours '<|im_end|>\n<|im_start|>user\n'
+3559.5s 53 [GABARIT] gabarit en : avant '<|im_start|>user\n' ; ouverture de réponse '<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n' ; entre deux tours '<|im_end|>\n<|im_start|>user\n'
+3612.2s 54 [PROGRESSION] Qwen3-4B|gabarit volet S : premier lot en 52.8 s ; estimation ~34 min
+4609.6s 55 [ERREUR] gabarit : OutOfMemoryError: CUDA out of memory. Tried to allocate 3.93 GiB. GPU 0 has a total capacity of 14.56 GiB of which 376.81 MiB is free. Including non-PyTorch memory, this process has 14.19 GiB memory in use. Of the allocated memory 9.47 GiB is allocated by PyTorch, and 4.59 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/doc
+4609.9s 56 
+4609.9s 57 ====================================================================================================
+4609.9s 58 [RÉSULTATS] Qwen3-4B : gabarit contre brut (mêmes conversations, bootstrap apparié)
+4609.9s 59 [DURABILITÉ] NON TESTABLE (format manquant)
+4609.9s 60 [QUALITÉ] NON TESTABLE (format manquant)
+4609.9s 61 [SYNTHÈSE] thèse « le gabarit est un stabilisateur durable qui améliore les réponses » : INDÉTERMINÉE (V2 NON TESTABLE (format manquant) ; V3 NON TESTABLE (format manquant) ; V4 NON TESTABLE (format manquant)) — prédiction SOUTENUE 25 %, RÉFUTÉE 40 %
+4609.9s 62 [DURÉE] totale : 76.3 min
+4609.9s 63 [SORTIE] fichiers dans /kaggle/working/sgz_a1o : ['Qwen3-4B_brut_a1o.npz', 'resume_a1o.json']
+4615.2s 64 /usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\|'
+4615.2s 65 cells[i][c] = re.sub('\\\\\|', '|', cell)
+4615.4s 66 /usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\_'
+4615.4s 67 text = re.sub(r'_', '\_', text) # Escape underscores in display text
+4616.1s 68 [NbConvertApp] Converting notebook __notebook__.ipynb to notebook
+4616.2s 69 [NbConvertApp] Writing 213820 bytes to __notebook__.ipynb
+4618.6s 70 [NbConvertApp] Converting notebook __notebook__.ipynb to html
+4619.4s 71 [NbConvertApp] Writing 667684 bytes to __results__.html

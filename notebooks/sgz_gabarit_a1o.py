@@ -58,11 +58,27 @@
 # V1 RÉDUIT 75 %. V2 DURABLE 45 %, S'ESTOMPE 20 %, INDÉTERMINÉE ou NON TESTABLE 35 %. V3 contamination brut présente
 # 60 %, CONTENUE 35 %. V4 AMÉLIORÉE 50 %, SANS GAIN 30 %. Synthèse SOUTENUE 25 %, RÉFUTÉE 40 %.
 #
+# ## Amendement du 27 oct. (essai 2), avant toute comparaison entre formats
+#
+# L'essai 1 a tourné le format brut en entier, puis s'est arrêté sur le format gabarit (mémoire GPU saturée : le
+# pré-remplissage calculait les logits de toutes les positions). Aucun verdict n'a donc été calculé. Corrections, sans
+# changer aucun critère ni aucun seuil :
+# - **mémoire** : logits du dernier pas seulement, allocation CUDA par segments extensibles ;
+# - **lecture des réponses (volet Q)** : le modèle écrit souvent le calcul (« 8 × 2 = 16. Réponse : 16 »), et la
+#   lecture « premier entier » prenait l'opérande (8) au lieu du résultat ; elle prend désormais le nombre après
+#   « Réponse / Résultat / Answer / Result », sinon après le dernier « = », sinon le premier entier ;
+# - **longueur des réponses** : 16 → 40 jetons (16 coupait « Réponse : 16 » en « Réponse : 1 ») ; les jetons générés
+#   sont enregistrés pour pouvoir relire les réponses.
+# Les deux formats sont relancés en entier. Les mesures descriptives du format brut de l'essai 1 (volet S) ont été vues ;
+# celles du format gabarit, jamais.
+#
 # ## Limites connues
 #
 # - Un seul modèle instruct, une seule formulation du gabarit et du dialogue brut.
 # - En qualité, un gain du gabarit peut venir du simple **respect du format** appris à l'entraînement, et non d'une
-#   stabilisation : la lecture du nombre est donc permissive (premier entier de la réponse), mais le biais reste possible.
+#   stabilisation : la lecture du nombre reste permissive (voir l'amendement), mais le biais reste possible.
+# - En format brut, Qwen3-4B écrit parfois un raisonnement en anglais (« Okay, the user wants… ») au lieu de répondre
+#   (vu dans l'essai 1) : le format brut active une partie du mode « réflexion », que le gabarit coupe par un bloc vide.
 # - Le contexte garde le bloc de réflexion vide de chaque tour (ajout pur) ; un usage réel l'efface des tours passés.
 # - Le choc est en position 8 de la réponse (t₀ = 64 dans A1c–A1j) : les valeurs de D ne sont pas comparables à A1j,
 #   seul le sens de V1 l'est.
@@ -76,6 +92,7 @@
 
 # %%
 import gc
+import inspect
 import json
 import math
 import os
@@ -83,6 +100,7 @@ import re
 import sys
 import time
 
+os.environ.setdefault("PYTORCH_CUDA_ALLOC_CONF", "expandable_segments:True")   # limite la fragmentation (essai 1 : OOM)
 import numpy as np
 import torch
 
@@ -106,7 +124,7 @@ N_CONV, N_TOURS, L_REP, T0 = 384, 6, 48, 8
 TOURS_CHOC = [1, 3, 6]
 RANK_LO, RANK_HI = 1000, 5000
 MID_D = (2, 31)
-N_CHAINES, L_ARITH = 768, 16
+N_CHAINES, L_ARITH = 768, 40                      # 40 jetons : l'essai 1 (16) coupait « Réponse : 16 » en « 1 »
 MARGE, MARGE_Q, SEUIL_Q = 0.2, 0.05, 0.5
 BOOT_N = int(os.environ.get("BOOT_N", "1000"))
 SEED = 20261030
@@ -503,6 +521,9 @@ class Gen:
         npar = sum(p.numel() for p in model.parameters())
         self.budget = 48 if npar < 3e9 else 32
         self.t_first = None
+        params = inspect.signature(model.forward).parameters                # logits du dernier pas seulement : le
+        self.un_logit = ({"logits_to_keep": 1} if "logits_to_keep" in params else    # pré-remplissage d'un long contexte
+                         {"num_logits_to_keep": 1} if "num_logits_to_keep" in params else {})   # ne matérialise pas B×L×V
 
     def left_pad(self, seqs):
         L = max(len(s) for s in seqs)
@@ -528,7 +549,8 @@ class Gen:
         pos = (attn.cumsum(-1) - 1).clamp(min=0)
         past = None
         for s in range(nsteps):
-            out = self.model(input_ids=ids, attention_mask=attn, position_ids=pos, past_key_values=past, use_cache=True)
+            out = self.model(input_ids=ids, attention_mask=attn, position_ids=pos, past_key_values=past, use_cache=True,
+                             **self.un_logit)
             past = out.past_key_values
             z = out.logits[:, -1, :].float()
             if not torch.isfinite(z).all():
@@ -639,16 +661,28 @@ def chaines(n):
 
 CHAINES = chaines(N_CHAINES)
 NUM = re.compile(r"-?\d+")
+CLE = re.compile(r"(?:r[ée]ponse|r[ée]sultat|answer|result)\s*(?:est|is)?\s*[:=]?\s*\**\s*(-?\d+)", re.I)
 
 
 def lire_nombre(txt):
+    """Nombre donné comme résultat : après « Réponse / Résultat / Answer / Result » s'il y en a un, sinon après le
+    dernier « = », sinon le premier entier (le modèle écrit souvent le calcul : « 8 × 2 = 16. Réponse : 16 »)."""
     t = txt.replace(" ", "").replace(" ", "")
     t = re.sub(r"(?<=\d)[ ,](?=\d{3}\b)", "", t)
-    m = NUM.search(t)
-    return int(m.group()) if m else None
+    m = list(CLE.finditer(t))
+    if m:
+        return int(m[-1].group(1))
+    if "=" in t:
+        n = NUM.search(t.rsplit("=", 1)[1])
+        if n:
+            return int(n.group())
+    n = NUM.search(t)
+    return int(n.group()) if n else None
 
 
-for txt, att in (("45", 45), ("Résultat : 1 234.", 1234), ("The answer is -7", -7), ("rien", None), ("**88**", 88)):
+for txt, att in (("45", 45), ("Résultat : 1 234.", 1234), ("The answer is -7", -7), ("rien", None), ("**88**", 88),
+                 ("8 × 2 = 16. Réponse : 16", 16), ("1 + 18 = 19", 19), ("The result is **42**.", 42),
+                 ("85 - 3 = 82. Answer: 82", 82), ("59 + 26 = 85", 85)):
     assert lire_nombre(txt) == att, (txt, lire_nombre(txt))
 
 # %%
@@ -782,6 +816,7 @@ def run_Q(g, segs, fmt, T):
     P = len(CHAINES)
     loc, absol, lu = np.zeros((P, N_TOURS)), np.zeros((P, N_TOURS)), np.zeros((P, N_TOURS))
     S4 = np.zeros((P, N_TOURS))
+    tks = np.zeros((P, N_TOURS, L_ARITH), np.int64)                            # pour relire les réponses après coup
     extrait = None
     nb = g.budget
     n_lots = math.ceil(P / nb)
@@ -811,13 +846,13 @@ def run_Q(g, segs, fmt, T):
                 k, b = CHAINES[r]["ops"][t - 1]
                 att_loc, vrai = appliquer(k, b, prev_mod[i]), appliquer(k, b, prev_vrai[i])
                 loc[r, t - 1], absol[r, t - 1], lu[r, t - 1] = x == att_loc, x == vrai, x is not None
-                S4[r, t - 1] = Sx[i, :4].mean()
+                S4[r, t - 1], tks[r, t - 1] = Sx[i, :4].mean(), tk[i]
                 prev_vrai[i], prev_mod[i] = vrai, (x if x is not None else att_loc)
                 hist[i] = ctxs[i] + rep
                 if r == 0 and t == N_TOURS:
                     extrait = tok.decode(hist[i])
         g.progress(time.time() - tl, n_lots, f"volet Q T={T}")
-    return {"local": loc, "absolu": absol, "lu": lu, "S4": S4, "extrait": extrait}
+    return {"local": loc, "absolu": absol, "lu": lu, "S4": S4, "tok": tks, "extrait": extrait}
 
 # %%
 # ---------- Boucle principale : un modèle, deux formats, deux volets ----------
@@ -900,7 +935,7 @@ for fmt in FORMATS:
                             **{f"S_{arm}_t{t}": S[(arm, t)] for arm, t in ARMS_TOURS},
                             **{f"tok_{arm}_t{t}": TK[(arm, t)] for arm, t in ARMS_TOURS},
                             **{f"Srej_{arm}_t{j}": SR[(arm, j)] for arm, j in SR},
-                            **{f"Q_{k}_T{T}": q[T][k] for T in T_Q for k in ("local", "absolu", "lu", "S4")})
+                            **{f"Q_{k}_T{T}": q[T][k] for T in T_Q for k in ("local", "absolu", "lu", "S4", "tok")})
         print(f"[DURÉE] {fmt} : {a['minutes']:.1f} min", flush=True)
     except Exception as e:
         print(f"[ERREUR] {fmt} : {type(e).__name__}: {str(e)[:500]}", flush=True)
