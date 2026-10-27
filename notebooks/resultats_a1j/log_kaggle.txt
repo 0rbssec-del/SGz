@@ -1,0 +1,136 @@
+8.2s 1 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+8.2s 2 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+8.2s 3 0.00s - to python to disable frozen modules.
+8.2s 4 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+8.8s 5 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+8.8s 6 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+8.8s 7 0.00s - to python to disable frozen modules.
+8.8s 8 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+33.3s 9 [CONFIG] SMOKE_TEST=False DEVICE=cuda N_GPU=2 OUT=/kaggle/working/sgz_a1j
+33.3s 10 [CONFIG] T=[0.6] prompts=768 longueur=160 t0=64 fenêtre k=8–31 marge ±20% ; modèles=['Qwen3-4B']
+33.3s 11 [CONFIG] torch 2.11.0+cu128, transformers 5.16.1
+33.4s 12 [PROMPTS] 768 prompts (64 écrits à la main, 704 gabarits), identiques à A1c
+33.5s 13 [TÉMOIN POSITIF] suppression (×0,5)   : SUPPRESSION  (attendu SUPPRESSION)
+33.5s 14 [TÉMOIN POSITIF] équivalent (×1,0)    : ÉQUIVALENT   (attendu ÉQUIVALENT)
+33.5s 15 [TÉMOIN POSITIF] saillance (×1,6)     : SAILLANCE    (attendu SAILLANCE)
+33.5s 16 [TÉMOIN POSITIF] F compensation       : COMPENSATION (attendu COMPENSATION)
+33.5s 17 [TÉMOIN POSITIF] F équivalent         : ÉQUIVALENT   (attendu ÉQUIVALENT)
+33.5s 18 [TÉMOIN POSITIF] F amplification      : AMPLIFICATION (attendu AMPLIFICATION)
+33.5s 19 [TÉMOIN POSITIF] F effet direct nul   : NON TESTABLE (effet direct absent) (attendu NON TESTABLE (effet direct absent))
+33.5s 20 [TÉMOIN POSITIF] facteur réduit       : RÉDUIT       (attendu RÉDUIT)
+33.5s 21 [TÉMOIN POSITIF] facteur sans effet   : SANS EFFET   (attendu SANS EFFET)
+33.5s 22 [TÉMOIN POSITIF] facteur augmenté     : AUGMENTÉ     (attendu AUGMENTÉ)
+33.5s 23 [TÉMOIN POSITIF] lecture échelle      : ÉCHELLE      (attendu ÉCHELLE)
+33.5s 24 [TÉMOIN POSITIF] lecture amortissement : AMORTISSEMENT (attendu AMORTISSEMENT)
+33.5s 25 [TÉMOIN POSITIF] part R dominante     : R            (attendu R)
+33.5s 26 [TÉMOIN POSITIF] parts partagées      : PARTAGÉ      (attendu PARTAGÉ)
+33.5s 27 [TÉMOIN POSITIF] RÉUSSI
+33.7s 28 [CHARGEMENT] Qwen3-4B : téléchargement / chargement de Qwen/Qwen3-4B…
+43.6s 29 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+43.6s 30 
+43.6s 31 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+94.3s 32 [CHARGEMENT] Qwen3-4B : Qwen/Qwen3-4B en fp16 1 GPU
+94.3s 33 [CONFIG] attention pendant la génération : sdpa ; passes rejouées : eager
+94.3s 34 
+94.3s 35 [FORMAT] brut : exemple 'La ville de Lyon est située au confluent' ; longueur médiane du contexte 12 jetons
+110.4s 36 [PROGRESSION] Qwen3-4B|brut : premier lot en 16.1 s ; estimation ~13 min (génération)
+891.1s 37 [VÉRIF] Qwen3-4B|brut T=0.6 : identique avant t0 : True ; jeton changé à t0 : fort 100%, doux 100% ; rang médian du choc fort 3103
+891.1s 38 [MESURE] Qwen3-4B|brut T=0.6 : 797 s
+1229.0s 39 [VÉRIF] Qwen3-4B|brut T=0.6 rejoué (eager) contre généré : témoin écart moyen 1.2e-03, max 6.0e-01 ; choc à k=1 2.1e-03 ; calcul de N (Gram contre somme directe) écart relatif 1.3e-06
+1229.0s 40 [MESURE] Qwen3-4B|brut T=0.6 passes rejouées : 338 s
+1229.3s 41 [BASE] brut      : S0 (témoin, k=2–31) = 0.482 ; D fort = +0.0510 IC95 [+0.0473 ; +0.0546] ; Dr = D/S0 = +0.1058 ; D doux = +0.0407 ; référence A1f : +0.0510
+1229.3s 42 [ANCRAGE] brut : D de A1f (+0.0510) dans l'IC95 : True
+1229.5s 43 [F] brut      : AMPLIFICATION ; I = +0.0280 IC95 [+0.0154 ; +0.0401] ; I/D = +0.55
+1229.5s 44 [A] brut      : choc fort ρ = 1.126 IC95 [1.067 ; 1.191] (ÉQUIVALENT) ; têtes ρ_A < 0,8 : 35.1%
+1229.5s 45 [N] brut      : choc fort ρ = 2.113 IC95 [2.000 ; 2.231] (SAILLANCE)
+1229.5s 46 [COURBE] brut      : D fort par tranches de k (1 | 2–3 | 4–7 | 8–15 | 16–31 | 32–63 | 64–95) : +0.473 +0.252 +0.073 +0.042 +0.025 +0.015 +0.010
+1229.5s 47 [E] brut      : formules de correction, choc 0.7%, témoin 0.7%
+1229.5s 48 [EXTRAIT] brut prompt 0 : ". Lyon est une ville très ancienne;\\\n\nLyon, une ville riche de 3 000 ans d'histoire, est une ville qui a vu naître des paysans, des artisans, des scientifiques"
+1229.8s 49 [DURÉE] brut : 18.9 min
+1230.2s 50 
+1230.2s 51 [FORMAT] consigne : exemple 'Continue ce texte :\n\nLa ville de Lyon est située au confluent' ; longueur médiane du contexte 16 jetons
+1247.0s 52 [PROGRESSION] Qwen3-4B|consigne : premier lot en 16.8 s ; estimation ~13 min (génération)
+2045.3s 53 [VÉRIF] Qwen3-4B|consigne T=0.6 : identique avant t0 : True ; jeton changé à t0 : fort 100%, doux 100% ; rang médian du choc fort 3103
+2045.3s 54 [MESURE] Qwen3-4B|consigne T=0.6 : 815 s
+2384.8s 55 [VÉRIF] Qwen3-4B|consigne T=0.6 rejoué (eager) contre généré : témoin écart moyen 1.3e-03, max 7.1e-02 ; choc à k=1 2.1e-03 ; calcul de N (Gram contre somme directe) écart relatif 9.2e-07
+2384.8s 56 [MESURE] Qwen3-4B|consigne T=0.6 passes rejouées : 340 s
+2385.0s 57 [BASE] consigne  : S0 (témoin, k=2–31) = 0.471 ; D fort = +0.0521 IC95 [+0.0485 ; +0.0559] ; Dr = D/S0 = +0.1105 ; D doux = +0.0408
+2385.2s 58 [F] consigne  : ÉQUIVALENT ; I = +0.0002 IC95 [-0.0129 ; +0.0139] ; I/D = +0.00
+2385.2s 59 [A] consigne  : choc fort ρ = 1.171 IC95 [1.105 ; 1.237] (SAILLANCE) ; têtes ρ_A < 0,8 : 34.8%
+2385.2s 60 [N] consigne  : choc fort ρ = 2.124 IC95 [2.010 ; 2.243] (SAILLANCE)
+2385.2s 61 [COURBE] consigne  : D fort par tranches de k (1 | 2–3 | 4–7 | 8–15 | 16–31 | 32–63 | 64–95) : +0.522 +0.289 +0.086 +0.039 +0.020 +0.009 +0.004
+2385.2s 62 [E] consigne  : formules de correction, choc 1.2%, témoin 0.7%
+2385.2s 63 [EXTRAIT] consigne prompt 0 : 'ites, ses ruelles sinues,ainsi que ses places. La ville est bordée par deux rivières, le Rhône et la Saône, qui ont façonné le paysage et la culture de Lyon.'
+2385.5s 64 [DURÉE] consigne : 19.2 min
+2386.1s 65 
+2386.1s 66 [FORMAT] prerempli : exemple '<|im_start|>user\nContinue ce texte :\n\nLa ville de Lyon est située au confluent<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\nLa ville de Lyon est située au confluent' ; longueur médiane du contexte 40 jetons
+2404.8s 67 [PROGRESSION] Qwen3-4B|prerempli : premier lot en 18.7 s ; estimation ~15 min (génération)
+3297.8s 68 [VÉRIF] Qwen3-4B|prerempli T=0.6 : identique avant t0 : True ; jeton changé à t0 : fort 100%, doux 100% ; rang médian du choc fort 3103
+3297.8s 69 [MESURE] Qwen3-4B|prerempli T=0.6 : 912 s
+3675.6s 70 [VÉRIF] Qwen3-4B|prerempli T=0.6 rejoué (eager) contre généré : témoin écart moyen 1.3e-03, max 2.1e-01 ; choc à k=1 2.1e-03 ; calcul de N (Gram contre somme directe) écart relatif 9.6e-07
+3675.6s 71 [MESURE] Qwen3-4B|prerempli T=0.6 passes rejouées : 378 s
+3675.8s 72 [BASE] prerempli : S0 (témoin, k=2–31) = 0.235 ; D fort = +0.0052 IC95 [+0.0033 ; +0.0072] ; Dr = D/S0 = +0.0221 ; D doux = +0.0092
+3676.0s 73 [F] prerempli : AMPLIFICATION ; I = +0.0109 IC95 [+0.0051 ; +0.0170] ; I/D = +2.09
+3676.0s 74 [A] prerempli : choc fort ρ = 0.876 IC95 [0.832 ; 0.929] (ÉQUIVALENT) ; têtes ρ_A < 0,8 : 54.7%
+3676.0s 75 [N] prerempli : choc fort ρ = 1.503 IC95 [1.426 ; 1.591] (SAILLANCE)
+3676.0s 76 [COURBE] prerempli : D fort par tranches de k (1 | 2–3 | 4–7 | 8–15 | 16–31 | 32–63 | 64–95) : +0.214 +0.070 +0.006 +0.003 -0.002 -0.003 -0.002
+3676.0s 77 [E] prerempli : formules de correction, choc 0.7%, témoin 0.8%
+3676.0s 78 [EXTRAIT] prerempli prompt 0 : ' de devenir un centre commercial, indust Under, et culturel majeur au fil des siècles. Au cœur de la région Rhône-Alpes, Lyon est souvent considérée comme la « ville des deux rivières'
+3676.3s 79 [DURÉE] prerempli : 21.5 min
+3676.8s 80 
+3676.8s 81 [FORMAT] complet : exemple '<|im_start|>user\nContinue ce texte :\n\nLa ville de Lyon est située au confluent<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n' ; longueur médiane du contexte 28 jetons
+3694.4s 82 [PROGRESSION] Qwen3-4B|complet : premier lot en 17.6 s ; estimation ~14 min (génération)
+4531.1s 83 [VÉRIF] Qwen3-4B|complet T=0.6 : identique avant t0 : True ; jeton changé à t0 : fort 100%, doux 100% ; rang médian du choc fort 3103
+4531.1s 84 [MESURE] Qwen3-4B|complet T=0.6 : 854 s
+4531.1s 85 [ANCRAGE] complet : trajectoires identiques à A1g (MD5) : témoin True, choc fort True
+4883.1s 86 [VÉRIF] Qwen3-4B|complet T=0.6 rejoué (eager) contre généré : témoin écart moyen 1.2e-03, max 5.1e-02 ; choc à k=1 2.5e-03 ; calcul de N (Gram contre somme directe) écart relatif 8.4e-07
+4883.1s 87 [MESURE] Qwen3-4B|complet T=0.6 passes rejouées : 352 s
+4883.3s 88 [BASE] complet   : S0 (témoin, k=2–31) = 0.231 ; D fort = +0.0057 IC95 [+0.0039 ; +0.0075] ; Dr = D/S0 = +0.0247 ; D doux = +0.0082 ; référence A1g : +0.0057
+4883.3s 89 [ANCRAGE] complet : D de A1g (+0.0057) dans l'IC95 : True
+4883.5s 90 [F] complet   : AMPLIFICATION ; I = +0.0110 IC95 [+0.0051 ; +0.0168] ; I/D = +1.93
+4883.5s 91 [A] complet   : choc fort ρ = 0.815 IC95 [0.767 ; 0.873] (SUPPRESSION) ; têtes ρ_A < 0,8 : 58.4%
+4883.5s 92 [N] complet   : choc fort ρ = 1.444 IC95 [1.373 ; 1.531] (SAILLANCE)
+4883.5s 93 [COURBE] complet   : D fort par tranches de k (1 | 2–3 | 4–7 | 8–15 | 16–31 | 32–63 | 64–95) : +0.254 +0.077 +0.006 +0.003 -0.002 -0.003 -0.003
+4883.5s 94 [E] complet   : formules de correction, choc 0.8%, témoin 0.4%
+4883.5s 95 [EXTRAIT] complet prompt 0 : 'ovation, où le passé et le présentונות en harmonie. Son histoire remonte à l’Antiquité, lorsqu’elle fut fondée par les Gaules, et elle a longtemps été un centre commercial et industriel important'
+4883.9s 96 [DURÉE] complet : 20.1 min
+4884.4s 97 
+4884.4s 98 [FORMAT] gabarit : exemple '<|im_start|>user\nLa ville de Lyon est située au confluent<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n' ; longueur médiane du contexte 24 jetons
+4901.6s 99 [PROGRESSION] Qwen3-4B|gabarit : premier lot en 17.3 s ; estimation ~14 min (génération)
+5724.4s 100 [VÉRIF] Qwen3-4B|gabarit T=0.6 : identique avant t0 : True ; jeton changé à t0 : fort 100%, doux 100% ; rang médian du choc fort 3103
+5724.4s 101 [MESURE] Qwen3-4B|gabarit T=0.6 : 840 s
+6067.0s 102 [VÉRIF] Qwen3-4B|gabarit T=0.6 rejoué (eager) contre généré : témoin écart moyen 1.2e-03, max 5.1e-02 ; choc à k=1 2.5e-03 ; calcul de N (Gram contre somme directe) écart relatif 7.6e-07
+6067.0s 103 [MESURE] Qwen3-4B|gabarit T=0.6 passes rejouées : 343 s
+6067.2s 104 [BASE] gabarit   : S0 (témoin, k=2–31) = 0.215 ; D fort = +0.0126 IC95 [+0.0105 ; +0.0148] ; Dr = D/S0 = +0.0587 ; D doux = +0.0100
+6067.4s 105 [F] gabarit   : AMPLIFICATION ; I = +0.0084 IC95 [+0.0029 ; +0.0144] ; I/D = +0.66
+6067.4s 106 [A] gabarit   : choc fort ρ = 0.945 IC95 [0.896 ; 0.996] (ÉQUIVALENT) ; têtes ρ_A < 0,8 : 47.4%
+6067.4s 107 [N] gabarit   : choc fort ρ = 1.505 IC95 [1.424 ; 1.585] (SAILLANCE)
+6067.4s 108 [COURBE] gabarit   : D fort par tranches de k (1 | 2–3 | 4–7 | 8–15 | 16–31 | 32–63 | 64–95) : +0.379 +0.110 +0.017 +0.005 +0.003 +0.001 +0.001
+6067.4s 109 [E] gabarit   : formules de correction, choc 0.5%, témoin 0.7%
+6067.4s 110 [EXTRAIT] gabarit prompt 0 : ' cours d’eau se rejoignent signifiant que Lyon est un point stratégique et géographique important en France. C’est aussi le point de convergence des deux rivières principales du Sud de la France : le Rhône'
+6067.7s 111 [DURÉE] gabarit : 19.7 min
+6068.2s 112 
+6068.2s 113 ====================================================================================================
+6068.2s 114 [RÉSULTATS] Qwen3-4B, T = 0.6, contrastes entre formats (même prompts, bootstrap apparié)
+6068.2s 115 [FACTEUR] C               (consigne ; consigne / brut) : D ×1.02 IC95 [0.93 ; 1.13] SANS EFFET ; Dr ×1.04 IC95 [0.95 ; 1.16] SANS EFFET → D SANS EFFET ; Dr SANS EFFET
+6068.2s 116 [FACTEUR] G               (gabarit de conversation ; prerempli / consigne) : D ×0.10 IC95 [0.06 ; 0.14] RÉDUIT ; Dr ×0.20 IC95 [0.12 ; 0.28] RÉDUIT → AMORTISSEMENT
+6068.2s 117 [FACTEUR] R               (nouveau tour de l'assistant ; complet / prerempli) : D ×1.10 IC95 [0.65 ; 1.87] INDÉTERMINÉ ; Dr ×1.12 IC95 [0.66 ; 1.93] INDÉTERMINÉ → D INDÉTERMINÉ ; Dr INDÉTERMINÉ
+6068.3s 118 [FACTEUR] C sous gabarit  (consigne, sous gabarit ; complet / gabarit) : D ×0.45 IC95 [0.29 ; 0.63] RÉDUIT ; Dr ×0.42 IC95 [0.27 ; 0.59] RÉDUIT → AMORTISSEMENT
+6068.3s 119 [FACTEUR] total           (format conversation complet ; complet / brut) : D ×0.11 IC95 [0.07 ; 0.15] RÉDUIT ; Dr ×0.23 IC95 [0.15 ; 0.32] RÉDUIT → AMORTISSEMENT
+6068.3s 120 [PART] écart total log(complet / brut) = -2.19 IC95 [-2.59 ; -1.89]
+6068.3s 121 [PART] C (consigne) : -1% de l'écart IC95 [-6% ; +3%] : NON DOMINANT
+6068.3s 122 [PART] G (gabarit de conversation) : +105% de l'écart IC95 [+84% ; +134%] : DOMINANT
+6068.3s 123 [PART] R (nouveau tour de l'assistant) : -4% de l'écart IC95 [-32% ; +17%] : NON DOMINANT
+6068.3s 124 [SYNTHÈSE] facteur principal de l'amortissement : G (prédiction : R 40 %, G 20 %, C 10 %, PARTAGÉ 30 %)
+6068.3s 125 [SYNTHÈSE] écart total complet / brut : AMORTISSEMENT (prédiction : AMORTISSEMENT 75 %, ÉCHELLE 15 %)
+6068.3s 126 [SYNTHÈSE] consigne sans gabarit ×1.02, sous gabarit ×0.45 (descriptif : interaction consigne × gabarit)
+6068.3s 127 [DURÉE] totale : 100.6 min
+6068.3s 128 [SORTIE] fichiers dans /kaggle/working/sgz_a1j : ['Qwen3-4B_brut_a1j.npz', 'Qwen3-4B_complet_a1j.npz', 'Qwen3-4B_consigne_a1j.npz', 'Qwen3-4B_gabarit_a1j.npz', 'Qwen3-4B_prerempli_a1j.npz', 'resume_a1j.json']
+6073.9s 129 /usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\|'
+6073.9s 130 cells[i][c] = re.sub('\\\\\|', '|', cell)
+6074.1s 131 /usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\_'
+6074.1s 132 text = re.sub(r'_', '\_', text) # Escape underscores in display text
+6074.9s 133 [NbConvertApp] Converting notebook __notebook__.ipynb to notebook
+6075.0s 134 [NbConvertApp] Writing 223361 bytes to __notebook__.ipynb
+6077.5s 135 [NbConvertApp] Converting notebook __notebook__.ipynb to html
+6078.3s 136 [NbConvertApp] Writing 705056 bytes to __results__.html

@@ -1,0 +1,45 @@
+A1j — Qwen3-4B, 5 formats (brut, consigne, prerempli, complet, gabarit), T = 0,6, 768 prompts.
+Pré-enregistré dans 260b67e. Durée totale 100,6 min. Témoins positifs RÉUSSIS (19 contrôles, dont les 7
+nouveaux sur les facteurs et les lectures). Ancrages RÉUSSIS : D(brut) dans l'IC95 d'A1f ; trajectoires et
+D(complet) identiques à A1g (MD5 True/True).
+
+VERDICTS PRÉ-ENREGISTRÉS (facteurs, sur D et Dr, marge ±20 %)
+- C (consigne ; consigne/brut)        : SANS EFFET  (D ×1,02 [0,93 ; 1,13] ; Dr ×1,04 [0,95 ; 1,16])
+- G (gabarit ; prerempli/consigne)    : RÉDUIT       (D ×0,10 [0,06 ; 0,14] ; Dr ×0,20 [0,12 ; 0,28]) → AMORTISSEMENT
+- R (nouveau tour ; complet/prerempli): INDÉTERMINÉ  (D ×1,10 [0,65 ; 1,87] ; Dr ×1,12 [0,66 ; 1,93])
+- C sous gabarit (complet/gabarit)    : RÉDUIT       (D ×0,45 [0,29 ; 0,63] ; Dr ×0,42 [0,27 ; 0,59]) → AMORTISSEMENT
+- total (complet/brut)                : RÉDUIT       (D ×0,11 [0,07 ; 0,15] ; Dr ×0,23 [0,15 ; 0,32]) → AMORTISSEMENT
+- Part de chaque facteur dans log(complet/brut) = -2,19 [-2,59 ; -1,89] : C -1 % NON DOMINANT ;
+  G +105 % DOMINANT ; R -4 % NON DOMINANT. Facteur principal : G (prédiction : R 40 %, G 20 %, C 10 % ;
+  la prédiction s'est trompée de facteur, mais le sens « amortissement » prédit à 75 % est confirmé).
+
+LECTURE
+Le gabarit de conversation (le format lui-même, balises comprises) est responsable de la quasi-totalité
+de l'amortissement entre texte brut et format complet, et c'est un amortissement réel (Dr réduit aussi,
+pas un simple effet d'échelle). Le fait de répondre dans un nouveau tour plutôt que de continuer le texte
+prérempli ne change presque rien (R indéterminé, proche de 1). La consigne seule ne fait rien (SANS EFFET),
+mais une fois sous gabarit elle réduit encore D de moitié (interaction consigne × gabarit, non prévue
+comme facteur séparé, décrite en descriptif dans le notebook).
+
+D PAR FORMAT (k = 2–31)
+brut 0,0510 | consigne 0,0521 | gabarit 0,0126 | prerempli 0,0052 | complet 0,0057
+S0 (entropie de base du témoin) : brut 0,482 | consigne 0,471 | gabarit 0,215 | prerempli 0,235 | complet 0,231
+→ S0 chute dès l'entrée du gabarit (÷2,2), pas avec la seule consigne. Le fait que Dr (D/S0) soit aussi
+réduit pour G confirme que ce n'est pas qu'un effet de confiance générale du modèle.
+
+AUTRES OBSERVATIONS (descriptif, non pré-enregistré)
+- Inversion doux > fort (vue dans A1g) : présente dans prerempli (D doux 0,0092 > D fort 0,0052) et complet
+  (0,0082 > 0,0057), absente dans brut, consigne et gabarit seuls. Elle apparaît donc avec la même
+  combinaison (consigne + gabarit) qui porte l'amortissement principal.
+- Part des têtes avec ρ_A < 0,8 (choc fort) : brut 35 %, consigne 35 %, gabarit 47 %, prerempli 55 %,
+  complet 58 % — progression qui suit la même combinaison.
+- Correction explicite (E) : 0,4 à 1,2 % dans tous les formats, aucune différence notable.
+
+ARTEFACT DE CONCEPTION (important)
+A1j ne teste qu'une seule température (T = 0,6), alors qu'A1g en testait deux (0,6 et 0,8). La règle de
+verdict « these_suppression » exige SUPPRESSION aux DEUX températures testées pour conclure SOUTENUE.
+Avec une seule température, le format « complet » obtient mécaniquement SOUTENUE ici (A à 0,6 seul est
+SUPPRESSION), alors qu'A1g, avec les deux températures, avait conclu INDÉTERMINÉE pour le même modèle et
+le même format (A SUPPRESSION à 0,6 mais seulement ÉQUIVALENT à 0,8). Le champ "replication": "CONTREDITE"
+de resume_a1j.json pour le format "complet" est donc un artefact du nombre de températures testées, pas
+une contradiction réelle d'A1g : la cellule T = 0,6 est identique aux deux notebooks (ancrage MD5 vérifié).
