@@ -1,0 +1,4 @@
+llama   T=0.6 : G = 0.70 IC95 [0.67 ; 0.73] → C2 APPUYÉE ; couches au plus fort surplus [30, 29, 27] sur 0–31
+llama   T=0.8 : G = 0.69 IC95 [0.66 ; 0.72] → C2 INDÉTERMINÉE ; couches au plus fort surplus [30, 27, 26] sur 0–31
+gemma   T=0.6 : G = 0.62 IC95 [0.61 ; 0.64] → C2 INDÉTERMINÉE ; couches au plus fort surplus [37, 4, 36] sur 0–41
+gemma   T=0.8 : G = 0.59 IC95 [0.57 ; 0.61] → C2 INDÉTERMINÉE ; couches au plus fort surplus [37, 4, 36] sur 0–41
