@@ -12,7 +12,8 @@ COMPARAISON DESCRIPTIVE AVEC A1f (même modèle, texte brut ; mêmes prompts, m�
 - Pic à k=1 : +0,254 / +0,234 contre +0,473 / +0,445 (÷ 1,9) ; tranche 4–7 : +0,006 / +0,009 contre +0,073 / +0,081 (÷ 9 à 12).
 - Choc doux : D +0,0082 / +0,0075 contre +0,041 → ici le choc doux perturbe PLUS que le fort sur k=2–31 (inversion).
 - Attention A : 0,82 / 0,86 contre 1,13 / 1,04 ; contribution N : 1,44 / 1,56 contre 2,11 / 1,92.
-- Têtes avec ρ_A < 0,8 : 58 % / 56 % (A1d, 1.7B base : 19 %). Couche 3 (têtes 5, 6, 12, 30) et couche 1 tête 28 : ρ_fort 0,00–0,03,
+- Têtes avec ρ_A < 0,8 : 58 % / 56 % (même modèle en texte brut, A1f : 35 % / 40 % ; correction du 27 oct. : le
+  « 19 % » cité d'abord venait d'un autre critère, IC95(ρ) < 0,8, dans A1d). Couche 3 (têtes 5, 6, 12, 30) et couche 1 tête 28 : ρ_fort 0,00–0,03,
   soit un quasi-zéro pour le jeton fort, contre 0,22–0,54 pour le doux. Dernières couches (30–35) : ρ 1,4 à 3,7.
 - I absolu : +0,011 / +0,007 contre +0,028 / +0,023. Le rapport I/D grandit parce que D s'effondre, pas parce que I grandit.
 

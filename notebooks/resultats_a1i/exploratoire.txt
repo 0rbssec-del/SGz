@@ -1,0 +1,34 @@
+A1i — quatre familles base : Falcon3-10B-Base, granite-3.3-8b-base, OLMo-2-1124-7B, Mistral-7B-v0.3 (fp16 sur 2 GPU).
+Pré-enregistré dans 9fe7aec. 768 prompts, T 0,6 et 0,8, durée totale 3 h 28. Témoins positifs RÉUSSIS ; vérifications correctes
+(identique avant t0, choc à 100 %, rejoué contre généré ≤ 1e-3 en moyenne, Gram contre somme directe ≤ 1,2e-6).
+
+VERDICTS PRÉ-ENREGISTRÉS
+| Modèle      | F (T 0,6 / 0,8), I/D             | A choc fort (ρ)          | N choc fort (ρ) | Suppression | Réplication |
+| Falcon3-10B | AMPLIF. / AMPLIF., +0,39 / +0,26 | 1,12 INDÉT. / 1,03 ÉQUIV. | 1,90 / 1,68 SAIL. | INDÉTERMINÉE | PARTIELLE |
+| Granite-8B  | AMPLIF. / AMPLIF., +2,11 / +1,86 | 1,22 / 1,20 SAILLANCE     | 2,33 / 2,32 SAIL. | RÉFUTÉE      | RÉPLIQUÉE |
+| OLMo-2-7B   | AMPLIF. / AMPLIF., +0,62 / +0,33 | 0,72 / 0,79 SUPPRESSION   | 1,69 / 1,61 SAIL. | INDÉTERMINÉE | PARTIELLE |
+| Mistral-7B  | AMPLIF. / AMPLIF., +0,77 / +0,69 | 0,94 / 0,91 INDÉTERMINÉ   | 2,30 / 2,09 SAIL. | INDÉTERMINÉE | PARTIELLE |
+Effet direct D (choc fort, k = 2–31) : +0,049 à +0,082 ; choc doux : 58 à 72 % du fort (pas d'inversion, contrairement à A1g).
+
+BILAN SUR 10 CONFIGURATIONS (Qwen3 base 1.7B/4B/8B, Qwen3-4B instruct brut et conversation, SmolLM3-3B, et les 4 ci-dessus)
+- F : AMPLIFICATION dans 20 verdicts sur 20 (10 configurations × 2 T). Rétroaction par la trajectoire réfutée partout.
+- N : SAILLANCE dans 20 sur 20 (ρ_N de 1,44 à 2,9). La contribution du jeton choqué n'est jamais supprimée.
+- A : dépend de la famille : SAILLANCE (Granite, SmolLM3), ÉQUIVALENT/INDÉTERMINÉ (Qwen base, Falcon, Mistral),
+  SUPPRESSION (OLMo, Qwen3-4B en conversation à T = 0,6). L'« attraction » n'est donc pas dans le poids d'attention,
+  mais dans l'intensité de ce qui est lu (N/A ≈ 1,6 à 2,4).
+
+EXPLORATOIRE (explo_a1i.py, non pré-enregistré)
+- Granite : 6 couches (20, 23, 24, 26, 27, 29) donnent une attention vers t0 strictement identique entre témoin et choc
+  (attention ≈ 0,0101, écart-type entre prompts 0,0005) : attention indépendante du contenu du jeton dans ces couches,
+  probablement quasi uniforme (hypothèse non vérifiée : longueurs de contexte non enregistrées).
+- Granite : amplification large, pas seulement quelques dérives : I par prompt médiane +0,12 (moyenne +0,18) ;
+  bras libre k = 32–95 > +0,5 nat dans 12 % et 7 % des prompts (autres familles : 1 à 4 %).
+- Entropie de base du témoin (k = 2–31) : 0,61–0,92 selon le modèle (Qwen3-4B en conversation, A1g : 0,23).
+- Part des têtes avec ρ_A < 0,8 (choc fort) : Falcon 40/47 %, Granite 24/23 %, OLMo 69/60 %, Mistral 58/57 %
+  (Qwen3 base 27–40 %, SmolLM3 16–18 %, Qwen3-4B brut 35/40 %, conversation 58/56 %).
+  → La forte part de têtes « aveugles » observée en conversation (A1g) existe aussi dans des modèles base (OLMo, Mistral) :
+  elle n'est pas propre au format conversation.
+
+LIMITES
+- Un seul jeu de prompts (A1c), modèles base uniquement, fp16.
+- Le verdict « suppression interne » est INDÉTERMINÉ pour 3 modèles à cause de A seul ; N reste SAILLANCE partout.
