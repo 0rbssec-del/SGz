@@ -26,11 +26,19 @@
 #   Mistral, trajectoires identiques à A1i (MD5 des 96 premiers jetons). Un écart est signalé, sans invalider ρ_V.
 # - Secondaires, sans verdict : ρ pour ‖v‖ et pour ‖x‖ ; ρ_V par couche ; ρ_V du choc doux ; corrélation de Spearman, par
 #   prompt, entre log(V fort / V témoin) et la surprise du jeton forcé.
+# - **Référence absolue** (ajoutée le 27 oct., avant toute exécution) : R = moyenne de V sur toutes les positions du contexte
+#   avant t₀ (prompt et jetons générés), sans la première position (puits d'attention habituel). Explication concurrente
+#   tirée de la littérature : les jetons fréquents et très regardés ont des valeurs « vidées » (value-state drain) ; ρ_V > 1
+#   pourrait alors venir d'un témoin anormalement faible. Rapports V(fort)/R et V(témoin)/R, même règle à 20 %. Lecture :
+#   **CRIE** si fort/R = SAILLANCE et témoin/R = ÉQUIVALENT ; **CHUCHOTE** si témoin/R = SUPPRESSION et fort/R = ÉQUIVALENT ;
+#   **LES DEUX** si fort/R = SAILLANCE et témoin/R = SUPPRESSION ; sinon AUTRE. Descriptif : rang centile médian du jeton
+#   choqué parmi les positions du contexte.
 #
 # ## Prédictions de l'assistant (écrites avant exécution) [spéculation]
 #
 # Hypothèse « valeur » SOUTENUE 55 %, RÉFUTÉE 20 % ; part de N expliquée L'ESSENTIEL pour au moins 3 modèles : 45 % ;
-# choc doux ρ_V ÉQUIVALENT pour au moins 4 modèles : 70 %.
+# choc doux ρ_V ÉQUIVALENT pour au moins 4 modèles : 70 %. Référence absolue (par modèle) : CRIE 60 %, LES DEUX 10 %,
+# CHUCHOTE 5 %, AUTRE 25 % (le témoin est un jeton échantillonné ordinaire, donc proche de la moyenne du contexte).
 #
 # ## Limites connues
 #
@@ -40,8 +48,8 @@
 #
 # ## Réglages Kaggle
 #
-# Accélérateur **GPU T4 x2**, **Internet activé**. Durée estimée : ~10 à 20 min par modèle, ~1 h 15 en tout [estimation].
-# **À lire en priorité** : `[TÉMOIN POSITIF]`, `[ANCRAGE]`, `[VÉRIF]`, `[V]`, `[PART]`, `[HYPOTHÈSE]`.
+# Accélérateur **GPU T4 x2**, **Internet activé**. Durée estimée : ~10 à 20 min par modèle, ~1 h 25 en tout [estimation].
+# **À lire en priorité** : `[TÉMOIN POSITIF]`, `[ANCRAGE]`, `[VÉRIF]`, `[V]`, `[PART]`, `[ABSOLU]`, `[HYPOTHÈSE]`.
 
 # %%
 import gc
@@ -394,6 +402,30 @@ for name, fv, fa, exp in (("part valeur essentielle", 2.0, 1.0, "L'ESSENTIEL"), 
     got = part_valeur(vf_pc, vt_pc, nf_pc, nt_pc, bt)["verdict"]
     checks.append((name, got, exp))
     print(f"[TÉMOIN POSITIF] {name:<20} : {got:<12} (attendu {exp})")
+
+
+def lecture_absolue(vf, vt, R, boots, interpretable=True):
+    """V(fort)/R et V(témoin)/R contre la moyenne du contexte : CRIE, CHUCHOTE, LES DEUX ou AUTRE."""
+    f, t = ratio_verdict(vf, R, boots, interpretable), ratio_verdict(vt, R, boots, interpretable)
+    if not interpretable:
+        lec = "NON INTERPRÉTABLE"
+    elif f["verdict"] == "SAILLANCE" and t["verdict"] == "ÉQUIVALENT":
+        lec = "CRIE"
+    elif f["verdict"] == "ÉQUIVALENT" and t["verdict"] == "SUPPRESSION":
+        lec = "CHUCHOTE"
+    elif f["verdict"] == "SAILLANCE" and t["verdict"] == "SUPPRESSION":
+        lec = "LES DEUX"
+    else:
+        lec = "AUTRE"
+    return {"fort": f, "temoin": t, "lecture": lec}
+
+
+R_pc = base_pc * rng_pc.lognormal(0, 0.1, Pp)
+for name, ff_, ft_, exp in (("lecture crie", 2.0, 1.0, "CRIE"), ("lecture chuchote", 1.0, 0.5, "CHUCHOTE"),
+                           ("lecture les deux", 2.0, 0.5, "LES DEUX")):
+    got = lecture_absolue(ff_ * R_pc * rng_pc.lognormal(0, 0.2, Pp), ft_ * R_pc * rng_pc.lognormal(0, 0.2, Pp), R_pc, bt)["lecture"]
+    checks.append((name, got, exp))
+    print(f"[TÉMOIN POSITIF] {name:<20} : {got:<12} (attendu {exp})")
 POSITIVE_CONTROL_OK = all(g == e for _, g, e in checks)
 print(f"[TÉMOIN POSITIF] {'RÉUSSI' if POSITIVE_CONTROL_OK else 'RATÉ : verdicts en NON TESTABLE'}")
 
@@ -596,9 +628,10 @@ class AttnProbe:
     def __init__(self, model):
         self.layers = model.model.layers
         self.nL = len(self.layers)
-        self.active, self.check, self.err = False, False, 0.0
+        self.active, self.check, self.err, self.err_R = False, False, 0.0, 0.0
         self.kidx = self.qidx = None
         self.v, self.A, self.N, self.Ah, self.U, self.Vn, self.X = ([None] * self.nL for _ in range(7))
+        self.P, self.GO = [None] * self.nL, [None] * self.nL                  # norme par position ; W_Oᵀ W_O par tête
         self.handles = []
         for l, layer in enumerate(self.layers):
             self.handles.append(layer.self_attn.register_forward_pre_hook(partial(self.pre, l), with_kwargs=True))
@@ -612,6 +645,14 @@ class AttnProbe:
         x = hs[b, self.kidx.to(hs.device)]
         self.v[l] = mod.v_proj(x).float()                                      # valeurs du jeton t₀ (après la norme)
         self.X[l] = x.float().norm(dim=-1).cpu()                               # ‖x‖ : état entrant dans l'attention
+        hd = mod.head_dim                                                      # référence : toutes les positions
+        va = mod.v_proj(hs).float()
+        va = va.view(va.shape[0], va.shape[1], -1, hd).repeat_interleave(mod.num_key_value_groups, dim=2)   # (B, L, H, hd)
+        if self.GO[l] is None:
+            Wo = mod.o_proj.weight.float().view(-1, va.shape[2], hd)
+            self.GO[l] = torch.einsum("dhe,dhf->hef", Wo, Wo)                # ‖W_O^h v‖² = vᵀ (W_O^hᵀ W_O^h) v
+        n2 = torch.einsum("blhe,hef,blhf->blh", va, self.GO[l], va).clamp(min=0)
+        self.P[l] = n2.mean(-1).sqrt().cpu()                                   # (B, L) : moyenne quadratique sur les têtes
 
     def post(self, l, mod, args, output):
         if not self.active:
@@ -652,6 +693,7 @@ def replay_attn(g, probe, ctxs, conts):
     for j in range(n):                                                         # alignement : la clé est bien le jeton t₀
         if int(ids_cpu[j, kidx[j]]) != int(conts[j][T0]) or int(ids_cpu[j, qidx[j, 0]]) != int(conts[j][T0]):
             raise RuntimeError("index de la clé t₀ mal aligné : résultats non interprétables")
+    sidx = [o + 1 for o in off]                                                # sans la première position (puits)
     probe.kidx, probe.qidx, probe.active = kidx, qidx, True
     h = base(input_ids=ids, attention_mask=attn, position_ids=pos, use_cache=False).last_hidden_state
     probe.active = False
@@ -671,6 +713,19 @@ def replay_attn(g, probe, ctxs, conts):
     N = torch.stack(probe.N, 1).cpu().numpy()
     Ah = torch.stack(probe.Ah, 1).cpu().numpy()                                # (n, couches, têtes)
     nrm = {k: torch.stack(getattr(probe, k), 1).cpu().numpy() for k in ("U", "Vn", "X")}   # (n, couches[, têtes])
+    Pall = torch.stack(probe.P, 1).double()                                    # (n, couches, L)
+    pv = Pall.mean(1)                                                          # V par position (moyenne des couches)
+    Rl = np.zeros((n, probe.nL))
+    pct = np.zeros(n)
+    vt0 = np.zeros(n)
+    for j in range(n):
+        k_ = int(kidx[j])
+        Rl[j] = Pall[j, :, sidx[j]:k_].mean(-1).numpy()
+        pct[j] = float((pv[j, sidx[j]:k_] < pv[j, k_]).double().mean())
+        vt0[j] = float(pv[j, k_])
+    vU = np.sqrt((nrm["U"].astype(np.float64) ** 2).mean(-1)).mean(1)
+    probe.err_R = max(probe.err_R, float(np.max(np.abs(vt0 - vU) / (np.abs(vU) + 1e-12))))
+    nrm["R"], nrm["pct"] = Rl, pct
     return flat.reshape(n, Kp).astype(np.float32), A, N, Ah, nrm
 
 
@@ -687,7 +742,8 @@ def run_replay(g, probe, enc, res):
             res[("Alw", T, a)] = np.zeros((P, probe.nL, len(WINS)), np.float32)
             res[("Nlw", T, a)] = np.zeros((P, probe.nL, len(WINS)), np.float32)
             res[("Ah", T, a)] = None
-            res[("U", T, a)] = res[("Vn", T, a)] = res[("X", T, a)] = None
+            for k_ in ("U", "Vn", "X", "R", "pct"):
+                res[(k_, T, a)] = None
         for b0 in range(0, P, nb):
             rows = list(range(b0, min(P, b0 + nb)))
             ct = [ref[r, :GEN_LEN - 1].tolist() for r in rows]
@@ -713,8 +769,9 @@ def run_replay(g, probe, enc, res):
         d_all = np.abs(res[("Srej", T, "temoin")] - res[("S", T, "temoin")])
         d1 = np.abs(res[("Srej", T, "fort")][:, T0 + 1] - res[("S", T, "fort")][:, T0 + 1])
         print(f"[VÉRIF] {g.label} T={T} rejoué (eager) contre généré : témoin écart moyen {d_all.mean():.1e}, max {d_all.max():.1e} ; "
-              f"choc à k=1 {d1.mean():.1e} ; calcul de N (Gram contre somme directe) écart relatif {probe.err:.1e}", flush=True)
-        if d_all.mean() > 0.1 or d1.mean() > 0.1 or probe.err > 1e-3:
+              f"choc à k=1 {d1.mean():.1e} ; calcul de N (Gram contre somme directe) écart relatif {probe.err:.1e} ; "
+              f"norme toutes positions contre norme au pas t0 : écart relatif {probe.err_R:.1e}", flush=True)
+        if d_all.mean() > 0.1 or d1.mean() > 0.1 or probe.err > 1e-3 or probe.err_R > 1e-3:
             raise RuntimeError("passe rejouée ou calcul de N incohérent : résultats non interprétables")
         print(f"[MESURE] {g.label} T={T} passes rejouées : {time.time() - t0:.0f} s", flush=True)
     return res
@@ -870,6 +927,10 @@ for label, ids in MODELS:
         lr = np.log(Vp["fort"] / Vp["temoin"])
         a["spearman_surprise"] = spearman(lr, res[("surp", T)])
         a["surprise_mediane"] = {"fort": float(np.median(res[("surp", T)])), "doux": float(np.median(res[("surp_doux", T)]))}
+        Rref = res[("R", T, "temoin")].astype(np.float64).mean(1)                            # référence du contexte
+        a["absolu"] = lecture_absolue(Vp["fort"], Vp["temoin"], Rref, bootsV, ok)
+        a["absolu"]["doux"] = ratio_verdict(Vp["doux"], Rref, bootsV, ok)
+        a["absolu"]["centile_median"] = {arm: float(np.median(res[("pct", T, arm)])) for arm in ARMS_R}
         a["minutes"] = (time.time() - t_start) / 60
         ALL[label] = a
         ref = REF.get(label)
@@ -891,6 +952,12 @@ for label, ids in MODELS:
                   f"→ part de N portée par la valeur : {r['verdict']}")
         for arm in ("fort", "doux"):
             print(f"[COUCHES] {label} ρ_V par couche, choc {arm:<4} : " + " ".join(f"{v:.2f}" for v in a["V_couches"][arm]))
+        for arm in ARMS_R:
+            r = a["absolu"][arm]
+            print(f"[ABSOLU] {label} V({arm}) / moyenne du contexte : {r['verdict']:<12} ρ = {r['rho']:.3f} "
+                  f"IC95 [{r['ci'][0]:.3f} ; {r['ci'][1]:.3f}] ; rang centile médian dans le contexte "
+                  f"{a['absolu']['centile_median'][arm]:.0%}")
+        print(f"[ABSOLU] {label} lecture : {a['absolu']['lecture']} (prédiction : CRIE 60 %)")
         print(f"[CORR] {label} surprise médiane du jeton : fort {a['surprise_mediane']['fort']:.1f} nats, doux "
               f"{a['surprise_mediane']['doux']:.1f} nats ; Spearman(log V fort/témoin, surprise du choc fort) = "
               f"{a['spearman_surprise']:+.2f}")
@@ -898,7 +965,7 @@ for label, ids in MODELS:
                             **{f"{k}_{arm}": res[(k, T, arm)] for k in ("S", "tok") for arm in ("temoin", "fort")},
                             soft=res[("soft", T)], surp=res[("surp", T)], surp_doux=res[("surp_doux", T)],
                             **{f"{k}_{arm}": res[(k, T, arm)].astype(np.float16 if k in ("Ah", "U", "Vn") else np.float32)
-                               for k in ("Srej", "A", "N", "Ah", "U", "Vn", "X") for arm in ARMS_R})
+                               for k in ("Srej", "A", "N", "Ah", "U", "Vn", "X", "R", "pct") for arm in ARMS_R})
         print(f"[DURÉE] {label} : {a['minutes']:.1f} min")
         ecrire_resume()
     except Exception as e:
@@ -934,9 +1001,13 @@ for lab, a in ALL.items():
               f"{a['V']['doux']['rho']:.2f} ({a['V']['doux']['verdict']})")
     else:
         print(f"[SYNTHÈSE] {lab} : {a['these']}")
+lec = {lab: a["absolu"]["lecture"] for lab, a in ALL.items() if "absolu" in a}
+print("[ABSOLU] lectures : " + " ; ".join(f"{lab} {v}" for lab, v in lec.items())
+      + f" (CRIE {sum(v == 'CRIE' for v in lec.values())}, CHUCHOTE {sum(v == 'CHUCHOTE' for v in lec.values())}, "
+      f"LES DEUX {sum(v == 'LES DEUX' for v in lec.values())}, AUTRE {sum(v == 'AUTRE' for v in lec.values())})")
 print(f"[HYPOTHÈSE] le jeton choqué produit une valeur ‖W_O v‖ plus grande : {hyp} "
       f"(SAILLANCE pour {n_s} modèles, ÉQUIVALENT ou SUPPRESSION pour {n_r}, sur {len(vs)} ; prédiction : SOUTENUE 55 %)")
-ALL_OUT = {"hypothese_valeur": hyp}
+ALL_OUT = {"hypothese_valeur": hyp, "lectures_absolues": lec}
 ALL["_synthese"] = ALL_OUT
 ecrire_resume()
 print(f"[SORTIE] fichiers dans {OUT} : {sorted(os.listdir(OUT))}")
