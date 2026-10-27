@@ -26,3 +26,24 @@ compatible avec les tableaux [TÊTES] d'A1d–A1i, non testée directement.
 CORRECTION
 Dans l'analyse d'A1i, j'avais avancé que le rapport N/A ≈ 1,6–2,4 traduisait « un vecteur de valeur plus grand ».
 A1k montre que c'est faux pour l'essentiel : la valeur ne porte que 11–26 % de l'écart.
+
+DÉCOMPOSITION DE ρ_N (28 oct. ; decomposition_covariance.py, critère fixé avant calcul, commit c7b97db)
+ρ_N = moyennes × covariance entre têtes × cohérence. Part de la covariance entre têtes (pré-enregistré) :
+Qwen 7 %, SmolLM3 3 %, Granite 5 %, OLMo 12 %, Mistral 20 % → piste « redistribution entre têtes » TOMBE (4/5),
+PARTIELLE pour Mistral. La cohérence (alignement des têtes) porte 11 à 30 %.
+
+COMPLÉMENT APRÈS COUP (decomposition_couches.py, non pré-enregistré)
+Le terme « moyennes » cachait une covariance entre couches. Parts de log ρ_N :
+                      global A×V   entre couches   entre têtes   cohérence
+  Qwen3-1.7B            43 %          39 %            7 %          11 %
+  SmolLM3-3B            70 %          14 %            3 %          14 %
+  Granite-8B            33 %          49 %            5 %          13 %
+  OLMo-2-7B             -7 %          71 %           12 %          24 %
+  Mistral-7B            28 %          22 %           20 %          30 %
+Lecture : l'attention vers le jeton choqué monte surtout dans les couches dont la sortie est grande (couches tardives).
+OLMo est l'exemple pur : attention globale ×0,72, mais N ×1,69 entièrement porté par ce déplacement entre couches.
+Limites : analyse après coup ; N est mesuré à la sortie de l'attention, avant le flux résiduel, donc « grande sortie »
+ne veut pas dire « grande influence sur la prédiction » ; OLMo normalise cette sortie ensuite (post-norm).
+Ma formulation d'hier (« quitter des têtes précoces pour des têtes tardives ») décrivait en fait un déplacement entre
+COUCHES ; le critère pré-enregistré mesurait la covariance entre têtes DANS une couche. Les deux ne sont pas la même
+chose, d'où le verdict TOMBE malgré une piste qui survit au niveau des couches.

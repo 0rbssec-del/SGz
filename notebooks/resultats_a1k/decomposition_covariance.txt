@@ -1,0 +1,36 @@
+Facteurs du rapport N(fort)/N(témoin), fenêtre k = 8–31 ; parts = log facteur / log ρ_N (IC95)
+
+== Mistral-7B-v0.3  (vérif. Ah contre A : écart relatif max 6.4e-05 ; cohérence C témoin 0.335, fort 0.431 ; C ≤ 1 : True)
+   ρ_N = 2.298 = moyennes ×1.518 · covariance ×1.177 · cohérence ×1.286
+   part moyennes (attention × valeur)  : +50%  IC95 [+43% ; +56%]
+   part covariance entre têtes         : +20%  IC95 [+15% ; +24%]
+   part cohérence (alignement)         : +30%  IC95 [+28% ; +33%]
+   piste « redistribution entre têtes » : PARTIELLE
+
+== OLMo-2-1124-7B  (vérif. Ah contre A : écart relatif max 4.4e-05 ; cohérence C témoin 0.368, fort 0.419 ; C ≤ 1 : True)
+   ρ_N = 1.689 = moyennes ×1.398 · covariance ×1.063 · cohérence ×1.137
+   part moyennes (attention × valeur)  : +64%  IC95 [+59% ; +68%]
+   part covariance entre têtes         : +12%  IC95 [+10% ; +14%]
+   part cohérence (alignement)         : +24%  IC95 [+21% ; +28%]
+   piste « redistribution entre têtes » : TOMBE
+
+== Qwen3-1.7B-Base  (vérif. Ah contre A : écart relatif max 7.3e-05 ; cohérence C témoin 0.432, fort 0.485 ; C ≤ 1 : True)
+   ρ_N = 2.884 = moyennes ×2.373 · covariance ×1.082 · cohérence ×1.123
+   part moyennes (attention × valeur)  : +82%  IC95 [+80% ; +83%]
+   part covariance entre têtes         : +7%  IC95 [+7% ; +8%]
+   part cohérence (alignement)         : +11%  IC95 [+10% ; +12%]
+   piste « redistribution entre têtes » : TOMBE
+
+== SmolLM3-3B-Base  (vérif. Ah contre A : écart relatif max 6.6e-05 ; cohérence C témoin 0.343, fort 0.376 ; C ≤ 1 : True)
+   ρ_N = 1.971 = moyennes ×1.760 · covariance ×1.021 · cohérence ×1.096
+   part moyennes (attention × valeur)  : +83%  IC95 [+81% ; +85%]
+   part covariance entre têtes         : +3%  IC95 [+3% ; +4%]
+   part cohérence (alignement)         : +14%  IC95 [+12% ; +15%]
+   piste « redistribution entre têtes » : TOMBE
+
+== granite-3.3-8b-base  (vérif. Ah contre A : écart relatif max 2.3e-04 ; cohérence C témoin 0.351, fort 0.391 ; C ≤ 1 : True)
+   ρ_N = 2.327 = moyennes ×1.997 · covariance ×1.046 · cohérence ×1.114
+   part moyennes (attention × valeur)  : +82%  IC95 [+80% ; +84%]
+   part covariance entre têtes         : +5%  IC95 [+5% ; +6%]
+   part cohérence (alignement)         : +13%  IC95 [+11% ; +14%]
+   piste « redistribution entre têtes » : TOMBE
