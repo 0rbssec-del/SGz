@@ -1,0 +1,28 @@
+A1k — norme ‖W_O v‖ du jeton choqué, 5 modèles, T = 0,6, 768 prompts, 96 jetons. Pré-enregistré (755e07c, 0a612b2, 8bec703).
+Durée 62 min. 21 témoins positifs RÉUSSIS. Ancrages parfaits : ρ_A et ρ_N identiques aux références (A1d, A1f, A1i) à la
+3e décimale ; trajectoires identiques à A1i (MD5) pour Granite, OLMo, Mistral. Norme toutes positions contre pas t0 :
+écart ≤ 3,6e-5.
+
+VERDICTS PRÉ-ENREGISTRÉS
+- Hypothèse « valeur » (‖W_O v‖ plus grand, SAILLANCE pour ≥ 4/5) : RÉFUTÉE. SAILLANCE 1/5 (Qwen3-1.7B ×1,31),
+  ÉQUIVALENT 4/5 (SmolLM3 ×1,12, Granite ×1,09, OLMo ×1,10, Mistral ×1,17).
+- Part de log ρ_N portée par la valeur : MINORITAIRE aux 5 modèles (11 % à 26 %).
+- Référence absolue : CRIE 1 (Qwen), AUTRE 4 ; CHUCHOTE 0. Le témoin est à la moyenne du contexte partout
+  (×0,95 à ×1,01) : l'explication « témoin vidé » est écartée.
+- Lien excès de valeur → amplification I : RÉFUTÉ (ABSENT 3, SOUTENU 1 OLMo +0,07, INVERSE 1 Granite −0,07).
+
+NUANCE IMPORTANTE (descriptif)
+Les intervalles de ρ_V sont tous strictement au-dessus de 1 (borne basse 1,08 à 1,29) : l'excès de valeur est réel et
+systématique, mais faible (+9 % à +31 %), sous la marge d'équivalence de 20 % fixée d'avance pour 4 modèles sur 5. Le jeton
+choqué se place au 73e–97e centile des normes de son contexte : « un peu plus fort », jamais de quoi expliquer N.
+
+CE QUI EXPLIQUE N (calcul après coup, non pré-enregistré)
+Reste N / (A × V) : Qwen 1,81 ; SmolLM3 1,21 ; Granite 1,74 ; OLMo 2,12 ; Mistral 2,08.
+Le gros de l'excès de contribution ne vient ni de l'attention moyenne ni de la norme moyenne des valeurs, mais de leur
+combinaison tête par tête : l'attention vers le jeton choqué se déplace vers les têtes dont la sortie compte (couches
+tardives, ρ par tête jusqu'à ×10–28) et s'éteint dans des têtes précoces (ρ ≈ 0). Hypothèse « redistribution entre têtes »,
+compatible avec les tableaux [TÊTES] d'A1d–A1i, non testée directement.
+
+CORRECTION
+Dans l'analyse d'A1i, j'avais avancé que le rapport N/A ≈ 1,6–2,4 traduisait « un vecteur de valeur plus grand ».
+A1k montre que c'est faux pour l'essentiel : la valeur ne porte que 11–26 % de l'écart.
