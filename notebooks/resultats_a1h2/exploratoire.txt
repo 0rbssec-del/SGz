@@ -1,0 +1,31 @@
+A1h-bis — rare probable contre fréquent probable, à surprise appariée (surprise ≤ 2,5 nats).
+Qwen3-1.7B-Base et SmolLM3-3B-Base, T = 0,8, 768 prompts. Pré-enregistré dans 35af62e.
+Témoins positifs RÉUSSIS. Durées 9,7 et 11,4 min.
+
+VERDICT PRÉ-ENREGISTRÉ
+- |Ω| = 39 (Qwen) et 24 (SmolLM3), sous le seuil MIN_OMEGA = 100 → NON TESTABLE aux deux modèles.
+  Le critère était trop strict pour T = 0,8 et ce jeu de prompts : peu de contextes offrent à la fois un
+  jeton très rare (≤ 5 occurrences) ET un jeton très fréquent (≥ 50) tous deux dans le top-50 probable
+  à surprise ≤ 2,5 nats.
+- Dilution confirmée : hors Ω, le jeton RAs est identique au jeton doux dans 100 % des prompts, aux deux
+  modèles (c'est le mécanisme prévu : si non valide, les deux bras retombent sur le doux).
+- Appariement de la surprise réussi (bien mieux qu'A1h) : écart de surprise médiane RA* − FP
+  = +0,09 nat (Qwen) et +0,17 nat (SmolLM3), contre ~5 nats dans A1h.
+
+EXPLORATOIRE (explo_a1h2.py, restreint à Ω, non pré-enregistré, bootstrap B = 1000)
+- N(RAs) / N(FP), apparié, k = 8–31 : Qwen3-1.7B ρ = 2,06 IC95 [1,72 ; 2,47] SAILLANCE ;
+  SmolLM3-3B ρ = 1,38 IC95 [1,15 ; 1,69] SAILLANCE. Les deux intervalles excluent 1.
+- Détail par bras (Ω seul, contre témoin) :
+  Qwen3-1.7B : N fort SAILLANCE 2,23 ; N FP SUPPRESSION 0,61 [0,46 ; 0,80] ; N RAs INDÉTERMINÉ 1,24 [0,95 ; 1,61] ;
+              A fort/doux/RAs/FP tous INDÉTERMINÉ (grandes IC, 39 prompts).
+  SmolLM3-3B : N fort SAILLANCE 1,86 ; N FP SUPPRESSION 0,75 [0,62 ; 0,92] ; N RAs INDÉTERMINÉ 1,04 [0,86 ; 1,23] ;
+              A fort SAILLANCE 1,41 ; A FP SUPPRESSION 0,82 [0,69 ; 0,98] ; A RAs ÉQUIVALENT 0,99.
+- Lecture : à surprise égale, le jeton très fréquent est significativement sous-lu (N et parfois A), et
+  le rapport RAs/FP est significativement > 1 aux deux modèles. Le jeton RAs seul n'est pas distinguable
+  du témoin (IC larges, petit Ω), mais le contraste RAs contre FP, apparié par prompt, est net.
+
+LIMITES
+- |Ω| petit (39, 24) : bootstrap sur un petit échantillon, intervalles larges, résultat fragile.
+- Exploratoire, non pré-enregistré : à confirmer par une réplication pré-enregistrée (ex. prompts ciblés
+  pour forcer |Ω| ≥ 100, ou baisser T pour élargir le vocabulaire top-50 commun).
+- Un seul T (0,8) ; pas de second point de comparaison.
