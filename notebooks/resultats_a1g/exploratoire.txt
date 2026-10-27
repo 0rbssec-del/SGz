@@ -1,0 +1,26 @@
+A1g — Qwen3-4B (instruct) au format conversation (« Continue ce texte : », réflexion désactivée), 768 prompts, T 0,6 et 0,8.
+Pré-enregistré dans 7441229. Durée 38,4 min. Témoins positifs RÉUSSIS ; vérifications (identique avant t0, eager contre généré, Gram) correctes.
+
+VERDICTS PRÉ-ENREGISTRÉS
+- F : AMPLIFICATION aux deux T (I/D = +1,93 et +1,23) → trajectoire RÉFUTÉE.
+- A : SUPPRESSION à T=0,6 (ρ 0,82 [0,77 ; 0,87]), ÉQUIVALENT à T=0,8 (0,86 [0,80 ; 0,92]).
+- N : SAILLANCE (1,44 et 1,56). Suppression interne INDÉTERMINÉE ; réplication PARTIELLE.
+- E : correction explicite NON DÉTECTÉE (0,8 % contre 0,4 % et 0,7 %).
+
+COMPARAISON DESCRIPTIVE AVEC A1f (même modèle, texte brut ; mêmes prompts, mêmes jetons de choc, rang médian 3103)
+- Effet direct D (k=2–31) : +0,0057 / +0,0058 contre +0,051 / +0,049 (÷ 9).
+- Pic à k=1 : +0,254 / +0,234 contre +0,473 / +0,445 (÷ 1,9) ; tranche 4–7 : +0,006 / +0,009 contre +0,073 / +0,081 (÷ 9 à 12).
+- Choc doux : D +0,0082 / +0,0075 contre +0,041 → ici le choc doux perturbe PLUS que le fort sur k=2–31 (inversion).
+- Attention A : 0,82 / 0,86 contre 1,13 / 1,04 ; contribution N : 1,44 / 1,56 contre 2,11 / 1,92.
+- Têtes avec ρ_A < 0,8 : 58 % / 56 % (A1d, 1.7B base : 19 %). Couche 3 (têtes 5, 6, 12, 30) et couche 1 tête 28 : ρ_fort 0,00–0,03,
+  soit un quasi-zéro pour le jeton fort, contre 0,22–0,54 pour le doux. Dernières couches (30–35) : ρ 1,4 à 3,7.
+- I absolu : +0,011 / +0,007 contre +0,028 / +0,023. Le rapport I/D grandit parce que D s'effondre, pas parce que I grandit.
+
+EXPLORATOIRE (explo_a1g.py)
+- Entropie de base du témoin : 0,22–0,24 (k=2–31). Entropie de base en texte brut A1f : non enregistrée dans les fichiers locaux (non vérifié).
+- D fort par prompt : médiane +0,003, positif dans 55–56 % des prompts seulement.
+
+LIMITES
+- Le format change trois choses à la fois : gabarit de conversation, consigne, et rôle « assistant ». On ne sait pas laquelle agit.
+- Sans l'entropie de base brute, on ne peut pas dire si D baisse en relatif ou seulement parce que le modèle est plus confiant.
+- Comparaison A1f/A1g descriptive, faite après coup ; aucun critère pré-enregistré ne porte sur l'écart entre formats.
