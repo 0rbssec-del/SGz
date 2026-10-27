@@ -33,12 +33,22 @@
 #   **CRIE** si fort/R = SAILLANCE et témoin/R = ÉQUIVALENT ; **CHUCHOTE** si témoin/R = SUPPRESSION et fort/R = ÉQUIVALENT ;
 #   **LES DEUX** si fort/R = SAILLANCE et témoin/R = SUPPRESSION ; sinon AUTRE. Descriptif : rang centile médian du jeton
 #   choqué parmi les positions du contexte.
+# - **Lien valeur → amplification** (ajouté le 27 oct., avant toute exécution). La thèse complète prédit non seulement que
+#   le jeton choqué a une valeur excédentaire, mais que cet excès **prédit** l'amplification de la trajectoire mesurée en
+#   F (A1c–A1j). Par prompt : excès = log(V_fort / V_témoin) ; I = effet de la trajectoire (R_libre − R_rejoué, k = 2–31,
+#   même formule que F). Corrélation de Spearman, IC95 bootstrap apparié (mêmes tirages que V). **SOUTENU** si l'IC95
+#   exclut 0 et est positif ; **INVERSE** si l'IC95 exclut 0 et est négatif ; **ABSENT** si l'IC95 contient 0.
+#   Verdict global : RÉFUTÉ (ce volet de la thèse) si ABSENT pour au moins 3 modèles sur 5 ; SOUTENU si SOUTENU ou INVERSE
+#   pour au moins 3 sur 5 ; sinon INDÉTERMINÉ. Un verdict SOUTENU seul ne prouve pas la causalité (l'excès et I peuvent
+#   tous deux dépendre de la surprise, déjà mesurée dans A1h) ; une recherche dédiée serait nécessaire pour trancher.
 #
 # ## Prédictions de l'assistant (écrites avant exécution) [spéculation]
 #
 # Hypothèse « valeur » SOUTENUE 55 %, RÉFUTÉE 20 % ; part de N expliquée L'ESSENTIEL pour au moins 3 modèles : 45 % ;
 # choc doux ρ_V ÉQUIVALENT pour au moins 4 modèles : 70 %. Référence absolue (par modèle) : CRIE 60 %, LES DEUX 10 %,
 # CHUCHOTE 5 %, AUTRE 25 % (le témoin est un jeton échantillonné ordinaire, donc proche de la moyenne du contexte).
+# Lien valeur → amplification : SOUTENU (≥ 3/5) 40 %, ABSENT (≥ 3/5) 30 %, INDÉTERMINÉ 30 % [très incertain : aucune
+# littérature trouvée ne teste directement ce lien].
 #
 # ## Limites connues
 #
@@ -49,7 +59,7 @@
 # ## Réglages Kaggle
 #
 # Accélérateur **GPU T4 x2**, **Internet activé**. Durée estimée : ~10 à 20 min par modèle, ~1 h 25 en tout [estimation].
-# **À lire en priorité** : `[TÉMOIN POSITIF]`, `[ANCRAGE]`, `[VÉRIF]`, `[V]`, `[PART]`, `[ABSOLU]`, `[HYPOTHÈSE]`.
+# **À lire en priorité** : `[TÉMOIN POSITIF]`, `[ANCRAGE]`, `[VÉRIF]`, `[V]`, `[PART]`, `[ABSOLU]`, `[LIEN]`, `[HYPOTHÈSE]`.
 
 # %%
 import gc
@@ -393,6 +403,29 @@ def spearman(x, y):
     rx, ry = np.argsort(np.argsort(x)), np.argsort(np.argsort(y))
     return float(np.corrcoef(rx, ry)[0, 1])
 
+
+def spearman_ci(x, y, boots, interpretable=True):
+    """Corrélation de Spearman entre l'excès de valeur et l'amplification I, IC95 bootstrap apparié."""
+    r = spearman(x, y)
+    c = ci([spearman(x[ix], y[ix]) for ix in boots])
+    if not interpretable:
+        v = "NON INTERPRÉTABLE"
+    elif c[0] <= 0 <= c[1]:
+        v = "ABSENT"
+    elif c[0] > 0:
+        v = "SOUTENU"
+    else:
+        v = "INVERSE"
+    return {"rho": r, "ci": c, "verdict": v}
+
+
+rngL = np.random.default_rng(SEED + 17)
+x_lien = rngL.normal(0, 1, Pp)
+for name, y_lien, exp in (("lien soutenu", 0.6 * x_lien + rngL.normal(0, 0.4, Pp), "SOUTENU"),
+                         ("lien absent", rngL.normal(0, 1, Pp), "ABSENT")):
+    got = spearman_ci(x_lien, y_lien, bt)["verdict"]
+    checks.append((name, got, exp))
+    print(f"[TÉMOIN POSITIF] {name:<20} : {got:<12} (attendu {exp})")
 
 vt_pc = base_pc * rng_pc.lognormal(0, 0.2, Pp)
 for name, fv, fa, exp in (("part valeur essentielle", 2.0, 1.0, "L'ESSENTIEL"), ("part valeur minoritaire", 1.05, 2.4, "MINORITAIRE")):
@@ -924,7 +957,11 @@ for label, ids in MODELS:
         a["x_entree"] = {arm: ratio_verdict(Xp[arm], Xp["temoin"], bootsV, ok) for arm in ("fort", "doux")}
         a["part_valeur"] = {arm: part_valeur(Vp[arm], Vp["temoin"], Np[arm], Np["temoin"], bootsV, ok) for arm in ("fort", "doux")}
         a["V_couches"] = {arm: (lay[arm].mean(0) / m_l).tolist() for arm in ("fort", "doux")}
+        Rlib_T = (res[("S", T, "fort")] - res[("S", T, "temoin")])[:, T0 + 1:].astype(float)
+        Rrej_T = (res[("Srej", T, "fort")] - res[("Srej", T, "temoin")])[:, T0 + 1:].astype(float)
+        Ip = win(Rlib_T, MID_F) - win(Rrej_T, MID_F)                                          # I par prompt (volet F)
         lr = np.log(Vp["fort"] / Vp["temoin"])
+        a["lien_valeur_amplification"] = spearman_ci(lr, Ip, bootsV, ok)
         a["spearman_surprise"] = spearman(lr, res[("surp", T)])
         a["surprise_mediane"] = {"fort": float(np.median(res[("surp", T)])), "doux": float(np.median(res[("surp_doux", T)]))}
         Rref = res[("R", T, "temoin")].astype(np.float64).mean(1)                            # référence du contexte
@@ -958,6 +995,9 @@ for label, ids in MODELS:
                   f"IC95 [{r['ci'][0]:.3f} ; {r['ci'][1]:.3f}] ; rang centile médian dans le contexte "
                   f"{a['absolu']['centile_median'][arm]:.0%}")
         print(f"[ABSOLU] {label} lecture : {a['absolu']['lecture']} (prédiction : CRIE 60 %)")
+        lv = a["lien_valeur_amplification"]
+        print(f"[LIEN] {label} excès de valeur (log V_fort/V_témoin) vs amplification I (volet F) : {lv['verdict']:<8} "
+              f"Spearman = {lv['rho']:+.2f} IC95 [{lv['ci'][0]:+.2f} ; {lv['ci'][1]:+.2f}]")
         print(f"[CORR] {label} surprise médiane du jeton : fort {a['surprise_mediane']['fort']:.1f} nats, doux "
               f"{a['surprise_mediane']['doux']:.1f} nats ; Spearman(log V fort/témoin, surprise du choc fort) = "
               f"{a['spearman_surprise']:+.2f}")
@@ -1002,12 +1042,29 @@ for lab, a in ALL.items():
     else:
         print(f"[SYNTHÈSE] {lab} : {a['these']}")
 lec = {lab: a["absolu"]["lecture"] for lab, a in ALL.items() if "absolu" in a}
+lien = {lab: a["lien_valeur_amplification"]["verdict"] for lab, a in ALL.items() if "lien_valeur_amplification" in a}
+n_sout_l = sum(v in ("SOUTENU", "INVERSE") for v in lien.values())
+n_abs_l = sum(v == "ABSENT" for v in lien.values())
+if not ok:
+    lien_global = "NON INTERPRÉTABLE" if not interpretable else "NON TESTABLE (témoin positif raté)"
+elif len(lien) < 5:
+    lien_global = f"NON TESTABLE ({len(lien)} modèles mesurés sur 5)"
+elif n_abs_l >= 3:
+    lien_global = "RÉFUTÉ"
+elif n_sout_l >= 3:
+    lien_global = "SOUTENU"
+else:
+    lien_global = "INDÉTERMINÉ"
 print("[ABSOLU] lectures : " + " ; ".join(f"{lab} {v}" for lab, v in lec.items())
       + f" (CRIE {sum(v == 'CRIE' for v in lec.values())}, CHUCHOTE {sum(v == 'CHUCHOTE' for v in lec.values())}, "
       f"LES DEUX {sum(v == 'LES DEUX' for v in lec.values())}, AUTRE {sum(v == 'AUTRE' for v in lec.values())})")
+print("[LIEN] par modèle : " + " ; ".join(f"{lab} {v}" for lab, v in lien.items()))
+print(f"[LIEN] le lien excès de valeur -> amplification (volet F) : {lien_global} "
+      f"(SOUTENU/INVERSE pour {n_sout_l}, ABSENT pour {n_abs_l}, sur {len(lien)} ; "
+      f"prédiction : SOUTENU 40 %, ABSENT 30 %)")
 print(f"[HYPOTHÈSE] le jeton choqué produit une valeur ‖W_O v‖ plus grande : {hyp} "
       f"(SAILLANCE pour {n_s} modèles, ÉQUIVALENT ou SUPPRESSION pour {n_r}, sur {len(vs)} ; prédiction : SOUTENUE 55 %)")
-ALL_OUT = {"hypothese_valeur": hyp, "lectures_absolues": lec}
+ALL_OUT = {"hypothese_valeur": hyp, "lectures_absolues": lec, "lien_valeur_amplification": lien_global}
 ALL["_synthese"] = ALL_OUT
 ecrire_resume()
 print(f"[SORTIE] fichiers dans {OUT} : {sorted(os.listdir(OUT))}")
