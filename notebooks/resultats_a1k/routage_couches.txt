@@ -1,0 +1,33 @@
+Étape A — déplacement de l'attention vers les couches de grande sortie, et lien avec l'amplification I
+
+== Mistral-7B-v0.3  (P = 768, L = 32)
+   D̄ = +0.364  IC95 [+0.338 ; +0.391]   (contrôle : > 0 attendu)
+   Spearman(D_p, I_p) = +0.081  IC95 [+0.012 ; +0.154]   → C4 I
+   centre de gravité G = 0.91  IC95 [0.76 ; 0.95]   → C2 A
+   couches au plus fort surplus δ̄ : [31, 30, 29] sur 0–31
+
+== OLMo-2-1124-7B  (P = 768, L = 32)
+   D̄ = +0.485  IC95 [+0.456 ; +0.512]   (contrôle : > 0 attendu)
+   Spearman(D_p, I_p) = -0.066  IC95 [-0.133 ; -0.001]   → C4 I
+   centre de gravité G = 0.92  IC95 [0.87 ; 0.94]   → C2 A
+   couches au plus fort surplus δ̄ : [28, 30, 26] sur 0–31
+
+== Qwen3-1.7B-Base  (P = 768, L = 28)
+   D̄ = +0.257  IC95 [+0.232 ; +0.281]   (contrôle : > 0 attendu)
+   Spearman(D_p, I_p) = +0.034  IC95 [-0.037 ; +0.104]   → C4 R
+   centre de gravité G = 0.65  IC95 [0.61 ; 0.68]   → C2 I
+   couches au plus fort surplus δ̄ : [26, 3, 25] sur 0–27
+
+== SmolLM3-3B-Base  (P = 768, L = 36)
+   D̄ = +0.355  IC95 [+0.331 ; +0.380]   (contrôle : > 0 attendu)
+   Spearman(D_p, I_p) = +0.032  IC95 [-0.040 ; +0.100]   → C4 R
+   centre de gravité G = 0.69  IC95 [0.67 ; 0.71]   → C2 A
+   couches au plus fort surplus δ̄ : [35, 31, 34] sur 0–35
+
+== granite-3.3-8b-base  (P = 768, L = 40)
+   D̄ = +0.563  IC95 [+0.532 ; +0.594]   (contrôle : > 0 attendu)
+   Spearman(D_p, I_p) = +0.011  IC95 [-0.055 ; +0.080]   → C4 R
+   centre de gravité G = 0.62  IC95 [0.59 ; 0.66]   → C2 I
+   couches au plus fort surplus δ̄ : [38, 37, 36] sur 0–39
+
+Synthèse sur 5 modèles : C4 (déplacement ↔ amplification) INDÉTERMINÉE ; C2 (couches tardives) INDÉTERMINÉE
