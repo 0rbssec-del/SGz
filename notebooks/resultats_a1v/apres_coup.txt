@@ -1,0 +1,30 @@
+
+===== Qwen3-1.7B-Base (768 prompts)
+[ANCRE] AUC max c1, rare, recalculée : 0.528 (log Kaggle : Qwen 0.528 / SmolLM3 0.551)
+[RANG] plausible rang de t0 selon c1 : médiane 23 / 144 ; top 1 8.1% ; top 5 21.4% ; top 10 31.4%
+[RANG] rare      rang de t0 selon c1 : médiane 21 / 144 ; top 1 9.6% ; top 5 24.0% ; top 10 33.9%
+[RANG] temoin    rang de t0 selon c1 : médiane 72 / 144 ; top 1 0.5% ; top 5 3.6% ; top 10 6.5%
+[CONNUE] plausible AUC c1(t0) injecté contre témoin : 0.735 IC95 [0.714 ; 0.756]
+[CONNUE] rare      AUC c1(t0) injecté contre témoin : 0.754 IC95 [0.735 ; 0.774]
+[PAILLE] plausible c1 au jeton inséré : médiane 0.0187 ; max de c1 du témoin sur la zone : médiane 0.0521 ; part des prompts où c1(t0) > max témoin : 7.8%
+[PAILLE] rare      c1 au jeton inséré : médiane 0.0197 ; max de c1 du témoin sur la zone : médiane 0.0521 ; part des prompts où c1(t0) > max témoin : 9.4%
+[SURPRISE] témoin, toutes positions : Spearman(surprise, c1) = 0.215
+[SURPRISE] tranche [5 ; 7[ nats : c1 médian témoin 0.0088 (n = 710) ; inséré plausible 0.0198 (n = 138) ; AUC inséré contre témoin 0.659
+[SURPRISE] tranche [7 ; 9[ nats : c1 médian témoin 0.0085 (n = 93) ; inséré plausible 0.0218 (n = 206) ; AUC inséré contre témoin 0.660
+[SURPRISE] tranche [9 ; 12[ nats : effectifs insuffisants (témoin 10, inséré 178)
+[LOC] plausible : surprise seule 47.4% ; t0 parmi les 3 plus surprenants 96.5% ; départage par c1 parmi ces 3 : 43.1%
+
+===== SmolLM3-3B-Base (768 prompts)
+[ANCRE] AUC max c1, rare, recalculée : 0.551 (log Kaggle : Qwen 0.528 / SmolLM3 0.551)
+[RANG] plausible rang de t0 selon c1 : médiane 25 / 144 ; top 1 6.5% ; top 5 19.3% ; top 10 28.9%
+[RANG] rare      rang de t0 selon c1 : médiane 12 / 144 ; top 1 13.0% ; top 5 33.6% ; top 10 46.5%
+[RANG] temoin    rang de t0 selon c1 : médiane 74 / 144 ; top 1 0.9% ; top 5 3.5% ; top 10 6.8%
+[CONNUE] plausible AUC c1(t0) injecté contre témoin : 0.754 IC95 [0.735 ; 0.774]
+[CONNUE] rare      AUC c1(t0) injecté contre témoin : 0.837 IC95 [0.820 ; 0.855]
+[PAILLE] plausible c1 au jeton inséré : médiane 0.0136 ; max de c1 du témoin sur la zone : médiane 0.0417 ; part des prompts où c1(t0) > max témoin : 6.4%
+[PAILLE] rare      c1 au jeton inséré : médiane 0.0212 ; max de c1 du témoin sur la zone : médiane 0.0417 ; part des prompts où c1(t0) > max témoin : 13.0%
+[SURPRISE] témoin, toutes positions : Spearman(surprise, c1) = 0.122
+[SURPRISE] tranche [5 ; 7[ nats : c1 médian témoin 0.0043 (n = 628) ; inséré plausible 0.0134 (n = 107) ; AUC inséré contre témoin 0.629
+[SURPRISE] tranche [7 ; 9[ nats : c1 médian témoin 0.0076 (n = 78) ; inséré plausible 0.0151 (n = 190) ; AUC inséré contre témoin 0.630
+[SURPRISE] tranche [9 ; 12[ nats : c1 médian témoin 0.0034 (n = 20) ; inséré plausible 0.0148 (n = 226) ; AUC inséré contre témoin 0.752
+[LOC] plausible : surprise seule 46.9% ; t0 parmi les 3 plus surprenants 96.9% ; départage par c1 parmi ces 3 : 48.0%

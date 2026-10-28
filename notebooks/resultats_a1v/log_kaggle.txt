@@ -1,0 +1,131 @@
+7.5s 1 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+7.5s 2 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+7.5s 3 0.00s - to python to disable frozen modules.
+7.5s 4 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+8.1s 5 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+8.1s 6 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+8.1s 7 0.00s - to python to disable frozen modules.
+8.1s 8 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+30.2s 9 [CONFIG] SMOKE_TEST=False DEVICE=cuda N_GPU=2 OUT=/kaggle/working/sgz_a1v
+30.2s 10 [CONFIG] T=[0.6] prompts=768 longueur=160 t₀ ∈ [40 ; 128] zone (8, 151) ; types {'plausible': (20, 100), 'rare': (1000, 5000)} ; modèles=['Qwen3-1.7B-Base', 'SmolLM3-3B-Base']
+30.2s 11 [CONFIG] torch 2.11.0+cu128, transformers 5.16.1
+30.2s 12 [PROMPTS] 768 prompts (64 écrits à la main, 704 gabarits), mêmes que A1c–A1k
+32.2s 13 [TÉMOIN POSITIF] détectable               : DÉTECTABLE         (attendu DÉTECTABLE)
+32.2s 14 [TÉMOIN POSITIF] faible                   : FAIBLE             (attendu FAIBLE)
+32.2s 15 [TÉMOIN POSITIF] non détectable           : NON DÉTECTABLE     (attendu NON DÉTECTABLE)
+32.2s 16 [TÉMOIN POSITIF] inverse                  : INVERSE            (attendu INVERSE)
+32.2s 17 [TÉMOIN POSITIF] localisable              : LOCALISABLE        (attendu LOCALISABLE)
+32.2s 18 [TÉMOIN POSITIF] localisation partielle   : PARTIELLE          (attendu PARTIELLE)
+32.2s 19 [TÉMOIN POSITIF] localisation nulle       : NON LOCALISABLE    (attendu NON LOCALISABLE)
+32.2s 20 [TÉMOIN POSITIF] bat la surprise          : BAT LA SURPRISE    (attendu BAT LA SURPRISE)
+32.2s 21 [TÉMOIN POSITIF] moins bonne              : MOINS BONNE        (attendu MOINS BONNE)
+32.2s 22 [TÉMOIN POSITIF] égale                    : ÉGALE              (attendu ÉGALE)
+32.2s 23 [TÉMOIN POSITIF] synthèse soutenue        : SOUTENUE           (attendu SOUTENUE)
+32.2s 24 [TÉMOIN POSITIF] synthèse partielle       : PARTIELLE          (attendu PARTIELLE)
+32.2s 25 [TÉMOIN POSITIF] synthèse réfutée         : RÉFUTÉE            (attendu RÉFUTÉE)
+32.2s 26 [TÉMOIN POSITIF] synthèse dépend          : DÉPEND DU MODÈLE   (attendu DÉPEND DU MODÈLE)
+32.2s 27 [TÉMOIN POSITIF] RÉUSSI
+32.3s 28 
+32.3s 29 [CHARGEMENT] Qwen3-1.7B-Base : téléchargement / chargement de Qwen/Qwen3-1.7B-Base…
+40.2s 30 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+40.2s 31 
+40.2s 32 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+66.0s 33 [CHARGEMENT] Qwen3-1.7B-Base : Qwen/Qwen3-1.7B-Base en fp16 sur 2 GPU
+79.7s 34 [PROGRESSION] Qwen3-1.7B-Base : premier lot en 13.8 s ; estimation ~4 min (génération)
+263.8s 35 [MESURE] Qwen3-1.7B-Base génération du témoin : 198 s
+264.0s 36 [CONFIG] Qwen3-1.7B-Base : passes rejouées en attention « eager » (poids d'attention lus)
+265.8s 37 [PROGRESSION] Qwen3-1.7B-Base passes rejouées : estimation ~3 min
+450.3s 38 [MESURE] Qwen3-1.7B-Base passes rejouées : 187 s
+450.5s 39 [VÉRIF] Qwen3-1.7B-Base : surprise du jeton inséré, passe rejouée contre choix : écart moyen 9.8e-03, max 7.0e-02 ; entropie de la loi du jeton t₀ identique entre textes : écart max 0.0e+00 ; masque causal : 0.0e+00
+450.8s 40 
+450.8s 41 ====================================================================================================
+450.8s 42 [RÉSULTATS] Qwen3-1.7B-Base (T = 0.6) : 768 prompts ; surprise maximale des témoins sur la zone : médiane 5.24 nats, 90e centile 7.19
+450.8s 43 [JETONS] Qwen3-1.7B-Base plausible : rang médian 60 ; surprise médiane 9.58 nats
+451.1s 44 [AUC] Qwen3-1.7B-Base plausible max de c1        (position inconnue) : 0.521 IC95 [0.512 ; 0.529] → FAIBLE
+451.5s 45 [AUC] Qwen3-1.7B-Base plausible max de r1        (position inconnue) : 0.526 IC95 [0.517 ; 0.534] → FAIBLE
+451.7s 46 [AUC] Qwen3-1.7B-Base plausible max de r8        (position inconnue) : 0.502 IC95 [0.498 ; 0.507] → NON DÉTECTABLE
+452.0s 47 [AUC] Qwen3-1.7B-Base plausible max de entropie  (position inconnue) : 0.532 IC95 [0.524 ; 0.541] → FAIBLE
+452.3s 48 [AUC] Qwen3-1.7B-Base plausible max de saut      (position inconnue) : 0.535 IC95 [0.526 ; 0.544] → FAIBLE
+452.6s 49 [AUC] Qwen3-1.7B-Base plausible max de surprise  (position inconnue) : 0.988 IC95 [0.984 ; 0.991] → DÉTECTABLE
+452.9s 50 [AUC] Qwen3-1.7B-Base plausible r₁ en t₀ (position connue, comme A1r) : 0.755 IC95 [0.736 ; 0.774]
+452.9s 51 [LOC] Qwen3-1.7B-Base plausible localisation par c1        : exacte 8.1% IC95 [6.2% ; 10.2%] (hasard 0.7%) → PARTIELLE
+452.9s 52 [LOC] Qwen3-1.7B-Base plausible localisation par r1        : exacte 7.8% IC95 [6.0% ; 9.9%] (hasard 0.7%) → PARTIELLE
+452.9s 53 [LOC] Qwen3-1.7B-Base plausible localisation par r8        : exacte 1.6% IC95 [0.8% ; 2.6%] (hasard 0.7%) → NON LOCALISABLE
+452.9s 54 [LOC] Qwen3-1.7B-Base plausible localisation par surprise  : exacte 47.4% IC95 [44.0% ; 50.9%] (hasard 0.7%) → PARTIELLE
+453.5s 55 [V4] Qwen3-1.7B-Base plausible AUC(max c₁) − AUC(max surprise) = -0.467 IC95 [-0.477 ; -0.458] → MOINS BONNE
+453.5s 56 [JETONS] Qwen3-1.7B-Base rare      : rang médian 2996 ; surprise médiane 16.99 nats
+453.8s 57 [AUC] Qwen3-1.7B-Base rare      max de c1        (position inconnue) : 0.528 IC95 [0.518 ; 0.538] → FAIBLE
+454.1s 58 [AUC] Qwen3-1.7B-Base rare      max de r1        (position inconnue) : 0.530 IC95 [0.522 ; 0.538] → FAIBLE
+454.3s 59 [AUC] Qwen3-1.7B-Base rare      max de r8        (position inconnue) : 0.504 IC95 [0.499 ; 0.510] → NON DÉTECTABLE
+454.6s 60 [AUC] Qwen3-1.7B-Base rare      max de entropie  (position inconnue) : 0.576 IC95 [0.564 ; 0.588] → FAIBLE
+454.9s 61 [AUC] Qwen3-1.7B-Base rare      max de saut      (position inconnue) : 0.564 IC95 [0.551 ; 0.578] → FAIBLE
+455.2s 62 [AUC] Qwen3-1.7B-Base rare      max de surprise  (position inconnue) : 1.000 IC95 [1.000 ; 1.000] → DÉTECTABLE
+455.5s 63 [AUC] Qwen3-1.7B-Base rare      r₁ en t₀ (position connue, comme A1r) : 0.778 IC95 [0.759 ; 0.800]
+455.5s 64 [LOC] Qwen3-1.7B-Base rare      localisation par c1        : exacte 9.6% IC95 [7.7% ; 11.6%] (hasard 0.7%) → PARTIELLE
+455.5s 65 [LOC] Qwen3-1.7B-Base rare      localisation par r1        : exacte 9.1% IC95 [7.2% ; 11.1%] (hasard 0.7%) → PARTIELLE
+455.5s 66 [LOC] Qwen3-1.7B-Base rare      localisation par r8        : exacte 2.2% IC95 [1.2% ; 3.4%] (hasard 0.7%) → NON LOCALISABLE
+455.5s 67 [LOC] Qwen3-1.7B-Base rare      localisation par surprise  : exacte 90.0% IC95 [87.9% ; 91.9%] (hasard 0.7%) → LOCALISABLE
+456.1s 68 [V4] Qwen3-1.7B-Base rare      AUC(max c₁) − AUC(max surprise) = -0.472 IC95 [-0.482 ; -0.462] → MOINS BONNE
+456.1s 69 [V1] Qwen3-1.7B-Base jeton rare, max du contraste c₁ : FAIBLE
+456.1s 70 [V2] Qwen3-1.7B-Base jeton plausible, max du contraste c₁ : FAIBLE
+456.1s 71 [V3] Qwen3-1.7B-Base localisation du jeton rare par c₁ : PARTIELLE
+456.1s 72 [V4] Qwen3-1.7B-Base contre la surprise : plausible MOINS BONNE ; rare MOINS BONNE
+456.2s 73 [DURÉE] Qwen3-1.7B-Base : 7.1 min
+456.6s 74 
+456.6s 75 [CHARGEMENT] SmolLM3-3B-Base : téléchargement / chargement de HuggingFaceTB/SmolLM3-3B-Base…
+491.4s 76 [CHARGEMENT] SmolLM3-3B-Base : HuggingFaceTB/SmolLM3-3B-Base en fp16 1 GPU
+503.5s 77 [PROGRESSION] SmolLM3-3B-Base : premier lot en 11.1 s ; estimation ~4 min (génération)
+762.8s 78 [MESURE] SmolLM3-3B-Base génération du témoin : 270 s
+763.0s 79 [CONFIG] SmolLM3-3B-Base : passes rejouées en attention « eager » (poids d'attention lus)
+765.3s 80 [PROGRESSION] SmolLM3-3B-Base passes rejouées : estimation ~4 min
+996.4s 81 [MESURE] SmolLM3-3B-Base passes rejouées : 234 s
+996.6s 82 [VÉRIF] SmolLM3-3B-Base : surprise du jeton inséré, passe rejouée contre choix : écart moyen 7.2e-03, max 6.3e-02 ; entropie de la loi du jeton t₀ identique entre textes : écart max 0.0e+00 ; masque causal : 0.0e+00
+997.0s 83 
+997.0s 84 ====================================================================================================
+997.0s 85 [RÉSULTATS] SmolLM3-3B-Base (T = 0.6) : 768 prompts ; surprise maximale des témoins sur la zone : médiane 5.17 nats, 90e centile 7.20
+997.0s 86 [JETONS] SmolLM3-3B-Base plausible : rang médian 60 ; surprise médiane 9.87 nats
+997.3s 87 [AUC] SmolLM3-3B-Base plausible max de c1        (position inconnue) : 0.522 IC95 [0.513 ; 0.531] → FAIBLE
+997.6s 88 [AUC] SmolLM3-3B-Base plausible max de r1        (position inconnue) : 0.531 IC95 [0.523 ; 0.539] → FAIBLE
+997.9s 89 [AUC] SmolLM3-3B-Base plausible max de r8        (position inconnue) : 0.513 IC95 [0.506 ; 0.520] → FAIBLE
+998.2s 90 [AUC] SmolLM3-3B-Base plausible max de entropie  (position inconnue) : 0.536 IC95 [0.528 ; 0.545] → FAIBLE
+998.5s 91 [AUC] SmolLM3-3B-Base plausible max de saut      (position inconnue) : 0.528 IC95 [0.520 ; 0.537] → FAIBLE
+998.8s 92 [AUC] SmolLM3-3B-Base plausible max de surprise  (position inconnue) : 0.986 IC95 [0.981 ; 0.990] → DÉTECTABLE
+999.1s 93 [AUC] SmolLM3-3B-Base plausible r₁ en t₀ (position connue, comme A1r) : 0.782 IC95 [0.761 ; 0.801]
+999.1s 94 [LOC] SmolLM3-3B-Base plausible localisation par c1        : exacte 6.5% IC95 [4.8% ; 8.3%] (hasard 0.7%) → PARTIELLE
+999.1s 95 [LOC] SmolLM3-3B-Base plausible localisation par r1        : exacte 6.9% IC95 [5.2% ; 8.9%] (hasard 0.7%) → PARTIELLE
+999.1s 96 [LOC] SmolLM3-3B-Base plausible localisation par r8        : exacte 3.6% IC95 [2.5% ; 5.1%] (hasard 0.7%) → NON LOCALISABLE
+999.1s 97 [LOC] SmolLM3-3B-Base plausible localisation par surprise  : exacte 46.9% IC95 [43.4% ; 50.3%] (hasard 0.7%) → PARTIELLE
+999.7s 98 [V4] SmolLM3-3B-Base plausible AUC(max c₁) − AUC(max surprise) = -0.464 IC95 [-0.475 ; -0.453] → MOINS BONNE
+999.7s 99 [JETONS] SmolLM3-3B-Base rare      : rang médian 2996 ; surprise médiane 17.43 nats
+1000.0s 100 [AUC] SmolLM3-3B-Base rare      max de c1        (position inconnue) : 0.551 IC95 [0.539 ; 0.564] → FAIBLE
+1000.3s 101 [AUC] SmolLM3-3B-Base rare      max de r1        (position inconnue) : 0.555 IC95 [0.544 ; 0.567] → FAIBLE
+1000.6s 102 [AUC] SmolLM3-3B-Base rare      max de r8        (position inconnue) : 0.514 IC95 [0.507 ; 0.521] → FAIBLE
+1000.9s 103 [AUC] SmolLM3-3B-Base rare      max de entropie  (position inconnue) : 0.579 IC95 [0.566 ; 0.593] → FAIBLE
+1001.3s 104 [AUC] SmolLM3-3B-Base rare      max de saut      (position inconnue) : 0.556 IC95 [0.545 ; 0.567] → FAIBLE
+1001.6s 105 [AUC] SmolLM3-3B-Base rare      max de surprise  (position inconnue) : 0.999 IC95 [0.999 ; 1.000] → DÉTECTABLE
+1001.9s 106 [AUC] SmolLM3-3B-Base rare      r₁ en t₀ (position connue, comme A1r) : 0.862 IC95 [0.846 ; 0.878]
+1001.9s 107 [LOC] SmolLM3-3B-Base rare      localisation par c1        : exacte 13.0% IC95 [10.7% ; 15.5%] (hasard 0.7%) → PARTIELLE
+1001.9s 108 [LOC] SmolLM3-3B-Base rare      localisation par r1        : exacte 13.4% IC95 [11.2% ; 16.0%] (hasard 0.7%) → PARTIELLE
+1001.9s 109 [LOC] SmolLM3-3B-Base rare      localisation par r8        : exacte 3.6% IC95 [2.3% ; 4.9%] (hasard 0.7%) → NON LOCALISABLE
+1001.9s 110 [LOC] SmolLM3-3B-Base rare      localisation par surprise  : exacte 89.2% IC95 [87.0% ; 91.3%] (hasard 0.7%) → LOCALISABLE
+1002.5s 111 [V4] SmolLM3-3B-Base rare      AUC(max c₁) − AUC(max surprise) = -0.448 IC95 [-0.461 ; -0.436] → MOINS BONNE
+1002.5s 112 [V1] SmolLM3-3B-Base jeton rare, max du contraste c₁ : FAIBLE
+1002.5s 113 [V2] SmolLM3-3B-Base jeton plausible, max du contraste c₁ : FAIBLE
+1002.5s 114 [V3] SmolLM3-3B-Base localisation du jeton rare par c₁ : PARTIELLE
+1002.5s 115 [V4] SmolLM3-3B-Base contre la surprise : plausible MOINS BONNE ; rare MOINS BONNE
+1002.6s 116 [DURÉE] SmolLM3-3B-Base : 9.1 min
+1003.0s 117 
+1003.0s 118 ====================================================================================================
+1003.0s 119 [SYNTHÈSE] A1v — l'attention reçue repère-t-elle un jeton inséré sans connaître sa position ?
+1003.0s 120 [SYNTHÈSE] Qwen3-1.7B-Base    : V1 FAIBLE          ; V2 FAIBLE          ; V3 PARTIELLE        ; V4 {'plausible': 'MOINS BONNE', 'rare': 'MOINS BONNE'}
+1003.0s 121 [SYNTHÈSE] SmolLM3-3B-Base    : V1 FAIBLE          ; V2 FAIBLE          ; V3 PARTIELLE        ; V4 {'plausible': 'MOINS BONNE', 'rare': 'MOINS BONNE'}
+1003.0s 122 [SYNTHÈSE] thèse « l'attention reçue repère un jeton inséré sans connaître sa position » : PARTIELLE (prédiction SOUTENUE 45 %)
+1003.0s 123 [SORTIE] fichiers dans /kaggle/working/sgz_a1v : ['Qwen3-1.7B-Base_a1v.npz', 'SmolLM3-3B-Base_a1v.npz', 'resume_a1v.json']
+1009.2s 124 /usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\|'
+1009.2s 125 cells[i][c] = re.sub('\\\\\|', '|', cell)
+1009.4s 126 /usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\_'
+1009.4s 127 text = re.sub(r'_', '\_', text) # Escape underscores in display text
+1010.2s 128 [NbConvertApp] Converting notebook __notebook__.ipynb to notebook
+1010.3s 129 [NbConvertApp] Writing 298053 bytes to __notebook__.ipynb
+1012.8s 130 [NbConvertApp] Converting notebook __notebook__.ipynb to html
+1013.5s 131 [NbConvertApp] Writing 680432 bytes to __results__.html
