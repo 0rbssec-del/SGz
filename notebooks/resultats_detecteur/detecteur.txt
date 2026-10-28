@@ -1,0 +1,29 @@
+=== A1p : génération libre, choc à t = 64 ===
+Qwen3-1.7B-Base (768 prompts)
+  D0 k = 1 seul (position connue)              AUC 0.751 IC95 [0.728 ; 0.774] → FAIBLE
+  D1 pic d'entropie (position inconnue)        AUC 0.605 IC95 [0.589 ; 0.621] → FAIBLE
+  D2 en aval, k = 2–31 (position connue)       AUC 0.626 IC95 [0.609 ; 0.648] → FAIBLE
+  (descriptif) saut maximal                    AUC 0.576 IC95 [0.559 ; 0.592] → FAIBLE
+  (descriptif) entropie moyenne de la trace    AUC 0.565 IC95 [0.553 ; 0.579] → FAIBLE
+  L1 localisation par le pic d'entropie : exacte 11.3% IC95 [9.1% ; 13.5%] (hasard 0.8%) ; à ±1 près 16.3% → PARTIELLE
+Qwen3-1.7B (768 prompts)
+  D0 k = 1 seul (position connue)              AUC 0.689 IC95 [0.665 ; 0.714] → FAIBLE
+  D1 pic d'entropie (position inconnue)        AUC 0.577 IC95 [0.562 ; 0.592] → FAIBLE
+  D2 en aval, k = 2–31 (position connue)       AUC 0.589 IC95 [0.570 ; 0.608] → FAIBLE
+  (descriptif) saut maximal                    AUC 0.553 IC95 [0.535 ; 0.569] → FAIBLE
+  (descriptif) entropie moyenne de la trace    AUC 0.541 IC95 [0.529 ; 0.554] → FAIBLE
+  L1 localisation par le pic d'entropie : exacte 7.0% IC95 [5.2% ; 8.9%] (hasard 0.8%) ; à ±1 près 12.2% → PARTIELLE
+
+=== A1o essai 2 : Qwen3-4B, 6 tours, choc au tour 1 ===
+brut (384 conversations)
+  D0 k = 1 seul (position connue)              AUC 0.845 IC95 [0.814 ; 0.872] → DÉTECTABLE
+  D1 pic d'entropie au tour 1 (position inconnue) AUC 0.662 IC95 [0.639 ; 0.684] → FAIBLE
+  D2 en aval, k = 2–31 du tour 1               AUC 0.636 IC95 [0.611 ; 0.661] → FAIBLE
+  D4 tours 2 à 6                               AUC 0.561 IC95 [0.531 ; 0.590] → FAIBLE
+  L1 localisation par le pic d'entropie : exacte 12.8% IC95 [9.4% ; 16.4%] (hasard 2.5%) ; à ±1 près 22.1% → NON LOCALISABLE
+gabarit (384 conversations)
+  D0 k = 1 seul (position connue)              AUC 0.846 IC95 [0.820 ; 0.872] → DÉTECTABLE
+  D1 pic d'entropie au tour 1 (position inconnue) AUC 0.552 IC95 [0.522 ; 0.580] → FAIBLE
+  D2 en aval, k = 2–31 du tour 1               AUC 0.545 IC95 [0.521 ; 0.573] → FAIBLE
+  D4 tours 2 à 6                               AUC 0.503 IC95 [0.483 ; 0.522] → NON DÉTECTABLE
+  L1 localisation par le pic d'entropie : exacte 8.1% IC95 [5.5% ; 10.9%] (hasard 2.5%) ; à ±1 près 11.7% → NON LOCALISABLE
