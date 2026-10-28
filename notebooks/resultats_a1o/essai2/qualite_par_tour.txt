@@ -1,0 +1,24 @@
+
+T = 0.6 : exactitude locale, gabarit − brut, par tour
+  tour 1 : gabarit 0.979  brut 0.629  Δ +0.350 IC95 [+0.315 ; +0.384]
+  tour 2 : gabarit 0.961  brut 0.655  Δ +0.306 IC95 [+0.271 ; +0.340]
+  tour 3 : gabarit 0.939  brut 0.919  Δ +0.020 IC95 [-0.009 ; +0.044]
+  tour 4 : gabarit 0.970  brut 0.938  Δ +0.033 IC95 [+0.013 ; +0.053]
+  tour 5 : gabarit 0.982  brut 0.938  Δ +0.044 IC95 [+0.026 ; +0.062]
+  tour 6 : gabarit 0.992  brut 0.941  Δ +0.051 IC95 [+0.033 ; +0.069]
+  tours 3–6 : Δ +0.037 IC95 [+0.019 ; +0.054]
+  réponses brutes du tour 1 qui commencent par un saut de ligne : 37.1% ; exactitude brute au tour 1 dans ce cas 0.000, au tour 2 0.098 (gabarit sur les mêmes chaînes : 0.951, 0.944)
+  chaînes avec saut de ligne (285) : Δ moyen sur les 6 tours +0.385 IC95 [+0.356 ; +0.418]
+  chaînes sans saut de ligne (483) : Δ moyen sur les 6 tours -0.014 IC95 [-0.020 ; -0.008]
+
+T = 1.0 : exactitude locale, gabarit − brut, par tour
+  tour 1 : gabarit 0.977  brut 0.669  Δ +0.307 IC95 [+0.272 ; +0.340]
+  tour 2 : gabarit 0.960  brut 0.685  Δ +0.275 IC95 [+0.238 ; +0.307]
+  tour 3 : gabarit 0.939  brut 0.898  Δ +0.040 IC95 [+0.014 ; +0.066]
+  tour 4 : gabarit 0.967  brut 0.913  Δ +0.055 IC95 [+0.033 ; +0.078]
+  tour 5 : gabarit 0.982  brut 0.922  Δ +0.060 IC95 [+0.040 ; +0.082]
+  tour 6 : gabarit 0.992  brut 0.917  Δ +0.076 IC95 [+0.056 ; +0.098]
+  tours 3–6 : Δ +0.058 IC95 [+0.039 ; +0.077]
+  réponses brutes du tour 1 qui commencent par un saut de ligne : 32.4% ; exactitude brute au tour 1 dans ce cas 0.000, au tour 2 0.088 (gabarit sur les mêmes chaînes : 0.940, 0.936)
+  chaînes avec saut de ligne (249) : Δ moyen sur les 6 tours +0.428 IC95 [+0.392 ; +0.466]
+  chaînes sans saut de ligne (519) : Δ moyen sur les 6 tours -0.005 IC95 [-0.014 ; +0.006]

@@ -1,0 +1,97 @@
+7.6s 1 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+7.6s 2 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+7.6s 3 0.00s - to python to disable frozen modules.
+7.6s 4 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+8.2s 5 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+8.2s 6 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+8.2s 7 0.00s - to python to disable frozen modules.
+8.2s 8 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+30.4s 9 [CONFIG] SMOKE_TEST=False DEVICE=cuda N_GPU=2 OUT=/kaggle/working/sgz_a1o
+30.4s 10 [CONFIG] volet S : 384 conversations × 6 tours × 48 jetons, choc en position 8 aux tours [1, 3, 6], T = 0.6 ; volet Q : 768 chaînes, T = [0.6, 1.0] ; modèles=['Qwen3-4B']
+30.4s 11 [CONFIG] torch 2.11.0+cu128, transformers 5.16.1
+30.5s 12 [PROMPTS] 768 prompts (64 écrits à la main, 704 gabarits), mêmes que A1c–A1j
+30.6s 13 [TÉMOIN POSITIF] durable                  : DURABLE        (attendu DURABLE)
+30.6s 14 [TÉMOIN POSITIF] s'estompe                : S'ESTOMPE      (attendu S'ESTOMPE)
+30.6s 15 [TÉMOIN POSITIF] amortissement            : RÉDUIT         (attendu RÉDUIT)
+30.6s 16 [TÉMOIN POSITIF] sans amortissement       : NON TESTABLE (pas d'amortissement au tour 1) (attendu NON TESTABLE (pas d'amortissement au tour 1))
+30.6s 17 [TÉMOIN POSITIF] contamination contenue   : CONTENUE       (attendu CONTENUE)
+30.6s 18 [TÉMOIN POSITIF] contamination égale      : SANS EFFET     (attendu SANS EFFET)
+30.6s 19 [TÉMOIN POSITIF] contamination absente    : NON TESTABLE (C(brut) non significatif) (attendu NON TESTABLE (C(brut) non significatif))
+30.6s 20 [TÉMOIN POSITIF] qualité améliorée        : AMÉLIORÉE      (attendu AMÉLIORÉE)
+30.6s 21 [TÉMOIN POSITIF] qualité égale            : SANS GAIN      (attendu SANS GAIN)
+30.6s 22 [TÉMOIN POSITIF] qualité dégradée         : DÉGRADÉE       (attendu DÉGRADÉE)
+30.6s 23 [TÉMOIN POSITIF] synthèse soutenue        : SOUTENUE       (attendu SOUTENUE)
+30.6s 24 [TÉMOIN POSITIF] synthèse réfutée         : RÉFUTÉE        (attendu RÉFUTÉE)
+30.6s 25 [TÉMOIN POSITIF] RÉUSSI
+30.7s 26 [CONVERSATIONS] 384 conversations (192 en français) × 6 tours
+30.7s 27 [CHARGEMENT] Qwen3-4B : téléchargement / chargement de Qwen/Qwen3-4B…
+40.0s 28 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+40.0s 29 
+40.0s 30 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+90.0s 31 [CHARGEMENT] Qwen3-4B : Qwen/Qwen3-4B en fp16 1 GPU
+90.0s 32 [GABARIT] brut fr : avant 'Utilisateur : ' ; ouverture de réponse '\nAssistant : ' ; entre deux tours '\n\nUtilisateur : '
+90.0s 33 [GABARIT] brut en : avant 'User: ' ; ouverture de réponse '\nAssistant: ' ; entre deux tours '\n\nUser: '
+136.2s 34 [PROGRESSION] Qwen3-4B|brut volet S : premier lot en 46.2 s ; estimation ~30 min
+1979.7s 35 [VÉRIF] Qwen3-4B|brut choc au tour 1 : identique avant le choc : True ; jeton changé : 100% ; rang médian 3129 ; contexte médian 22 jetons
+1979.7s 36 [VÉRIF] Qwen3-4B|brut choc au tour 3 : identique avant le choc : True ; jeton changé : 100% ; rang médian 3002 ; contexte médian 166 jetons
+1979.7s 37 [VÉRIF] Qwen3-4B|brut choc au tour 6 : identique avant le choc : True ; jeton changé : 100% ; rang médian 3061 ; contexte médian 381 jetons
+2017.9s 38 [VÉRIF] Qwen3-4B|brut tour 1 rejoué contre généré : témoin écart moyen 1.0e-03, max 2.4e-02 ; choc à k=1 2.0e-03
+2108.9s 39 [VÉRIF] Qwen3-4B|brut tour 3 rejoué contre généré : témoin écart moyen 4.3e-04, max 2.5e-02 ; choc à k=1 1.7e-03
+2281.0s 40 [VÉRIF] Qwen3-4B|brut tour 6 rejoué contre généré : témoin écart moyen 3.6e-04, max 1.3e-02 ; choc à k=1 1.8e-03
+2330.4s 41 [PROGRESSION] Qwen3-4B|brut volet Q T=0.6 : premier lot en 49.3 s ; estimation ~20 min
+3481.4s 42 [PROGRESSION] Qwen3-4B|brut volet Q T=1.0 : premier lot en 49.2 s ; estimation ~20 min
+4593.9s 43 [D] brut     tour 1 : D = +0.0629 ; S0 = 0.277 ; I = +0.0436 ; D par tranches de k (1 | 2–7 | 8–15 | 16–31) : +0.550 +0.150 +0.044 +0.040
+4593.9s 44 [D] brut     tour 3 : D = +0.0349 ; S0 = 0.102 ; I = +0.0809 ; D par tranches de k (1 | 2–7 | 8–15 | 16–31) : +0.743 +0.097 +0.015 +0.021
+4593.9s 45 [D] brut     tour 6 : D = +0.0304 ; S0 = 0.084 ; I = +0.0672 ; D par tranches de k (1 | 2–7 | 8–15 | 16–31) : +0.677 +0.092 +0.014 +0.016
+4593.9s 46 [CONTAMINATION] brut     : C (tours 2–6) = +0.0159 ; par tour : +0.0261 +0.0178 +0.0181 +0.0085 +0.0087
+4593.9s 47 [QUALITÉ] brut     T=0.6 : exactitude locale 83.7% (absolue 76.6%, nombre lu 100.0%) ; par tour : 63% 65% 92% 94% 94% 94%
+4593.9s 48 [QUALITÉ] brut     T=1.0 : exactitude locale 83.4% (absolue 76.8%, nombre lu 100.0%) ; par tour : 67% 68% 90% 91% 92% 92%
+4593.9s 49 [EXTRAIT] brut conversation 0, tour 1, choc : '1\nOkay, the user wants me_superuser to continue the text that starts with "La ville de Lyon est située au confluent..." which translates to "The city of Lyon is located at the confluence..." I need to make sure'
+4593.9s 50 [EXTRAIT] brut chaîne 0 (T=0.6) : ' uniquement par le résultat, en chiffres.\nAssistant : 85 × 2 = 170. Réponse : 170.\n\nUtilisateur : Ajoute 18 au résultat. Réponds uniquement par le résultat, en chiffres.\nAssistant : 170 + 18 = 188. Réponse : 188.\n\nUtilisateur : Ajoute 7 au résultat. Réponds uniquement par le résultat, en chiffres.\nAssistant : 188 + 7 = 195. Réponse : 195.\n\nUtilisateur : Ajoute 13 au résultat. Réponds uniquement par le résultat, en chiffres.\nAssistant : 195 + 13 = 208. Réponse : 208.\n\nUtilisateur : Ajoute 22 au résultat. Réponds uniquement par le résultat, en chiffres.\nAssistant : 208 + 22 = 230. Réponse : 230.'
+4593.9s 51 [DURÉE] brut : 75.1 min
+4594.2s 52 [GABARIT] gabarit fr : avant '<|im_start|>user\n' ; ouverture de réponse '<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n' ; entre deux tours '<|im_end|>\n<|im_start|>user\n'
+4594.2s 53 [GABARIT] gabarit en : avant '<|im_start|>user\n' ; ouverture de réponse '<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n' ; entre deux tours '<|im_end|>\n<|im_start|>user\n'
+4645.0s 54 [PROGRESSION] Qwen3-4B|gabarit volet S : premier lot en 50.8 s ; estimation ~33 min
+6563.0s 55 [VÉRIF] Qwen3-4B|gabarit choc au tour 1 : identique avant le choc : True ; jeton changé : 100% ; rang médian 3129 ; contexte médian 27 jetons
+6563.0s 56 [VÉRIF] Qwen3-4B|gabarit choc au tour 3 : identique avant le choc : True ; jeton changé : 100% ; rang médian 3002 ; contexte médian 182 jetons
+6563.0s 57 [VÉRIF] Qwen3-4B|gabarit choc au tour 6 : identique avant le choc : True ; jeton changé : 100% ; rang médian 3061 ; contexte médian 415 jetons
+6602.6s 58 [VÉRIF] Qwen3-4B|gabarit tour 1 rejoué contre généré : témoin écart moyen 8.8e-04, max 3.7e-02 ; choc à k=1 2.3e-03
+6697.4s 59 [VÉRIF] Qwen3-4B|gabarit tour 3 rejoué contre généré : témoin écart moyen 7.9e-04, max 2.8e-02 ; choc à k=1 2.3e-03
+6884.0s 60 [VÉRIF] Qwen3-4B|gabarit tour 6 rejoué contre généré : témoin écart moyen 7.0e-04, max 3.4e-02 ; choc à k=1 2.1e-03
+6925.0s 61 [PROGRESSION] Qwen3-4B|gabarit volet Q T=0.6 : premier lot en 41.0 s ; estimation ~16 min
+7909.8s 62 [PROGRESSION] Qwen3-4B|gabarit volet Q T=1.0 : premier lot en 41.1 s ; estimation ~16 min
+8853.3s 63 [D] gabarit  tour 1 : D = +0.0047 ; S0 = 0.223 ; I = +0.0104 ; D par tranches de k (1 | 2–7 | 8–15 | 16–31) : +0.332 +0.037 -0.003 -0.003
+8853.3s 64 [D] gabarit  tour 3 : D = +0.0024 ; S0 = 0.161 ; I = +0.0157 ; D par tranches de k (1 | 2–7 | 8–15 | 16–31) : +0.317 +0.014 +0.001 -0.001
+8853.3s 65 [D] gabarit  tour 6 : D = +0.0029 ; S0 = 0.161 ; I = +0.0144 ; D par tranches de k (1 | 2–7 | 8–15 | 16–31) : +0.301 +0.012 +0.001 +0.000
+8853.3s 66 [CONTAMINATION] gabarit  : C (tours 2–6) = +0.0005 ; par tour : -0.0000 +0.0015 -0.0009 -0.0007 +0.0024
+8853.3s 67 [QUALITÉ] gabarit  T=0.6 : exactitude locale 97.0% (absolue 89.8%, nombre lu 100.0%) ; par tour : 98% 96% 94% 97% 98% 99%
+8853.3s 68 [QUALITÉ] gabarit  T=1.0 : exactitude locale 96.9% (absolue 89.4%, nombre lu 100.0%) ; par tour : 98% 96% 94% 97% 98% 99%
+8853.3s 69 [EXTRAIT] gabarit conversation 0, tour 1, choc : 'La ville de Lyon est située au IVe siècle, à l’embouchure du Rhône, au confluent du Rhône et de la Saône. C’est là, à l’intersection de deux fle'
+8853.3s 70 [EXTRAIT] gabarit chaîne 0 (T=0.6) : ' uniquement par le résultat, en chiffres.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n170 + 18 = 188<|im_end|>\n<|im_start|>user\nAjoute 7 au résultat. Réponds uniquement par le résultat, en chiffres.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n188 + 7 = 195<|im_end|>\n<|im_start|>user\nAjoute 13 au résultat. Réponds uniquement par le résultat, en chiffres.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n195 + 13 = 208<|im_end|>\n<|im_start|>user\nAjoute 22 au résultat. Réponds uniquement par le résultat, en chiffres.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n208 + 22 = 230'
+8853.6s 71 [DURÉE] gabarit : 71.0 min
+8853.9s 72 
+8853.9s 73 ====================================================================================================
+8853.9s 74 [RÉSULTATS] Qwen3-4B : gabarit contre brut (mêmes conversations, bootstrap apparié)
+8853.9s 75 [DURABILITÉ] tour 1 : r = D(gabarit)/D(brut) = 0.07 IC95 [0.03 ; 0.13] RÉDUIT
+8853.9s 76 [DURABILITÉ] tour 3 : r = D(gabarit)/D(brut) = 0.07 IC95 [-0.01 ; 0.15] RÉDUIT ; q = a_3/a_1 = 1.02 IC95 [0.66 ; 1.90]
+8853.9s 77 [DURABILITÉ] tour 6 : r = D(gabarit)/D(brut) = 0.10 IC95 [0.01 ; 0.17] RÉDUIT ; q = a_6/a_1 = 0.90 IC95 [0.59 ; 1.59]
+8853.9s 78 [DURABILITÉ] relatif Dr = D/S0 (descriptif) : tour 1 ×0.09 ; tour 3 ×0.04 ; tour 6 ×0.05
+8853.9s 79 [DURABILITÉ] V1 amortissement au tour 1 : RÉDUIT (prédiction RÉDUIT 75 %)
+8853.9s 80 [DURABILITÉ] V2 durabilité : DURABLE (prédiction DURABLE 45 %, S'ESTOMPE 20 %)
+8853.9s 81 [CONTAMINATION] C brut = +0.0159 IC95 [+0.0074 ; +0.0246] ; C gabarit = +0.0005 IC95 [-0.0014 ; +0.0024] ; rapport 0.03 IC95 [-0.10 ; 0.19]
+8853.9s 82 [CONTAMINATION] V3 : CONTENUE (prédiction CONTENUE 35 %)
+8854.0s 83 [QUALITÉ] T=0.6 : exactitude locale gabarit 97.0%, brut 83.7% ; Δ = +0.134 IC95 [+0.116 ; +0.152] : AMÉLIORÉE
+8854.0s 84 [QUALITÉ] T=1.0 : exactitude locale gabarit 96.9%, brut 83.4% ; Δ = +0.135 IC95 [+0.115 ; +0.155] : AMÉLIORÉE (descriptif)
+8854.0s 85 [QUALITÉ] interaction Δ(T=1.0) − Δ(T=0.6) = +0.002 IC95 [-0.011 ; +0.015] (descriptif : > 0 si le gabarit compense davantage une température haute)
+8854.0s 86 [QUALITÉ] V4 (T=0.6) : AMÉLIORÉE (prédiction AMÉLIORÉE 50 %, SANS GAIN 30 %)
+8854.0s 87 [SYNTHÈSE] thèse « le gabarit est un stabilisateur durable qui améliore les réponses » : SOUTENUE (V2 DURABLE ; V3 CONTENUE ; V4 AMÉLIORÉE) — prédiction SOUTENUE 25 %, RÉFUTÉE 40 %
+8854.0s 88 [DURÉE] totale : 147.1 min
+8854.0s 89 [SORTIE] fichiers dans /kaggle/working/sgz_a1o : ['Qwen3-4B_brut_a1o.npz', 'Qwen3-4B_gabarit_a1o.npz', 'resume_a1o.json']
+8859.2s 90 /usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\|'
+8859.2s 91 cells[i][c] = re.sub('\\\\\|', '|', cell)
+8859.4s 92 /usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\_'
+8859.4s 93 text = re.sub(r'_', '\_', text) # Escape underscores in display text
+8860.1s 94 [NbConvertApp] Converting notebook __notebook__.ipynb to notebook
+8860.2s 95 [NbConvertApp] Writing 220435 bytes to __notebook__.ipynb
+8862.7s 96 [NbConvertApp] Converting notebook __notebook__.ipynb to html
+8863.4s 97 [NbConvertApp] Writing 678534 bytes to __results__.html
