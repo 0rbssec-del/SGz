@@ -1,0 +1,143 @@
+7.5s 1 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+7.5s 2 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+7.5s 3 0.00s - to python to disable frozen modules.
+7.5s 4 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+8.2s 5 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+8.2s 6 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+8.2s 7 0.00s - to python to disable frozen modules.
+8.2s 8 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+30.3s 9 [CONFIG] SMOKE_TEST=False DEVICE=cuda N_GPU=2 OUT=/kaggle/working/sgz_a1r
+30.3s 10 [CONFIG] T=[0.6] prompts=768 longueur=96 t₀=64 fenêtre k=2–31 ; niveau modéré rang 20–500, fort 1000–5000 ; modèles=['Qwen3-1.7B-Base', 'SmolLM3-3B-Base']
+30.3s 11 [CONFIG] torch 2.11.0+cu128, transformers 5.16.1
+30.3s 12 [PROMPTS] 768 prompts (64 écrits à la main, 704 gabarits), mêmes que A1c–A1k
+30.5s 13 [TÉMOIN POSITIF] additif                : ADDITIF              (attendu ADDITIF)
+30.5s 14 [TÉMOIN POSITIF] multiplicatif          : MULTIPLICATIF        (attendu MULTIPLICATIF)
+30.5s 15 [TÉMOIN POSITIF] supra-multiplicatif    : SUPRA-MULTIPLICATIF  (attendu SUPRA-MULTIPLICATIF)
+30.5s 16 [TÉMOIN POSITIF] sur-additif            : SUR-ADDITIF          (attendu SUR-ADDITIF)
+30.5s 17 [TÉMOIN POSITIF] sous-additif           : SOUS-ADDITIF         (attendu SOUS-ADDITIF)
+30.5s 18 [TÉMOIN POSITIF] sans effet de forme    : NON TESTABLE (pas d'effet de forme positif) (attendu NON TESTABLE (pas d'effet de forme positif))
+30.5s 19 [TÉMOIN POSITIF] sans effet de surprise : NON TESTABLE (l'effet ne croît pas avec la surprise) (attendu NON TESTABLE (l'effet ne croît pas avec la surprise))
+30.5s 20 [TÉMOIN POSITIF] préalable manquant     : NON TESTABLE (|Ω| < 200) (attendu NON TESTABLE (|Ω| < 200))
+30.5s 21 [TÉMOIN POSITIF] V1 amplifie            : AMPLIFIE             (attendu AMPLIFIE)
+30.5s 22 [TÉMOIN POSITIF] V1 équivalent          : ÉQUIVALENT           (attendu ÉQUIVALENT)
+30.5s 23 [TÉMOIN POSITIF] V1 atténue             : ATTÉNUE              (attendu ATTÉNUE)
+30.5s 24 [TÉMOIN POSITIF] synthèse soutenue      : SOUTENUE             (attendu SOUTENUE)
+30.5s 25 [TÉMOIN POSITIF] synthèse partielle     : PARTIELLE            (attendu PARTIELLE)
+30.5s 26 [TÉMOIN POSITIF] synthèse réfutée       : RÉFUTÉE              (attendu RÉFUTÉE)
+30.5s 27 [TÉMOIN POSITIF] synthèse dépend        : DÉPEND DU MODÈLE     (attendu DÉPEND DU MODÈLE)
+30.5s 28 [TÉMOIN POSITIF] RÉUSSI
+30.6s 29 
+30.6s 30 [CHARGEMENT] Qwen3-1.7B-Base : téléchargement / chargement de Qwen/Qwen3-1.7B-Base…
+39.8s 31 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+39.8s 32 
+39.8s 33 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+65.7s 34 [CHARGEMENT] Qwen3-1.7B-Base : Qwen/Qwen3-1.7B-Base en fp16 sur 2 GPU
+67.0s 35 [VOCABULAIRE] Qwen3-1.7B-Base : 151669 jetons ; mots latins 75235 ; non latins 46867 (CJK 25876, CYRILLIC 4142, ARABIC 3978, HANGUL 3567, HEBREW 3179, THAI 2549) ; 1 s
+75.7s 36 [PROGRESSION] Qwen3-1.7B-Base : premier lot en 8.9 s ; estimation ~2 min (génération)
+187.6s 37 [MESURE] Qwen3-1.7B-Base génération du témoin : 121 s
+187.8s 38 [ANCRAGE] Qwen3-1.7B-Base : témoin identique à A1k (MD5, 768 × 96) : False (écart numérique possible ; les contrastes, mesurés ici, restent valides)
+187.8s 39 [CHOIX] Qwen3-1.7B-Base L_mod   : rang médian 161 ; surprise médiane 15.47 nats
+187.8s 40 [CHOIX] Qwen3-1.7B-Base NL_mod  : rang médian 161 ; surprise médiane 15.48 nats
+187.8s 41 [CHOIX] Qwen3-1.7B-Base L_fort  : rang médian 3290 ; surprise médiane 21.12 nats
+187.8s 42 [CHOIX] Qwen3-1.7B-Base NL_fort : rang médian 3290 ; surprise médiane 21.12 nats
+187.8s 43 [CHOIX] Qwen3-1.7B-Base : |Ω| = 238 prompts sur 768 ; écart médian de surprise |NL − L| : modéré 0.008, fort 0.000 nat (max 0.25) ; surprise forte − modérée 5.65 nats (min 3.0)
+187.8s 44 [CHOIX] Qwen3-1.7B-Base écritures de NL_mod : CJK 92, GREEK 50, CYRILLIC 44, MODIFIER 27, MICRO 5, FEMININE 4
+187.8s 45 [CHOIX] Qwen3-1.7B-Base écritures de NL_fort : CJK 113, GREEK 44, CYRILLIC 43, ARABIC 7, MODIFIER 7, HANGUL 6
+187.8s 46 [EXTRAIT] Qwen3-1.7B-Base prompt 0 : …'uplée de France, avec 6' → L_mod ' Euro' (rang 211, 13.4 nats) ; NL_mod 'ª' (rang 212, 13.4 nats) ; L_fort 'rés' (rang 4037, 18.6 nats) ; NL_fort ' рождения' (rang 4038, 18.6 nats)
+187.8s 47 [EXTRAIT] Qwen3-1.7B-Base prompt 1 : …". En d'autres termes, l" → L_mod 'ancer' (rang 94, 14.6 nats) ; NL_mod 'ʼ' (rang 95, 14.7 nats) ; L_fort ' fluctuations' (rang 2968, 21.6 nats) ; NL_fort '赢得' (rang 2969, 21.6 nats)
+187.8s 48 [EXTRAIT] Qwen3-1.7B-Base prompt 2 : …' une clé USB de 12' → L_mod ' ro' (rang 314, 14.4 nats) ; NL_mod ' µ' (rang 313, 14.4 nats) ; L_fort ' ks' (rang 1590, 16.8 nats) ; NL_fort ' π' (rang 1591, 16.8 nats)
+187.8s 49 [CONFIG] Qwen3-1.7B-Base : passes rejouées en attention « eager » (poids d'attention lus)
+188.8s 50 [PROGRESSION] Qwen3-1.7B-Base passes rejouées : estimation ~1 min
+223.9s 51 [MESURE] Qwen3-1.7B-Base passes rejouées : 36 s
+224.1s 52 [VÉRIF] Qwen3-1.7B-Base témoin rejoué contre généré : écart moyen 1.4e-03, max 1.8e-02 ; avant t₀, attention vers t₀ (doit être 0, masque causal) : max 0.0e+00 ; entropie identique entre bras : max 2.6e-03
+224.1s 53 
+224.1s 54 ====================================================================================================
+224.1s 55 [RÉSULTATS] Qwen3-1.7B-Base (T = 0.6) : 238 prompts dans Ω
+224.1s 56 [EFFETS] part d'attention vers t₀ dans le témoin (k = 2–31) : 0.0085
+224.1s 57 [EFFETS] A, surplus d'attention vers t₀ : L_mod    +0.00191 IC95 [+0.00125 ; +0.00248]
+224.1s 58 [EFFETS] A, surplus d'attention vers t₀ : NL_mod   +0.00484 IC95 [+0.00415 ; +0.00547]
+224.1s 59 [EFFETS] A, surplus d'attention vers t₀ : L_fort   +0.00312 IC95 [+0.00244 ; +0.00373]
+224.1s 60 [EFFETS] A, surplus d'attention vers t₀ : NL_fort  +0.00652 IC95 [+0.00579 ; +0.00718]
+224.1s 61 [V1] Qwen3-1.7B-Base A : forme à surprise égale, niveau fort : NL/L = 2.09 IC95 [1.83 ; 2.50] → AMPLIFIE ; niveau modéré (descriptif) : 2.54 IC95 [2.02 ; 3.67] → AMPLIFIE
+224.1s 62 [V2] Qwen3-1.7B-Base A : interaction additive Int = +0.00047 IC95 [-0.00031 ; +0.00120] ; multiplicative Lr = -0.194 IC95 [-0.514 ; +0.038] ; effet de la surprise (L_fort − L_mod) IC95 [+0.00074 ; +0.00174] → NON DISCRIMINANT
+224.1s 63 [PROFIL] Qwen3-1.7B-Base A L_mod    par tranches de k (1 | 2–7 | 8–15 | 16–31) : +0.0174 +0.0070 +0.0009 +0.0005
+224.1s 64 [PROFIL] Qwen3-1.7B-Base A NL_mod   par tranches de k (1 | 2–7 | 8–15 | 16–31) : +0.0404 +0.0097 +0.0040 +0.0035
+224.1s 65 [PROFIL] Qwen3-1.7B-Base A L_fort   par tranches de k (1 | 2–7 | 8–15 | 16–31) : +0.0284 +0.0091 +0.0018 +0.0015
+224.1s 66 [PROFIL] Qwen3-1.7B-Base A NL_fort  par tranches de k (1 | 2–7 | 8–15 | 16–31) : +0.0544 +0.0137 +0.0054 +0.0044
+224.1s 67 [EFFETS] D, effet direct sur l'entropie : L_mod    +0.06541 IC95 [+0.05816 ; +0.07198]
+224.1s 68 [EFFETS] D, effet direct sur l'entropie : NL_mod   +0.04989 IC95 [+0.04366 ; +0.05611]
+224.1s 69 [EFFETS] D, effet direct sur l'entropie : L_fort   +0.06592 IC95 [+0.05900 ; +0.07230]
+224.1s 70 [EFFETS] D, effet direct sur l'entropie : NL_fort  +0.05293 IC95 [+0.04659 ; +0.05933]
+224.5s 71 [V1] Qwen3-1.7B-Base D : forme à surprise égale, niveau fort : NL/L = 0.80 IC95 [0.73 ; 0.88] → ATTÉNUE ; niveau modéré (descriptif) : 0.76 IC95 [0.67 ; 0.86] → ATTÉNUE
+224.5s 72 [V2] Qwen3-1.7B-Base D : interaction additive Int = +0.00253 IC95 [-0.00452 ; +0.01010] ; multiplicative Lr = +0.051 IC95 [-0.072 ; +0.188] ; effet de la surprise (L_fort − L_mod) IC95 [-0.00537 ; +0.00579] → NON TESTABLE (l'effet ne croît pas avec la surprise)
+224.5s 73 [PROFIL] Qwen3-1.7B-Base D L_mod    par tranches de k (1 | 2–7 | 8–15 | 16–31) : +0.4731 +0.1660 +0.0479 +0.0365
+224.5s 74 [PROFIL] Qwen3-1.7B-Base D NL_mod   par tranches de k (1 | 2–7 | 8–15 | 16–31) : +0.5473 +0.1296 +0.0333 +0.0283
+224.5s 75 [PROFIL] Qwen3-1.7B-Base D L_fort   par tranches de k (1 | 2–7 | 8–15 | 16–31) : +0.7242 +0.1743 +0.0457 +0.0354
+224.5s 76 [PROFIL] Qwen3-1.7B-Base D NL_fort  par tranches de k (1 | 2–7 | 8–15 | 16–31) : +0.8858 +0.1473 +0.0337 +0.0272
+224.5s 77 [DURÉE] Qwen3-1.7B-Base : 3.2 min
+224.6s 78 
+224.6s 79 [CHARGEMENT] SmolLM3-3B-Base : téléchargement / chargement de HuggingFaceTB/SmolLM3-3B-Base…
+257.8s 80 [transformers] Ignoring clean_up_tokenization_spaces=True for BPE tokenizer TokenizersBackend. The clean_up_tokenization post-processing step is designed for WordPiece tokenizers and is destructive for BPE (it strips spaces before punctuation). Set clean_up_tokenization_spaces=False to suppress this warning, or set clean_up_tokenization_spaces_for_bpe_even_though_it_will_corrupt_output=True to force cleanup anyway.
+257.8s 81 
+257.8s 82 [transformers] Ignoring clean_up_tokenization_spaces=True for BPE tokenizer TokenizersBackend. The clean_up_tokenization post-processing step is designed for WordPiece tokenizers and is destructive for BPE (it strips spaces before punctuation). Set clean_up_tokenization_spaces=False to suppress this warning, or set clean_up_tokenization_spaces_for_bpe_even_though_it_will_corrupt_output=True to force cleanup anyway.
+257.9s 83 [CHARGEMENT] SmolLM3-3B-Base : HuggingFaceTB/SmolLM3-3B-Base en fp16 1 GPU
+259.4s 84 [VOCABULAIRE] SmolLM3-3B-Base : 128256 jetons ; mots latins 77956 ; non latins 21537 (CYRILLIC 6504, CJK 4357, ARABIC 3709, HANGUL 2259, GREEK 1389, THAI 1343) ; 1 s
+266.8s 85 [PROGRESSION] SmolLM3-3B-Base : premier lot en 7.6 s ; estimation ~3 min (génération)
+428.3s 86 [MESURE] SmolLM3-3B-Base génération du témoin : 169 s
+428.5s 87 [CHOIX] SmolLM3-3B-Base L_mod   : rang médian 203 ; surprise médiane 15.04 nats
+428.5s 88 [CHOIX] SmolLM3-3B-Base NL_mod  : rang médian 204 ; surprise médiane 15.07 nats
+428.5s 89 [CHOIX] SmolLM3-3B-Base L_fort  : rang médian 3134 ; surprise médiane 20.12 nats
+428.5s 90 [CHOIX] SmolLM3-3B-Base NL_fort : rang médian 3135 ; surprise médiane 20.12 nats
+428.5s 91 [CHOIX] SmolLM3-3B-Base : |Ω| = 315 prompts sur 768 ; écart médian de surprise |NL − L| : modéré 0.008, fort 0.000 nat (max 0.25) ; surprise forte − modérée 5.08 nats (min 3.0)
+428.5s 92 [CHOIX] SmolLM3-3B-Base écritures de NL_mod : CYRILLIC 113, CJK 76, GREEK 54, ARABIC 25, DEVANAGARI 15, HANGUL 8
+428.5s 93 [CHOIX] SmolLM3-3B-Base écritures de NL_fort : CJK 82, CYRILLIC 80, GREEK 44, HANGUL 25, ARABIC 25, THAI 23
+428.5s 94 [EXTRAIT] SmolLM3-3B-Base prompt 2 : …", elle était de retour à l'" → L_mod 'egl' (rang 365, 10.2 nats) ; NL_mod '्कर' (rang 366, 10.2 nats) ; L_fort 'illustr' (rang 1299, 12.4 nats) ; NL_fort ' 而' (rang 1300, 12.4 nats)
+428.5s 95 [EXTRAIT] SmolLM3-3B-Base prompt 5 : …', effectue une certaine opération' → L_mod ' implic' (rang 352, 14.1 nats) ; NL_mod ' и' (rang 353, 14.1 nats) ; L_fort ' dernière' (rang 1786, 17.4 nats) ; NL_fort 'บน' (rang 1787, 17.4 nats)
+428.5s 96 [EXTRAIT] SmolLM3-3B-Base prompt 7 : …' le Journal of the American Medical Association (' → L_mod ' JA' (rang 241, 11.9 nats) ; NL_mod 'ию' (rang 242, 11.9 nats) ; L_fort 'Ster' (rang 2903, 16.1 nats) ; NL_fort '연구' (rang 2904, 16.1 nats)
+428.5s 97 [CONFIG] SmolLM3-3B-Base : passes rejouées en attention « eager » (poids d'attention lus)
+430.4s 98 [PROGRESSION] SmolLM3-3B-Base passes rejouées : estimation ~1 min
+514.2s 99 [MESURE] SmolLM3-3B-Base passes rejouées : 86 s
+514.4s 100 [VÉRIF] SmolLM3-3B-Base témoin rejoué contre généré : écart moyen 1.1e-03, max 1.6e-02 ; avant t₀, attention vers t₀ (doit être 0, masque causal) : max 0.0e+00 ; entropie identique entre bras : max 7.1e-04
+514.4s 101 
+514.4s 102 ====================================================================================================
+514.4s 103 [RÉSULTATS] SmolLM3-3B-Base (T = 0.6) : 315 prompts dans Ω
+514.4s 104 [EFFETS] part d'attention vers t₀ dans le témoin (k = 2–31) : 0.0075
+514.4s 105 [EFFETS] A, surplus d'attention vers t₀ : L_mod    +0.00274 IC95 [+0.00219 ; +0.00333]
+514.4s 106 [EFFETS] A, surplus d'attention vers t₀ : NL_mod   +0.00805 IC95 [+0.00738 ; +0.00873]
+514.4s 107 [EFFETS] A, surplus d'attention vers t₀ : L_fort   +0.00380 IC95 [+0.00324 ; +0.00439]
+514.4s 108 [EFFETS] A, surplus d'attention vers t₀ : NL_fort  +0.00819 IC95 [+0.00756 ; +0.00882]
+514.4s 109 [V1] SmolLM3-3B-Base A : forme à surprise égale, niveau fort : NL/L = 2.15 IC95 [1.95 ; 2.42] → AMPLIFIE ; niveau modéré (descriptif) : 2.94 IC95 [2.50 ; 3.57] → AMPLIFIE
+514.4s 110 [V2] SmolLM3-3B-Base A : interaction additive Int = -0.00093 IC95 [-0.00158 ; -0.00031] ; multiplicative Lr = -0.311 IC95 [-0.471 ; -0.162] ; effet de la surprise (L_fort − L_mod) IC95 [+0.00063 ; +0.00148] → SOUS-ADDITIF
+514.4s 111 [PROFIL] SmolLM3-3B-Base A L_mod    par tranches de k (1 | 2–7 | 8–15 | 16–31) : +0.0110 +0.0074 +0.0021 +0.0013
+514.4s 112 [PROFIL] SmolLM3-3B-Base A NL_mod   par tranches de k (1 | 2–7 | 8–15 | 16–31) : +0.0277 +0.0141 +0.0078 +0.0059
+514.4s 113 [PROFIL] SmolLM3-3B-Base A L_fort   par tranches de k (1 | 2–7 | 8–15 | 16–31) : +0.0180 +0.0092 +0.0031 +0.0021
+514.4s 114 [PROFIL] SmolLM3-3B-Base A NL_fort  par tranches de k (1 | 2–7 | 8–15 | 16–31) : +0.0296 +0.0145 +0.0076 +0.0061
+514.4s 115 [EFFETS] D, effet direct sur l'entropie : L_mod    +0.07513 IC95 [+0.06831 ; +0.08239]
+514.4s 116 [EFFETS] D, effet direct sur l'entropie : NL_mod   +0.05611 IC95 [+0.05076 ; +0.06181]
+514.4s 117 [EFFETS] D, effet direct sur l'entropie : L_fort   +0.07118 IC95 [+0.06454 ; +0.07789]
+514.4s 118 [EFFETS] D, effet direct sur l'entropie : NL_fort  +0.05741 IC95 [+0.05257 ; +0.06273]
+514.5s 119 [V1] SmolLM3-3B-Base D : forme à surprise égale, niveau fort : NL/L = 0.81 IC95 [0.75 ; 0.87] → ATTÉNUE ; niveau modéré (descriptif) : 0.75 IC95 [0.69 ; 0.81] → ATTÉNUE
+514.5s 120 [V2] SmolLM3-3B-Base D : interaction additive Int = +0.00525 IC95 [-0.00070 ; +0.01208] ; multiplicative Lr = +0.077 IC95 [-0.018 ; +0.189] ; effet de la surprise (L_fort − L_mod) IC95 [-0.00875 ; +0.00075] → NON TESTABLE (l'effet ne croît pas avec la surprise)
+514.5s 121 [PROFIL] SmolLM3-3B-Base D L_mod    par tranches de k (1 | 2–7 | 8–15 | 16–31) : +0.4973 +0.1793 +0.0611 +0.0431
+514.5s 122 [PROFIL] SmolLM3-3B-Base D NL_mod   par tranches de k (1 | 2–7 | 8–15 | 16–31) : +0.6498 +0.1326 +0.0453 +0.0328
+514.5s 123 [PROFIL] SmolLM3-3B-Base D L_fort   par tranches de k (1 | 2–7 | 8–15 | 16–31) : +0.7626 +0.1828 +0.0535 +0.0382
+514.5s 124 [PROFIL] SmolLM3-3B-Base D NL_fort  par tranches de k (1 | 2–7 | 8–15 | 16–31) : +0.9498 +0.1413 +0.0469 +0.0312
+514.5s 125 [DURÉE] SmolLM3-3B-Base : 4.8 min
+514.9s 126 
+514.9s 127 ====================================================================================================
+514.9s 128 [SYNTHÈSE] A1r — la complexité d'une surprise s'additionne-t-elle ou se multiplie-t-elle ?
+514.9s 129 [SYNTHÈSE] Qwen3-1.7B-Base    A : V1 AMPLIFIE     ; V2 NON DISCRIMINANT
+514.9s 130 [SYNTHÈSE] SmolLM3-3B-Base    A : V1 AMPLIFIE     ; V2 SOUS-ADDITIF
+514.9s 131 [SYNTHÈSE] thèse « la complexité multiplie l'intensité de la surprise », mesure A (principale) : INDÉTERMINÉE (prédiction SOUTENUE 10 %, PARTIELLE 10 %, RÉFUTÉE 40 %)
+514.9s 132 [SYNTHÈSE] Qwen3-1.7B-Base    D : V1 ATTÉNUE      ; V2 NON TESTABLE (l'effet ne croît pas avec la surprise)
+514.9s 133 [SYNTHÈSE] SmolLM3-3B-Base    D : V1 ATTÉNUE      ; V2 NON TESTABLE (l'effet ne croît pas avec la surprise)
+514.9s 134 [SYNTHÈSE] thèse « la complexité multiplie l'intensité de la surprise », mesure D (secondaire) : INDÉTERMINÉE
+514.9s 135 [SORTIE] fichiers dans /kaggle/working/sgz_a1r : ['Qwen3-1.7B-Base_a1r.npz', 'SmolLM3-3B-Base_a1r.npz', 'resume_a1r.json']
+520.3s 136 /usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\|'
+520.3s 137 cells[i][c] = re.sub('\\\\\|', '|', cell)
+520.5s 138 /usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\_'
+520.5s 139 text = re.sub(r'_', '\_', text) # Escape underscores in display text
+521.4s 140 [NbConvertApp] Converting notebook __notebook__.ipynb to notebook
+521.5s 141 [NbConvertApp] Writing 307703 bytes to __notebook__.ipynb
+524.0s 142 [NbConvertApp] Converting notebook __notebook__.ipynb to html
+524.7s 143 [NbConvertApp] Writing 708534 bytes to __results__.html

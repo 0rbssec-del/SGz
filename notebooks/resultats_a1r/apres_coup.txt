@@ -1,0 +1,12 @@
+
+Qwen3-1.7B-Base : 238 prompts dans Ω
+  niveau mod : non latin − latin, effet au pas suivant (k = 1) +0.074 IC95 [-0.030 ; +0.169] ; en aval (k = 2–31) -0.0155 IC95 [-0.0226 ; -0.0090] ; Spearman par prompt surplus d'attention ~ effet en aval +0.165
+  niveau fort : non latin − latin, effet au pas suivant (k = 1) +0.162 IC95 [+0.081 ; +0.242] ; en aval (k = 2–31) -0.0130 IC95 [-0.0181 ; -0.0073] ; Spearman par prompt surplus d'attention ~ effet en aval +0.114
+  L_mod : Spearman par prompt effet en aval ~ surprise -0.209 ; surplus d'attention ~ surprise -0.101
+  L_fort : Spearman par prompt effet en aval ~ surprise -0.179 ; surplus d'attention ~ surprise -0.052
+
+SmolLM3-3B-Base : 315 prompts dans Ω
+  niveau mod : non latin − latin, effet au pas suivant (k = 1) +0.153 IC95 [+0.076 ; +0.240] ; en aval (k = 2–31) -0.0190 IC95 [-0.0251 ; -0.0132] ; Spearman par prompt surplus d'attention ~ effet en aval +0.175
+  niveau fort : non latin − latin, effet au pas suivant (k = 1) +0.187 IC95 [+0.119 ; +0.255] ; en aval (k = 2–31) -0.0138 IC95 [-0.0188 ; -0.0092] ; Spearman par prompt surplus d'attention ~ effet en aval +0.227
+  L_mod : Spearman par prompt effet en aval ~ surprise -0.253 ; surplus d'attention ~ surprise +0.018
+  L_fort : Spearman par prompt effet en aval ~ surprise -0.269 ; surplus d'attention ~ surprise +0.059
