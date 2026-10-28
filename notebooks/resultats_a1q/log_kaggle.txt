@@ -1,0 +1,116 @@
+6.4s 1 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+6.4s 2 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+6.4s 3 0.00s - to python to disable frozen modules.
+6.4s 4 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+7.0s 5 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+7.0s 6 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+7.0s 7 0.00s - to python to disable frozen modules.
+7.0s 8 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+25.0s 9 [CONFIG] SMOKE_TEST=False DEVICE=cuda N_GPU=2 OUT=/kaggle/working/sgz_a1q
+25.0s 10 [CONFIG] T=[0.6] prompts=768 longueur=128 t₁=64 t₂=96 fenêtre k=2–31 ; K = 3% des têtes (doses 1%, 6%), 20 tirages aléatoires ; modèles=['Qwen3-1.7B-Base', 'Qwen3-1.7B']
+25.0s 11 [CONFIG] torch 2.11.0+cu128, transformers 5.16.1
+25.0s 12 [PROMPTS] 768 prompts (64 écrits à la main, 704 gabarits), mêmes que A1c–A1k
+25.2s 13 [TÉMOIN POSITIF] recopie portée             : PORTÉE PAR L'INDUCTION   (attendu PORTÉE PAR L'INDUCTION)
+25.2s 14 [TÉMOIN POSITIF] habituation expliquée      : EXPLIQUÉE                (attendu EXPLIQUÉE)
+25.2s 15 [TÉMOIN POSITIF] habituation réduite        : RÉDUITE                  (attendu RÉDUITE)
+25.2s 16 [TÉMOIN POSITIF] habituation indépendante   : INDÉPENDANTE             (attendu INDÉPENDANTE)
+25.2s 17 [TÉMOIN POSITIF] recopie inchangée          : INCHANGÉE                (attendu INCHANGÉE)
+25.2s 18 [TÉMOIN POSITIF] sans recopie cassée        : INDÉTERMINÉE             (attendu INDÉTERMINÉE)
+25.2s 19 [TÉMOIN POSITIF] recopie non spécifique     : NON SPÉCIFIQUE           (attendu NON SPÉCIFIQUE)
+25.2s 20 [TÉMOIN POSITIF] habituation non spécifique : INDÉTERMINÉE             (attendu INDÉTERMINÉE)
+25.2s 21 [TÉMOIN POSITIF] ablation inefficace        : NON TESTABLE (ablation inefficace) (attendu NON TESTABLE (ablation inefficace))
+25.2s 22 [TÉMOIN POSITIF] M1 efficace                : EFFICACE                 (attendu EFFICACE)
+25.2s 23 [TÉMOIN POSITIF] M1 inefficace              : INEFFICACE               (attendu INEFFICACE)
+25.2s 24 [TÉMOIN POSITIF] synthèse soutenue          : SOUTENUE                 (attendu SOUTENUE)
+25.2s 25 [TÉMOIN POSITIF] synthèse partielle         : PARTIELLE                (attendu PARTIELLE)
+25.2s 26 [TÉMOIN POSITIF] synthèse réfutée           : RÉFUTÉE                  (attendu RÉFUTÉE)
+25.2s 27 [TÉMOIN POSITIF] synthèse dépend            : DÉPEND DU MODÈLE         (attendu DÉPEND DU MODÈLE)
+25.2s 28 [TÉMOIN POSITIF] RÉUSSI
+25.4s 29 
+25.4s 30 [CHARGEMENT] Qwen3-1.7B-Base : téléchargement / chargement de Qwen/Qwen3-1.7B-Base…
+33.5s 31 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+33.5s 32 
+33.5s 33 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+58.4s 34 [CHARGEMENT] Qwen3-1.7B-Base : Qwen/Qwen3-1.7B-Base en fp16 sur 2 GPU
+68.9s 35 [PROGRESSION] Qwen3-1.7B-Base : premier lot en 10.7 s ; estimation ~6 min (génération)
+362.1s 36 [VÉRIF] Qwen3-1.7B-Base : identique avant t₁ : True ; jeton changé à t₁ : 100% ; rang médian du choc 3103 ; à t₂, rang médian de X après le premier choc 5223
+362.1s 37 [MESURE] Qwen3-1.7B-Base génération : 304 s
+362.3s 38 [ANCRAGE] Qwen3-1.7B-Base : jetons identiques à A1p (MD5, 768 × 128) : temoin True, choc1 True, X True, Y True
+363.0s 39 [VÉRIF] Qwen3-1.7B-Base crochet : masque plein contre aucun 0.0e+00 ; crochet contre poids mis à zéro 0.0e+00 ; effet de l'ablation d'une tête 1.7e+00 ; après restauration 0.0e+00
+624.7s 40 [INDUCTION] Qwen3-1.7B-Base : 28 couches × 16 têtes ; score de recopie calculé en 262 s : médiane +0.003 nats, 99e centile +0.083 ; K = 13 têtes retenues : L0.H3 +0.75, L3.H10 +0.20, L17.H7 +0.15, L11.H9 +0.12, L20.H1 +0.08, L0.H12 +0.08, L21.H8 +0.08, L27.H15 +0.07, L0.H1 +0.07, L6.H7 +0.07, L17.H6 +0.06, L11.H12 +0.06, L19.H6 +0.06
+624.7s 41 [INDUCTION] Qwen3-1.7B-Base : score d'attention (Olsson) médian 0.006, 99e centile 0.858 ; ensemble « motif » : L16.H14 1.00, L21.H8 0.95, L20.H14 0.88, L3.H10 0.88, L18.H5 0.88, L16.H15 0.84, L24.H6 0.79, L6.H11 0.77, L19.H5 0.70, L22.H7 0.64, L16.H7 0.61, L20.H15 0.50, L26.H7 0.48 ; recouvrement avec l'ensemble retenu : 2 sur 13
+624.7s 42 [INDUCTION] Qwen3-1.7B-Base : score de recopie moyen des têtes retenues +0.142 ; des tirages aléatoires appariés par couche : médiane -0.000 [-0.014 ; +0.011]
+639.5s 43 [M1] Qwen3-1.7B-Base : perte sur la seconde copie sans ablation 0.17 nats (première copie 14.02) ; hausse sous ablation induction +9.29 ; aléatoire médiane +0.12 [-0.01 ; +0.32] ; première copie sous ablation induction -0.07 → EFFICACE
+639.5s 44 [M1] Qwen3-1.7B-Base : dose 1% : hausse +1.12
+639.5s 45 [M1] Qwen3-1.7B-Base : dose 6% : hausse +15.08
+639.5s 46 [M1] Qwen3-1.7B-Base : ensemble « motif » (score d'attention) : hausse +2.20
+729.5s 47 [PROGRESSION] Qwen3-1.7B-Base : une condition rejouée en 90 s ; estimation ~38 min pour 25 conditions
+729.5s 48 [VÉRIF] Qwen3-1.7B-Base choc1 rejoué contre généré : écart moyen 1.4e-03, max 2.0e-02 ; bras identiques avant t₂ (indice t₂) : écart max 0.0e+00
+2890.1s 49 [MESURE] Qwen3-1.7B-Base passes rejouées : 2251 s
+2890.3s 50 
+2890.3s 51 ====================================================================================================
+2890.3s 52 [RÉSULTATS] Qwen3-1.7B-Base (T = 0.6) : 768 prompts retenus, 0.0% exclus
+2890.3s 53 [EFFETS] sans ablation : Sp = 0.899 [0.864 ; 0.936] (A1p 0.899) ; R1 = 0.18 [0.10 ; 0.26] (A1p 0.18)
+2890.3s 54 [EFFETS] ablation induction : Sp = 0.730 [0.667 ; 0.793] ; R1 = 0.67 [0.50 ; 0.82] ; D_nouv = +0.0124 IC95 [+0.0110 ; +0.0141]
+2890.3s 55 [EFFETS] ΔSp induction = -0.169 IC95 [-0.246 ; -0.096] ; aléatoire (témoin − référence) : médiane +0.012 [-0.018 ; +0.062] ; rang de l'induction 21 sur 21
+2890.3s 56 [EFFETS] ΔR1 induction = +0.486 IC95 [+0.297 ; +0.679] ; aléatoire (témoin − référence) : médiane -0.006 [-0.131 ; +0.145] ; rang de l'induction 1 sur 21
+2890.3s 57 [DOSE] Qwen3-1.7B-Base 1% des têtes : Sp = 0.926 ; R1 = 0.33
+2890.3s 58 [DOSE] Qwen3-1.7B-Base 6% des têtes : Sp = 0.925 ; R1 = 0.08
+2890.3s 59 [DOSE] Qwen3-1.7B-Base motif (score d’attention) : Sp = 0.934 ; R1 = 0.52
+2890.3s 60 [PROFIL] Qwen3-1.7B-Base aucune     D_rep/D_nouv par tranches de k (1 | 2–7 | 8–15 | 16–31) : 0.18 0.90 0.86 0.93
+2890.3s 61 [PROFIL] Qwen3-1.7B-Base induction  D_rep/D_nouv par tranches de k (1 | 2–7 | 8–15 | 16–31) : 0.67 0.68 0.79 0.74
+2890.3s 62 [PROFIL] Qwen3-1.7B-Base aléatoire  (médiane des tirages)                         : 0.18 0.91 0.88 0.93
+2890.3s 63 [DÉGÂT] Qwen3-1.7B-Base entropie de base de choc1 (k = 2–31) : aucune 0.719 ; induction 2.036 ; aléatoire médiane 0.790 [0.750 ; 0.853]
+2890.3s 64 [V1] Qwen3-1.7B-Base recopie à k = 1 : PORTÉE PAR L'INDUCTION
+2890.3s 65 [V2] Qwen3-1.7B-Base habituation sur k = 2–31 : INDÉPENDANTE
+2890.9s 66 [DURÉE] Qwen3-1.7B-Base : 47.7 min
+2891.1s 67 
+2891.1s 68 [CHARGEMENT] Qwen3-1.7B : téléchargement / chargement de Qwen/Qwen3-1.7B…
+2916.2s 69 [CHARGEMENT] Qwen3-1.7B : Qwen/Qwen3-1.7B en fp16 sur 2 GPU
+2925.7s 70 [PROGRESSION] Qwen3-1.7B : premier lot en 9.5 s ; estimation ~5 min (génération)
+3219.4s 71 [VÉRIF] Qwen3-1.7B : identique avant t₁ : True ; jeton changé à t₁ : 100% ; rang médian du choc 3103 ; à t₂, rang médian de X après le premier choc 7785
+3219.4s 72 [MESURE] Qwen3-1.7B génération : 303 s
+3219.6s 73 [ANCRAGE] Qwen3-1.7B : jetons identiques à A1p (MD5, 768 × 128) : temoin True, choc1 True, X True, Y True
+3220.2s 74 [VÉRIF] Qwen3-1.7B crochet : masque plein contre aucun 0.0e+00 ; crochet contre poids mis à zéro 0.0e+00 ; effet de l'ablation d'une tête 1.0e+00 ; après restauration 0.0e+00
+3483.5s 75 [INDUCTION] Qwen3-1.7B : 28 couches × 16 têtes ; score de recopie calculé en 263 s : médiane +0.002 nats, 99e centile +0.092 ; K = 13 têtes retenues : L0.H3 +0.69, L17.H7 +0.21, L3.H10 +0.21, L21.H8 +0.15, L13.H13 +0.10, L11.H9 +0.08, L0.H7 +0.07, L18.H7 +0.07, L15.H11 +0.07, L13.H6 +0.07, L0.H1 +0.06, L17.H14 +0.06, L26.H10 +0.06
+3483.5s 76 [INDUCTION] Qwen3-1.7B : score d'attention (Olsson) médian 0.007, 99e centile 0.813 ; ensemble « motif » : L16.H14 0.99, L21.H8 0.95, L3.H10 0.90, L20.H14 0.85, L18.H5 0.82, L24.H6 0.81, L6.H11 0.73, L16.H15 0.71, L19.H5 0.67, L16.H7 0.61, L20.H15 0.53, L22.H7 0.49, L12.H0 0.42 ; recouvrement avec l'ensemble retenu : 2 sur 13
+3483.5s 77 [INDUCTION] Qwen3-1.7B : score de recopie moyen des têtes retenues +0.147 ; des tirages aléatoires appariés par couche : médiane -0.010 [-0.036 ; +0.001]
+3498.2s 78 [M1] Qwen3-1.7B : perte sur la seconde copie sans ablation 0.18 nats (première copie 14.02) ; hausse sous ablation induction +8.57 ; aléatoire médiane +0.14 [+0.01 ; +0.27] ; première copie sous ablation induction -0.57 → EFFICACE
+3498.2s 79 [M1] Qwen3-1.7B : dose 1% : hausse +1.02
+3498.2s 80 [M1] Qwen3-1.7B : dose 6% : hausse +16.02
+3498.2s 81 [M1] Qwen3-1.7B : ensemble « motif » (score d'attention) : hausse +3.26
+3588.5s 82 [PROGRESSION] Qwen3-1.7B : une condition rejouée en 91 s ; estimation ~38 min pour 25 conditions
+3588.5s 83 [VÉRIF] Qwen3-1.7B choc1 rejoué contre généré : écart moyen 1.2e-03, max 2.2e-02 ; bras identiques avant t₂ (indice t₂) : écart max 0.0e+00
+5752.0s 84 [MESURE] Qwen3-1.7B passes rejouées : 2254 s
+5752.2s 85 
+5752.2s 86 ====================================================================================================
+5752.2s 87 [RÉSULTATS] Qwen3-1.7B (T = 0.6) : 767 prompts retenus, 0.1% exclus
+5752.2s 88 [EFFETS] sans ablation : Sp = 0.875 [0.826 ; 0.929] (A1p 0.875) ; R1 = 0.20 [0.12 ; 0.29] (A1p 0.20)
+5752.2s 89 [EFFETS] ablation induction : Sp = 0.891 [0.805 ; 0.976] ; R1 = 0.46 [0.30 ; 0.59] ; D_nouv = +0.0440 IC95 [+0.0396 ; +0.0485]
+5752.2s 90 [EFFETS] ΔSp induction = +0.016 IC95 [-0.080 ; +0.111] ; aléatoire (témoin − référence) : médiane +0.003 [-0.046 ; +0.075] ; rang de l'induction 7 sur 21
+5752.2s 91 [EFFETS] ΔR1 induction = +0.259 IC95 [+0.109 ; +0.386] ; aléatoire (témoin − référence) : médiane -0.019 [-0.190 ; +0.129] ; rang de l'induction 1 sur 21
+5752.2s 92 [DOSE] Qwen3-1.7B 1% des têtes : Sp = 0.906 ; R1 = 0.47
+5752.2s 93 [DOSE] Qwen3-1.7B 6% des têtes : Sp = 0.333 ; R1 = 0.03
+5752.2s 94 [DOSE] Qwen3-1.7B motif (score d’attention) : Sp = 0.900 ; R1 = 0.48
+5752.2s 95 [PROFIL] Qwen3-1.7B aucune     D_rep/D_nouv par tranches de k (1 | 2–7 | 8–15 | 16–31) : 0.20 0.86 0.86 0.92
+5752.2s 96 [PROFIL] Qwen3-1.7B induction  D_rep/D_nouv par tranches de k (1 | 2–7 | 8–15 | 16–31) : 0.46 0.84 0.93 0.97
+5752.2s 97 [PROFIL] Qwen3-1.7B aléatoire  (médiane des tirages)                         : 0.18 0.87 0.88 0.94
+5752.2s 98 [DÉGÂT] Qwen3-1.7B entropie de base de choc1 (k = 2–31) : aucune 0.588 ; induction 1.289 ; aléatoire médiane 0.635 [0.581 ; 0.688]
+5752.2s 99 [V1] Qwen3-1.7B recopie à k = 1 : PORTÉE PAR L'INDUCTION
+5752.2s 100 [V2] Qwen3-1.7B habituation sur k = 2–31 : INDÉPENDANTE
+5752.8s 101 [DURÉE] Qwen3-1.7B : 47.7 min
+5752.9s 102 
+5752.9s 103 ====================================================================================================
+5752.9s 104 [SYNTHÈSE] A1q — l'habituation d'A1p passe-t-elle par les têtes d'induction ?
+5752.9s 105 [SYNTHÈSE] Qwen3-1.7B-Base        : M1 EFFICACE   ; V1 PORTÉE PAR L'INDUCTION   ; V2 INDÉPENDANTE
+5752.9s 106 [SYNTHÈSE] Qwen3-1.7B             : M1 EFFICACE   ; V1 PORTÉE PAR L'INDUCTION   ; V2 INDÉPENDANTE
+5752.9s 107 [SYNTHÈSE] thèse « l'habituation d'A1p passe par les têtes d'induction » : RÉFUTÉE (prédiction SOUTENUE 15 %, PARTIELLE 30 %, RÉFUTÉE 20 %, DÉPEND DU MODÈLE 15 %)
+5752.9s 108 [SORTIE] fichiers dans /kaggle/working/sgz_a1q : ['Qwen3-1.7B-Base_a1q.npz', 'Qwen3-1.7B_a1q.npz', 'resume_a1q.json']
+5758.6s 109 /usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\|'
+5758.6s 110 cells[i][c] = re.sub('\\\\\|', '|', cell)
+5758.7s 111 /usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\_'
+5758.7s 112 text = re.sub(r'_', '\_', text) # Escape underscores in display text
+5759.4s 113 [NbConvertApp] Converting notebook __notebook__.ipynb to notebook
+5759.5s 114 [NbConvertApp] Writing 328366 bytes to __notebook__.ipynb
+5762.0s 115 [NbConvertApp] Converting notebook __notebook__.ipynb to html
+5762.7s 116 [NbConvertApp] Writing 779627 bytes to __results__.html

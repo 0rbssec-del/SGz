@@ -1,0 +1,14 @@
+
+Qwen3-1.7B-Base : 768 prompts
+  aucune     entropie de base 0.719 | k = 1 : D_rep +0.121 (écart à aucune IC95 [+0.000 ; +0.000]), D_nouv +0.662 ([+0.000 ; +0.000]) | k = 2–31 : D_rep +0.0650, D_nouv +0.0723, Sp 0.899 (ΔSp IC95 [+0.000 ; +0.000])
+  induction  entropie de base 2.036 | k = 1 : D_rep +0.024 (écart à aucune IC95 [-0.158 ; -0.040]), D_nouv +0.035 ([-0.682 ; -0.571]) | k = 2–31 : D_rep +0.0090, D_nouv +0.0124, Sp 0.730 (ΔSp IC95 [-0.246 ; -0.096])
+  motif      entropie de base 0.735 | k = 1 : D_rep +0.340 (écart à aucune IC95 [+0.193 ; +0.245]), D_nouv +0.649 ([-0.025 ; -0.002]) | k = 2–31 : D_rep +0.0713, D_nouv +0.0763, Sp 0.934 (ΔSp IC95 [+0.015 ; +0.054])
+  dose_1%    entropie de base 1.292 | k = 1 : D_rep +0.148 (écart à aucune IC95 [-0.033 ; +0.083]), D_nouv +0.455 ([-0.259 ; -0.157]) | k = 2–31 : D_rep +0.0566, D_nouv +0.0611, Sp 0.926 (ΔSp IC95 [-0.023 ; +0.073])
+  dose_6%    entropie de base 2.029 | k = 1 : D_rep +0.000 (écart à aucune IC95 [-0.180 ; -0.065]), D_nouv +0.004 ([-0.714 ; -0.600]) | k = 2–31 : D_rep +0.0018, D_nouv +0.0019, Sp 0.925 (ΔSp IC95 [-0.292 ; +0.430])
+
+Qwen3-1.7B : 767 prompts
+  aucune     entropie de base 0.588 | k = 1 : D_rep +0.119 (écart à aucune IC95 [+0.000 ; +0.000]), D_nouv +0.585 ([+0.000 ; +0.000]) | k = 2–31 : D_rep +0.0425, D_nouv +0.0486, Sp 0.875 (ΔSp IC95 [+0.000 ; +0.000])
+  induction  entropie de base 1.289 | k = 1 : D_rep +0.122 (écart à aucune IC95 [-0.058 ; +0.061]), D_nouv +0.263 ([-0.378 ; -0.263]) | k = 2–31 : D_rep +0.0392, D_nouv +0.0440, Sp 0.891 (ΔSp IC95 [-0.085 ; +0.116])
+  motif      entropie de base 0.597 | k = 1 : D_rep +0.272 (écart à aucune IC95 [+0.130 ; +0.175]), D_nouv +0.572 ([-0.023 ; -0.001]) | k = 2–31 : D_rep +0.0448, D_nouv +0.0498, Sp 0.900 (ΔSp IC95 [+0.004 ; +0.048])
+  dose_1%    entropie de base 0.924 | k = 1 : D_rep +0.258 (écart à aucune IC95 [+0.088 ; +0.192]), D_nouv +0.549 ([-0.078 ; +0.013]) | k = 2–31 : D_rep +0.0488, D_nouv +0.0539, Sp 0.906 (ΔSp IC95 [-0.032 ; +0.095])
+  dose_6%    entropie de base 1.052 | k = 1 : D_rep +0.001 (écart à aucune IC95 [-0.193 ; -0.054]), D_nouv +0.044 ([-0.609 ; -0.465]) | k = 2–31 : D_rep +0.0050, D_nouv +0.0150, Sp 0.333 (ΔSp IC95 [-0.984 ; -0.244])
