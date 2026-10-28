@@ -1,0 +1,96 @@
+7.7s 1 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+7.7s 2 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+7.7s 3 0.00s - to python to disable frozen modules.
+7.7s 4 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+8.4s 5 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+8.4s 6 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+8.4s 7 0.00s - to python to disable frozen modules.
+8.4s 8 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+32.1s 9 [CONFIG] SMOKE_TEST=False DEVICE=cuda N_GPU=2 OUT=/kaggle/working/sgz_a1t
+32.1s 10 [CONFIG] T=[0.6] prompts=768 longueur=96 t₀=64 fenêtre k=2–31 ; q = [0.5, 1.0, 1.45, 2.0, 3.0] ; modèles=['Qwen3-1.7B-Base', 'SmolLM3-3B-Base']
+32.1s 11 [CONFIG] torch 2.11.0+cu128, transformers 5.16.1
+32.1s 12 [PROMPTS] 768 prompts (64 écrits à la main, 704 gabarits), mêmes que A1c–A1k
+32.2s 13 [TÉMOIN POSITIF] amplification          : AMPLIFICATION                      (attendu AMPLIFICATION)
+32.2s 14 [TÉMOIN POSITIF] équivalence            : ÉQUIVALENT                         (attendu ÉQUIVALENT)
+32.2s 15 [TÉMOIN POSITIF] compensation           : COMPENSATION                       (attendu COMPENSATION)
+32.2s 16 [TÉMOIN POSITIF] effet direct absent    : NON TESTABLE (effet direct absent) (attendu NON TESTABLE (effet direct absent))
+32.2s 17 [TÉMOIN POSITIF] synthèse soutenue      : SOUTENUE                           (attendu SOUTENUE)
+32.2s 18 [TÉMOIN POSITIF] synthèse réfutée       : RÉFUTÉE                            (attendu RÉFUTÉE)
+32.2s 19 [TÉMOIN POSITIF] synthèse dépend        : DÉPEND DU MODÈLE                   (attendu DÉPEND DU MODÈLE)
+32.2s 20 [TÉMOIN POSITIF] synthèse indéterminée  : INDÉTERMINÉE                       (attendu INDÉTERMINÉE)
+32.2s 21 [TÉMOIN POSITIF] RÉUSSI
+32.3s 22 
+32.3s 23 [CHARGEMENT] Qwen3-1.7B-Base : téléchargement / chargement de Qwen/Qwen3-1.7B-Base…
+42.0s 24 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+42.0s 25 
+42.0s 26 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+69.1s 27 [CHARGEMENT] Qwen3-1.7B-Base : Qwen/Qwen3-1.7B-Base en fp16 sur 2 GPU
+78.3s 28 [PROGRESSION] Qwen3-1.7B-Base : premier lot en 9.4 s ; estimation ~5 min (génération)
+321.2s 29 [VÉRIF] Qwen3-1.7B-Base : identique avant t₀ : True ; jeton changé à t₀ : 100% ; rang médian du choc 3103 ; surprise médiane 16.73 nats
+321.2s 30 [MESURE] Qwen3-1.7B-Base génération : 252 s
+321.4s 31 [ANCRAGE] Qwen3-1.7B-Base : 96 premiers jetons identiques à A1k (MD5) : témoin True, choc True
+322.3s 32 [PROGRESSION] Qwen3-1.7B-Base passes rejouées : estimation ~1 min
+391.9s 33 [MESURE] Qwen3-1.7B-Base passes rejouées : 71 s
+391.9s 34 [VÉRIF] Qwen3-1.7B-Base temoin rejoué contre généré (q = 1.45) : écart moyen 1.4e-03, max 2.5e-02
+391.9s 35 [VÉRIF] Qwen3-1.7B-Base choc rejoué contre généré (q = 1.45) : écart moyen 1.4e-03, max 2.1e-02
+392.1s 36 [VÉRIF] Qwen3-1.7B-Base bras identiques avant le choc (indice t₀) : écart max 0.0e+00
+392.1s 37 
+392.1s 38 ====================================================================================================
+392.1s 39 [RÉSULTATS] Qwen3-1.7B-Base (T = 0.6) : 768 prompts
+392.1s 40 [F] Qwen3-1.7B-Base q = 0.5  : D = +6.4237 IC95 [+6.1579 ; +6.7040] ; I = +1.3963 IC95 [+0.7855 ; +2.0676] ; marge ±1.9271 ; I/D = +0.22 → AMPLIFICATION
+392.1s 41 [PROFIL] Qwen3-1.7B-Base q = 0.5  libre / rejoué par tranches de k (1 | 2–7 | 8–15 | 16–31) : +51.677/+51.677 +17.196/+15.528 +6.568/+4.967 +4.930/+3.738
+392.1s 42 [F] Qwen3-1.7B-Base q = 1.0  : D = +0.2252 IC95 [+0.2137 ; +0.2372] ; I = +0.1033 IC95 [+0.0654 ; +0.1431] ; marge ±0.0676 ; I/D = +0.46 → AMPLIFICATION
+392.1s 43 [PROFIL] Qwen3-1.7B-Base q = 1.0  libre / rejoué par tranches de k (1 | 2–7 | 8–15 | 16–31) : +1.715/+1.715 +0.720/+0.557 +0.303/+0.176 +0.194/+0.125
+392.1s 44 [F] Qwen3-1.7B-Base q = 1.45 : D = +0.0773 IC95 [+0.0730 ; +0.0821] ; I = +0.0365 IC95 [+0.0206 ; +0.0529] ; marge ±0.0232 ; I/D = +0.47 → AMPLIFICATION
+392.1s 45 [PROFIL] Qwen3-1.7B-Base q = 1.45 libre / rejoué par tranches de k (1 | 2–7 | 8–15 | 16–31) : +0.531/+0.531 +0.248/+0.186 +0.110/+0.062 +0.065/+0.044
+392.1s 46 [F] Qwen3-1.7B-Base q = 2.0  : D = +0.0397 IC95 [+0.0374 ; +0.0421] ; I = +0.0177 IC95 [+0.0089 ; +0.0268] ; marge ±0.0119 ; I/D = +0.45 → AMPLIFICATION
+392.1s 47 [PROFIL] Qwen3-1.7B-Base q = 2.0  libre / rejoué par tranches de k (1 | 2–7 | 8–15 | 16–31) : +0.256/+0.256 +0.126/+0.093 +0.057/+0.032 +0.032/+0.023
+392.1s 48 [F] Qwen3-1.7B-Base q = 3.0  : D = +0.0204 IC95 [+0.0191 ; +0.0217] ; I = +0.0081 IC95 [+0.0032 ; +0.0129] ; marge ±0.0061 ; I/D = +0.40 → AMPLIFICATION
+392.1s 49 [PROFIL] Qwen3-1.7B-Base q = 3.0  libre / rejoué par tranches de k (1 | 2–7 | 8–15 | 16–31) : +0.123/+0.123 +0.062/+0.047 +0.028/+0.017 +0.016/+0.012
+392.1s 50 [V1] Qwen3-1.7B-Base Shannon (q = 1) : AMPLIFICATION
+392.1s 51 [V2] Qwen3-1.7B-Base toutes les lentilles : ROBUSTE
+392.1s 52 [F] Qwen3-1.7B-Base reproduction à q = 1.45 : AMPLIFICATION (attendu AMPLIFICATION, A1c et A1p) ; Spearman de I par prompt entre q = 1 et q = 1.45 : +0.976
+392.1s 53 [DURÉE] Qwen3-1.7B-Base : 6.0 min
+392.5s 54 
+392.5s 55 [CHARGEMENT] SmolLM3-3B-Base : téléchargement / chargement de HuggingFaceTB/SmolLM3-3B-Base…
+423.1s 56 [CHARGEMENT] SmolLM3-3B-Base : HuggingFaceTB/SmolLM3-3B-Base en fp16 1 GPU
+436.1s 57 [PROGRESSION] SmolLM3-3B-Base : premier lot en 6.4 s ; estimation ~5 min (génération)
+737.9s 58 [VÉRIF] SmolLM3-3B-Base : identique avant t₀ : True ; jeton changé à t₀ : 100% ; rang médian du choc 3103 ; surprise médiane 17.09 nats
+737.9s 59 [MESURE] SmolLM3-3B-Base génération : 308 s
+739.4s 60 [PROGRESSION] SmolLM3-3B-Base passes rejouées : estimation ~2 min
+838.3s 61 [MESURE] SmolLM3-3B-Base passes rejouées : 100 s
+838.3s 62 [VÉRIF] SmolLM3-3B-Base temoin rejoué contre généré (q = 1.45) : écart moyen 1.1e-03, max 1.6e-02
+838.3s 63 [VÉRIF] SmolLM3-3B-Base choc rejoué contre généré (q = 1.45) : écart moyen 1.2e-03, max 1.7e-02
+838.5s 64 [VÉRIF] SmolLM3-3B-Base bras identiques avant le choc (indice t₀) : écart max 0.0e+00
+838.5s 65 
+838.5s 66 ====================================================================================================
+838.5s 67 [RÉSULTATS] SmolLM3-3B-Base (T = 0.6) : 768 prompts
+838.5s 68 [F] SmolLM3-3B-Base q = 0.5  : D = +6.2293 IC95 [+5.9682 ; +6.4897] ; I = +1.8251 IC95 [+1.2022 ; +2.4384] ; marge ±1.8688 ; I/D = +0.29 → AMPLIFICATION
+838.5s 69 [PROFIL] SmolLM3-3B-Base q = 0.5  libre / rejoué par tranches de k (1 | 2–7 | 8–15 | 16–31) : +59.469/+59.469 +18.870/+15.048 +6.807/+4.999 +4.622/+3.538
+838.5s 70 [F] SmolLM3-3B-Base q = 1.0  : D = +0.2107 IC95 [+0.2003 ; +0.2209] ; I = +0.1103 IC95 [+0.0760 ; +0.1454] ; marge ±0.0632 ; I/D = +0.52 → AMPLIFICATION
+838.5s 71 [PROFIL] SmolLM3-3B-Base q = 1.0  libre / rejoué par tranches de k (1 | 2–7 | 8–15 | 16–31) : +1.816/+1.816 +0.725/+0.532 +0.277/+0.163 +0.192/+0.114
+838.5s 72 [F] SmolLM3-3B-Base q = 1.45 : D = +0.0751 IC95 [+0.0707 ; +0.0795] ; I = +0.0424 IC95 [+0.0274 ; +0.0571] ; marge ±0.0225 ; I/D = +0.56 → AMPLIFICATION
+838.5s 73 [PROFIL] SmolLM3-3B-Base q = 1.45 libre / rejoué par tranches de k (1 | 2–7 | 8–15 | 16–31) : +0.571/+0.571 +0.253/+0.185 +0.104/+0.059 +0.073/+0.042
+838.5s 74 [F] SmolLM3-3B-Base q = 2.0  : D = +0.0394 IC95 [+0.0368 ; +0.0419] ; I = +0.0223 IC95 [+0.0142 ; +0.0308] ; marge ±0.0118 ; I/D = +0.57 → AMPLIFICATION
+838.5s 75 [PROFIL] SmolLM3-3B-Base q = 2.0  libre / rejoué par tranches de k (1 | 2–7 | 8–15 | 16–31) : +0.282/+0.282 +0.130/+0.096 +0.055/+0.031 +0.039/+0.022
+838.5s 76 [F] SmolLM3-3B-Base q = 3.0  : D = +0.0206 IC95 [+0.0192 ; +0.0220] ; I = +0.0112 IC95 [+0.0067 ; +0.0157] ; marge ±0.0062 ; I/D = +0.54 → AMPLIFICATION
+838.5s 77 [PROFIL] SmolLM3-3B-Base q = 3.0  libre / rejoué par tranches de k (1 | 2–7 | 8–15 | 16–31) : +0.139/+0.139 +0.065/+0.049 +0.029/+0.017 +0.021/+0.012
+838.5s 78 [V1] SmolLM3-3B-Base Shannon (q = 1) : AMPLIFICATION
+838.5s 79 [V2] SmolLM3-3B-Base toutes les lentilles : ROBUSTE
+838.5s 80 [F] SmolLM3-3B-Base reproduction à q = 1.45 : AMPLIFICATION (attendu AMPLIFICATION, A1c et A1p) ; Spearman de I par prompt entre q = 1 et q = 1.45 : +0.968
+838.5s 81 [DURÉE] SmolLM3-3B-Base : 7.4 min
+838.9s 82 
+838.9s 83 ====================================================================================================
+838.9s 84 [SYNTHÈSE] A1t — l'amplification dépend-elle de la lentille q ?
+838.9s 85 [SYNTHÈSE] Qwen3-1.7B-Base    : V1 (Shannon) AMPLIFICATION    ; V2 ROBUSTE
+838.9s 86 [SYNTHÈSE] SmolLM3-3B-Base    : V1 (Shannon) AMPLIFICATION    ; V2 ROBUSTE
+838.9s 87 [SYNTHÈSE] thèse « l'amplification est une propriété du modèle, pas de la lentille » : SOUTENUE (prédiction SOUTENUE 70 %, RÉFUTÉE 10 %)
+838.9s 88 [SORTIE] fichiers dans /kaggle/working/sgz_a1t : ['Qwen3-1.7B-Base_a1t.npz', 'SmolLM3-3B-Base_a1t.npz', 'resume_a1t.json']
+844.5s 89 /usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\|'
+844.5s 90 cells[i][c] = re.sub('\\\\\|', '|', cell)
+844.6s 91 /usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\_'
+844.6s 92 text = re.sub(r'_', '\_', text) # Escape underscores in display text
+845.4s 93 [NbConvertApp] Converting notebook __notebook__.ipynb to notebook
+845.5s 94 [NbConvertApp] Writing 289188 bytes to __notebook__.ipynb
+848.0s 95 [NbConvertApp] Converting notebook __notebook__.ipynb to html
+848.7s 96 [NbConvertApp] Writing 650089 bytes to __results__.html
