@@ -1,0 +1,84 @@
+10.4s 1 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+10.4s 2 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+10.4s 3 0.00s - to python to disable frozen modules.
+10.4s 4 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+11.1s 5 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+11.1s 6 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+11.1s 7 0.00s - to python to disable frozen modules.
+11.1s 8 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+48.5s 9 [CONFIG] SMOKE_TEST=False DEVICE=cuda N_GPU=2 OUT=/kaggle/working/sgz_a1p
+48.5s 10 [CONFIG] T=[0.6] prompts=768 longueur=128 t₁=64 t₂=96 fenêtre k=2–31 marge ±20% ; modèles=['Qwen3-1.7B-Base', 'Qwen3-1.7B']
+48.5s 11 [CONFIG] torch 2.11.0+cu128, transformers 5.16.1
+48.5s 12 [PROMPTS] 768 prompts (64 écrits à la main, 704 gabarits), mêmes que A1c–A1k
+48.6s 13 [TÉMOIN POSITIF] habituation (×0,5)       : HABITUATION      (attendu HABITUATION)
+48.6s 14 [TÉMOIN POSITIF] équivalent (×1,0)        : ÉQUIVALENT       (attendu ÉQUIVALENT)
+48.6s 15 [TÉMOIN POSITIF] sensibilisation (×1,6)   : SENSIBILISATION  (attendu SENSIBILISATION)
+48.6s 16 [TÉMOIN POSITIF] référence absente        : NON TESTABLE (D_seul non significatif) (attendu NON TESTABLE (D_seul non significatif))
+48.6s 17 [TÉMOIN POSITIF] spécifique (×0,5)        : SPÉCIFIQUE       (attendu SPÉCIFIQUE)
+48.6s 18 [TÉMOIN POSITIF] non spécifique (×1,0)    : NON SPÉCIFIQUE   (attendu NON SPÉCIFIQUE)
+48.6s 19 [TÉMOIN POSITIF] synthèse soutenue        : SOUTENUE         (attendu SOUTENUE)
+48.6s 20 [TÉMOIN POSITIF] synthèse réfutée         : RÉFUTÉE          (attendu RÉFUTÉE)
+48.6s 21 [TÉMOIN POSITIF] synthèse dépend          : DÉPEND DU MODÈLE (attendu DÉPEND DU MODÈLE)
+48.6s 22 [TÉMOIN POSITIF] RÉUSSI
+48.7s 23 
+48.7s 24 [CHARGEMENT] Qwen3-1.7B-Base : téléchargement / chargement de Qwen/Qwen3-1.7B-Base…
+59.9s 25 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+59.9s 26 
+59.9s 27 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+87.7s 28 [CHARGEMENT] Qwen3-1.7B-Base : Qwen/Qwen3-1.7B-Base en fp16 sur 2 GPU
+98.6s 29 [PROGRESSION] Qwen3-1.7B-Base : premier lot en 11.1 s ; estimation ~6 min (génération)
+386.5s 30 [VÉRIF] Qwen3-1.7B-Base : identique avant t₁ : True ; jeton changé à t₁ : 100% ; rang médian du choc 3103 ; à t₂, rang médian de X après le premier choc 5223
+386.5s 31 [MESURE] Qwen3-1.7B-Base génération : 299 s
+386.7s 32 [ANCRAGE] Qwen3-1.7B-Base : 96 premiers jetons identiques à A1k (MD5) : témoin True, choc1 True
+603.1s 33 [VÉRIF] Qwen3-1.7B-Base temoin rejoué contre généré : écart moyen 1.4e-03, max 2.3e-02
+603.1s 34 [VÉRIF] Qwen3-1.7B-Base choc1 rejoué contre généré : écart moyen 1.4e-03, max 2.1e-02
+603.1s 35 [MESURE] Qwen3-1.7B-Base passes rejouées : 217 s
+603.3s 36 
+603.3s 37 ====================================================================================================
+603.3s 38 [RÉSULTATS] Qwen3-1.7B-Base (T = 0.6) : 768 prompts retenus, 0.0% exclus (X tiré par le modèle lui-même à t₂)
+603.3s 39 [EFFETS] D1     (premier choc, après t₁      ) = +0.1138 IC95 [+0.0973 ; +0.1310]
+603.3s 40 [EFFETS] D_seul (X jamais vu, à t₂           ) = +0.0751 IC95 [+0.0713 ; +0.0792]
+603.3s 41 [EFFETS] D_rep  (X déjà vu, à t₂             ) = +0.0650 IC95 [+0.0612 ; +0.0689]
+603.3s 42 [EFFETS] D_nouv (Y nouveau, même rareté, à t₂) = +0.0723 IC95 [+0.0688 ; +0.0761]
+603.3s 43 [EFFETS] surprise médiane de X (nats) : à t₁ 16.73 ; à t₂ jamais vu 21.10, déjà vu 17.86 ; Y à t₂ 17.86 ; baisse moyenne +3.56 IC95 [+3.04 ; +4.11]
+603.3s 44 [HABITUATION] Qwen3-1.7B-Base : H = D_rep / D_seul = 0.87 IC95 [0.80 ; 0.94] → HABITUATION
+603.3s 45 [SPÉCIFICITÉ] Qwen3-1.7B-Base : Sp = D_rep / D_nouv = 0.90 IC95 [0.86 ; 0.94] → SPÉCIFIQUE
+603.3s 46 [EXTRAIT] Qwen3-1.7B-Base prompt 0, double choc : ', avec 6belieuers. Elle est le deuxième centre économique de la France, en termes de chiffre d’affaires, après Paris, et le quartier lebelie chère de la France, en termes de prix'
+603.7s 47 [DURÉE] Qwen3-1.7B-Base : 9.2 min
+603.8s 48 
+603.8s 49 [CHARGEMENT] Qwen3-1.7B : téléchargement / chargement de Qwen/Qwen3-1.7B…
+621.8s 50 [CHARGEMENT] Qwen3-1.7B : Qwen/Qwen3-1.7B en fp16 sur 2 GPU
+631.6s 51 [PROGRESSION] Qwen3-1.7B : premier lot en 9.8 s ; estimation ~5 min (génération)
+919.9s 52 [VÉRIF] Qwen3-1.7B : identique avant t₁ : True ; jeton changé à t₁ : 100% ; rang médian du choc 3103 ; à t₂, rang médian de X après le premier choc 7785
+919.9s 53 [MESURE] Qwen3-1.7B génération : 298 s
+1136.5s 54 [VÉRIF] Qwen3-1.7B temoin rejoué contre généré : écart moyen 1.2e-03, max 3.1e-02
+1136.5s 55 [VÉRIF] Qwen3-1.7B choc1 rejoué contre généré : écart moyen 1.3e-03, max 3.6e-02
+1136.5s 56 [MESURE] Qwen3-1.7B passes rejouées : 217 s
+1136.7s 57 
+1136.7s 58 ====================================================================================================
+1136.7s 59 [RÉSULTATS] Qwen3-1.7B (T = 0.6) : 767 prompts retenus, 0.1% exclus (X tiré par le modèle lui-même à t₂)
+1136.7s 60 [EFFETS] D1     (premier choc, après t₁      ) = +0.0714 IC95 [+0.0570 ; +0.0863]
+1136.7s 61 [EFFETS] D_seul (X jamais vu, à t₂           ) = +0.0542 IC95 [+0.0508 ; +0.0573]
+1136.7s 62 [EFFETS] D_rep  (X déjà vu, à t₂             ) = +0.0425 IC95 [+0.0391 ; +0.0457]
+1136.7s 63 [EFFETS] D_nouv (Y nouveau, même rareté, à t₂) = +0.0486 IC95 [+0.0451 ; +0.0521]
+1136.7s 64 [EFFETS] surprise médiane de X (nats) : à t₁ 17.81 ; à t₂ jamais vu 22.14, déjà vu 20.16 ; Y à t₂ 20.16 ; baisse moyenne +2.25 IC95 [+1.68 ; +2.85]
+1136.7s 65 [HABITUATION] Qwen3-1.7B : H = D_rep / D_seul = 0.79 IC95 [0.72 ; 0.85] → HABITUATION
+1136.7s 66 [SPÉCIFICITÉ] Qwen3-1.7B : Sp = D_rep / D_nouv = 0.88 IC95 [0.83 ; 0.93] → SPÉCIFIQUE
+1136.7s 67 [EXTRAIT] Qwen3-1.7B prompt 0, double choc : 'ive gauche de la eo Doué, qui est du côté de la place de la Concorde. La rive droite de la Doué, à l’ouest eo la ville, est la rive du « Petit V'
+1136.8s 68 [DURÉE] Qwen3-1.7B : 8.9 min
+1137.2s 69 
+1137.2s 70 ====================================================================================================
+1137.2s 71 [SYNTHÈSE] A1p — habituation à une anomalie répétée
+1137.2s 72 [SYNTHÈSE] Qwen3-1.7B-Base        : V1 HABITUATION      ; V2 SPÉCIFIQUE
+1137.2s 73 [SYNTHÈSE] Qwen3-1.7B             : V1 HABITUATION      ; V2 SPÉCIFIQUE
+1137.2s 74 [SYNTHÈSE] H(Qwen3-1.7B) / H(Qwen3-1.7B-Base) = 0.91 IC95 [0.81 ; 1.02] (descriptif ; > 1 : le modèle instruct s'habitue moins, comme le suggère Ren & Wang)
+1137.2s 75 [SYNTHÈSE] thèse « un LLM s'habitue à une anomalie répétée » : SOUTENUE (prédiction SOUTENUE 30 %, DÉPEND DU MODÈLE 25 %, RÉFUTÉE 20 %)
+1137.2s 76 [SORTIE] fichiers dans /kaggle/working/sgz_a1p : ['Qwen3-1.7B-Base_a1p.npz', 'Qwen3-1.7B_a1p.npz', 'resume_a1p.json']
+1143.4s 77 /usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\|'
+1143.4s 78 cells[i][c] = re.sub('\\\\\|', '|', cell)
+1143.6s 79 /usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\_'
+1143.6s 80 text = re.sub(r'_', '\_', text) # Escape underscores in display text
+1144.4s 81 [NbConvertApp] Converting notebook __notebook__.ipynb to notebook
+1144.5s 82 [NbConvertApp] Writing 301923 bytes to __notebook__.ipynb
+1146.9s 83 [NbConvertApp] Converting notebook __notebook__.ipynb to html
+1147.6s 84 [NbConvertApp] Writing 672762 bytes to __results__.html

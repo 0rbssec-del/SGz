@@ -1,0 +1,18 @@
+
+Qwen3-1.7B-Base : 768 prompts
+  surprise de Y contre X déjà vu à t₂ : égalité exacte 84% (ex-aequo fp16), écart absolu moyen 0.018 nats
+  k  1–1  : D_rep +0.1212  D_nouv +0.6624  D_seul +0.7330  D_rep/D_nouv 0.18 IC95 [0.10 ; 0.26]
+  k  2–7  : D_rep +0.1699  D_nouv +0.1895  D_seul +0.2008  D_rep/D_nouv 0.90 IC95 [0.85 ; 0.94]
+  k  8–15 : D_rep +0.0476  D_nouv +0.0550  D_seul +0.0569  D_rep/D_nouv 0.86 IC95 [0.80 ; 0.93]
+  k 16–31 : D_rep +0.0344  D_nouv +0.0370  D_seul +0.0370  D_rep/D_nouv 0.93 IC95 [0.87 ; 1.00]
+  Spearman (D_rep − D_nouv, k 2–31) contre baisse de surprise de X : -0.025
+  rang médian de X : à t₁ 3103 ; à t₂ après le premier choc 5223
+
+Qwen3-1.7B : 767 prompts
+  surprise de Y contre X déjà vu à t₂ : égalité exacte 86% (ex-aequo fp16), écart absolu moyen 0.004 nats
+  k  1–1  : D_rep +0.1191  D_nouv +0.5845  D_seul +0.5901  D_rep/D_nouv 0.20 IC95 [0.12 ; 0.29]
+  k  2–7  : D_rep +0.1183  D_nouv +0.1374  D_seul +0.1525  D_rep/D_nouv 0.86 IC95 [0.80 ; 0.93]
+  k  8–15 : D_rep +0.0315  D_nouv +0.0366  D_seul +0.0403  D_rep/D_nouv 0.86 IC95 [0.77 ; 0.95]
+  k 16–31 : D_rep +0.0196  D_nouv +0.0213  D_seul +0.0242  D_rep/D_nouv 0.92 IC95 [0.84 ; 1.01]
+  Spearman (D_rep − D_nouv, k 2–31) contre baisse de surprise de X : -0.053
+  rang médian de X : à t₁ 3107 ; à t₂ après le premier choc 7801
