@@ -1,0 +1,139 @@
+6.3s 1 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+6.3s 2 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+6.3s 3 0.00s - to python to disable frozen modules.
+6.3s 4 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+6.9s 5 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+6.9s 6 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+6.9s 7 0.00s - to python to disable frozen modules.
+6.9s 8 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+24.6s 9 [CONFIG] SMOKE_TEST=False DEVICE=cuda N_GPU=2 OUT=/kaggle/working/sgz_a1s
+24.6s 10 [CONFIG] T=[0.6] prompts=768 longueur=96 t₀=64 fenêtre k=2–31 ; rangs [1, 2, 5, 10, 20, 50, 100, 200, 500, 1000, 2000, 5000, 20000] ; modèles=['Qwen3-1.7B-Base', 'SmolLM3-3B-Base']
+24.6s 11 [CONFIG] torch 2.11.0+cu128, transformers 5.16.1
+24.6s 12 [PROMPTS] 768 prompts (64 écrits à la main, 704 gabarits), mêmes que A1c–A1k
+24.6s 13 [TÉMOIN POSITIF] croissance basse         : CROÎT                (attendu CROÎT)
+24.6s 14 [TÉMOIN POSITIF] pas de croissance        : NE CROÎT PAS         (attendu NE CROÎT PAS)
+24.6s 15 [TÉMOIN POSITIF] plateau                  : PLATEAU              (attendu PLATEAU)
+24.6s 16 [TÉMOIN POSITIF] croissance continue      : CROISSANCE CONTINUE  (attendu CROISSANCE CONTINUE)
+24.6s 17 [TÉMOIN POSITIF] décroissance             : DÉCROISSANCE         (attendu DÉCROISSANCE)
+24.6s 18 [TÉMOIN POSITIF] synthèse soutenue        : SOUTENUE             (attendu SOUTENUE)
+24.6s 19 [TÉMOIN POSITIF] plateau sans croissance  : INDÉTERMINÉE         (attendu INDÉTERMINÉE)
+24.6s 20 [TÉMOIN POSITIF] synthèse réfutée         : RÉFUTÉE              (attendu RÉFUTÉE)
+24.6s 21 [TÉMOIN POSITIF] synthèse dépend          : DÉPEND DU MODÈLE     (attendu DÉPEND DU MODÈLE)
+24.6s 22 [TÉMOIN POSITIF] seuil                    : 10                   (attendu 10)
+24.6s 23 [TÉMOIN POSITIF] RÉUSSI
+24.7s 24 
+24.7s 25 [CHARGEMENT] Qwen3-1.7B-Base : téléchargement / chargement de Qwen/Qwen3-1.7B-Base…
+32.8s 26 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+32.8s 27 
+32.8s 28 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+58.2s 29 [CHARGEMENT] Qwen3-1.7B-Base : Qwen/Qwen3-1.7B-Base en fp16 sur 2 GPU
+66.3s 30 [PROGRESSION] Qwen3-1.7B-Base : premier lot en 8.2 s ; estimation ~2 min (génération)
+171.3s 31 [MESURE] Qwen3-1.7B-Base génération du témoin : 113 s
+171.5s 32 [ANCRAGE] Qwen3-1.7B-Base : témoin identique à A1k (MD5, 768 × 96) : False (écart numérique possible ; les contrastes, mesurés ici, restent valides)
+171.5s 33 [CONFIG] Qwen3-1.7B-Base : passes rejouées en attention « eager » (poids d'attention lus)
+172.5s 34 [PROGRESSION] Qwen3-1.7B-Base passes rejouées : estimation ~5 min
+486.1s 35 [MESURE] Qwen3-1.7B-Base passes rejouées : 315 s
+486.3s 36 [VÉRIF] Qwen3-1.7B-Base témoin rejoué contre généré : écart moyen 1.5e-03, max 2.8e-02 ; avant t₀, attention vers t₀ (doit être 0, masque causal) : max 0.0e+00 ; entropie identique entre bras : max 0.0e+00
+486.3s 37 
+486.3s 38 ====================================================================================================
+486.3s 39 [RÉSULTATS] Qwen3-1.7B-Base (T = 0.6) : 768 prompts ; part d'attention vers t₀ dans le témoin (k = 2–31) 0.0093
+486.3s 40 [COURBE] Qwen3-1.7B-Base D rang     1 (surprise médiane  3.11 nats) : +0.05210 IC95 [+0.04811 ; +0.05594] ; à k = 1 +0.1194
+486.3s 41 [COURBE] Qwen3-1.7B-Base D rang     2 (surprise médiane  3.73 nats) : +0.05859 IC95 [+0.05482 ; +0.06272] ; à k = 1 +0.1469
+486.3s 42 [COURBE] Qwen3-1.7B-Base D rang     5 (surprise médiane  4.92 nats) : +0.05919 IC95 [+0.05541 ; +0.06290] ; à k = 1 +0.1012
+486.3s 43 [COURBE] Qwen3-1.7B-Base D rang    10 (surprise médiane  6.21 nats) : +0.06386 IC95 [+0.05986 ; +0.06810] ; à k = 1 +0.1365
+486.3s 44 [COURBE] Qwen3-1.7B-Base D rang    20 (surprise médiane  7.40 nats) : +0.06689 IC95 [+0.06326 ; +0.07086] ; à k = 1 +0.1858
+486.3s 45 [COURBE] Qwen3-1.7B-Base D rang    50 (surprise médiane  8.99 nats) : +0.06847 IC95 [+0.06427 ; +0.07283] ; à k = 1 +0.2217
+486.3s 46 [COURBE] Qwen3-1.7B-Base D rang   100 (surprise médiane 10.27 nats) : +0.07207 IC95 [+0.06798 ; +0.07637] ; à k = 1 +0.2394
+486.3s 47 [COURBE] Qwen3-1.7B-Base D rang   200 (surprise médiane 11.50 nats) : +0.07324 IC95 [+0.06891 ; +0.07782] ; à k = 1 +0.2534
+486.3s 48 [COURBE] Qwen3-1.7B-Base D rang   500 (surprise médiane 13.17 nats) : +0.07764 IC95 [+0.07305 ; +0.08245] ; à k = 1 +0.3005
+486.3s 49 [COURBE] Qwen3-1.7B-Base D rang  1000 (surprise médiane 14.40 nats) : +0.07512 IC95 [+0.07078 ; +0.07957] ; à k = 1 +0.4066
+486.3s 50 [COURBE] Qwen3-1.7B-Base D rang  2000 (surprise médiane 15.88 nats) : +0.07611 IC95 [+0.07203 ; +0.08016] ; à k = 1 +0.4515
+486.3s 51 [COURBE] Qwen3-1.7B-Base D rang  5000 (surprise médiane 18.02 nats) : +0.07652 IC95 [+0.07235 ; +0.08060] ; à k = 1 +0.6069
+486.3s 52 [COURBE] Qwen3-1.7B-Base D rang 20000 (surprise médiane 21.81 nats) : +0.07381 IC95 [+0.06978 ; +0.07770] ; à k = 1 +0.8180
+486.3s 53 [V1] Qwen3-1.7B-Base D : M(50) / M(2) = 1.17 IC95 [1.11 ; 1.23] → CROÎT
+486.3s 54 [V2] Qwen3-1.7B-Base D : M(20000) / M(1000) = 0.98 IC95 [0.94 ; 1.02] → PLATEAU
+486.3s 55 [COURBE] Qwen3-1.7B-Base D : seuil de saturation (M ≥ 0,8 × M(20000)) au rang 5 (surprise médiane 4.92 nats) ; Spearman par prompt en zone haute (rang ≥ 1000) -0.042
+486.3s 56 [COURBE] Qwen3-1.7B-Base D : pente par nat de surprise, segment par segment : 1→2 +0.0104 ; 2→5 +0.0005 ; 5→10 +0.0036 ; 10→20 +0.0025 ; 20→50 +0.0010 ; 50→100 +0.0028 ; 100→200 +0.0009 ; 200→500 +0.0026 ; 500→1000 -0.0020 ; 1000→2000 +0.0007 ; 2000→5000 +0.0002 ; 5000→20000 -0.0007
+486.3s 57 [COURBE] Qwen3-1.7B-Base A rang     1 (surprise médiane  3.11 nats) : +0.00104 IC95 [+0.00071 ; +0.00137]
+486.3s 58 [COURBE] Qwen3-1.7B-Base A rang     2 (surprise médiane  3.73 nats) : +0.00121 IC95 [+0.00084 ; +0.00158]
+486.3s 59 [COURBE] Qwen3-1.7B-Base A rang     5 (surprise médiane  4.92 nats) : +0.00101 IC95 [+0.00064 ; +0.00140]
+486.3s 60 [COURBE] Qwen3-1.7B-Base A rang    10 (surprise médiane  6.21 nats) : +0.00118 IC95 [+0.00081 ; +0.00157]
+486.3s 61 [COURBE] Qwen3-1.7B-Base A rang    20 (surprise médiane  7.40 nats) : +0.00141 IC95 [+0.00103 ; +0.00176]
+486.3s 62 [COURBE] Qwen3-1.7B-Base A rang    50 (surprise médiane  8.99 nats) : +0.00146 IC95 [+0.00108 ; +0.00181]
+486.3s 63 [COURBE] Qwen3-1.7B-Base A rang   100 (surprise médiane 10.27 nats) : +0.00148 IC95 [+0.00107 ; +0.00185]
+486.5s 64 [COURBE] Qwen3-1.7B-Base A rang   200 (surprise médiane 11.50 nats) : +0.00139 IC95 [+0.00096 ; +0.00176]
+486.5s 65 [COURBE] Qwen3-1.7B-Base A rang   500 (surprise médiane 13.17 nats) : +0.00159 IC95 [+0.00117 ; +0.00200]
+486.5s 66 [COURBE] Qwen3-1.7B-Base A rang  1000 (surprise médiane 14.40 nats) : +0.00188 IC95 [+0.00148 ; +0.00224]
+486.5s 67 [COURBE] Qwen3-1.7B-Base A rang  2000 (surprise médiane 15.88 nats) : +0.00213 IC95 [+0.00172 ; +0.00254]
+486.5s 68 [COURBE] Qwen3-1.7B-Base A rang  5000 (surprise médiane 18.02 nats) : +0.00247 IC95 [+0.00208 ; +0.00285]
+486.5s 69 [COURBE] Qwen3-1.7B-Base A rang 20000 (surprise médiane 21.81 nats) : +0.00383 IC95 [+0.00340 ; +0.00423]
+486.5s 70 [V1] Qwen3-1.7B-Base A : M(50) / M(2) = 1.21 IC95 [0.91 ; 1.64] → INDÉTERMINÉ
+486.5s 71 [V2] Qwen3-1.7B-Base A : M(20000) / M(1000) = 2.04 IC95 [1.75 ; 2.44] → CROISSANCE CONTINUE
+486.5s 72 [COURBE] Qwen3-1.7B-Base A : seuil de saturation (M ≥ 0,8 × M(20000)) au rang 20000 (surprise médiane 21.81 nats) ; Spearman par prompt en zone haute (rang ≥ 1000) +0.147
+486.5s 73 [COURBE] Qwen3-1.7B-Base A : pente par nat de surprise, segment par segment : 1→2 +0.0003 ; 2→5 -0.0002 ; 5→10 +0.0001 ; 10→20 +0.0002 ; 20→50 +0.0000 ; 50→100 +0.0000 ; 100→200 -0.0001 ; 200→500 +0.0001 ; 500→1000 +0.0002 ; 1000→2000 +0.0002 ; 2000→5000 +0.0002 ; 5000→20000 +0.0004
+486.8s 74 [DURÉE] Qwen3-1.7B-Base : 7.7 min
+486.9s 75 
+486.9s 76 [CHARGEMENT] SmolLM3-3B-Base : téléchargement / chargement de HuggingFaceTB/SmolLM3-3B-Base…
+510.8s 77 [CHARGEMENT] SmolLM3-3B-Base : HuggingFaceTB/SmolLM3-3B-Base en fp16 1 GPU
+528.9s 78 [PROGRESSION] SmolLM3-3B-Base : premier lot en 11.1 s ; estimation ~4 min (génération)
+682.4s 79 [MESURE] SmolLM3-3B-Base génération du témoin : 165 s
+682.6s 80 [CONFIG] SmolLM3-3B-Base : passes rejouées en attention « eager » (poids d'attention lus)
+684.5s 81 [PROGRESSION] SmolLM3-3B-Base passes rejouées : estimation ~9 min
+1214.1s 82 [MESURE] SmolLM3-3B-Base passes rejouées : 532 s
+1214.3s 83 [VÉRIF] SmolLM3-3B-Base témoin rejoué contre généré : écart moyen 1.1e-03, max 2.3e-02 ; avant t₀, attention vers t₀ (doit être 0, masque causal) : max 0.0e+00 ; entropie identique entre bras : max 0.0e+00
+1214.3s 84 
+1214.3s 85 ====================================================================================================
+1214.3s 86 [RÉSULTATS] SmolLM3-3B-Base (T = 0.6) : 768 prompts ; part d'attention vers t₀ dans le témoin (k = 2–31) 0.0078
+1214.3s 87 [COURBE] SmolLM3-3B-Base D rang     1 (surprise médiane  3.19 nats) : +0.05755 IC95 [+0.05378 ; +0.06156] ; à k = 1 +0.1427
+1214.3s 88 [COURBE] SmolLM3-3B-Base D rang     2 (surprise médiane  3.80 nats) : +0.06244 IC95 [+0.05867 ; +0.06659] ; à k = 1 +0.1325
+1214.3s 89 [COURBE] SmolLM3-3B-Base D rang     5 (surprise médiane  5.07 nats) : +0.06499 IC95 [+0.06109 ; +0.06970] ; à k = 1 +0.1388
+1214.3s 90 [COURBE] SmolLM3-3B-Base D rang    10 (surprise médiane  6.18 nats) : +0.06691 IC95 [+0.06328 ; +0.07098] ; à k = 1 +0.1817
+1214.3s 91 [COURBE] SmolLM3-3B-Base D rang    20 (surprise médiane  7.43 nats) : +0.07131 IC95 [+0.06723 ; +0.07584] ; à k = 1 +0.1957
+1214.3s 92 [COURBE] SmolLM3-3B-Base D rang    50 (surprise médiane  9.20 nats) : +0.07273 IC95 [+0.06862 ; +0.07732] ; à k = 1 +0.2218
+1214.3s 93 [COURBE] SmolLM3-3B-Base D rang   100 (surprise médiane 10.53 nats) : +0.07486 IC95 [+0.07044 ; +0.07953] ; à k = 1 +0.2655
+1214.3s 94 [COURBE] SmolLM3-3B-Base D rang   200 (surprise médiane 11.81 nats) : +0.07619 IC95 [+0.07193 ; +0.08111] ; à k = 1 +0.2528
+1214.3s 95 [COURBE] SmolLM3-3B-Base D rang   500 (surprise médiane 13.63 nats) : +0.07768 IC95 [+0.07345 ; +0.08254] ; à k = 1 +0.3470
+1214.3s 96 [COURBE] SmolLM3-3B-Base D rang  1000 (surprise médiane 14.92 nats) : +0.07747 IC95 [+0.07321 ; +0.08224] ; à k = 1 +0.4357
+1214.3s 97 [COURBE] SmolLM3-3B-Base D rang  2000 (surprise médiane 16.21 nats) : +0.07630 IC95 [+0.07213 ; +0.08109] ; à k = 1 +0.4956
+1214.3s 98 [COURBE] SmolLM3-3B-Base D rang  5000 (surprise médiane 17.94 nats) : +0.07430 IC95 [+0.07017 ; +0.07864] ; à k = 1 +0.7090
+1214.3s 99 [COURBE] SmolLM3-3B-Base D rang 20000 (surprise médiane 20.91 nats) : +0.06966 IC95 [+0.06586 ; +0.07377] ; à k = 1 +0.8492
+1214.3s 100 [V1] SmolLM3-3B-Base D : M(50) / M(2) = 1.16 IC95 [1.11 ; 1.22] → CROÎT
+1214.3s 101 [V2] SmolLM3-3B-Base D : M(20000) / M(1000) = 0.90 IC95 [0.86 ; 0.94] → PLATEAU
+1214.3s 102 [COURBE] SmolLM3-3B-Base D : seuil de saturation (M ≥ 0,8 × M(20000)) au rang 1 (surprise médiane 3.19 nats) ; Spearman par prompt en zone haute (rang ≥ 1000) -0.098
+1214.3s 103 [COURBE] SmolLM3-3B-Base D : pente par nat de surprise, segment par segment : 1→2 +0.0080 ; 2→5 +0.0020 ; 5→10 +0.0017 ; 10→20 +0.0035 ; 20→50 +0.0008 ; 50→100 +0.0016 ; 100→200 +0.0010 ; 200→500 +0.0008 ; 500→1000 -0.0002 ; 1000→2000 -0.0009 ; 2000→5000 -0.0012 ; 5000→20000 -0.0016
+1214.3s 104 [COURBE] SmolLM3-3B-Base A rang     1 (surprise médiane  3.19 nats) : +0.00123 IC95 [+0.00089 ; +0.00157]
+1214.3s 105 [COURBE] SmolLM3-3B-Base A rang     2 (surprise médiane  3.80 nats) : +0.00159 IC95 [+0.00121 ; +0.00194]
+1214.3s 106 [COURBE] SmolLM3-3B-Base A rang     5 (surprise médiane  5.07 nats) : +0.00158 IC95 [+0.00124 ; +0.00193]
+1214.3s 107 [COURBE] SmolLM3-3B-Base A rang    10 (surprise médiane  6.18 nats) : +0.00177 IC95 [+0.00144 ; +0.00215]
+1214.3s 108 [COURBE] SmolLM3-3B-Base A rang    20 (surprise médiane  7.43 nats) : +0.00153 IC95 [+0.00119 ; +0.00186]
+1214.3s 109 [COURBE] SmolLM3-3B-Base A rang    50 (surprise médiane  9.20 nats) : +0.00172 IC95 [+0.00139 ; +0.00208]
+1214.3s 110 [COURBE] SmolLM3-3B-Base A rang   100 (surprise médiane 10.53 nats) : +0.00192 IC95 [+0.00158 ; +0.00227]
+1214.5s 111 [COURBE] SmolLM3-3B-Base A rang   200 (surprise médiane 11.81 nats) : +0.00205 IC95 [+0.00170 ; +0.00245]
+1214.5s 112 [COURBE] SmolLM3-3B-Base A rang   500 (surprise médiane 13.63 nats) : +0.00240 IC95 [+0.00201 ; +0.00279]
+1214.5s 113 [COURBE] SmolLM3-3B-Base A rang  1000 (surprise médiane 14.92 nats) : +0.00260 IC95 [+0.00223 ; +0.00295]
+1214.5s 114 [COURBE] SmolLM3-3B-Base A rang  2000 (surprise médiane 16.21 nats) : +0.00292 IC95 [+0.00255 ; +0.00330]
+1214.5s 115 [COURBE] SmolLM3-3B-Base A rang  5000 (surprise médiane 17.94 nats) : +0.00407 IC95 [+0.00372 ; +0.00444]
+1214.5s 116 [COURBE] SmolLM3-3B-Base A rang 20000 (surprise médiane 20.91 nats) : +0.00562 IC95 [+0.00524 ; +0.00600]
+1214.5s 117 [V1] SmolLM3-3B-Base A : M(50) / M(2) = 1.08 IC95 [0.89 ; 1.35] → INDÉTERMINÉ
+1214.5s 118 [V2] SmolLM3-3B-Base A : M(20000) / M(1000) = 2.16 IC95 [1.94 ; 2.43] → CROISSANCE CONTINUE
+1214.5s 119 [COURBE] SmolLM3-3B-Base A : seuil de saturation (M ≥ 0,8 × M(20000)) au rang 20000 (surprise médiane 20.91 nats) ; Spearman par prompt en zone haute (rang ≥ 1000) +0.267
+1214.5s 120 [COURBE] SmolLM3-3B-Base A : pente par nat de surprise, segment par segment : 1→2 +0.0006 ; 2→5 -0.0000 ; 5→10 +0.0002 ; 10→20 -0.0002 ; 20→50 +0.0001 ; 50→100 +0.0001 ; 100→200 +0.0001 ; 200→500 +0.0002 ; 500→1000 +0.0002 ; 1000→2000 +0.0002 ; 2000→5000 +0.0007 ; 5000→20000 +0.0005
+1214.5s 121 [DURÉE] SmolLM3-3B-Base : 12.1 min
+1215.0s 122 
+1215.0s 123 ====================================================================================================
+1215.0s 124 [SYNTHÈSE] A1s — l'effet d'une anomalie sature-t-il avec sa surprise ?
+1215.0s 125 [SYNTHÈSE] Qwen3-1.7B-Base    D : V1 CROÎT          ; V2 PLATEAU              ; seuil au rang 5
+1215.0s 126 [SYNTHÈSE] SmolLM3-3B-Base    D : V1 CROÎT          ; V2 PLATEAU              ; seuil au rang 1
+1215.0s 127 [SYNTHÈSE] thèse « l'effet sature au-delà d'une dizaine de nats », mesure D (principale) : SOUTENUE (prédiction SOUTENUE 45 %, RÉFUTÉE 20 %)
+1215.0s 128 [SYNTHÈSE] Qwen3-1.7B-Base    A : V1 INDÉTERMINÉ    ; V2 CROISSANCE CONTINUE  ; seuil au rang 20000
+1215.0s 129 [SYNTHÈSE] SmolLM3-3B-Base    A : V1 INDÉTERMINÉ    ; V2 CROISSANCE CONTINUE  ; seuil au rang 20000
+1215.0s 130 [SYNTHÈSE] thèse « l'effet sature au-delà d'une dizaine de nats », mesure A (secondaire) : RÉFUTÉE
+1215.0s 131 [SORTIE] fichiers dans /kaggle/working/sgz_a1s : ['Qwen3-1.7B-Base_a1s.npz', 'SmolLM3-3B-Base_a1s.npz', 'resume_a1s.json']
+1221.2s 132 /usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\|'
+1221.2s 133 cells[i][c] = re.sub('\\\\\|', '|', cell)
+1221.4s 134 /usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\_'
+1221.4s 135 text = re.sub(r'_', '\_', text) # Escape underscores in display text
+1222.1s 136 [NbConvertApp] Converting notebook __notebook__.ipynb to notebook
+1222.2s 137 [NbConvertApp] Writing 297836 bytes to __notebook__.ipynb
+1224.7s 138 [NbConvertApp] Converting notebook __notebook__.ipynb to html
+1225.4s 139 [NbConvertApp] Writing 668885 bytes to __results__.html
