@@ -1,0 +1,127 @@
+6.8s 1 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+6.8s 2 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+6.8s 3 0.00s - to python to disable frozen modules.
+6.8s 4 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+7.4s 5 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+7.4s 6 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+7.4s 7 0.00s - to python to disable frozen modules.
+7.4s 8 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+14.9s 9 [CONFIG] jeton Hugging Face trouvé dans les secrets Kaggle
+27.3s 10 [CONFIG] SMOKE_TEST=False DEVICE=cuda N_GPU=2 OUT=/kaggle/working/sgz_a1n
+27.3s 11 [CONFIG] T=[0.6] prompts=768 longueur=96 t0=64 fenêtre k=8–31 marge ±20% ; modèles=['Llama-3.1-8B', 'gemma-2-9b']
+27.3s 12 [CONFIG] torch 2.11.0+cu128, transformers 5.16.1
+27.3s 13 [PROMPTS] 768 prompts (64 écrits à la main, 704 gabarits), identiques à A1c
+27.5s 14 [TÉMOIN POSITIF] suppression (×0,5)   : SUPPRESSION  (attendu SUPPRESSION)
+27.5s 15 [TÉMOIN POSITIF] équivalent (×1,0)    : ÉQUIVALENT   (attendu ÉQUIVALENT)
+27.5s 16 [TÉMOIN POSITIF] saillance (×1,6)     : SAILLANCE    (attendu SAILLANCE)
+27.5s 17 [TÉMOIN POSITIF] F compensation       : COMPENSATION (attendu COMPENSATION)
+27.5s 18 [TÉMOIN POSITIF] F équivalent         : ÉQUIVALENT   (attendu ÉQUIVALENT)
+27.5s 19 [TÉMOIN POSITIF] F amplification      : AMPLIFICATION (attendu AMPLIFICATION)
+27.5s 20 [TÉMOIN POSITIF] F effet direct nul   : NON TESTABLE (effet direct absent) (attendu NON TESTABLE (effet direct absent))
+27.5s 21 [TÉMOIN POSITIF] lien soutenu         : SOUTENU      (attendu SOUTENU)
+27.5s 22 [TÉMOIN POSITIF] lien absent          : ABSENT       (attendu ABSENT)
+27.5s 23 [TÉMOIN POSITIF] part valeur essentielle : L'ESSENTIEL  (attendu L'ESSENTIEL)
+27.5s 24 [TÉMOIN POSITIF] part valeur minoritaire : MINORITAIRE  (attendu MINORITAIRE)
+27.5s 25 [TÉMOIN POSITIF] lecture crie         : CRIE         (attendu CRIE)
+27.5s 26 [TÉMOIN POSITIF] lecture chuchote     : CHUCHOTE     (attendu CHUCHOTE)
+27.5s 27 [TÉMOIN POSITIF] lecture les deux     : LES DEUX     (attendu LES DEUX)
+27.5s 28 [TÉMOIN POSITIF] couches tient        : TIENT        (attendu TIENT)
+27.5s 29 [TÉMOIN POSITIF] couches tombe        : TOMBE        (attendu TOMBE)
+27.5s 30 [TÉMOIN POSITIF] RÉUSSI
+27.8s 31 [CHARGEMENT] Llama-3.1-8B : téléchargement / chargement de meta-llama/Llama-3.1-8B…
+158.7s 32 [CHARGEMENT] Llama-3.1-8B : meta-llama/Llama-3.1-8B en fp16 sur 2 GPU
+158.7s 33 [CONFIG] attention pendant la génération : sdpa
+170.6s 34 [PROGRESSION] Llama-3.1-8B : premier lot en 12.0 s ; estimation ~10 min (génération)
+698.6s 35 [VÉRIF] Llama-3.1-8B T=0.6 : identique avant t0 : True ; jeton changé à t0 : fort 100%, doux 100% ; rang médian du choc fort 3103
+698.6s 36 [MESURE] Llama-3.1-8B T=0.6 : 540 s
+698.8s 37 [CONFIG] attention pendant les passes rejouées : eager
+987.6s 38 [VÉRIF] Llama-3.1-8B T=0.6 rejoué (eager) contre généré : témoin écart moyen 9.1e-04, max 3.9e-02 ; choc à k=1 1.4e-03 ; calcul de N (Gram contre somme directe) écart relatif 9.4e-07 ; norme toutes positions contre norme au pas t0 : écart relatif 1.4e-05
+987.6s 39 [MESURE] Llama-3.1-8B T=0.6 passes rejouées : 289 s
+988.5s 40 
+988.5s 41 ====================================================================================================
+988.5s 42 [RÉSULTATS] Llama-3.1-8B (T = 0.6)
+988.5s 43 [ANCRAGE] Llama-3.1-8B A (attention, k=8–31) choc fort : ρ = 1.250 IC95 [1.183 ; 1.323] SAILLANCE
+988.5s 44 [ANCRAGE] Llama-3.1-8B N (contribution ‖αWv‖, k=8–31) choc fort : ρ = 2.302 IC95 [2.154 ; 2.468] SAILLANCE
+988.5s 45 [V] Llama-3.1-8B ‖W_O v‖, mesure principale, choc fort : ÉQUIVALENT   ρ = 1.139 IC95 [1.132 ; 1.148]
+988.5s 46 [V] Llama-3.1-8B ‖W_O v‖, mesure principale, choc doux : ÉQUIVALENT   ρ = 1.015 IC95 [1.010 ; 1.022]
+988.5s 47 [V] Llama-3.1-8B ‖W_O v‖, couches à poids égal, choc fort : ÉQUIVALENT   ρ = 1.112 IC95 [1.106 ; 1.119]
+988.5s 48 [V] Llama-3.1-8B ‖W_O v‖, couches à poids égal, choc doux : ÉQUIVALENT   ρ = 1.012 IC95 [1.006 ; 1.018]
+988.5s 49 [V] Llama-3.1-8B ‖v‖ avant W_O, choc fort : ÉQUIVALENT   ρ = 1.127 IC95 [1.121 ; 1.135]
+988.5s 50 [V] Llama-3.1-8B ‖v‖ avant W_O, choc doux : ÉQUIVALENT   ρ = 1.012 IC95 [1.007 ; 1.019]
+988.5s 51 [V] Llama-3.1-8B ‖x‖ entrant dans l'attention, choc fort : ÉQUIVALENT   ρ = 0.997 IC95 [0.994 ; 0.999]
+988.5s 52 [V] Llama-3.1-8B ‖x‖ entrant dans l'attention, choc doux : ÉQUIVALENT   ρ = 0.994 IC95 [0.992 ; 0.996]
+988.5s 53 [PART] Llama-3.1-8B choc fort : log ρ_V / log ρ_N = +0.16 IC95 [+0.14 ; +0.17] → part de N portée par la valeur : MINORITAIRE
+988.5s 54 [PART] Llama-3.1-8B choc doux : log ρ_V / log ρ_N = +0.10 IC95 [+0.06 ; +0.18] → part de N portée par la valeur : MINORITAIRE
+988.5s 55 [COUCHES] Llama-3.1-8B ρ_V par couche, choc fort : 1.25 1.04 0.99 1.01 1.08 1.01 1.03 0.99 1.05 1.09 1.03 0.94 0.96 0.93 0.98 1.11 1.11 1.10 1.21 1.22 1.09 1.18 1.24 1.28 1.32 1.24 1.21 1.19 1.14 1.12 1.33 1.10
+988.5s 56 [COUCHES] Llama-3.1-8B ρ_V par couche, choc doux : 1.03 1.00 0.99 1.00 1.01 1.00 1.00 0.99 1.01 1.05 1.00 0.99 0.98 0.98 0.99 1.03 1.01 1.02 1.02 1.03 1.00 1.02 1.03 1.02 1.03 1.02 1.02 1.03 1.02 1.01 1.04 1.01
+988.5s 57 [ABSOLU] Llama-3.1-8B V(temoin) / moyenne du contexte : ÉQUIVALENT   ρ = 0.992 IC95 [0.987 ; 0.998] ; rang centile médian dans le contexte 47%
+988.5s 58 [ABSOLU] Llama-3.1-8B V(fort) / moyenne du contexte : ÉQUIVALENT   ρ = 1.131 IC95 [1.126 ; 1.136] ; rang centile médian dans le contexte 95%
+988.5s 59 [ABSOLU] Llama-3.1-8B V(doux) / moyenne du contexte : ÉQUIVALENT   ρ = 1.008 IC95 [1.002 ; 1.013] ; rang centile médian dans le contexte 54%
+988.5s 60 [ABSOLU] Llama-3.1-8B lecture : AUTRE (prédiction : CRIE 60 %)
+988.5s 61 [DÉCOMPOSITION] Llama-3.1-8B ρ_N = 2.302 = global ×1.393 · couches ×1.168 · têtes ×1.101 · cohérence ×1.286 (cohérence témoin 0.279, fort 0.358)
+988.5s 62 [DÉCOMPOSITION] Llama-3.1-8B part global     : +40% IC95 [+36% ; +44%]
+988.5s 63 [DÉCOMPOSITION] Llama-3.1-8B part couches    : +19% IC95 [+17% ; +20%]
+988.5s 64 [DÉCOMPOSITION] Llama-3.1-8B part tetes      : +12% IC95 [+11% ; +12%]
+988.5s 65 [DÉCOMPOSITION] Llama-3.1-8B part coherence  : +30% IC95 [+28% ; +32%]
+988.5s 66 [DÉCOMPOSITION] Llama-3.1-8B piste « déplacement entre couches » : PARTIELLE
+988.5s 67 [LIEN] Llama-3.1-8B excès de valeur (log V_fort/V_témoin) vs amplification I (volet F) : SOUTENU  Spearman = +0.12 IC95 [+0.05 ; +0.18]
+988.5s 68 [CORR] Llama-3.1-8B surprise médiane du jeton : fort 16.6 nats, doux 2.3 nats ; Spearman(log V fort/témoin, surprise du choc fort) = +0.07
+989.3s 69 [DURÉE] Llama-3.1-8B : 16.0 min
+989.8s 70 [CHARGEMENT] gemma-2-9b : téléchargement / chargement de google/gemma-2-9b…
+1299.3s 71 [CHARGEMENT] gemma-2-9b : google/gemma-2-9b en fp16 sur 2 GPU
+1299.3s 72 [CONFIG] attention pendant la génération : sdpa
+1315.7s 73 [PROGRESSION] gemma-2-9b : premier lot en 16.5 s ; estimation ~13 min (génération)
+2077.3s 74 [VÉRIF] gemma-2-9b T=0.6 : identique avant t0 : True ; jeton changé à t0 : fort 100%, doux 100% ; rang médian du choc fort 3103
+2077.3s 75 [MESURE] gemma-2-9b T=0.6 : 778 s
+2077.5s 76 [CONFIG] attention pendant les passes rejouées : eager
+2520.9s 77 [VÉRIF] gemma-2-9b T=0.6 rejoué (eager) contre généré : témoin écart moyen 3.9e-03, max 1.2e-01 ; choc à k=1 4.2e-03 ; calcul de N (Gram contre somme directe) écart relatif 2.5e-07 ; norme toutes positions contre norme au pas t0 : écart relatif 1.3e-05
+2520.9s 78 [MESURE] gemma-2-9b T=0.6 passes rejouées : 443 s
+2521.7s 79 
+2521.7s 80 ====================================================================================================
+2521.7s 81 [RÉSULTATS] gemma-2-9b (T = 0.6)
+2521.7s 82 [ANCRAGE] gemma-2-9b A (attention, k=8–31) choc fort : ρ = 1.219 IC95 [1.154 ; 1.284] SAILLANCE
+2521.7s 83 [ANCRAGE] gemma-2-9b N (contribution ‖αWv‖, k=8–31) choc fort : ρ = 1.461 IC95 [1.382 ; 1.538] SAILLANCE
+2521.7s 84 [V] gemma-2-9b ‖W_O v‖, mesure principale, choc fort : ÉQUIVALENT   ρ = 1.106 IC95 [1.100 ; 1.112]
+2521.7s 85 [V] gemma-2-9b ‖W_O v‖, mesure principale, choc doux : ÉQUIVALENT   ρ = 1.004 IC95 [1.000 ; 1.009]
+2521.7s 86 [V] gemma-2-9b ‖W_O v‖, couches à poids égal, choc fort : ÉQUIVALENT   ρ = 1.106 IC95 [1.100 ; 1.112]
+2521.7s 87 [V] gemma-2-9b ‖W_O v‖, couches à poids égal, choc doux : ÉQUIVALENT   ρ = 1.004 IC95 [1.000 ; 1.009]
+2521.7s 88 [V] gemma-2-9b ‖v‖ avant W_O, choc fort : ÉQUIVALENT   ρ = 1.093 IC95 [1.087 ; 1.098]
+2521.7s 89 [V] gemma-2-9b ‖v‖ avant W_O, choc doux : ÉQUIVALENT   ρ = 1.004 IC95 [0.999 ; 1.009]
+2521.7s 90 [V] gemma-2-9b ‖x‖ entrant dans l'attention, choc fort : ÉQUIVALENT   ρ = 1.026 IC95 [1.024 ; 1.029]
+2521.7s 91 [V] gemma-2-9b ‖x‖ entrant dans l'attention, choc doux : ÉQUIVALENT   ρ = 0.998 IC95 [0.996 ; 1.000]
+2521.7s 92 [PART] gemma-2-9b choc fort : log ρ_V / log ρ_N = +0.27 IC95 [+0.23 ; +0.31] → part de N portée par la valeur : MINORITAIRE
+2521.7s 93 [PART] gemma-2-9b choc doux : log ρ_V / log ρ_N = +0.15 IC95 [-0.98 ; +1.81] → part de N portée par la valeur : NON TESTABLE (ρ_N non distinct de 1)
+2521.7s 94 [COUCHES] gemma-2-9b ρ_V par couche, choc fort : 0.93 1.11 1.04 1.08 1.04 1.10 1.00 1.07 1.12 1.04 1.05 1.03 1.05 1.06 1.03 1.06 1.04 1.12 1.03 1.03 0.96 1.07 1.02 1.11 1.14 1.16 1.10 1.07 1.34 1.32 1.29 1.33 1.31 1.29 1.24 1.26 1.24 1.36 0.83 1.01 1.07 0.94
+2521.7s 95 [COUCHES] gemma-2-9b ρ_V par couche, choc doux : 0.99 1.00 1.01 0.99 1.01 1.00 1.00 1.00 1.00 1.00 1.00 1.00 1.00 0.99 1.00 1.00 1.00 1.03 1.00 1.00 0.99 1.01 1.00 1.00 1.01 1.01 1.00 1.01 1.02 1.02 1.01 1.01 1.02 1.01 1.02 1.01 1.01 1.01 0.99 1.00 1.01 1.00
+2521.7s 96 [ABSOLU] gemma-2-9b V(temoin) / moyenne du contexte : ÉQUIVALENT   ρ = 0.984 IC95 [0.980 ; 0.989] ; rang centile médian dans le contexte 45%
+2521.7s 97 [ABSOLU] gemma-2-9b V(fort) / moyenne du contexte : ÉQUIVALENT   ρ = 1.089 IC95 [1.085 ; 1.093] ; rang centile médian dans le contexte 90%
+2521.7s 98 [ABSOLU] gemma-2-9b V(doux) / moyenne du contexte : ÉQUIVALENT   ρ = 0.989 IC95 [0.984 ; 0.993] ; rang centile médian dans le contexte 47%
+2521.7s 99 [ABSOLU] gemma-2-9b lecture : AUTRE (prédiction : CRIE 60 %)
+2521.7s 100 [DÉCOMPOSITION] gemma-2-9b ρ_N = 1.461 = global ×1.328 · couches ×0.978 · têtes ×1.034 · cohérence ×1.086 (cohérence témoin 0.441, fort 0.479)
+2521.7s 101 [DÉCOMPOSITION] gemma-2-9b part global     : +75% IC95 [+71% ; +79%]
+2521.7s 102 [DÉCOMPOSITION] gemma-2-9b part couches    : -6% IC95 [-7% ; -5%]
+2521.7s 103 [DÉCOMPOSITION] gemma-2-9b part tetes      : +9% IC95 [+8% ; +10%]
+2521.7s 104 [DÉCOMPOSITION] gemma-2-9b part coherence  : +22% IC95 [+18% ; +26%]
+2521.7s 105 [DÉCOMPOSITION] gemma-2-9b piste « déplacement entre couches » : TOMBE
+2521.7s 106 [LIEN] gemma-2-9b excès de valeur (log V_fort/V_témoin) vs amplification I (volet F) : SOUTENU  Spearman = +0.09 IC95 [+0.02 ; +0.17]
+2521.7s 107 [CORR] gemma-2-9b surprise médiane du jeton : fort 18.9 nats, doux 2.1 nats ; Spearman(log V fort/témoin, surprise du choc fort) = +0.02
+2522.4s 108 [DURÉE] gemma-2-9b : 25.5 min
+2523.1s 109 
+2523.1s 110 ====================================================================================================
+2523.1s 111 [SYNTHÈSE] Llama-3.1-8B : ρ_A 1.25, ρ_N 2.30, ρ_V 1.14 (ÉQUIVALENT), part de N portée par la valeur +0.16 (MINORITAIRE) ; choc doux ρ_V 1.02 (ÉQUIVALENT)
+2523.1s 112 [SYNTHÈSE] gemma-2-9b : ρ_A 1.22, ρ_N 1.46, ρ_V 1.11 (ÉQUIVALENT), part de N portée par la valeur +0.27 (MINORITAIRE) ; choc doux ρ_V 1.00 (ÉQUIVALENT)
+2523.1s 113 [ABSOLU] lectures : Llama-3.1-8B AUTRE ; gemma-2-9b AUTRE (CRIE 0, CHUCHOTE 0, LES DEUX 0, AUTRE 2)
+2523.1s 114 [LIEN] par modèle : Llama-3.1-8B SOUTENU ; gemma-2-9b SOUTENU
+2523.1s 115 [LIEN] le lien excès de valeur -> amplification (volet F) : SOUTENU (SOUTENU/INVERSE pour 2, ABSENT pour 0, sur 2 ; prédiction : SOUTENU 40 %, ABSENT 30 %)
+2523.1s 116 [HYPOTHÈSE] le jeton choqué produit une valeur ‖W_O v‖ plus grande : RÉFUTÉE (SAILLANCE pour 0 modèles, ÉQUIVALENT ou SUPPRESSION pour 2, sur 2 ; prédiction : SOUTENUE 55 %)
+2523.1s 117 [SYNTHÈSE] décomposition par modèle : Llama-3.1-8B PARTIELLE ; gemma-2-9b TOMBE
+2523.1s 118 [SYNTHÈSE] piste « l'attention se déplace vers les couches qui comptent » : INDÉTERMINÉE (prédiction : TIENT pour les 2 modèles 45 %)
+2523.1s 119 [SORTIE] fichiers dans /kaggle/working/sgz_a1n : ['Llama-3.1-8B_a1n.npz', 'gemma-2-9b_a1n.npz', 'resume_a1n.json']
+2530.8s 120 /usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\|'
+2530.8s 121 cells[i][c] = re.sub('\\\\\|', '|', cell)
+2531.0s 122 /usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\_'
+2531.0s 123 text = re.sub(r'_', '\_', text) # Escape underscores in display text
+2531.9s 124 [NbConvertApp] Converting notebook __notebook__.ipynb to notebook
+2532.0s 125 [NbConvertApp] Writing 334019 bytes to __notebook__.ipynb
+2534.4s 126 [NbConvertApp] Converting notebook __notebook__.ipynb to html
+2535.5s 127 [NbConvertApp] Writing 835940 bytes to __results__.html
