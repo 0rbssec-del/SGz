@@ -1,0 +1,103 @@
+8.0s 1 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+8.0s 2 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+8.0s 3 0.00s - to python to disable frozen modules.
+8.0s 4 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+8.6s 5 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+8.6s 6 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+8.6s 7 0.00s - to python to disable frozen modules.
+8.6s 8 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+32.2s 9 [CONFIG] SMOKE_TEST=False DEVICE=cuda N_GPU=2 OUT=/kaggle/working/sgz_a1z
+32.2s 10 [CONFIG] T=[0.6] prompts=768 longueur=96 t₀=64 fenêtre k=2–31 ; jetons forcés n ∈ [1, 2, 4, 8] ; modèles=['Qwen3-1.7B-Base', 'SmolLM3-3B-Base']
+32.2s 11 [CONFIG] torch 2.11.0+cu128, transformers 5.16.1
+32.3s 12 [PROMPTS] 768 prompts (64 écrits à la main, 704 gabarits), mêmes que A1c–A1k
+32.4s 13 [TÉMOIN POSITIF] Z1 cascade               : CASCADE PAR LE PREMIER JETON               (attendu CASCADE PAR LE PREMIER JETON)
+32.4s 14 [TÉMOIN POSITIF] Z1 partiel               : PARTIEL                                    (attendu PARTIEL)
+32.4s 15 [TÉMOIN POSITIF] Z1 pas par le premier    : PAS PAR LE PREMIER JETON                   (attendu PAS PAR LE PREMIER JETON)
+32.4s 16 [TÉMOIN POSITIF] Z1 sans amplification    : NON TESTABLE (I₀ n'est pas AMPLIFICATION)  (attendu NON TESTABLE (I₀ n'est pas AMPLIFICATION))
+32.4s 17 [TÉMOIN POSITIF] Z2 suffit                : SUFFIT                                     (attendu SUFFIT)
+32.4s 18 [TÉMOIN POSITIF] Z2 partiel               : PARTIEL                                    (attendu PARTIEL)
+32.4s 19 [TÉMOIN POSITIF] Z2 ne suffit pas         : NE SUFFIT PAS                              (attendu NE SUFFIT PAS)
+32.4s 20 [TÉMOIN POSITIF] Z3 surprise seule        : SURPRISE DU CHOIX SEULE                    (attendu SURPRISE DU CHOIX SEULE)
+32.4s 21 [TÉMOIN POSITIF] Z3 lien                  : LIEN AVEC L'ANOMALIE                       (attendu LIEN AVEC L'ANOMALIE)
+32.4s 22 [TÉMOIN POSITIF] Z3 apparié plus fort     : CHOIX APPARIÉ PLUS FORT                    (attendu CHOIX APPARIÉ PLUS FORT)
+32.4s 23 [TÉMOIN POSITIF] nul équivalent           : ÉQUIVALENT À 0                             (attendu ÉQUIVALENT À 0)
+32.4s 24 [TÉMOIN POSITIF] nul biaisé               : BIAISÉ                                     (attendu BIAISÉ)
+32.4s 25 [TÉMOIN POSITIF] synthèse soutenue        : SOUTENUE                                   (attendu SOUTENUE)
+32.4s 26 [TÉMOIN POSITIF] synthèse réfutée         : RÉFUTÉE                                    (attendu RÉFUTÉE)
+32.4s 27 [TÉMOIN POSITIF] synthèse dépend          : DÉPEND DU MODÈLE                           (attendu DÉPEND DU MODÈLE)
+32.4s 28 [TÉMOIN POSITIF] synthèse indéterminée    : INDÉTERMINÉE                               (attendu INDÉTERMINÉE)
+32.4s 29 [TÉMOIN POSITIF] RÉUSSI
+32.5s 30 
+32.5s 31 [CHARGEMENT] Qwen3-1.7B-Base : téléchargement / chargement de Qwen/Qwen3-1.7B-Base…
+42.5s 32 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+42.5s 33 
+42.5s 34 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+73.3s 35 [CHARGEMENT] Qwen3-1.7B-Base : Qwen/Qwen3-1.7B-Base en fp16 sur 2 GPU
+311.4s 36 [MESURE] Qwen3-1.7B-Base génération témoin + choc : 238 s ; rang médian du choc 3103, surprise médiane 16.73 nats
+360.9s 37 [VÉRIF] Qwen3-1.7B-Base reprise (jeton du témoin, même bruit) : premier jeton identique au témoin 100.0% ; suite entière identique 94.7% (en fp16, un quasi-ex aequo peut basculer sans erreur)
+360.9s 38 [PROGRESSION] Qwen3-1.7B-Base suites libres : estimation ~10 min pour 12 suites
+886.6s 39 [MESURE] Qwen3-1.7B-Base suites libres : 575 s
+1179.5s 40 [MESURE] Qwen3-1.7B-Base passes rejouées (13 textes) : 293 s
+1179.7s 41 [VÉRIF] Qwen3-1.7B-Base : témoin rejoué contre généré, écart moyen 1.4e-03 (max 2.1e-02) ; entropie de la loi du jeton t₀ identique entre textes : max 0.0e+00 ; suite libre du choc régénérée identique à la génération complète : 93.9% ; premier jeton du choc égal à celui du témoin : 8.1%
+1179.7s 42 
+1179.7s 43 ====================================================================================================
+1179.7s 44 [RÉSULTATS] Qwen3-1.7B-Base (T = 0.6) : 768 prompts
+1179.7s 45 [F] Qwen3-1.7B-Base : D₀ = +0.0773 IC95 [+0.0730 ; +0.0820] ; I₀ = +0.0396 IC95 [+0.0239 ; +0.0555] → AMPLIFICATION ; T₀ = +0.1169 IC95 [+0.1005 ; +0.1339] (A1y : D +0.0773, I +0.0396)
+1179.7s 46 [TÉMOIN NÉGATIF] Qwen3-1.7B-Base T(nul) (jeton du témoin, autre bruit) = +0.0040 IC95 [-0.0087 ; +0.0178] ; marge ±0.0232 → ÉQUIVALENT À 0
+1179.7s 47 [COURBE] Qwen3-1.7B-Base n = 1 : g(n) = I(a(n)) / I₀ = +0.44 IC95 [+0.17 ; +0.76] (I +0.0176) ; h(n) = T(b(n)) / T₀ = +0.72 IC95 [+0.61 ; +0.83] (T +0.0839)
+1179.7s 48 [COURBE] Qwen3-1.7B-Base n = 2 : g(n) = I(a(n)) / I₀ = +0.19 IC95 [-0.11 ; +0.48] (I +0.0074) ; h(n) = T(b(n)) / T₀ = +0.84 IC95 [+0.73 ; +0.97] (T +0.0987)
+1179.7s 49 [COURBE] Qwen3-1.7B-Base n = 4 : g(n) = I(a(n)) / I₀ = +0.22 IC95 [-0.01 ; +0.49] (I +0.0087) ; h(n) = T(b(n)) / T₀ = +1.02 IC95 [+0.92 ; +1.13] (T +0.1188)
+1179.9s 50 [COURBE] Qwen3-1.7B-Base n = 8 : g(n) = I(a(n)) / I₀ = +0.13 IC95 [-0.06 ; +0.32] (I +0.0051) ; h(n) = T(b(n)) / T₀ = +1.04 IC95 [+0.95 ; +1.14] (T +0.1220)
+1179.9s 51 [Z1] Qwen3-1.7B-Base premier choix ramené à celui du témoin : g(1) = +0.44 IC95 [+0.17 ; +0.76] → INDÉTERMINÉ
+1179.9s 52 [Z2] Qwen3-1.7B-Base premier choix du choc sans l'anomalie : h(1) = +0.72 IC95 [+0.61 ; +0.83] → SUFFIT
+1179.9s 53 [Z3] Qwen3-1.7B-Base choix du choc contre choix apparié : T(b(1)) / T(apparié) = 0.80 IC95 [0.66 ; 0.94] (T apparié +0.1055) → INDÉTERMINÉ
+1179.9s 54 [SURPRISE] Qwen3-1.7B-Base premier jeton du choc dans la loi du témoin (prompts où il diffère, 92%) : rang médian 1782, surprise médiane 16.24 nats ; jeton apparié 16.25 nats ; Spearman(surprise, T(b(1))) +0.156
+1179.9s 55 [PROFIL] Qwen3-1.7B-Base choc   − témoin par tranches de k (2–7 | 8–15 | 16–31) : +0.2489  +0.1135  +0.0691
+1179.9s 56 [PROFIL] Qwen3-1.7B-Base rejoue − témoin par tranches de k (2–7 | 8–15 | 16–31) : +0.1857  +0.0620  +0.0444
+1179.9s 57 [PROFIL] Qwen3-1.7B-Base a1     − témoin par tranches de k (2–7 | 8–15 | 16–31) : +0.2052  +0.0738  +0.0642
+1179.9s 58 [PROFIL] Qwen3-1.7B-Base b1     − témoin par tranches de k (2–7 | 8–15 | 16–31) : +0.2428  +0.0579  +0.0373
+1179.9s 59 [PROFIL] Qwen3-1.7B-Base bapp   − témoin par tranches de k (2–7 | 8–15 | 16–31) : +0.2813  +0.0841  +0.0502
+1180.2s 60 [DURÉE] Qwen3-1.7B-Base : 19.1 min
+1180.6s 61 
+1180.6s 62 [CHARGEMENT] SmolLM3-3B-Base : téléchargement / chargement de HuggingFaceTB/SmolLM3-3B-Base…
+1213.1s 63 [CHARGEMENT] SmolLM3-3B-Base : HuggingFaceTB/SmolLM3-3B-Base en fp16 1 GPU
+1533.2s 64 [MESURE] SmolLM3-3B-Base génération témoin + choc : 314 s ; rang médian du choc 3103, surprise médiane 17.09 nats
+1607.1s 65 [VÉRIF] SmolLM3-3B-Base reprise (jeton du témoin, même bruit) : premier jeton identique au témoin 99.9% ; suite entière identique 95.6% (en fp16, un quasi-ex aequo peut basculer sans erreur)
+1607.1s 66 [PROGRESSION] SmolLM3-3B-Base suites libres : estimation ~15 min pour 12 suites
+2402.3s 67 [MESURE] SmolLM3-3B-Base suites libres : 869 s
+2878.2s 68 [MESURE] SmolLM3-3B-Base passes rejouées (13 textes) : 476 s
+2878.4s 69 [VÉRIF] SmolLM3-3B-Base : témoin rejoué contre généré, écart moyen 1.1e-03 (max 2.0e-02) ; entropie de la loi du jeton t₀ identique entre textes : max 0.0e+00 ; suite libre du choc régénérée identique à la génération complète : 94.7% ; premier jeton du choc égal à celui du témoin : 7.2%
+2878.4s 70 
+2878.4s 71 ====================================================================================================
+2878.4s 72 [RÉSULTATS] SmolLM3-3B-Base (T = 0.6) : 768 prompts
+2878.4s 73 [F] SmolLM3-3B-Base : D₀ = +0.0751 IC95 [+0.0707 ; +0.0795] ; I₀ = +0.0428 IC95 [+0.0281 ; +0.0579] → AMPLIFICATION ; T₀ = +0.1179 IC95 [+0.1020 ; +0.1340]
+2878.4s 74 [TÉMOIN NÉGATIF] SmolLM3-3B-Base T(nul) (jeton du témoin, autre bruit) = -0.0008 IC95 [-0.0130 ; +0.0112] ; marge ±0.0225 → ÉQUIVALENT À 0
+2878.4s 75 [COURBE] SmolLM3-3B-Base n = 1 : g(n) = I(a(n)) / I₀ = +0.74 IC95 [+0.48 ; +1.08] (I +0.0316) ; h(n) = T(b(n)) / T₀ = +0.75 IC95 [+0.65 ; +0.87] (T +0.0887)
+2878.4s 76 [COURBE] SmolLM3-3B-Base n = 2 : g(n) = I(a(n)) / I₀ = +0.41 IC95 [+0.17 ; +0.67] (I +0.0176) ; h(n) = T(b(n)) / T₀ = +0.88 IC95 [+0.77 ; +0.99] (T +0.1039)
+2878.4s 77 [COURBE] SmolLM3-3B-Base n = 4 : g(n) = I(a(n)) / I₀ = +0.32 IC95 [+0.12 ; +0.55] (I +0.0136) ; h(n) = T(b(n)) / T₀ = +1.01 IC95 [+0.91 ; +1.11] (T +0.1186)
+2878.6s 78 [COURBE] SmolLM3-3B-Base n = 8 : g(n) = I(a(n)) / I₀ = +0.22 IC95 [+0.06 ; +0.39] (I +0.0093) ; h(n) = T(b(n)) / T₀ = +1.04 IC95 [+0.97 ; +1.13] (T +0.1232)
+2878.6s 79 [Z1] SmolLM3-3B-Base premier choix ramené à celui du témoin : g(1) = +0.74 IC95 [+0.48 ; +1.08] → INDÉTERMINÉ
+2878.6s 80 [Z2] SmolLM3-3B-Base premier choix du choc sans l'anomalie : h(1) = +0.75 IC95 [+0.65 ; +0.87] → SUFFIT
+2878.6s 81 [Z3] SmolLM3-3B-Base choix du choc contre choix apparié : T(b(1)) / T(apparié) = 0.73 IC95 [0.62 ; 0.85] (T apparié +0.1210) → INDÉTERMINÉ
+2878.6s 82 [SURPRISE] SmolLM3-3B-Base premier jeton du choc dans la loi du témoin (prompts où il diffère, 93%) : rang médian 1895, surprise médiane 16.74 nats ; jeton apparié 16.74 nats ; Spearman(surprise, T(b(1))) +0.140
+2878.6s 83 [PROFIL] SmolLM3-3B-Base choc   − témoin par tranches de k (2–7 | 8–15 | 16–31) : +0.2521  +0.1043  +0.0744
+2878.6s 84 [PROFIL] SmolLM3-3B-Base rejoue − témoin par tranches de k (2–7 | 8–15 | 16–31) : +0.1852  +0.0590  +0.0419
+2878.6s 85 [PROFIL] SmolLM3-3B-Base a1     − témoin par tranches de k (2–7 | 8–15 | 16–31) : +0.2275  +0.1011  +0.0641
+2878.6s 86 [PROFIL] SmolLM3-3B-Base b1     − témoin par tranches de k (2–7 | 8–15 | 16–31) : +0.2308  +0.0630  +0.0483
+2878.6s 87 [PROFIL] SmolLM3-3B-Base bapp   − témoin par tranches de k (2–7 | 8–15 | 16–31) : +0.2847  +0.0993  +0.0704
+2878.9s 88 [DURÉE] SmolLM3-3B-Base : 28.3 min
+2879.2s 89 
+2879.2s 90 ====================================================================================================
+2879.2s 91 [SYNTHÈSE] A1z — l'amplification est-elle une cascade qui passe par les jetons choisis après le choc ?
+2879.2s 92 [SYNTHÈSE] Qwen3-1.7B-Base    : Z1 INDÉTERMINÉ                    ; Z2 SUFFIT         ; Z3 INDÉTERMINÉ
+2879.2s 93 [SYNTHÈSE] SmolLM3-3B-Base    : Z1 INDÉTERMINÉ                    ; Z2 SUFFIT         ; Z3 INDÉTERMINÉ
+2879.2s 94 [SYNTHÈSE] thèse « l'amplification est une cascade qui passe par le premier jeton choisi après le choc » : INDÉTERMINÉE (prédiction SOUTENUE 30 %, RÉFUTÉE 10 %)
+2879.2s 95 [SORTIE] fichiers dans /kaggle/working/sgz_a1z : ['Qwen3-1.7B-Base_a1z.npz', 'SmolLM3-3B-Base_a1z.npz', 'resume_a1z.json']
+2884.5s 96 /usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\|'
+2884.5s 97 cells[i][c] = re.sub('\\\\\|', '|', cell)
+2884.7s 98 /usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\_'
+2884.7s 99 text = re.sub(r'_', '\_', text) # Escape underscores in display text
+2885.5s 100 [NbConvertApp] Converting notebook __notebook__.ipynb to notebook
+2885.6s 101 [NbConvertApp] Writing 305766 bytes to __notebook__.ipynb
+2888.1s 102 [NbConvertApp] Converting notebook __notebook__.ipynb to html
+2888.8s 103 [NbConvertApp] Writing 720869 bytes to __results__.html

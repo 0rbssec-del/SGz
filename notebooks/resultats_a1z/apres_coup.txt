@@ -1,0 +1,30 @@
+
+=== Qwen3-1.7B-Base : 768 prompts ; premier jeton du choc = celui du témoin : 8.1%
+surprise du premier jeton du choc dans la loi du témoin (s_c) : quartiles [12.27 16.24 20.77] nats ; rang médian 1782 ; s_c < 3 nats : 1.1%
+strate                        n       T0    h(1)              IC95  T(b1)/T(app)              IC95
+tous                        768  +0.1169    0.72   [+0.61 ; +0.83]        0.80   [0.67 ; 0.95]
+premier jeton identique      62  +0.0873    0.00   [-0.12 ; +0.11]         nan   [nan ; nan]
+s_c < 3 nats                  8  (trop peu)
+3 ≤ s_c < 10                111  +0.1044    0.35   [-0.02 ; +0.67]        0.60   [0.00 ; 1.16]
+s_c ≥ 10                    587  +0.1220    0.84   [+0.71 ; +0.99]        0.81   [0.68 ; 0.96]
+g(1) sans les prompts où le premier jeton est inchangé : +0.41 IC95 [+0.08 ; +0.76]
+Spearman(s_c, T(b1)) = +0.156 ; Spearman(T0, T(b1)) = +0.463 ; Spearman(T(app), T(b1)) = +0.450
+
+=== SmolLM3-3B-Base : 768 prompts ; premier jeton du choc = celui du témoin : 7.2%
+surprise du premier jeton du choc dans la loi du témoin (s_c) : quartiles [12.07 16.74 20.44] nats ; rang médian 1895 ; s_c < 3 nats : 2.7%
+strate                        n       T0    h(1)              IC95  T(b1)/T(app)              IC95
+tous                        768  +0.1179    0.75   [+0.65 ; +0.87]        0.73   [0.63 ; 0.85]
+premier jeton identique      55  +0.0957    0.00   [+0.00 ; +0.00]         nan   [nan ; nan]
+s_c < 3 nats                 19  (trop peu)
+3 ≤ s_c < 10                 95  +0.1245    0.54   [+0.31 ; +0.86]        0.97   [0.54 ; 1.74]
+s_c ≥ 10                    599  +0.1209    0.87   [+0.75 ; +1.01]        0.73   [0.63 ; 0.84]
+g(1) sans les prompts où le premier jeton est inchangé : +0.74 IC95 [+0.49 ; +1.08]
+Spearman(s_c, T(b1)) = +0.140 ; Spearman(T0, T(b1)) = +0.465 ; Spearman(T(app), T(b1)) = +0.435
+
+--- Expérience naturelle : prompts où le choc ne change pas le premier jeton choisi ---
+Qwen3-1.7B-Base  premier jeton inchangé   n= 62 : D₀ +0.0600 ; I₀ +0.0273 IC95 [-0.0127 ; +0.0734] ; I₀/D₀ +0.45 ; effet immédiat k = 1 : +0.553
+Qwen3-1.7B-Base  premier jeton changé     n=706 : D₀ +0.0789 ; I₀ +0.0407 IC95 [+0.0244 ; +0.0580] ; I₀/D₀ +0.52 ; effet immédiat k = 1 : +0.529
+Qwen3-1.7B-Base  Spearman(effet immédiat k = 1, I₀) = +0.076 ; Spearman(effet immédiat, D₀) = +0.122
+SmolLM3-3B-Base  premier jeton inchangé   n= 55 : D₀ +0.0680 ; I₀ +0.0277 IC95 [-0.0160 ; +0.0701] ; I₀/D₀ +0.41 ; effet immédiat k = 1 : +0.539
+SmolLM3-3B-Base  premier jeton changé     n=713 : D₀ +0.0757 ; I₀ +0.0440 IC95 [+0.0283 ; +0.0591] ; I₀/D₀ +0.58 ; effet immédiat k = 1 : +0.574
+SmolLM3-3B-Base  Spearman(effet immédiat k = 1, I₀) = -0.007 ; Spearman(effet immédiat, D₀) = +0.017
