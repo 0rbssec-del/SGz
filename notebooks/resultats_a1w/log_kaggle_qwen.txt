@@ -1,0 +1,114 @@
+8.0s 1 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+8.0s 2 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+8.0s 3 0.00s - to python to disable frozen modules.
+8.0s 4 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+8.7s 5 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+8.7s 6 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+8.7s 7 0.00s - to python to disable frozen modules.
+8.7s 8 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+33.0s 9 [CONFIG] SMOKE_TEST=False DEVICE=cuda N_GPU=2 OUT=/kaggle/working/sgz_a1w
+33.0s 10 [CONFIG] T=[0.6] prompts=768 longueur=96 t₀=64 fenêtre k=2–31 ; rangs [1, 5, 50, 1000, 5000, 20000] ; suite libre 30 jetons ; bras 18 ; modèles=['Qwen3-1.7B-Base']
+33.0s 11 [CONFIG] torch 2.11.0+cu128, transformers 5.16.1
+33.1s 12 [PROMPTS] 768 prompts (64 écrits à la main, 704 gabarits), mêmes que A1c–A1k
+33.3s 13 [TÉMOIN POSITIF] W1 gonflé                : GONFLÉ PAR LE REJEU              (attendu GONFLÉ PAR LE REJEU)
+33.3s 14 [TÉMOIN POSITIF] W1 partiel               : PARTIELLEMENT GONFLÉ             (attendu PARTIELLEMENT GONFLÉ)
+33.3s 15 [TÉMOIN POSITIF] W1 conservé              : CONSERVÉ                         (attendu CONSERVÉ)
+33.3s 16 [TÉMOIN POSITIF] W1 sans effet du rejeu   : NON TESTABLE (effet du rejeu non significatif) (attendu NON TESTABLE (effet du rejeu non significatif))
+33.3s 17 [TÉMOIN POSITIF] W2 symétrique            : SYMÉTRIQUE                       (attendu SYMÉTRIQUE)
+33.3s 18 [TÉMOIN POSITIF] W2 le jeton compte       : LE JETON COMPTE                  (attendu LE JETON COMPTE)
+33.3s 19 [TÉMOIN POSITIF] W2 inverse plus fort     : INVERSE PLUS FORT                (attendu INVERSE PLUS FORT)
+33.3s 20 [TÉMOIN POSITIF] W3 plateau               : PLATEAU                          (attendu PLATEAU)
+33.3s 21 [TÉMOIN POSITIF] W3 croissance            : CROISSANCE CONTINUE              (attendu CROISSANCE CONTINUE)
+33.3s 22 [TÉMOIN POSITIF] W3 décroissance          : DÉCROISSANCE                     (attendu DÉCROISSANCE)
+33.3s 23 [TÉMOIN POSITIF] W4 lié à la suite        : LIÉ À LA SUITE INCOHÉRENTE       (attendu LIÉ À LA SUITE INCOHÉRENTE)
+33.3s 24 [TÉMOIN POSITIF] W4 porté par le jeton    : PORTÉ PAR LE JETON               (attendu PORTÉ PAR LE JETON)
+33.3s 25 [TÉMOIN POSITIF] nul équivalent           : ÉQUIVALENT À 0                   (attendu ÉQUIVALENT À 0)
+33.3s 26 [TÉMOIN POSITIF] nul biaisé               : BIAISÉ                           (attendu BIAISÉ)
+33.3s 27 [TÉMOIN POSITIF] F amplification          : AMPLIFICATION                    (attendu AMPLIFICATION)
+33.3s 28 [TÉMOIN POSITIF] F compensation           : COMPENSATION                     (attendu COMPENSATION)
+33.3s 29 [TÉMOIN POSITIF] F équivalence            : ÉQUIVALENT                       (attendu ÉQUIVALENT)
+33.3s 30 [TÉMOIN POSITIF] synthèse 1 soutenue      : SOUTENUE                         (attendu SOUTENUE)
+33.3s 31 [TÉMOIN POSITIF] synthèse 1 partielle     : PARTIELLE                        (attendu PARTIELLE)
+33.3s 32 [TÉMOIN POSITIF] synthèse 1 réfutée       : RÉFUTÉE                          (attendu RÉFUTÉE)
+33.3s 33 [TÉMOIN POSITIF] synthèse 1 dépend        : DÉPEND DU MODÈLE                 (attendu DÉPEND DU MODÈLE)
+33.3s 34 [TÉMOIN POSITIF] synthèse 2 dépend        : DÉPEND DU MODÈLE                 (attendu DÉPEND DU MODÈLE)
+33.3s 35 [TÉMOIN POSITIF] synthèse 3 réfutée       : RÉFUTÉE                          (attendu RÉFUTÉE)
+33.3s 36 [TÉMOIN POSITIF] appariement sans excès   : ≈ 0                              (attendu ≈ 0)
+33.3s 37 [TÉMOIN POSITIF] appariement excès 0,01   : ≈ 0,01                           (attendu ≈ 0,01)
+33.3s 38 [TÉMOIN POSITIF] RÉUSSI
+33.4s 39 
+33.4s 40 [CHARGEMENT] Qwen3-1.7B-Base : téléchargement / chargement de Qwen/Qwen3-1.7B-Base…
+43.2s 41 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+43.2s 42 
+43.2s 43 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+70.5s 44 [CHARGEMENT] Qwen3-1.7B-Base : Qwen/Qwen3-1.7B-Base en fp16 sur 2 GPU
+79.2s 45 [PROGRESSION] Qwen3-1.7B-Base : premier lot en 8.8 s ; estimation ~2 min (génération)
+189.3s 46 [MESURE] Qwen3-1.7B-Base génération du témoin : 119 s
+189.5s 47 [ANCRAGE] Qwen3-1.7B-Base : témoin identique à A1s (MD5, 768 × 96) : True ; jetons des six doses identiques : True
+238.0s 48 [VÉRIF] Qwen3-1.7B-Base reprise (jeton du témoin, même bruit) : premier jeton identique au témoin pour 99.9% des prompts ; suite entière identique pour 94.5% ; jetons identiques 97.6% (en fp16, un quasi-ex aequo peut basculer et faire diverger la suite sans erreur ; le contrôle décisif est l'accord des entropies plus bas)
+238.0s 49 [PROGRESSION] Qwen3-1.7B-Base suites libres : estimation ~8 min
+681.9s 50 [MESURE] Qwen3-1.7B-Base suites libres (10 × 30 jetons) : 493 s
+682.1s 51 [CONFIG] Qwen3-1.7B-Base : passes rejouées en attention « eager » (poids d'attention lus)
+683.6s 52 [PROGRESSION] Qwen3-1.7B-Base passes rejouées (18 textes par prompt) : estimation ~7 min
+1116.2s 53 [MESURE] Qwen3-1.7B-Base passes rejouées : 434 s
+1116.4s 54 [VÉRIF] Qwen3-1.7B-Base : témoin rejoué contre généré, écart moyen 1.5e-03 (max 2.8e-02) ; suites libres rejouées contre générées, écart moyen 1.5e-03 (max 3.9e-02) ; attention vers t₀ avant t₀ (masque causal, doit être 0) : max 0.0e+00 ; entropie de la loi du jeton t₀ identique entre bras : max 0.0e+00 ; lecture complète du témoin contre fenêtre : entropie écart moyen 8.4e-06 (max 1.5e-02), r₁ max 0.0e+00
+1116.4s 55 
+1116.4s 56 ====================================================================================================
+1116.4s 57 [RÉSULTATS] Qwen3-1.7B-Base (T = 0.6) : 768 prompts ; r₁ vers t₀ dans le témoin 0.0529
+1116.4s 58 [COURBE] Qwen3-1.7B-Base rang     1 (surprise médiane  3.11 nats) : D +0.05210 IC95 [+0.04811 ; +0.05594] ; T +0.02014 IC95 [+0.00762 ; +0.03300] ; I -0.03196 IC95 [-0.04489 ; -0.01954] ; suite libre identique au témoin 15%
+1116.4s 59 [COURBE] Qwen3-1.7B-Base rang     5 (surprise médiane  4.92 nats) : D +0.05919 IC95 [+0.05541 ; +0.06290] ; T +0.03343 IC95 [+0.01933 ; +0.04622] ; I -0.02576 IC95 [-0.03966 ; -0.01293] ; suite libre identique au témoin 14%
+1116.4s 60 [COURBE] Qwen3-1.7B-Base rang    50 (surprise médiane  8.99 nats) : D +0.06847 IC95 [+0.06427 ; +0.07283] ; T +0.06225 IC95 [+0.04776 ; +0.07661] ; I -0.00622 IC95 [-0.02054 ; +0.00717] ; suite libre identique au témoin 11%
+1116.4s 61 [COURBE] Qwen3-1.7B-Base rang  1000 (surprise médiane 14.40 nats) : D +0.07512 IC95 [+0.07078 ; +0.07957] ; T +0.09708 IC95 [+0.08060 ; +0.11231] ; I +0.02196 IC95 [+0.00646 ; +0.03652] ; suite libre identique au témoin 7%
+1116.4s 62 [COURBE] Qwen3-1.7B-Base rang  5000 (surprise médiane 18.02 nats) : D +0.07652 IC95 [+0.07235 ; +0.08060] ; T +0.10625 IC95 [+0.09013 ; +0.12321] ; I +0.02972 IC95 [+0.01422 ; +0.04629] ; suite libre identique au témoin 8%
+1116.4s 63 [COURBE] Qwen3-1.7B-Base rang 20000 (surprise médiane 21.81 nats) : D +0.07381 IC95 [+0.06978 ; +0.07770] ; T +0.12085 IC95 [+0.10370 ; +0.13920] ; I +0.04704 IC95 [+0.02988 ; +0.06475] ; suite libre identique au témoin 6%
+1116.4s 64 [ANCRAGE] Qwen3-1.7B-Base D par dose, A1w contre A1s : 1 0.05210/0.05210 ; 5 0.05919/0.05919 ; 50 0.06847/0.06847 ; 1000 0.07512/0.07512 ; 5000 0.07652/0.07652 ; 20000 0.07381/0.07381
+1116.4s 65 [TÉMOIN NÉGATIF] Qwen3-1.7B-Base T(nul) (jeton du témoin, autre bruit) = +0.00287 IC95 [-0.00952 ; +0.01559] ; marge ±0.0225 → ÉQUIVALENT À 0
+1116.4s 66 [COUPLAGE] Qwen3-1.7B-Base rang 1 : T du libre indépendant +0.01984 contre T du libre couplé +0.02014 ; écart IC95 [-0.01313 ; +0.01244] (doit contenir 0)
+1116.4s 67 [COUPLAGE] Qwen3-1.7B-Base rang 5000 : T du libre indépendant +0.11900 contre T du libre couplé +0.10625 ; écart IC95 [-0.00181 ; +0.02814] (doit contenir 0)
+1116.7s 68 [W1] Qwen3-1.7B-Base rang 1 : ρ = T / D = 0.39 IC95 [0.15 ; 0.62] → INDÉTERMINÉ
+1116.7s 69 [W2] Qwen3-1.7B-Base rang 1 : σ = D_inv / D = 0.73 IC95 [0.65 ; 0.82] (D_inv +0.03825) → INDÉTERMINÉ
+1116.7s 70 [W3] Qwen3-1.7B-Base : T(20000) / T(1000) = 1.24 IC95 [1.05 ; 1.49] → CROISSANCE CONTINUE ; même règle sur D (reproduction d'A1s) : 0.98 IC95 [0.94 ; 1.02] → PLATEAU
+1116.7s 71 [W4] Qwen3-1.7B-Base rang 50 : φ = E_libre / E_rejoué = 0.64 IC95 [0.57 ; 0.71] (E_rejoué +0.01821, E_libre +0.01174) → PARTIEL
+1116.7s 72 [F] Qwen3-1.7B-Base rang     1 : D +0.05210 IC95 [+0.04811 ; +0.05594] ; I -0.03196 IC95 [-0.04489 ; -0.01954] ; I/D -0.61 → COMPENSATION
+1116.7s 73 [F] Qwen3-1.7B-Base rang     5 : D +0.05919 IC95 [+0.05541 ; +0.06290] ; I -0.02576 IC95 [-0.03966 ; -0.01293] ; I/D -0.44 → COMPENSATION
+1116.7s 74 [F] Qwen3-1.7B-Base rang    50 : D +0.06847 IC95 [+0.06427 ; +0.07283] ; I -0.00622 IC95 [-0.02054 ; +0.00717] ; I/D -0.09 → ÉQUIVALENT
+1116.7s 75 [F] Qwen3-1.7B-Base rang  1000 : D +0.07512 IC95 [+0.07078 ; +0.07957] ; I +0.02196 IC95 [+0.00646 ; +0.03652] ; I/D +0.29 → AMPLIFICATION
+1116.7s 76 [F] Qwen3-1.7B-Base rang  5000 : D +0.07652 IC95 [+0.07235 ; +0.08060] ; I +0.02972 IC95 [+0.01422 ; +0.04629] ; I/D +0.39 → AMPLIFICATION
+1116.7s 77 [F] Qwen3-1.7B-Base rang 20000 : D +0.07381 IC95 [+0.06978 ; +0.07770] ; I +0.04704 IC95 [+0.02988 ; +0.06475] ; I/D +0.64 → AMPLIFICATION
+1116.7s 78 [PROFIL] Qwen3-1.7B-Base rang     1 D / T par tranches de k (2–7 | 8–15 | 16–31) : +0.1259/+0.0385  +0.0418/+0.0244  +0.0296/+0.0111
+1116.7s 79 [PROFIL] Qwen3-1.7B-Base rang     5 D / T par tranches de k (2–7 | 8–15 | 16–31) : +0.1350/+0.0645  +0.0491/+0.0352  +0.0358/+0.0209
+1116.7s 80 [PROFIL] Qwen3-1.7B-Base rang    50 D / T par tranches de k (2–7 | 8–15 | 16–31) : +0.1570/+0.1248  +0.0570/+0.0575  +0.0410/+0.0412
+1116.7s 81 [PROFIL] Qwen3-1.7B-Base rang  1000 D / T par tranches de k (2–7 | 8–15 | 16–31) : +0.1844/+0.2009  +0.0609/+0.1000  +0.0413/+0.0567
+1116.7s 82 [PROFIL] Qwen3-1.7B-Base rang  5000 D / T par tranches de k (2–7 | 8–15 | 16–31) : +0.1856/+0.2651  +0.0620/+0.0912  +0.0429/+0.0542
+1116.7s 83 [PROFIL] Qwen3-1.7B-Base rang 20000 D / T par tranches de k (2–7 | 8–15 | 16–31) : +0.1930/+0.3190  +0.0564/+0.0998  +0.0378/+0.0571
+1116.7s 84 [INVERSE] Qwen3-1.7B-Base rang 1 : D_inv +0.03825 IC95 [+0.03427 ; +0.04251] contre D +0.05210
+1116.7s 85 [INVERSE] Qwen3-1.7B-Base rang 5000 : D_inv +0.01127 IC95 [+0.00711 ; +0.01596] contre D +0.07652
+1116.7s 86 [ATTENTION] Qwen3-1.7B-Base rang     1 : excès de r₁ rejoué +0.01233, libre +0.00493, φ 0.40 IC95 [0.28 ; 0.50] ; part d'attention vers t₀ sur k = 2–31 (A d'A1s) : rejoué +0.00104, libre +0.00042
+1116.7s 87 [ATTENTION] Qwen3-1.7B-Base rang     5 : excès de r₁ rejoué +0.01383, libre +0.00711, φ 0.51 IC95 [0.41 ; 0.61] ; part d'attention vers t₀ sur k = 2–31 (A d'A1s) : rejoué +0.00101, libre +0.00067
+1116.7s 88 [ATTENTION] Qwen3-1.7B-Base rang    50 : excès de r₁ rejoué +0.01821, libre +0.01174, φ 0.64 IC95 [0.57 ; 0.71] ; part d'attention vers t₀ sur k = 2–31 (A d'A1s) : rejoué +0.00146, libre +0.00105
+1116.7s 89 [ATTENTION] Qwen3-1.7B-Base rang  1000 : excès de r₁ rejoué +0.02168, libre +0.01792, φ 0.83 IC95 [0.76 ; 0.90] ; part d'attention vers t₀ sur k = 2–31 (A d'A1s) : rejoué +0.00188, libre +0.00184
+1116.9s 90 [ATTENTION] Qwen3-1.7B-Base rang  5000 : excès de r₁ rejoué +0.02277, libre +0.02304, φ 1.01 IC95 [0.95 ; 1.08] ; part d'attention vers t₀ sur k = 2–31 (A d'A1s) : rejoué +0.00247, libre +0.00295
+1116.9s 91 [ATTENTION] Qwen3-1.7B-Base rang 20000 : excès de r₁ rejoué +0.02721, libre +0.03119, φ 1.15 IC95 [1.08 ; 1.21] ; part d'attention vers t₀ sur k = 2–31 (A d'A1s) : rejoué +0.00383, libre +0.00474
+1117.2s 92 [APPARIEMENT] Qwen3-1.7B-Base témoin à t₀ (référence, attendu ≈ 0)   : n = 767 ; excès de r₁ sur les jetons du témoin de même surprise et entropie -0.00050 IC95 [-0.00179 ; +0.00072] ; part positive 46%
+1117.2s 93 [APPARIEMENT] Qwen3-1.7B-Base rang 5 rejoué                          : n = 437 ; excès de r₁ sur les jetons du témoin de même surprise et entropie +0.00736 IC95 [+0.00544 ; +0.00935] ; part positive 64%
+1117.4s 94 [APPARIEMENT] Qwen3-1.7B-Base rang 5 libre                           : n = 437 ; excès de r₁ sur les jetons du témoin de même surprise et entropie -0.00168 IC95 [-0.00342 ; -0.00003] ; part positive 44%
+1117.4s 95 [APPARIEMENT] Qwen3-1.7B-Base rang 50 rejoué                         : n = 209 ; excès de r₁ sur les jetons du témoin de même surprise et entropie +0.01036 IC95 [+0.00737 ; +0.01320] ; part positive 68%
+1117.7s 96 [APPARIEMENT] Qwen3-1.7B-Base rang 50 libre                          : n = 209 ; excès de r₁ sur les jetons du témoin de même surprise et entropie -0.00095 IC95 [-0.00366 ; +0.00178] ; part positive 49%
+1118.1s 97 [DURÉE] Qwen3-1.7B-Base : 18.1 min
+1118.2s 98 
+1118.2s 99 ====================================================================================================
+1118.2s 100 [SYNTHÈSE] A1w — l'effet d'un jeton plausible vient-il de la suite rejouée ?
+1118.2s 101 [SYNTHÈSE] Qwen3-1.7B-Base            : W1 INDÉTERMINÉ            ; W2 INDÉTERMINÉ        ; W3 CROISSANCE CONTINUE  ; W4 PARTIEL
+1118.2s 102 [SYNTHÈSE] SmolLM3-3B-Base (29 oct.)  : W1 INDÉTERMINÉ            ; W2 LE JETON COMPTE    ; W3 CROISSANCE CONTINUE  ; W4 INDÉTERMINÉ
+1118.2s 103 [SYNTHÈSE] thèse 1 « dans une passe rejouée, l'effet d'un jeton plausible vient surtout du désaccord avec la suite » : INDÉTERMINÉE (prédiction SOUTENUE 35 %, PARTIELLE 30 %)
+1118.2s 104 [SYNTHÈSE] thèse 2 « l'excès d'attention vers un jeton inséré plausible tient au désaccord avec la suite » : INDÉTERMINÉE
+1118.2s 105 [SYNTHÈSE] thèse 3 « en génération libre, l'effet croît encore avec la surprise au-delà du rang 1000 » : SOUTENUE
+1118.2s 106 [SORTIE] fichiers dans /kaggle/working/sgz_a1w : ['Qwen3-1.7B-Base_a1w.npz', 'resume_a1w.json']
+1123.8s 107 /usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\|'
+1123.8s 108 cells[i][c] = re.sub('\\\\\|', '|', cell)
+1124.0s 109 /usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\_'
+1124.0s 110 text = re.sub(r'_', '\_', text) # Escape underscores in display text
+1124.8s 111 [NbConvertApp] Converting notebook __notebook__.ipynb to notebook
+1124.9s 112 [NbConvertApp] Writing 194891 bytes to __notebook__.ipynb
+1127.4s 113 [NbConvertApp] Converting notebook __notebook__.ipynb to html
+1128.2s 114 [NbConvertApp] Writing 690905 bytes to __results__.html
