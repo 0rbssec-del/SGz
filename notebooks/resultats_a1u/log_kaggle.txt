@@ -1,0 +1,152 @@
+6.3s 1 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+6.3s 2 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+6.3s 3 0.00s - to python to disable frozen modules.
+6.3s 4 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+6.8s 5 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+6.8s 6 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+6.8s 7 0.00s - to python to disable frozen modules.
+6.8s 8 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+24.3s 9 [CONFIG] SMOKE_TEST=False DEVICE=cuda N_GPU=2 OUT=/kaggle/working/sgz_a1u
+24.3s 10 [CONFIG] T=[0.6] prompts=768 longueur=96 t₀=64 fenêtre k=2–31 ; ablation sur ['Qwen3-1.7B-Base'] (20 directions aléatoires dans 64 axes) ; modèles=['Qwen3-1.7B-Base', 'SmolLM3-3B-Base']
+24.3s 11 [CONFIG] torch 2.11.0+cu128, transformers 5.16.1
+24.4s 12 [PROMPTS] 768 prompts (64 écrits à la main, 704 gabarits), mêmes que A1c–A1k
+24.5s 13 [TÉMOIN POSITIF] divergent              : DIVERGENT                (attendu DIVERGENT)
+24.5s 14 [TÉMOIN POSITIF] contractant            : CONTRACTANT              (attendu CONTRACTANT)
+24.5s 15 [TÉMOIN POSITIF] stationnaire           : STATIONNAIRE             (attendu STATIONNAIRE)
+24.5s 16 [TÉMOIN POSITIF] norme en hausse        : HAUSSE PERSISTANTE       (attendu HAUSSE PERSISTANTE)
+24.5s 17 [TÉMOIN POSITIF] norme stable           : ABSENTE                  (attendu ABSENTE)
+24.5s 18 [TÉMOIN POSITIF] norme en baisse        : BAISSE                   (attendu BAISSE)
+24.5s 19 [TÉMOIN POSITIF] aligné                 : POUSSE VERS L'ENTROPIE   (attendu POUSSE VERS L'ENTROPIE)
+24.5s 20 [TÉMOIN POSITIF] non aligné             : NON ALIGNÉ               (attendu NON ALIGNÉ)
+24.5s 21 [TÉMOIN POSITIF] mécanisme principal    : MÉCANISME PRINCIPAL      (attendu MÉCANISME PRINCIPAL)
+24.5s 22 [TÉMOIN POSITIF] contribution           : CONTRIBUTION SPÉCIFIQUE  (attendu CONTRIBUTION SPÉCIFIQUE)
+24.5s 23 [TÉMOIN POSITIF] non spécifique         : NON SPÉCIFIQUE           (attendu NON SPÉCIFIQUE)
+24.5s 24 [TÉMOIN POSITIF] pas d'effet            : PAS D'EFFET              (attendu PAS D'EFFET)
+24.5s 25 [TÉMOIN POSITIF] sans amplification     : NON TESTABLE (sans ablation : ÉQUIVALENT) (attendu NON TESTABLE (sans ablation : ÉQUIVALENT))
+24.5s 26 [TÉMOIN POSITIF] divergence réfutée     : RÉFUTÉE                  (attendu RÉFUTÉE)
+24.5s 27 [TÉMOIN POSITIF] direction partielle    : PARTIELLE                (attendu PARTIELLE)
+24.5s 28 [TÉMOIN POSITIF] RÉUSSI
+24.6s 29 
+24.6s 30 [CHARGEMENT] Qwen3-1.7B-Base : téléchargement / chargement de Qwen/Qwen3-1.7B-Base…
+33.0s 31 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+33.0s 32 
+33.0s 33 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+66.6s 34 [CHARGEMENT] Qwen3-1.7B-Base : Qwen/Qwen3-1.7B-Base en fp16 sur 2 GPU
+299.3s 35 [MESURE] Qwen3-1.7B-Base génération témoin + choc : 233 s ; rang médian du choc 3103, surprise médiane 16.73 nats
+367.6s 36 [VÉRIF] Qwen3-1.7B-Base témoin rejoué contre généré : écart moyen 1.4e-03, max 2.5e-02
+367.7s 37 [F] Qwen3-1.7B-Base sans ablation, 768 prompts : D = +0.0773 ; I = +0.0365 IC95 [+0.0206 ; +0.0529] → AMPLIFICATION (reproduction de A1c)
+368.3s 38 /usr/local/lib/python3.13/dist-packages/torch/autograd/graph.py:869: UserWarning: The AccumulateGrad node's stream does not match the stream of the node that produced the incoming gradient. This may incur unnecessary synchronization and break CUDA graph capture if the AccumulateGrad node's stream is the default stream. This mismatch is caused by an AccumulateGrad node created prior to the current iteration being kept alive. This can happen if the autograd graph is still being kept alive by tensors such as the loss, or if you are using DDP, which will stash a reference to the node. To resolve the mismatch, delete all references to the autograd graph or ensure that DDP initialization is performed under the same stream as subsequent forwards. If the mismatch is intentional, you can use torch.autograd.graph.set_warn_on_accumulate_grad_stream_mismatch(False) to suppress this warning. (Triggered internally at /pytorch/torch/csrc/autograd/input_buffer.cpp:240.)
+368.3s 39 return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+368.3s 40 
+368.3s 41 /usr/local/lib/python3.13/dist-packages/torch/autograd/graph.py:869: UserWarning: The AccumulateGrad node's stream does not match the stream of the node that produced the incoming gradient. This may incur unnecessary synchronization and break CUDA graph capture if the AccumulateGrad node's stream is the default stream. This mismatch is caused by an AccumulateGrad node created prior to the current iteration being kept alive. This can happen if the autograd graph is still being kept alive by tensors such as the loss, or if you are using DDP, which will stash a reference to the node. To resolve the mismatch, delete all references to the autograd graph or ensure that DDP initialization is performed under the same stream as subsequent forwards. If the mismatch is intentional, you can use torch.autograd.graph.set_warn_on_accumulate_grad_stream_mismatch(False) to suppress this warning. (Triggered internally at /pytorch/torch/csrc/autograd/input_buffer.cpp:240.)
+368.3s 42 return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+425.8s 43 [VÉRIF] Qwen3-1.7B-Base : entrée de la normalisation finale contre sortie de la dernière couche : écart max 0.0e+00 ; écart avant le choc (k = 0) : ρ max 0.0e+00 ; passes avec états cachés : 58 s
+426.0s 44 
+426.0s 45 ====================================================================================================
+426.0s 46 [RÉSULTATS] Qwen3-1.7B-Base (T = 0.6) : 768 prompts, 28 couches
+428.4s 47 [LYAPUNOV] Qwen3-1.7B-Base couche  0 : ρ(k=1) 1.253 ; ρ(k=2) 0.428 ; ρ(k=31) 0.010 ; λ = -0.0759 IC95 [-0.0774 ; -0.0745] → CONTRACTANT
+428.4s 48 [LYAPUNOV] Qwen3-1.7B-Base couche  1 : ρ(k=1) 1.169 ; ρ(k=2) 0.489 ; ρ(k=31) 0.014 ; λ = -0.0785 IC95 [-0.0803 ; -0.0769] → CONTRACTANT
+428.4s 49 [LYAPUNOV] Qwen3-1.7B-Base couche  2 : ρ(k=1) 1.237 ; ρ(k=2) 0.612 ; ρ(k=31) 0.019 ; λ = -0.0776 IC95 [-0.0795 ; -0.0757] → CONTRACTANT
+428.4s 50 [LYAPUNOV] Qwen3-1.7B-Base couche  3 : ρ(k=1) 1.149 ; ρ(k=2) 0.610 ; ρ(k=31) 0.029 ; λ = -0.0655 IC95 [-0.0674 ; -0.0638] → CONTRACTANT
+428.4s 51 [LYAPUNOV] Qwen3-1.7B-Base couche  4 : ρ(k=1) 1.131 ; ρ(k=2) 0.593 ; ρ(k=31) 0.030 ; λ = -0.0685 IC95 [-0.0705 ; -0.0666] → CONTRACTANT
+428.4s 52 [LYAPUNOV] Qwen3-1.7B-Base couche  5 : ρ(k=1) 1.138 ; ρ(k=2) 0.649 ; ρ(k=31) 0.034 ; λ = -0.0710 IC95 [-0.0731 ; -0.0689] → CONTRACTANT
+428.4s 53 [LYAPUNOV] Qwen3-1.7B-Base couche  6 : ρ(k=1) 1.124 ; ρ(k=2) 0.656 ; ρ(k=31) 0.039 ; λ = -0.0679 IC95 [-0.0701 ; -0.0658] → CONTRACTANT
+428.4s 54 [LYAPUNOV] Qwen3-1.7B-Base couche  7 : ρ(k=1) 1.084 ; ρ(k=2) 0.717 ; ρ(k=31) 0.045 ; λ = -0.0682 IC95 [-0.0706 ; -0.0661] → CONTRACTANT
+428.4s 55 [LYAPUNOV] Qwen3-1.7B-Base couche  8 : ρ(k=1) 1.090 ; ρ(k=2) 0.742 ; ρ(k=31) 0.053 ; λ = -0.0650 IC95 [-0.0673 ; -0.0628] → CONTRACTANT
+428.4s 56 [LYAPUNOV] Qwen3-1.7B-Base couche  9 : ρ(k=1) 1.051 ; ρ(k=2) 0.689 ; ρ(k=31) 0.056 ; λ = -0.0611 IC95 [-0.0633 ; -0.0590] → CONTRACTANT
+428.4s 57 [LYAPUNOV] Qwen3-1.7B-Base couche 10 : ρ(k=1) 0.970 ; ρ(k=2) 0.655 ; ρ(k=31) 0.058 ; λ = -0.0587 IC95 [-0.0608 ; -0.0567] → CONTRACTANT
+428.4s 58 [LYAPUNOV] Qwen3-1.7B-Base couche 11 : ρ(k=1) 1.037 ; ρ(k=2) 0.650 ; ρ(k=31) 0.059 ; λ = -0.0579 IC95 [-0.0601 ; -0.0559] → CONTRACTANT
+428.4s 59 [LYAPUNOV] Qwen3-1.7B-Base couche 12 : ρ(k=1) 0.999 ; ρ(k=2) 0.646 ; ρ(k=31) 0.063 ; λ = -0.0561 IC95 [-0.0583 ; -0.0540] → CONTRACTANT
+428.4s 60 [LYAPUNOV] Qwen3-1.7B-Base couche 13 : ρ(k=1) 0.983 ; ρ(k=2) 0.655 ; ρ(k=31) 0.067 ; λ = -0.0553 IC95 [-0.0574 ; -0.0532] → CONTRACTANT
+428.4s 61 [LYAPUNOV] Qwen3-1.7B-Base couche 14 : ρ(k=1) 0.988 ; ρ(k=2) 0.671 ; ρ(k=31) 0.072 ; λ = -0.0546 IC95 [-0.0566 ; -0.0527] → CONTRACTANT
+428.4s 62 [LYAPUNOV] Qwen3-1.7B-Base couche 15 : ρ(k=1) 0.935 ; ρ(k=2) 0.701 ; ρ(k=31) 0.078 ; λ = -0.0529 IC95 [-0.0549 ; -0.0510] → CONTRACTANT
+428.4s 63 [LYAPUNOV] Qwen3-1.7B-Base couche 16 : ρ(k=1) 1.124 ; ρ(k=2) 0.688 ; ρ(k=31) 0.078 ; λ = -0.0509 IC95 [-0.0530 ; -0.0489] → CONTRACTANT
+428.4s 64 [LYAPUNOV] Qwen3-1.7B-Base couche 17 : ρ(k=1) 1.032 ; ρ(k=2) 0.647 ; ρ(k=31) 0.076 ; λ = -0.0504 IC95 [-0.0525 ; -0.0485] → CONTRACTANT
+428.4s 65 [LYAPUNOV] Qwen3-1.7B-Base couche 18 : ρ(k=1) 1.002 ; ρ(k=2) 0.613 ; ρ(k=31) 0.083 ; λ = -0.0461 IC95 [-0.0480 ; -0.0442] → CONTRACTANT
+428.4s 66 [LYAPUNOV] Qwen3-1.7B-Base couche 19 : ρ(k=1) 1.051 ; ρ(k=2) 0.598 ; ρ(k=31) 0.083 ; λ = -0.0450 IC95 [-0.0470 ; -0.0431] → CONTRACTANT
+428.4s 67 [LYAPUNOV] Qwen3-1.7B-Base couche 20 : ρ(k=1) 1.061 ; ρ(k=2) 0.574 ; ρ(k=31) 0.076 ; λ = -0.0454 IC95 [-0.0474 ; -0.0436] → CONTRACTANT
+428.4s 68 [LYAPUNOV] Qwen3-1.7B-Base couche 21 : ρ(k=1) 1.058 ; ρ(k=2) 0.540 ; ρ(k=31) 0.077 ; λ = -0.0435 IC95 [-0.0454 ; -0.0416] → CONTRACTANT
+428.4s 69 [LYAPUNOV] Qwen3-1.7B-Base couche 22 : ρ(k=1) 1.014 ; ρ(k=2) 0.508 ; ρ(k=31) 0.076 ; λ = -0.0426 IC95 [-0.0446 ; -0.0408] → CONTRACTANT
+428.4s 70 [LYAPUNOV] Qwen3-1.7B-Base couche 23 : ρ(k=1) 0.957 ; ρ(k=2) 0.488 ; ρ(k=31) 0.073 ; λ = -0.0431 IC95 [-0.0451 ; -0.0412] → CONTRACTANT
+428.4s 71 [LYAPUNOV] Qwen3-1.7B-Base couche 24 : ρ(k=1) 0.875 ; ρ(k=2) 0.455 ; ρ(k=31) 0.071 ; λ = -0.0417 IC95 [-0.0437 ; -0.0398] → CONTRACTANT
+428.4s 72 [LYAPUNOV] Qwen3-1.7B-Base couche 25 : ρ(k=1) 0.814 ; ρ(k=2) 0.430 ; ρ(k=31) 0.070 ; λ = -0.0405 IC95 [-0.0426 ; -0.0386] → CONTRACTANT
+428.4s 73 [LYAPUNOV] Qwen3-1.7B-Base couche 26 : ρ(k=1) 0.723 ; ρ(k=2) 0.387 ; ρ(k=31) 0.067 ; λ = -0.0387 IC95 [-0.0407 ; -0.0368] → CONTRACTANT
+428.4s 74 [LYAPUNOV] Qwen3-1.7B-Base couche 27 : ρ(k=1) 0.845 ; ρ(k=2) 0.517 ; ρ(k=31) 0.134 ; λ = -0.0306 IC95 [-0.0328 ; -0.0286] → CONTRACTANT
+428.4s 75 [V1] Qwen3-1.7B-Base Lyapunov empirique, dernière couche : λ = -0.0306 IC95 [-0.0328 ; -0.0286] → CONTRACTANT ; couches DIVERGENT : 0 sur 28
+428.4s 76 [V2] Qwen3-1.7B-Base norme avant la normalisation finale, rejoué / témoin (k = 2–31) : 1.0901 IC95 [1.0852 ; 1.0953] → HAUSSE PERSISTANTE ; à k = 1 : 1.0863
+428.4s 77 [V3] Qwen3-1.7B-Base cos(δ, ∇S) moyen (k = 2–31) : +0.0134 IC95 [+0.0128 ; +0.0140] → POUSSE VERS L'ENTROPIE ; prédiction au premier ordre g·δ contre écart réel : corrélation +0.538, moyenne prédite / réelle +0.58 ; à k = 1 : cos +0.0143
+428.4s 78 [V4] Qwen3-1.7B-Base couche d'ablation l* = 15 (ρ moyen sur la calibration 0.157 ; choisie parmi les couches 0 à 26)
+461.0s 79 [V4] Qwen3-1.7B-Base v₁ : part de variance du premier axe des δ 0.097 (critère 0,5 d'Argon, descriptif) ; |cos(v₁, δ moyen)| 0.876 ; variance projetée des témoins aléatoires / celle de v₁ : médiane 2.05 [1.26 ; 3.25]
+608.3s 80 [PROGRESSION] Qwen3-1.7B-Base ablations : une condition en 147 s ; estimation ~54 min pour 22 conditions
+608.4s 81 [VÉRIF] Qwen3-1.7B-Base crochet d'ablation : |⟨h, v₁⟩| / ‖h‖ après projection, max 1.6e-04
+3751.1s 82 [V4] Qwen3-1.7B-Base test (384 prompts) sans ablation : D = +0.0887, I = +0.0428 → AMPLIFICATION
+3751.1s 83 [V4] Qwen3-1.7B-Base v₁ retiré : D = +0.2161, I = +0.0076 ; témoins aléatoires : I médian +0.0507 [+0.0252 ; +0.0794], D médian +0.0884
+3751.1s 84 [V4] Qwen3-1.7B-Base dégât sur le témoin (entropie moyenne k = 2–31) : aucune 0.742 ; v₁ 0.066 ; aléatoires médiane 0.733 ; choc égal au jeton du témoin : 0.0%
+3751.1s 85 [V4] Qwen3-1.7B-Base réduction de I par v₁ : r = +0.82 IC95 [+0.17 ; +1.22] ; sous les 20 témoins : True → CONTRIBUTION SPÉCIFIQUE
+3751.1s 86 [DURÉE] Qwen3-1.7B-Base : 62.1 min
+3751.2s 87 
+3751.2s 88 [CHARGEMENT] SmolLM3-3B-Base : téléchargement / chargement de HuggingFaceTB/SmolLM3-3B-Base…
+3787.6s 89 [CHARGEMENT] SmolLM3-3B-Base : HuggingFaceTB/SmolLM3-3B-Base en fp16 1 GPU
+4114.3s 90 [MESURE] SmolLM3-3B-Base génération témoin + choc : 322 s ; rang médian du choc 3103, surprise médiane 17.09 nats
+4231.1s 91 [VÉRIF] SmolLM3-3B-Base témoin rejoué contre généré : écart moyen 1.1e-03, max 1.6e-02
+4231.3s 92 [F] SmolLM3-3B-Base sans ablation, 768 prompts : D = +0.0751 ; I = +0.0424 IC95 [+0.0274 ; +0.0571] → AMPLIFICATION (reproduction de A1c)
+4323.9s 93 [VÉRIF] SmolLM3-3B-Base : entrée de la normalisation finale contre sortie de la dernière couche : écart max 0.0e+00 ; écart avant le choc (k = 0) : ρ max 0.0e+00 ; passes avec états cachés : 93 s
+4324.1s 94 
+4324.1s 95 ====================================================================================================
+4324.1s 96 [RÉSULTATS] SmolLM3-3B-Base (T = 0.6) : 768 prompts, 36 couches
+4327.6s 97 [LYAPUNOV] SmolLM3-3B-Base couche  0 : ρ(k=1) 1.351 ; ρ(k=2) 0.408 ; ρ(k=31) 0.007 ; λ = -0.0773 IC95 [-0.0788 ; -0.0760] → CONTRACTANT
+4327.6s 98 [LYAPUNOV] SmolLM3-3B-Base couche  1 : ρ(k=1) 1.342 ; ρ(k=2) 0.696 ; ρ(k=31) 0.013 ; λ = -0.0912 IC95 [-0.0931 ; -0.0892] → CONTRACTANT
+4327.6s 99 [LYAPUNOV] SmolLM3-3B-Base couche  2 : ρ(k=1) 1.332 ; ρ(k=2) 0.790 ; ρ(k=31) 0.028 ; λ = -0.0822 IC95 [-0.0840 ; -0.0803] → CONTRACTANT
+4327.6s 100 [LYAPUNOV] SmolLM3-3B-Base couche  3 : ρ(k=1) 1.318 ; ρ(k=2) 0.744 ; ρ(k=31) 0.044 ; λ = -0.0626 IC95 [-0.0641 ; -0.0611] → CONTRACTANT
+4327.6s 101 [LYAPUNOV] SmolLM3-3B-Base couche  4 : ρ(k=1) 1.267 ; ρ(k=2) 0.725 ; ρ(k=31) 0.051 ; λ = -0.0619 IC95 [-0.0634 ; -0.0603] → CONTRACTANT
+4327.6s 102 [LYAPUNOV] SmolLM3-3B-Base couche  5 : ρ(k=1) 1.298 ; ρ(k=2) 0.868 ; ρ(k=31) 0.056 ; λ = -0.0657 IC95 [-0.0674 ; -0.0641] → CONTRACTANT
+4327.6s 103 [LYAPUNOV] SmolLM3-3B-Base couche  6 : ρ(k=1) 1.272 ; ρ(k=2) 0.928 ; ρ(k=31) 0.064 ; λ = -0.0677 IC95 [-0.0695 ; -0.0659] → CONTRACTANT
+4327.6s 104 [LYAPUNOV] SmolLM3-3B-Base couche  7 : ρ(k=1) 1.259 ; ρ(k=2) 0.886 ; ρ(k=31) 0.066 ; λ = -0.0637 IC95 [-0.0655 ; -0.0619] → CONTRACTANT
+4327.6s 105 [LYAPUNOV] SmolLM3-3B-Base couche  8 : ρ(k=1) 1.250 ; ρ(k=2) 0.929 ; ρ(k=31) 0.074 ; λ = -0.0628 IC95 [-0.0645 ; -0.0609] → CONTRACTANT
+4327.6s 106 [LYAPUNOV] SmolLM3-3B-Base couche  9 : ρ(k=1) 1.235 ; ρ(k=2) 0.926 ; ρ(k=31) 0.076 ; λ = -0.0635 IC95 [-0.0653 ; -0.0616] → CONTRACTANT
+4327.6s 107 [LYAPUNOV] SmolLM3-3B-Base couche 10 : ρ(k=1) 1.167 ; ρ(k=2) 0.926 ; ρ(k=31) 0.081 ; λ = -0.0617 IC95 [-0.0636 ; -0.0598] → CONTRACTANT
+4327.6s 108 [LYAPUNOV] SmolLM3-3B-Base couche 11 : ρ(k=1) 1.207 ; ρ(k=2) 0.961 ; ρ(k=31) 0.084 ; λ = -0.0607 IC95 [-0.0626 ; -0.0587] → CONTRACTANT
+4327.6s 109 [LYAPUNOV] SmolLM3-3B-Base couche 12 : ρ(k=1) 1.221 ; ρ(k=2) 1.019 ; ρ(k=31) 0.090 ; λ = -0.0613 IC95 [-0.0633 ; -0.0593] → CONTRACTANT
+4327.6s 110 [LYAPUNOV] SmolLM3-3B-Base couche 13 : ρ(k=1) 1.240 ; ρ(k=2) 1.034 ; ρ(k=31) 0.097 ; λ = -0.0596 IC95 [-0.0615 ; -0.0577] → CONTRACTANT
+4327.6s 111 [LYAPUNOV] SmolLM3-3B-Base couche 14 : ρ(k=1) 1.171 ; ρ(k=2) 0.950 ; ρ(k=31) 0.107 ; λ = -0.0559 IC95 [-0.0577 ; -0.0541] → CONTRACTANT
+4327.6s 112 [LYAPUNOV] SmolLM3-3B-Base couche 15 : ρ(k=1) 1.203 ; ρ(k=2) 0.947 ; ρ(k=31) 0.112 ; λ = -0.0530 IC95 [-0.0548 ; -0.0510] → CONTRACTANT
+4327.6s 113 [LYAPUNOV] SmolLM3-3B-Base couche 16 : ρ(k=1) 1.192 ; ρ(k=2) 0.943 ; ρ(k=31) 0.110 ; λ = -0.0534 IC95 [-0.0552 ; -0.0515] → CONTRACTANT
+4327.6s 114 [LYAPUNOV] SmolLM3-3B-Base couche 17 : ρ(k=1) 1.138 ; ρ(k=2) 0.881 ; ρ(k=31) 0.114 ; λ = -0.0500 IC95 [-0.0518 ; -0.0481] → CONTRACTANT
+4327.6s 115 [LYAPUNOV] SmolLM3-3B-Base couche 18 : ρ(k=1) 1.088 ; ρ(k=2) 0.820 ; ρ(k=31) 0.109 ; λ = -0.0492 IC95 [-0.0509 ; -0.0472] → CONTRACTANT
+4327.6s 116 [LYAPUNOV] SmolLM3-3B-Base couche 19 : ρ(k=1) 1.121 ; ρ(k=2) 0.797 ; ρ(k=31) 0.111 ; λ = -0.0467 IC95 [-0.0485 ; -0.0448] → CONTRACTANT
+4327.6s 117 [LYAPUNOV] SmolLM3-3B-Base couche 20 : ρ(k=1) 1.148 ; ρ(k=2) 0.791 ; ρ(k=31) 0.105 ; λ = -0.0475 IC95 [-0.0494 ; -0.0456] → CONTRACTANT
+4327.6s 118 [LYAPUNOV] SmolLM3-3B-Base couche 21 : ρ(k=1) 1.100 ; ρ(k=2) 0.731 ; ρ(k=31) 0.103 ; λ = -0.0462 IC95 [-0.0480 ; -0.0444] → CONTRACTANT
+4327.6s 119 [LYAPUNOV] SmolLM3-3B-Base couche 22 : ρ(k=1) 1.082 ; ρ(k=2) 0.745 ; ρ(k=31) 0.099 ; λ = -0.0473 IC95 [-0.0491 ; -0.0454] → CONTRACTANT
+4327.6s 120 [LYAPUNOV] SmolLM3-3B-Base couche 23 : ρ(k=1) 1.123 ; ρ(k=2) 0.697 ; ρ(k=31) 0.099 ; λ = -0.0449 IC95 [-0.0468 ; -0.0430] → CONTRACTANT
+4327.6s 121 [LYAPUNOV] SmolLM3-3B-Base couche 24 : ρ(k=1) 1.131 ; ρ(k=2) 0.670 ; ρ(k=31) 0.097 ; λ = -0.0443 IC95 [-0.0462 ; -0.0424] → CONTRACTANT
+4327.6s 122 [LYAPUNOV] SmolLM3-3B-Base couche 25 : ρ(k=1) 1.133 ; ρ(k=2) 0.659 ; ρ(k=31) 0.094 ; λ = -0.0447 IC95 [-0.0467 ; -0.0428] → CONTRACTANT
+4327.6s 123 [LYAPUNOV] SmolLM3-3B-Base couche 26 : ρ(k=1) 1.129 ; ρ(k=2) 0.656 ; ρ(k=31) 0.091 ; λ = -0.0451 IC95 [-0.0471 ; -0.0432] → CONTRACTANT
+4327.6s 124 [LYAPUNOV] SmolLM3-3B-Base couche 27 : ρ(k=1) 1.138 ; ρ(k=2) 0.655 ; ρ(k=31) 0.094 ; λ = -0.0441 IC95 [-0.0461 ; -0.0421] → CONTRACTANT
+4327.6s 125 [LYAPUNOV] SmolLM3-3B-Base couche 28 : ρ(k=1) 1.142 ; ρ(k=2) 0.652 ; ρ(k=31) 0.098 ; λ = -0.0427 IC95 [-0.0447 ; -0.0408] → CONTRACTANT
+4327.6s 126 [LYAPUNOV] SmolLM3-3B-Base couche 29 : ρ(k=1) 1.141 ; ρ(k=2) 0.650 ; ρ(k=31) 0.098 ; λ = -0.0428 IC95 [-0.0448 ; -0.0409] → CONTRACTANT
+4327.6s 127 [LYAPUNOV] SmolLM3-3B-Base couche 30 : ρ(k=1) 1.107 ; ρ(k=2) 0.635 ; ρ(k=31) 0.098 ; λ = -0.0421 IC95 [-0.0441 ; -0.0401] → CONTRACTANT
+4327.6s 128 [LYAPUNOV] SmolLM3-3B-Base couche 31 : ρ(k=1) 1.101 ; ρ(k=2) 0.633 ; ρ(k=31) 0.102 ; λ = -0.0412 IC95 [-0.0431 ; -0.0392] → CONTRACTANT
+4327.6s 129 [LYAPUNOV] SmolLM3-3B-Base couche 32 : ρ(k=1) 1.102 ; ρ(k=2) 0.636 ; ρ(k=31) 0.105 ; λ = -0.0406 IC95 [-0.0426 ; -0.0386] → CONTRACTANT
+4327.6s 130 [LYAPUNOV] SmolLM3-3B-Base couche 33 : ρ(k=1) 1.091 ; ρ(k=2) 0.634 ; ρ(k=31) 0.110 ; λ = -0.0395 IC95 [-0.0414 ; -0.0375] → CONTRACTANT
+4327.6s 131 [LYAPUNOV] SmolLM3-3B-Base couche 34 : ρ(k=1) 1.061 ; ρ(k=2) 0.622 ; ρ(k=31) 0.118 ; λ = -0.0373 IC95 [-0.0393 ; -0.0355] → CONTRACTANT
+4327.6s 132 [LYAPUNOV] SmolLM3-3B-Base couche 35 : ρ(k=1) 1.097 ; ρ(k=2) 0.738 ; ρ(k=31) 0.181 ; λ = -0.0326 IC95 [-0.0345 ; -0.0307] → CONTRACTANT
+4327.6s 133 [V1] SmolLM3-3B-Base Lyapunov empirique, dernière couche : λ = -0.0326 IC95 [-0.0345 ; -0.0307] → CONTRACTANT ; couches DIVERGENT : 0 sur 36
+4327.6s 134 [V2] SmolLM3-3B-Base norme avant la normalisation finale, rejoué / témoin (k = 2–31) : 1.0816 IC95 [1.0780 ; 1.0853] → HAUSSE PERSISTANTE ; à k = 1 : 1.0006
+4327.6s 135 [V3] SmolLM3-3B-Base cos(δ, ∇S) moyen (k = 2–31) : +0.0082 IC95 [+0.0077 ; +0.0087] → POUSSE VERS L'ENTROPIE ; prédiction au premier ordre g·δ contre écart réel : corrélation +0.337, moyenne prédite / réelle +0.22 ; à k = 1 : cos +0.0012
+4327.7s 136 [DURÉE] SmolLM3-3B-Base : 9.6 min
+4328.1s 137 
+4328.1s 138 ====================================================================================================
+4328.1s 139 [SYNTHÈSE] A1u — le mécanisme de l'amplification
+4328.1s 140 [SYNTHÈSE] Qwen3-1.7B-Base    : V1 CONTRACTANT    ; V2 HAUSSE PERSISTANTE ; V3 POUSSE VERS L'ENTROPIE ; V4 CONTRIBUTION SPÉCIFIQUE
+4328.1s 141 [SYNTHÈSE] SmolLM3-3B-Base    : V1 CONTRACTANT    ; V2 HAUSSE PERSISTANTE ; V3 POUSSE VERS L'ENTROPIE
+4328.1s 142 [SYNTHÈSE] thèse d'Argon « l'écart diverge dans le flux résiduel » : RÉFUTÉE (prédiction RÉFUTÉE 70 %)
+4328.1s 143 [SYNTHÈSE] thèse d'Argon « une direction unique porte l'amplification » : PARTIELLE (prédiction SOUTENUE 15 %, RÉFUTÉE 55 %)
+4328.1s 144 [SORTIE] fichiers dans /kaggle/working/sgz_a1u : ['Qwen3-1.7B-Base_a1u.npz', 'Qwen3-1.7B-Base_v1.npy', 'SmolLM3-3B-Base_a1u.npz', 'resume_a1u.json']
+4334.4s 145 /usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\|'
+4334.4s 146 cells[i][c] = re.sub('\\\\\|', '|', cell)
+4334.5s 147 /usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\_'
+4334.5s 148 text = re.sub(r'_', '\_', text) # Escape underscores in display text
+4335.3s 149 [NbConvertApp] Converting notebook __notebook__.ipynb to notebook
+4335.4s 150 [NbConvertApp] Writing 318222 bytes to __notebook__.ipynb
+4338.1s 151 [NbConvertApp] Converting notebook __notebook__.ipynb to html
+4338.8s 152 [NbConvertApp] Writing 757343 bytes to __results__.html
