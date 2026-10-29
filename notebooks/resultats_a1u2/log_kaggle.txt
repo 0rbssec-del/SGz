@@ -1,0 +1,70 @@
+7.8s 1 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+7.8s 2 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+7.8s 3 0.00s - to python to disable frozen modules.
+7.8s 4 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+8.4s 5 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+8.4s 6 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+8.4s 7 0.00s - to python to disable frozen modules.
+8.4s 8 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+30.5s 9 [CONFIG] SMOKE_TEST=False DEVICE=cuda N_GPU=2 OUT=/kaggle/working/sgz_a1u2
+30.5s 10 [CONFIG] T=[0.6] prompts=768 longueur=96 t₀=64 fenêtre k=2–31 ; 24 directions aléatoires dans 64 axes ; ablation par la moyenne à partir de t₀ ; modèles=['Qwen3-1.7B-Base']
+30.5s 11 [CONFIG] torch 2.11.0+cu128, transformers 5.16.1
+30.5s 12 [PROMPTS] 768 prompts (64 écrits à la main, 704 gabarits), mêmes que A1c–A1k
+30.5s 13 [TÉMOIN POSITIF] mécanisme principal      : MÉCANISME PRINCIPAL                    (attendu MÉCANISME PRINCIPAL)
+30.5s 14 [TÉMOIN POSITIF] contribution             : CONTRIBUTION SPÉCIFIQUE                (attendu CONTRIBUTION SPÉCIFIQUE)
+30.5s 15 [TÉMOIN POSITIF] non spécifique           : NON SPÉCIFIQUE                         (attendu NON SPÉCIFIQUE)
+30.5s 16 [TÉMOIN POSITIF] pas d'effet              : PAS D'EFFET                            (attendu PAS D'EFFET)
+30.5s 17 [TÉMOIN POSITIF] augmente                 : AUGMENTE                               (attendu AUGMENTE)
+30.5s 18 [TÉMOIN POSITIF] dégât hors des témoins   : NON TESTABLE (DÉGÂT HORS DES TÉMOINS)  (attendu NON TESTABLE (DÉGÂT HORS DES TÉMOINS))
+30.5s 19 [TÉMOIN POSITIF] sans amplification       : NON TESTABLE (sans ablation : ÉQUIVALENT) (attendu NON TESTABLE (sans ablation : ÉQUIVALENT))
+30.5s 20 [TÉMOIN POSITIF] synthèse soutenue        : SOUTENUE (contribution spécifique)     (attendu SOUTENUE (contribution spécifique))
+30.5s 21 [TÉMOIN POSITIF] synthèse réfutée         : RÉFUTÉE                                (attendu RÉFUTÉE)
+30.5s 22 [TÉMOIN POSITIF] ajustement : résidu      : très négatif                           (attendu très négatif)
+30.5s 23 [TÉMOIN POSITIF] RÉUSSI
+30.7s 24 
+30.7s 25 [CHARGEMENT] Qwen3-1.7B-Base : téléchargement / chargement de Qwen/Qwen3-1.7B-Base…
+39.9s 26 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+39.9s 27 
+39.9s 28 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+66.3s 29 [CHARGEMENT] Qwen3-1.7B-Base : Qwen/Qwen3-1.7B-Base en fp16 sur 2 GPU
+304.1s 30 [MESURE] Qwen3-1.7B-Base génération témoin + choc : 238 s ; rang médian du choc 3103, surprise médiane 16.73 nats
+304.8s 31 /usr/local/lib/python3.13/dist-packages/torch/autograd/graph.py:869: UserWarning: The AccumulateGrad node's stream does not match the stream of the node that produced the incoming gradient. This may incur unnecessary synchronization and break CUDA graph capture if the AccumulateGrad node's stream is the default stream. This mismatch is caused by an AccumulateGrad node created prior to the current iteration being kept alive. This can happen if the autograd graph is still being kept alive by tensors such as the loss, or if you are using DDP, which will stash a reference to the node. To resolve the mismatch, delete all references to the autograd graph or ensure that DDP initialization is performed under the same stream as subsequent forwards. If the mismatch is intentional, you can use torch.autograd.graph.set_warn_on_accumulate_grad_stream_mismatch(False) to suppress this warning. (Triggered internally at /pytorch/torch/csrc/autograd/input_buffer.cpp:240.)
+304.8s 32 return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+304.8s 33 
+304.8s 34 /usr/local/lib/python3.13/dist-packages/torch/autograd/graph.py:869: UserWarning: The AccumulateGrad node's stream does not match the stream of the node that produced the incoming gradient. This may incur unnecessary synchronization and break CUDA graph capture if the AccumulateGrad node's stream is the default stream. This mismatch is caused by an AccumulateGrad node created prior to the current iteration being kept alive. This can happen if the autograd graph is still being kept alive by tensors such as the loss, or if you are using DDP, which will stash a reference to the node. To resolve the mismatch, delete all references to the autograd graph or ensure that DDP initialization is performed under the same stream as subsequent forwards. If the mismatch is intentional, you can use torch.autograd.graph.set_warn_on_accumulate_grad_stream_mismatch(False) to suppress this warning. (Triggered internally at /pytorch/torch/csrc/autograd/input_buffer.cpp:240.)
+304.8s 35 return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+362.9s 36 [ANCRAGE] Qwen3-1.7B-Base : couche l* recalculée 15 (A1u : 15) ; |cos(v₁ recalculé, v₁ d'A1u)| 1.0000 ; MD5 de v₁ embarqué conforme : True
+362.9s 37 [CONFIG] Qwen3-1.7B-Base : ablation à la couche 15, v₁ celui d'A1u
+364.4s 38 [MOYENNE] Qwen3-1.7B-Base projection du témoin à l* : v₁ m = -61.777, écart-type 11.583, |m| / é.-t. 5.33 ; témoins aléatoires |m| / é.-t. médiane 0.63 [0.05 ; 2.38] ; v₁ au-dessus de tous : True
+445.0s 39 [VÉRIF] Qwen3-1.7B-Base sans ablation, régénéré à partir de t₀ : suites du témoin différentes de la génération complète 5.5% (bascules numériques possibles en fp16)
+445.0s 40 [PROGRESSION] Qwen3-1.7B-Base ablations : une condition en 81 s ; estimation ~38 min pour 28 conditions
+445.2s 41 [VÉRIF] Qwen3-1.7B-Base crochet v1_moyenne : |⟨h, v⟩ − m| / ‖h‖ après t₀, max 8.7e-05 ; écart avant t₀ (doit être 0) : 0.0e+00
+607.6s 42 [VÉRIF] Qwen3-1.7B-Base crochet v1_zero : |⟨h, v⟩ − m| / ‖h‖ après t₀, max 6.8e-05 ; écart avant t₀ (doit être 0) : 0.0e+00
+2628.8s 43 [MESURE] Qwen3-1.7B-Base ablations : 2265 s
+2629.2s 44 
+2629.2s 45 ====================================================================================================
+2629.2s 46 [RÉSULTATS] Qwen3-1.7B-Base : 384 prompts de test, couche 15
+2629.2s 47 [F] Qwen3-1.7B-Base sans ablation : D = +0.0899 ; I = +0.0399 IC95 [+0.0166 ; +0.0622] → AMPLIFICATION (A1u, mêmes prompts : I = +0.0428)
+2629.2s 48 [DÉGÂT] Qwen3-1.7B-Base v1_moyenne : entropie du témoin 0.758 (sans ablation 0.750, d = +0.008) ; suites du témoin changées 37% ; D = +0.0722 ; I = +0.0467
+2629.2s 49 [DÉGÂT] Qwen3-1.7B-Base v1_moitie  : entropie du témoin 0.756 (sans ablation 0.750, d = +0.006) ; suites du témoin changées 23% ; D = +0.0810 ; I = +0.0477
+2629.2s 50 [DÉGÂT] Qwen3-1.7B-Base v1_zero    : entropie du témoin 0.867 (sans ablation 0.750, d = +0.117) ; suites du témoin changées 93% ; D = +0.0805 ; I = +0.0363
+2629.2s 51 [DÉGÂT] Qwen3-1.7B-Base témoins aléatoires : d médian +0.003 [-0.005 ; +0.011] ; suites changées médiane 50% ; D médian +0.0894 ; I médian +0.0391 [+0.0312 ; +0.0498]
+2629.2s 52 [V4b] Qwen3-1.7B-Base v₁ par la moyenne : r = 1 − I(v₁) / I(aucune) = -0.17 IC95 [-0.97 ; +0.24] ; témoins avec un I plus bas : 22 sur 24 ; dégât dans la plage des témoins : True → PAS D'EFFET
+2629.2s 53 [V4b] Qwen3-1.7B-Base ajusté au dégât (droite I ~ d sur les témoins, pente -0.503) : résidu de v₁ +0.0093, soit +1.9 écarts-types ; 23 témoins sur 24 ont un résidu plus bas
+2629.2s 54 [V4b] Qwen3-1.7B-Base repli, v₁ retiré à moitié : r = -0.19 IC95 [-0.88 ; +0.16] ; dégât dans la plage : True → PAS D'EFFET (non utilisé)
+2629.2s 55 [V4b] Qwen3-1.7B-Base v₁ par zéro (descriptif) : r = +0.09 IC95 [-0.76 ; +0.69] ; dégât dans la plage : False → NON TESTABLE (DÉGÂT HORS DES TÉMOINS)
+2629.2s 56 [DURÉE] Qwen3-1.7B-Base : 43.3 min
+2629.3s 57 
+2629.3s 58 ====================================================================================================
+2629.3s 59 [SYNTHÈSE] A1u2 — la direction v₁ porte-t-elle l'amplification, à dégât égal ?
+2629.3s 60 [SYNTHÈSE] Qwen3-1.7B-Base    : V4b PAS D'EFFET ; repli PAS D'EFFET (non utilisé) ; v₁ par zéro (descriptif) NON TESTABLE (DÉGÂT HORS DES TÉMOINS)
+2629.3s 61 [SYNTHÈSE] thèse « à dégât égal, v₁ porte une part spécifique de l'amplification » : RÉFUTÉE (prédiction : SOUTENUE 35 %, RÉFUTÉE 50 %, NON TESTABLE 15 %)
+2629.3s 62 [SORTIE] fichiers dans /kaggle/working/sgz_a1u2 : ['Qwen3-1.7B-Base_a1u2.npz', 'resume_a1u2.json']
+2635.1s 63 /usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\|'
+2635.1s 64 cells[i][c] = re.sub('\\\\\|', '|', cell)
+2635.3s 65 /usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\_'
+2635.3s 66 text = re.sub(r'_', '\_', text) # Escape underscores in display text
+2636.0s 67 [NbConvertApp] Converting notebook __notebook__.ipynb to notebook
+2636.1s 68 [NbConvertApp] Writing 194444 bytes to __notebook__.ipynb
+2638.5s 69 [NbConvertApp] Converting notebook __notebook__.ipynb to html
+2639.3s 70 [NbConvertApp] Writing 672965 bytes to __results__.html

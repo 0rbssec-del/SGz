@@ -1,0 +1,3 @@
+[D] v1_moyenne  D / D(aucune) = 0.802 IC95 [0.777 ; 0.826] ; témoins aléatoires 0.980 à 1.010 (médiane 0.994) ; témoins plus bas : 0 sur 24
+[D] v1_moitie   D / D(aucune) = 0.900 IC95 [0.883 ; 0.916] ; témoins aléatoires 0.980 à 1.010 (médiane 0.994) ; témoins plus bas : 0 sur 24
+[D] v1_zero     D / D(aucune) = 0.895 IC95 [0.851 ; 0.945] ; témoins aléatoires 0.980 à 1.010 (médiane 0.994) ; témoins plus bas : 0 sur 24
