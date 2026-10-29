@@ -29,7 +29,8 @@
 #
 # - **Préalable** : I₀ doit être AMPLIFICATION (règle F) ; sinon tout est NON TESTABLE.
 # - **Contrôles du crochet** (bloquants) : débruitage à l = −1 → la suite libre redonne le témoin pour ≥ 90 % des prompts et
-#   |D| < 0,002 ; débruitage à la dernière couche → la loi du jeton t₀ + 1 redevient celle du témoin (écart < 0,02) ; bruitage à l = −1 → la suite libre redonne le choc sans crochet pour ≥ 90 % des prompts.
+#   |D| < 0,002 ; débruitage à la dernière couche → la loi du jeton t₀ + 1 redevient celle du témoin (écart moyen < 0,005 ;
+#   le témoin rejoué contre généré diffère déjà de ~1,5e-3 en moyenne et jusqu'à 3e-2 en fp16) ; bruitage à l = −1 → la suite libre redonne le choc sans crochet pour ≥ 90 % des prompts.
 # - **Y1 (principal), profondeur de lecture** : l₅₀ = plus petite couche de la grille telle que f_déb(l) ≥ 0,5 (la moitié de
 #   l'amplification revient dès que le choc est visible jusqu'à la couche l). Sur 28 couches : PRÉCOCE si la borne haute de
 #   l'IC95 de l₅₀ < 28/3 ; TARDIVE si la borne basse ≥ 2 × 28/3 ; INTERMÉDIAIRE si l'IC95 est entre les deux ; NON ATTEINT
@@ -840,7 +841,7 @@ for label, ids_m in MODELS:
                     Dd[l], Id[l] = moyw(S_r) - moyw(S_tem), moyw(S_l) - moyw(S_r)
                     sim[("deb", l)] = float(np.mean((suite == tokm[:, T1 + 1:T1 + 1 + NSUITE]).all(1)))
                     if l == nl - 1:                  # dernière couche : la loi du jeton t₀ + 1 doit redevenir celle du témoin
-                        k1_dern = float(np.abs(S_r[:, 1] - S_tem[:, 1]).max())
+                        k1_dern = float(np.abs(S_r[:, 1] - S_tem[:, 1]).mean())   # moyenne : le max subit le bruit fp16
                 else:                                # témoin, état de t₀ choqué à la couche l
                     val = H_c[l]
                     suite = generer(g, enc, idx, tokm, own, val)
@@ -854,10 +855,10 @@ for label, ids_m in MODELS:
         print(f"[MESURE] {label} patching : {time.time() - tp:.0f} s", flush=True)
 
         print(f"\n{'=' * 100}\n[RÉSULTATS] {label} : {P} prompts, {nl} couches")
-        c_deb = sim[("deb", -1)] >= 0.9 and abs(Dd[-1].mean()) < 0.002 and k1_dern < 0.02
+        c_deb = sim[("deb", -1)] >= 0.9 and abs(Dd[-1].mean()) < 0.002 and k1_dern < 5e-3
         c_bru = sim[("bru", -1)] >= 0.9
         print(f"[VÉRIF] {label} débruitage complet (l = −1) : suite identique au témoin {sim[('deb', -1)]:.1%}, D = "
-              f"{Dd[-1].mean():+.5f}, à la dernière couche loi de t₀ + 1 rendue au témoin (écart max {k1_dern:.1e}) → "
+              f"{Dd[-1].mean():+.5f}, à la dernière couche loi de t₀ + 1 rendue au témoin (écart moyen {k1_dern:.1e}) → "
               f"{'OK' if c_deb else 'ÉCHEC'} ; bruitage complet (l = −1) : suite identique au choc "
               f"{sim[('bru', -1)]:.1%}, I = {In[-1].mean():+.4f} (I₀ {I0.mean():+.4f}) → {'OK' if c_bru else 'ÉCHEC'}")
         ok_c = ok and c_deb and c_bru
