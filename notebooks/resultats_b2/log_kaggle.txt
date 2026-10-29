@@ -1,0 +1,91 @@
+8.1s 1 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+8.1s 2 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+8.1s 3 0.00s - to python to disable frozen modules.
+8.1s 4 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+8.7s 5 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+8.7s 6 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+8.7s 7 0.00s - to python to disable frozen modules.
+8.7s 8 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+39.6s 9 [CONFIG] SMOKE_TEST=False DEVICE=cuda N_GPU=2 OUT=/kaggle/working/sgz_b2
+39.6s 10 [CONFIG] T=[0.6, 1.0] prompts=64 suites par prompt=192 longueur=32 composantes=10 ; modèles=['Qwen3-1.7B-Base', 'SmolLM3-3B-Base']
+39.6s 11 [CONFIG] torch 2.11.0+cu128, transformers 5.16.1, diptest 0.12.0
+39.6s 12 [PROMPTS] 64 prompts, 32 paires pour la puissance
+42.3s 13 [TÉMOIN] taux de rejet du test : gaussienne 0%, asymétrique 0%, mélange à 4 écarts-types 45%, à 6 écarts-types 100%
+42.3s 14 [TÉMOIN] gaussienne anisotrope : rejets ≤ 15 %        : OK
+42.3s 15 [TÉMOIN] loi asymétrique unimodale : rejets ≤ 15 %    : OK
+42.3s 16 [TÉMOIN] mélange à 6 écarts-types : rejets ≥ 80 %     : OK
+42.3s 17 [TÉMOIN] règle BASSINS                                : OK
+42.3s 18 [TÉMOIN] règle CONTINUUM                              : OK
+42.3s 19 [TÉMOIN] règle MIXTE                                  : OK
+42.3s 20 [TÉMOIN] règle sans puissance                         : OK
+42.3s 21 [TÉMOIN] règle mal calibrée                           : OK
+42.3s 22 [TÉMOIN] synthèse soutenue                            : OK
+42.3s 23 [TÉMOIN] synthèse réfutée                             : OK
+42.3s 24 [TÉMOIN] synthèse dépend                              : OK
+42.3s 25 [TÉMOIN] synthèse partielle                           : OK
+42.3s 26 [TÉMOIN] BH                                           : OK
+42.3s 27 [TÉMOIN] RÉUSSI
+42.4s 28 
+42.4s 29 [CHARGEMENT] Qwen3-1.7B-Base : téléchargement / chargement de Qwen/Qwen3-1.7B-Base…
+50.2s 30 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+50.2s 31 
+50.2s 32 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+80.3s 33 [CHARGEMENT] Qwen3-1.7B-Base : Qwen/Qwen3-1.7B-Base en fp16 1 GPU
+83.4s 34 [PROGRESSION] Qwen3-1.7B-Base : premier lot en 3.3 s ; estimation ~28 min (génération)
+794.9s 35 [VÉRIF] Qwen3-1.7B-Base reprise des suites des 2 premiers prompts dans des lots de taille 19 : jetons identiques 96.5%
+794.9s 36 [MESURE] Qwen3-1.7B-Base T = 0.6 : 715 s ; part de suites distinctes : médiane 100%, min 55% ; entropie moyenne 0.891
+806.2s 37 [B2-h] Qwen3-1.7B-Base T = 0.6 : prompts multimodaux 12/64 (π = 0.19, IC95 [0.11 ; 0.30]) ; dip médian 0.0372 ; substitut gaussien 0% ; mélanges de deux prompts 100% → MIXTE
+808.9s 38 [B2-S] Qwen3-1.7B-Base T = 0.6 : prompts multimodaux 5/64 (π = 0.08, IC95 [0.03 ; 0.17]) ; dip médian 0.0324 ; substitut gaussien 0% ; mélanges de deux prompts 47% → NON INTERPRÉTABLE (test sans puissance)
+820.7s 39 [couche finale, descriptif] Qwen3-1.7B-Base T = 0.6 : prompts multimodaux 7/64 (π = 0.11, IC95 [0.05 ; 0.21]) ; dip médian 0.0371 ; substitut gaussien 0% ; mélanges de deux prompts 100% → MIXTE
+821.2s 40 [EXEMPLE] Qwen3-1.7B-Base prompt 8 « La photosynthèse est le processus par lequel » bassin 0 (42%) : «  les plantes se nourrissent de l'air, de l'eau et du soleil pour produire de l'énergie. Le » | «  les plantes et les algues convertissent la lumière du soleil en énergie chimique, en util »
+821.2s 41 [EXEMPLE] Qwen3-1.7B-Base prompt 8 « La photosynthèse est le processus par lequel » bassin 1 (58%) : «  les plantes, les algues et certaines bactéries transforment la lumière du soleil en énerg » | «  les plantes, les algues et les certaines bactéries utilisent le dioxyde de carbone et l'e »
+821.7s 42 [EXEMPLE] Qwen3-1.7B-Base prompt 21 « La lumière se propage dans le vide à » bassin 0 (22%) : «  la vitesse de \(3 \times 10^8\) m/s. Le rayon d’une étoile peut atteindre 100 » | «  une vitesse de \(3 \times 10^8\) m/s. Comment puis-je déterminer le temps qu'il faut pour »
+821.7s 43 [EXEMPLE] Qwen3-1.7B-Base prompt 21 « La lumière se propage dans le vide à » bassin 1 (78%) : «  la vitesse de 300 000 km/s. Calculer le temps nécessaire pour que l’énergie produite par  » | «  une vitesse de 299 792 458 m/s. Cela signifie que la lumière a parcouru 1 »
+822.2s 44 [EXEMPLE] Qwen3-1.7B-Base prompt 30 « Le joueur a marqué un but à la dernière minute » bassin 0 (48%) : «  dans une rencontre de ligue de la Ligue de la Ligue de l’Équipe Professionnelle (LFP), la » | «  pour donner le match, ajoute la suite. Seul le but marqué par le joueur de Manchester Cit »
+822.2s 45 [EXEMPLE] Qwen3-1.7B-Base prompt 30 « Le joueur a marqué un but à la dernière minute » bassin 1 (52%) : «  pour lui donner le commandement.这句话的语法分析 这句话的语法结构可以分解如下：  1. **主语 (Subject)**: "Le joueur » | «  et le score devient 3-2. La victoire est donc acquise. Le jeu est complètement terminé et »
+826.9s 46 [BIFURCATION] Qwen3-1.7B-Base T = 0.6 (12 prompts multimodaux) : bifurcation trouvée 3/12 ; k* médian 4 ; k* ≤ 4 : 67% ; entropie à k* / autres positions : médiane 2.63
+1520.6s 47 [MESURE] Qwen3-1.7B-Base T = 1.0 : 683 s ; part de suites distinctes : médiane 100%, min 94% ; entropie moyenne 1.031
+1532.5s 48 [B2-h, descriptif] Qwen3-1.7B-Base T = 1.0 : prompts multimodaux 0/64 (π = 0.00, IC95 [0.00 ; 0.06]) ; dip médian 0.0304 ; substitut gaussien 0% ; mélanges de deux prompts 100% → CONTINUUM
+1535.4s 49 [B2-S, descriptif] Qwen3-1.7B-Base T = 1.0 : prompts multimodaux 0/64 (π = 0.00, IC95 [0.00 ; 0.06]) ; dip médian 0.0284 ; substitut gaussien 0% ; mélanges de deux prompts 0% → NON INTERPRÉTABLE (test sans puissance)
+1547.6s 50 [couche finale, descriptif] Qwen3-1.7B-Base T = 1.0 : prompts multimodaux 0/64 (π = 0.00, IC95 [0.00 ; 0.06]) ; dip médian 0.0295 ; substitut gaussien 0% ; mélanges de deux prompts 100% → CONTINUUM
+1558.5s 51 [DURÉE] Qwen3-1.7B-Base : 25.3 min
+1558.8s 52 
+1558.8s 53 [CHARGEMENT] SmolLM3-3B-Base : téléchargement / chargement de HuggingFaceTB/SmolLM3-3B-Base…
+1597.8s 54 [CHARGEMENT] SmolLM3-3B-Base : HuggingFaceTB/SmolLM3-3B-Base en fp16 1 GPU
+1599.9s 55 [PROGRESSION] SmolLM3-3B-Base : premier lot en 2.3 s ; estimation ~29 min (génération)
+2699.8s 56 [VÉRIF] SmolLM3-3B-Base reprise des suites des 2 premiers prompts dans des lots de taille 11 : jetons identiques 98.3%
+2699.8s 57 [MESURE] SmolLM3-3B-Base T = 0.6 : 1102 s ; part de suites distinctes : médiane 100%, min 6% ; entropie moyenne 0.844
+2710.8s 58 [B2-h] SmolLM3-3B-Base T = 0.6 : prompts multimodaux 9/64 (π = 0.14, IC95 [0.08 ; 0.25]) ; dip médian 0.0319 ; substitut gaussien 0% ; mélanges de deux prompts 100% → MIXTE
+2713.4s 59 [B2-S] SmolLM3-3B-Base T = 0.6 : prompts multimodaux 5/64 (π = 0.08, IC95 [0.03 ; 0.17]) ; dip médian 0.0307 ; substitut gaussien 0% ; mélanges de deux prompts 41% → NON INTERPRÉTABLE (test sans puissance)
+2725.2s 60 [couche finale, descriptif] SmolLM3-3B-Base T = 0.6 : prompts multimodaux 8/64 (π = 0.12, IC95 [0.06 ; 0.23]) ; dip médian 0.0313 ; substitut gaussien 0% ; mélanges de deux prompts 100% → MIXTE
+2725.6s 61 [transformers] Ignoring clean_up_tokenization_spaces=True for BPE tokenizer TokenizersBackend. The clean_up_tokenization post-processing step is designed for WordPiece tokenizers and is destructive for BPE (it strips spaces before punctuation). Set clean_up_tokenization_spaces=False to suppress this warning, or set clean_up_tokenization_spaces_for_bpe_even_though_it_will_corrupt_output=True to force cleanup anyway.
+2725.6s 62 
+2725.6s 63 [transformers] Ignoring clean_up_tokenization_spaces=True for BPE tokenizer TokenizersBackend. The clean_up_tokenization post-processing step is designed for WordPiece tokenizers and is destructive for BPE (it strips spaces before punctuation). Set clean_up_tokenization_spaces=False to suppress this warning, or set clean_up_tokenization_spaces_for_bpe_even_though_it_will_corrupt_output=True to force cleanup anyway.
+2725.8s 64 [EXEMPLE] SmolLM3-3B-Base prompt 35 « To bake a loaf of bread, you first need to » bassin 0 (50%) : «  mix the ingredients. You can mix the ingredients by hand or with a mixer. Once the ingred » | «  prepare the dough. The dough needs to be allowed to rise for a while, and then the bread  »
+2725.8s 65 [EXEMPLE] SmolLM3-3B-Base prompt 35 « To bake a loaf of bread, you first need to » bassin 1 (50%) : «  use a bread machine. That’s the easy part. The hard part is making sure the bread is bake » | «  knead the dough. Mixing flour with water produces a sticky dough that needs to be worked  »
+2726.3s 66 [EXEMPLE] SmolLM3-3B-Base prompt 36 « The history of the Roman Empire begins with » bassin 0 (45%) : «  the godly sovereign Augustus. He was born in 63 BC, and died in 14 AD. Augustus was the f » | «  the overthrow of the Roman Kingdom, traditionally dated to 509 BC, and ends in the East w »
+2726.3s 67 [EXEMPLE] SmolLM3-3B-Base prompt 36 « The history of the Roman Empire begins with » bassin 1 (55%) : «  the establishment of the city of Rome in the Italian Peninsula, as early as the 8th centu » | «  the establishment of the Roman Kingdom in 753 BC, traditionally dated to the arrival of t »
+2726.7s 68 [EXEMPLE] SmolLM3-3B-Base prompt 43 « The weather forecast for tomorrow predicts » bassin 0 (80%) : «  that it will rain with a probability of 30%. If it rains, Alex has a 60% chance of needin » | «  that it will rain with a probability of 0.6. If it rains tomorrow, the probability that i »
+2726.7s 69 [EXEMPLE] SmolLM3-3B-Base prompt 43 « The weather forecast for tomorrow predicts » bassin 1 (20%) : «  that it will rain with a probability of 0.6. What is the probability that it will not rai » | «  that it will rain with a probability of 0.6. What is the probability that it will not rai »
+2729.7s 70 [BIFURCATION] SmolLM3-3B-Base T = 0.6 (9 prompts multimodaux) : bifurcation trouvée 1/9 ; k* médian 4 ; k* ≤ 4 : 100% ; entropie à k* / autres positions : médiane 13.62
+3781.5s 71 [MESURE] SmolLM3-3B-Base T = 1.0 : 1041 s ; part de suites distinctes : médiane 100%, min 64% ; entropie moyenne 0.954
+3793.2s 72 [B2-h, descriptif] SmolLM3-3B-Base T = 1.0 : prompts multimodaux 4/64 (π = 0.06, IC95 [0.02 ; 0.15]) ; dip médian 0.0304 ; substitut gaussien 0% ; mélanges de deux prompts 100% → CONTINUUM
+3795.9s 73 [B2-S, descriptif] SmolLM3-3B-Base T = 1.0 : prompts multimodaux 1/64 (π = 0.02, IC95 [0.00 ; 0.08]) ; dip médian 0.0286 ; substitut gaussien 0% ; mélanges de deux prompts 6% → NON INTERPRÉTABLE (test sans puissance)
+3807.6s 74 [couche finale, descriptif] SmolLM3-3B-Base T = 1.0 : prompts multimodaux 4/64 (π = 0.06, IC95 [0.02 ; 0.15]) ; dip médian 0.0312 ; substitut gaussien 0% ; mélanges de deux prompts 100% → CONTINUUM
+3809.7s 75 [BIFURCATION] SmolLM3-3B-Base T = 1.0 (4 prompts multimodaux) : bifurcation trouvée 0/4 ; k* médian nan ; k* ≤ 4 : nan% ; entropie à k* / autres positions : médiane nan
+3820.2s 76 [DURÉE] SmolLM3-3B-Base : 37.7 min
+3820.6s 77 
+3820.6s 78 ====================================================================================================
+3820.6s 79 [SYNTHÈSE] B2 — les trajectoires d'un même prompt forment-elles des bassins distincts ?
+3820.6s 80 [SYNTHÈSE] Qwen3-1.7B-Base        : B2-h MIXTE        ; B2-S NON INTERPRÉTABLE (test sans puissance)
+3820.6s 81 [SYNTHÈSE] SmolLM3-3B-Base        : B2-h MIXTE        ; B2-S NON INTERPRÉTABLE (test sans puissance)
+3820.6s 82 [SYNTHÈSE] thèse « les trajectoires d'un même prompt se rangent en bassins distincts » : PARTIELLE (prédiction SOUTENUE 20 %, RÉFUTÉE 25 %)
+3820.6s 83 [SORTIE] fichiers dans /kaggle/working/sgz_b2 : ['Qwen3-1.7B-Base_T0.6_b2.npz', 'Qwen3-1.7B-Base_T1.0_b2.npz', 'SmolLM3-3B-Base_T0.6_b2.npz', 'SmolLM3-3B-Base_T1.0_b2.npz', 'resume_b2.json']
+3826.0s 84 /usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\|'
+3826.0s 85 cells[i][c] = re.sub('\\\\\|', '|', cell)
+3826.2s 86 /usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\_'
+3826.2s 87 text = re.sub(r'_', '\_', text) # Escape underscores in display text
+3826.9s 88 [NbConvertApp] Converting notebook __notebook__.ipynb to notebook
+3827.0s 89 [NbConvertApp] Writing 291109 bytes to __notebook__.ipynb
+3829.5s 90 [NbConvertApp] Converting notebook __notebook__.ipynb to html
+3830.1s 91 [NbConvertApp] Writing 650055 bytes to __results__.html
