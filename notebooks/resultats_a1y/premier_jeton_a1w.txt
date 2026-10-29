@@ -1,0 +1,14 @@
+
+=== Qwen3-1.7B-Base
+rang     1 : premier jeton identique au témoin 18% ; I si identique +0.0022 (n=138) ; I si différent -0.0395 (n=630) ; T si identique +0.0286 ; T si différent +0.0183
+rang    50 : premier jeton identique au témoin 12% ; I si identique +0.0130 (n=90) ; I si différent -0.0088 (n=678) ; T si identique +0.0581 ; T si différent +0.0628
+rang  1000 : premier jeton identique au témoin 7% ; I si identique +0.0669 (n=51) ; I si différent +0.0188 (n=717) ; T si identique +0.1250 ; T si différent +0.0951
+rang  5000 : premier jeton identique au témoin 7% ; I si identique -0.0016 (n=54) ; I si différent +0.0321 (n=714) ; T si identique +0.0579 ; T si différent +0.1099
+rang 20000 : premier jeton identique au témoin 6% ; I si identique +0.0593 (n=44) ; I si différent +0.0463 (n=724) ; T si identique +0.1234 ; T si différent +0.1207
+
+=== SmolLM3-3B-Base
+rang     1 : premier jeton identique au témoin 18% ; I si identique -0.0063 (n=136) ; I si différent -0.0350 (n=632) ; T si identique +0.0166 ; T si différent +0.0300
+rang    50 : premier jeton identique au témoin 12% ; I si identique -0.0132 (n=89) ; I si différent +0.0019 (n=679) ; T si identique +0.0372 ; T si différent +0.0775
+rang  1000 : premier jeton identique au témoin 9% ; I si identique -0.0018 (n=66) ; I si différent +0.0341 (n=702) ; T si identique +0.0572 ; T si différent +0.1133
+rang  5000 : premier jeton identique au témoin 6% ; I si identique -0.0115 (n=48) ; I si différent +0.0435 (n=720) ; T si identique +0.0424 ; T si différent +0.1192
+rang 20000 : premier jeton identique au témoin 6% ; I si identique +0.0008 (n=48) ; I si différent +0.0578 (n=720) ; T si identique +0.0481 ; T si différent +0.1290

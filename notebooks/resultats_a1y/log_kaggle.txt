@@ -1,0 +1,86 @@
+7.3s 1 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+7.3s 2 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+7.3s 3 0.00s - to python to disable frozen modules.
+7.3s 4 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+7.9s 5 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+7.9s 6 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+7.9s 7 0.00s - to python to disable frozen modules.
+7.9s 8 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+29.6s 9 [CONFIG] SMOKE_TEST=False DEVICE=cuda N_GPU=2 OUT=/kaggle/working/sgz_a1y
+29.6s 10 [CONFIG] T=[0.6] prompts=768 longueur=96 t₀=64 fenêtre k=2–31 ; patching de la position t₀, débruitage et bruitage ; modèles=['Qwen3-1.7B-Base']
+29.6s 11 [CONFIG] torch 2.11.0+cu128, transformers 5.16.1
+29.6s 12 [PROMPTS] 768 prompts (64 écrits à la main, 704 gabarits), mêmes que A1c–A1k
+29.9s 13 [TÉMOIN POSITIF] Y1 précoce           : PRÉCOCE                                    (attendu PRÉCOCE)
+29.9s 14 [TÉMOIN POSITIF] Y1 intermédiaire     : INTERMÉDIAIRE                              (attendu INTERMÉDIAIRE)
+29.9s 15 [TÉMOIN POSITIF] Y1 tardive           : TARDIVE                                    (attendu TARDIVE)
+29.9s 16 [TÉMOIN POSITIF] Y1 non atteint       : NON ATTEINT (par la loi du jeton t₀ + 1)   (attendu NON ATTEINT (par la loi du jeton t₀ + 1))
+29.9s 17 [TÉMOIN POSITIF] Y2 additif           : ADDITIF                                    (attendu ADDITIF)
+29.9s 18 [TÉMOIN POSITIF] Y2 redondant         : REDONDANT                                  (attendu REDONDANT)
+29.9s 19 [TÉMOIN POSITIF] Y2 conjonctif        : CONJONCTIF                                 (attendu CONJONCTIF)
+29.9s 20 [TÉMOIN POSITIF] sans amplification   : NON TESTABLE (I₀ n'est pas AMPLIFICATION)  (attendu NON TESTABLE (I₀ n'est pas AMPLIFICATION))
+29.9s 21 [TÉMOIN POSITIF] synthèse soutenue    : SOUTENUE                                   (attendu SOUTENUE)
+29.9s 22 [TÉMOIN POSITIF] synthèse réfutée     : RÉFUTÉE                                    (attendu RÉFUTÉE)
+29.9s 23 [TÉMOIN POSITIF] RÉUSSI
+30.0s 24 
+30.0s 25 [CHARGEMENT] Qwen3-1.7B-Base : téléchargement / chargement de Qwen/Qwen3-1.7B-Base…
+39.1s 26 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+39.1s 27 
+39.1s 28 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+64.9s 29 [CHARGEMENT] Qwen3-1.7B-Base : Qwen/Qwen3-1.7B-Base en fp16 sur 2 GPU
+298.7s 30 [MESURE] Qwen3-1.7B-Base génération témoin + choc : 234 s ; rang médian du choc 3103, surprise médiane 16.73 nats ; 28 couches, grille [-1, 1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27]
+340.7s 31 [MESURE] Qwen3-1.7B-Base lentille des logits : 42 s
+340.9s 32 [LENTILLE] Qwen3-1.7B-Base couche  0 : rejoué − témoin, entropie de la lentille aux k [1, 2, 4, 8, 16] : -0.142 +0.001 -0.002 -0.001 -0.000 ; rapport des normes (k = 2–31) 0.999
+340.9s 33 [LENTILLE] Qwen3-1.7B-Base couche  2 : rejoué − témoin, entropie de la lentille aux k [1, 2, 4, 8, 16] : -0.058 -0.024 -0.002 -0.003 +0.002 ; rapport des normes (k = 2–31) 0.997
+340.9s 34 [LENTILLE] Qwen3-1.7B-Base couche  4 : rejoué − témoin, entropie de la lentille aux k [1, 2, 4, 8, 16] : -0.031 -0.011 +0.019 +0.001 -0.001 ; rapport des normes (k = 2–31) 0.997
+340.9s 35 [LENTILLE] Qwen3-1.7B-Base couche  6 : rejoué − témoin, entropie de la lentille aux k [1, 2, 4, 8, 16] : -0.126 +0.019 +0.004 +0.006 -0.003 ; rapport des normes (k = 2–31) 0.994
+340.9s 36 [LENTILLE] Qwen3-1.7B-Base couche  8 : rejoué − témoin, entropie de la lentille aux k [1, 2, 4, 8, 16] : -0.116 -0.020 -0.019 -0.005 -0.010 ; rapport des normes (k = 2–31) 0.988
+340.9s 37 [LENTILLE] Qwen3-1.7B-Base couche 10 : rejoué − témoin, entropie de la lentille aux k [1, 2, 4, 8, 16] : -0.130 -0.063 +0.002 -0.014 +0.000 ; rapport des normes (k = 2–31) 0.993
+340.9s 38 [LENTILLE] Qwen3-1.7B-Base couche 12 : rejoué − témoin, entropie de la lentille aux k [1, 2, 4, 8, 16] : -0.169 -0.043 -0.015 +0.009 -0.006 ; rapport des normes (k = 2–31) 0.993
+340.9s 39 [LENTILLE] Qwen3-1.7B-Base couche 14 : rejoué − témoin, entropie de la lentille aux k [1, 2, 4, 8, 16] : -0.103 +0.001 -0.027 +0.018 +0.004 ; rapport des normes (k = 2–31) 0.992
+340.9s 40 [LENTILLE] Qwen3-1.7B-Base couche 16 : rejoué − témoin, entropie de la lentille aux k [1, 2, 4, 8, 16] : -0.179 -0.012 -0.035 +0.010 -0.014 ; rapport des normes (k = 2–31) 0.997
+340.9s 41 [LENTILLE] Qwen3-1.7B-Base couche 18 : rejoué − témoin, entropie de la lentille aux k [1, 2, 4, 8, 16] : -0.041 +0.059 -0.034 -0.005 -0.017 ; rapport des normes (k = 2–31) 0.998
+340.9s 42 [LENTILLE] Qwen3-1.7B-Base couche 20 : rejoué − témoin, entropie de la lentille aux k [1, 2, 4, 8, 16] : +0.234 +0.128 -0.015 -0.015 -0.028 ; rapport des normes (k = 2–31) 1.000
+340.9s 43 [LENTILLE] Qwen3-1.7B-Base couche 22 : rejoué − témoin, entropie de la lentille aux k [1, 2, 4, 8, 16] : +0.284 +0.131 +0.006 +0.008 -0.002 ; rapport des normes (k = 2–31) 1.002
+340.9s 44 [LENTILLE] Qwen3-1.7B-Base couche 24 : rejoué − témoin, entropie de la lentille aux k [1, 2, 4, 8, 16] : +0.354 +0.155 +0.018 +0.008 -0.006 ; rapport des normes (k = 2–31) 1.001
+340.9s 45 [LENTILLE] Qwen3-1.7B-Base couche 26 : rejoué − témoin, entropie de la lentille aux k [1, 2, 4, 8, 16] : +0.479 +0.213 +0.047 +0.006 +0.009 ; rapport des normes (k = 2–31) 1.002
+453.5s 46 [VÉRIF] Qwen3-1.7B-Base témoin rejoué contre généré : écart moyen 1.4e-03 ; suite libre du choc régénérée après t₀ identique à la génération complète : 93.9% des prompts
+453.5s 47 [PROGRESSION] Qwen3-1.7B-Base patching : estimation ~39 min pour 30 conditions
+453.7s 48 [F] Qwen3-1.7B-Base sans crochet : D₀ = +0.0773 ; I₀ = +0.0396 IC95 [+0.0239 ; +0.0555] → AMPLIFICATION (A1u, mêmes prompts : D +0.0774, I +0.0365)
+569.8s 49 [PROGRESSION] Qwen3-1.7B-Base patching : une condition en 93 s
+3260.3s 50 [MESURE] Qwen3-1.7B-Base patching : 2783 s
+3260.5s 51 
+3260.5s 52 ====================================================================================================
+3260.5s 53 [RÉSULTATS] Qwen3-1.7B-Base : 768 prompts, 28 couches
+3260.5s 54 [VÉRIF] Qwen3-1.7B-Base débruitage complet (l = −1) : suite identique au témoin 94.7%, D = +0.00000, à la dernière couche loi de t₀ + 1 rendue au témoin (écart moyen 1.3e-03) → OK ; bruitage complet (l = −1) : suite identique au choc 100.0%, I = +0.0396 (I₀ +0.0396) → OK
+3260.5s 55 [COURBE] Qwen3-1.7B-Base couche -1 : f_déb +0.02 IC95 [-0.02 ; +0.06] ; f_bru +1.00 IC95 [+1.00 ; +1.00] ; D_déb / D₀ +0.00 ; D_bru / D₀ +1.00 ; suites identiques : déb → témoin 95%, bru → choc 100%
+3260.5s 56 [COURBE] Qwen3-1.7B-Base couche  1 : f_déb -0.05 IC95 [-0.32 ; +0.14] ; f_bru +1.57 IC95 [+1.23 ; +2.22] ; D_déb / D₀ +0.17 ; D_bru / D₀ +0.73 ; suites identiques : déb → témoin 56%, bru → choc 32%
+3260.5s 57 [COURBE] Qwen3-1.7B-Base couche  3 : f_déb -0.04 IC95 [-0.31 ; +0.17] ; f_bru +1.72 IC95 [+1.31 ; +2.45] ; D_déb / D₀ +0.29 ; D_bru / D₀ +0.63 ; suites identiques : déb → témoin 41%, bru → choc 20%
+3260.5s 58 [COURBE] Qwen3-1.7B-Base couche  5 : f_déb +0.00 IC95 [-0.27 ; +0.24] ; f_bru +1.90 IC95 [+1.43 ; +2.83] ; D_déb / D₀ +0.38 ; D_bru / D₀ +0.55 ; suites identiques : déb → témoin 30%, bru → choc 13%
+3260.5s 59 [COURBE] Qwen3-1.7B-Base couche  7 : f_déb -0.02 IC95 [-0.30 ; +0.21] ; f_bru +2.00 IC95 [+1.47 ; +3.04] ; D_déb / D₀ +0.45 ; D_bru / D₀ +0.47 ; suites identiques : déb → témoin 24%, bru → choc 11%
+3260.5s 60 [COURBE] Qwen3-1.7B-Base couche  9 : f_déb +0.11 IC95 [-0.16 ; +0.37] ; f_bru +1.85 IC95 [+1.38 ; +2.81] ; D_déb / D₀ +0.48 ; D_bru / D₀ +0.43 ; suites identiques : déb → témoin 20%, bru → choc 10%
+3260.5s 61 [COURBE] Qwen3-1.7B-Base couche 11 : f_déb +0.02 IC95 [-0.30 ; +0.30] ; f_bru +1.79 IC95 [+1.33 ; +2.74] ; D_déb / D₀ +0.52 ; D_bru / D₀ +0.39 ; suites identiques : déb → témoin 18%, bru → choc 9%
+3260.7s 62 [COURBE] Qwen3-1.7B-Base couche 13 : f_déb +0.01 IC95 [-0.32 ; +0.29] ; f_bru +1.96 IC95 [+1.46 ; +3.04] ; D_déb / D₀ +0.53 ; D_bru / D₀ +0.38 ; suites identiques : déb → témoin 18%, bru → choc 9%
+3260.7s 63 [COURBE] Qwen3-1.7B-Base couche 15 : f_déb +0.18 IC95 [-0.11 ; +0.45] ; f_bru +2.23 IC95 [+1.64 ; +3.43] ; D_déb / D₀ +0.65 ; D_bru / D₀ +0.23 ; suites identiques : déb → témoin 14%, bru → choc 7%
+3260.7s 64 [COURBE] Qwen3-1.7B-Base couche 17 : f_déb +0.30 IC95 [+0.01 ; +0.62] ; f_bru +2.21 IC95 [+1.60 ; +3.36] ; D_déb / D₀ +0.72 ; D_bru / D₀ +0.17 ; suites identiques : déb → témoin 14%, bru → choc 6%
+3260.7s 65 [COURBE] Qwen3-1.7B-Base couche 19 : f_déb +0.25 IC95 [-0.05 ; +0.53] ; f_bru +2.08 IC95 [+1.52 ; +3.15] ; D_déb / D₀ +0.86 ; D_bru / D₀ +0.07 ; suites identiques : déb → témoin 13%, bru → choc 6%
+3260.7s 66 [COURBE] Qwen3-1.7B-Base couche 21 : f_déb +0.34 IC95 [+0.03 ; +0.64] ; f_bru +2.37 IC95 [+1.73 ; +3.75] ; D_déb / D₀ +0.92 ; D_bru / D₀ +0.03 ; suites identiques : déb → témoin 11%, bru → choc 5%
+3260.7s 67 [COURBE] Qwen3-1.7B-Base couche 23 : f_déb +0.32 IC95 [+0.04 ; +0.60] ; f_bru +2.20 IC95 [+1.60 ; +3.37] ; D_déb / D₀ +0.96 ; D_bru / D₀ +0.01 ; suites identiques : déb → témoin 11%, bru → choc 5%
+3260.7s 68 [COURBE] Qwen3-1.7B-Base couche 25 : f_déb +0.41 IC95 [+0.12 ; +0.74] ; f_bru +2.14 IC95 [+1.56 ; +3.31] ; D_déb / D₀ +0.98 ; D_bru / D₀ +0.01 ; suites identiques : déb → témoin 10%, bru → choc 5%
+3260.7s 69 [COURBE] Qwen3-1.7B-Base couche 27 : f_déb +0.40 IC95 [+0.11 ; +0.70] ; f_bru +2.15 IC95 [+1.56 ; +3.28] ; D_déb / D₀ +1.00 ; D_bru / D₀ +0.00 ; suites identiques : déb → témoin 10%, bru → choc 5%
+3261.3s 70 [Y1] Qwen3-1.7B-Base profondeur de lecture : l₅₀ = 28 IC95 [17 ; 28] (sur 28 couches ; 28 = jamais atteint) ; f_déb à la dernière couche IC95 [+0.11 ; +0.70] → INDÉTERMINÉE
+3261.3s 71 [Y2] Qwen3-1.7B-Base additivité : A = moyenne de f_déb + f_bru sur les couches ≥ 0 = 2.17 IC95 [1.67 ; 3.12] → REDONDANT
+3261.3s 72 [DURÉE] Qwen3-1.7B-Base : 53.8 min
+3261.5s 73 
+3261.5s 74 ====================================================================================================
+3261.5s 75 [SYNTHÈSE] A1y — où l'amplification est-elle lue à partir du jeton choqué ?
+3261.5s 76 [SYNTHÈSE] Qwen3-1.7B-Base    : Y1 INDÉTERMINÉE ; Y2 REDONDANT
+3261.5s 77 [SYNTHÈSE] thèse « l'amplification est lue à partir du jeton choqué dans une bande de couches précise » : RÉFUTÉE (prédiction SOUTENUE 30 %, RÉFUTÉE 40 %)
+3261.5s 78 [SORTIE] fichiers dans /kaggle/working/sgz_a1y : ['Qwen3-1.7B-Base_a1y.npz', 'resume_a1y.json']
+3266.7s 79 /usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\|'
+3266.7s 80 cells[i][c] = re.sub('\\\\\|', '|', cell)
+3266.9s 81 /usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\_'
+3266.9s 82 text = re.sub(r'_', '\_', text) # Escape underscores in display text
+3267.7s 83 [NbConvertApp] Converting notebook __notebook__.ipynb to notebook
+3267.7s 84 [NbConvertApp] Writing 178699 bytes to __notebook__.ipynb
+3270.2s 85 [NbConvertApp] Converting notebook __notebook__.ipynb to html
+3270.9s 86 [NbConvertApp] Writing 626560 bytes to __results__.html
