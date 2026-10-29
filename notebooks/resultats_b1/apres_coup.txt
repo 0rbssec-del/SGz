@@ -1,0 +1,14 @@
+
+=== Qwen3-1.7B-Base : 472 problèmes
+H(C) : médiane 0.00040, 90e centile 0.00946 ; part des positions de la fenêtre où S < 1e-3 : C 90.8%
+T > 0 : 55.9%, T < 0 : 44.1%, T = 0 : 0.0% ; test des signes p = 0.011 ; Wilcoxon p = 0.321 ; médiane de T +0.00002 ; moyenne +0.00018
+témoin nul : T(nul) > 0 : 3.0%, < 0 : 4.0% ; signes p = 0.487
+positions k où l'entropie après la bonne réponse est la plus haute : [16, 15, 14, 17, 18] ; W − C à ces positions : k=16: +0.0026, k=15: +0.0029, k=14: -0.0020, k=17: -0.0029, k=18: +0.0009
+entropie aux 3 premières positions (copie de la valeur) : C 0.00007, W 0.00008
+
+=== SmolLM3-3B-Base : 600 problèmes
+H(C) : médiane 0.03054, 90e centile 0.05748 ; part des positions de la fenêtre où S < 1e-3 : C 66.7%
+T > 0 : 47.3%, T < 0 : 52.7%, T = 0 : 0.0% ; test des signes p = 0.206 ; Wilcoxon p = 0.243 ; médiane de T -0.00079 ; moyenne -0.00104
+témoin nul : T(nul) > 0 : 8.7%, < 0 : 11.3% ; signes p = 0.171
+positions k où l'entropie après la bonne réponse est la plus haute : [9, 20, 22, 10, 21] ; W − C à ces positions : k=9: -0.0078, k=20: -0.0110, k=22: -0.0039, k=10: +0.0075, k=21: -0.0079
+entropie aux 3 premières positions (copie de la valeur) : C 0.00054, W 0.00053

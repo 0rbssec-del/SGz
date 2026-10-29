@@ -1,0 +1,101 @@
+6.3s 1 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+6.3s 2 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+6.3s 3 0.00s - to python to disable frozen modules.
+6.3s 4 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+6.9s 5 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+6.9s 6 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+6.9s 7 0.00s - to python to disable frozen modules.
+6.9s 8 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+25.1s 9 [CONFIG] SMOKE_TEST=False DEVICE=cuda N_GPU=2 OUT=/kaggle/working/sgz_b1
+25.1s 10 [CONFIG] T=0.6 problèmes=2000 tirages=8 retenus ≤ 600 ; suite 40 jetons, fenêtre k = 1–30 ; modèles=['Qwen3-1.7B-Base', 'SmolLM3-3B-Base']
+25.1s 11 [CONFIG] torch 2.11.0+cu128, transformers 5.16.1
+25.2s 12 [CONFIG] exemple de prompt :
+25.2s 13 Calcul : 89 * 43 + 957 - 61
+25.2s 14 Étapes : 89 * 43 = 3827 ; 3827 + 957 = 4784 ; 4784 - 61 = 4723
+25.2s 15 
+25.2s 16 Calcul : 381 * 23 + 143 - 71
+25.2s 17 Étapes : 381 * 23 = 8763 ; 8763 + 143 = 8906 ; 8906 - 71 = 8835
+25.2s 18 
+25.2s 19 Calcul : 29 * 89 + 602 - 71
+25.2s 20 Étapes : 29 * 89 = 2581 ; 2581 + 602 = 3183 ; 3183 - 71 = 3112
+25.2s 21 
+25.2s 22 Calcul : 125 * 51 + 873 - 71
+25.2s 23 Étapes : 125 * 51 = 6375 ; 6375 + 873 = 7248 ; 7248 - 71 = 7177
+25.2s 24 
+25.2s 25 Calcul : 76 * 83 + 730 - 73
+25.2s 26 Étapes : 76 * 83 = …
+25.3s 27 [TÉMOIN POSITIF] E1 réaction                : RÉACTION À L'ERREUR                                (attendu RÉACTION À L'ERREUR)
+25.3s 28 [TÉMOIN POSITIF] E1 absente                 : ABSENTE                                            (attendu ABSENTE)
+25.3s 29 [TÉMOIN POSITIF] E1 engagement              : ENGAGEMENT (moins d'incertitude après l'erreur)    (attendu ENGAGEMENT (moins d'incertitude après l'erreur))
+25.3s 30 [TÉMOIN POSITIF] E1 extrapolation           : NON TESTABLE (Δs ne couvre pas 0 : extrapolation)  (attendu NON TESTABLE (Δs ne couvre pas 0 : extrapolation))
+25.3s 31 [TÉMOIN POSITIF] E1 trop peu                : NON TESTABLE (trop peu de problèmes)               (attendu NON TESTABLE (trop peu de problèmes))
+25.3s 32 [TÉMOIN POSITIF] E2 l'erreur l'emporte      : L'ERREUR L'EMPORTE                                 (attendu L'ERREUR L'EMPORTE)
+25.3s 33 [TÉMOIN POSITIF] E2 la surprise l'emporte   : LA SURPRISE L'EMPORTE                              (attendu LA SURPRISE L'EMPORTE)
+25.3s 34 [TÉMOIN POSITIF] nul sans biais             : SANS BIAIS                                         (attendu SANS BIAIS)
+25.3s 35 [TÉMOIN POSITIF] nul biaisé                 : BIAISÉ                                             (attendu BIAISÉ)
+25.3s 36 [TÉMOIN POSITIF] synthèse soutenue          : SOUTENUE                                           (attendu SOUTENUE)
+25.3s 37 [TÉMOIN POSITIF] synthèse réfutée           : RÉFUTÉE                                            (attendu RÉFUTÉE)
+25.3s 38 [TÉMOIN POSITIF] synthèse dépend            : DÉPEND DU MODÈLE                                   (attendu DÉPEND DU MODÈLE)
+25.3s 39 [TÉMOIN POSITIF] synthèse surprise          : INDÉTERMINÉE                                       (attendu INDÉTERMINÉE)
+25.3s 40 [TÉMOIN POSITIF] RÉUSSI
+25.4s 41 
+25.4s 42 [CHARGEMENT] Qwen3-1.7B-Base : téléchargement / chargement de Qwen/Qwen3-1.7B-Base…
+33.9s 43 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+33.9s 44 
+33.9s 45 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+60.1s 46 [CHARGEMENT] Qwen3-1.7B-Base : Qwen/Qwen3-1.7B-Base en fp16 1 GPU
+65.7s 47 [PROGRESSION] Qwen3-1.7B-Base sélection : premier lot en 4.8 s ; estimation ~27 min
+1591.1s 48 [SÉLECTION] Qwen3-1.7B-Base : réponses lisibles 100.0%, exactes 77.6% (2x2 95.3%, 3x2 59.9%) ; problèmes avec au moins une bonne et une mauvaise réponse : 472 sur 2000 ; 1530 s
+1591.8s 49 [SÉLECTION] Qwen3-1.7B-Base : 472 problèmes retenus (au plus 600) ; découpage en jetons incohérent : 0
+1991.6s 50 [VÉRIF] Qwen3-1.7B-Base reprise (C régénérée dans d'autres lots) : premier jeton identique 100.0%, chaîne entière identique 100.0%, écart max d'entropie au jeton 1 0.0e+00 ; longueur médiane de la fenêtre C 30, W 30 ; branches : 335 s
+1991.8s 51 
+1991.8s 52 ====================================================================================================
+1991.8s 53 [RÉSULTATS] Qwen3-1.7B-Base (T = 0.6) : 472 problèmes
+1991.8s 54 [SURPRISE] Qwen3-1.7B-Base : s(c) médiane 0.99 nats, s(w) médiane 1.63 nats ; Δs médian +0.41 ; erreur plus probable que la bonne réponse (Δs < 0) : 32%
+1991.8s 55 [MESURE] Qwen3-1.7B-Base : H(C) = 0.0040, H(W) = 0.0042 ; T = H(W) − H(C) = +0.0002 IC95 [-0.0014 ; +0.0018] ; Spearman(Δs, T) +0.103 ; T > 0 dans 55.9% des problèmes
+1991.8s 56 [TÉMOIN NÉGATIF] Qwen3-1.7B-Base T(nul) (bonne réponse, autre bruit) = -0.0007 IC95 [-0.0015 ; +0.0001] → SANS BIAIS
+1991.8s 57 [E1] Qwen3-1.7B-Base T = a + b·Δs : a = +0.0003 IC95 [-0.0016 ; +0.0024] ; b = -0.0003 IC95 [-0.0014 ; +0.0008] par nat ; Δs < 0 : 32%, Δs > 0 : 68% → INDÉTERMINÉ
+1991.8s 58 [E2] Qwen3-1.7B-Base erreur plus probable que la bonne réponse (151 problèmes) : T = +0.0012 IC95 [-0.0025 ; +0.0047] → INDÉTERMINÉ
+1991.8s 59 [APPARIÉ] Qwen3-1.7B-Base |Δs| ≤ 0.5 (183 problèmes) : T = +0.0019 IC95 [-0.0011 ; +0.0052]
+1991.8s 60 [FENÊTRE COMMUNE] Qwen3-1.7B-Base : a = +0.0003 IC95 [-0.0016 ; +0.0024] → INDÉTERMINÉ
+1991.8s 61 [SUITE] Qwen3-1.7B-Base après l'erreur : recopie w (propagation) 100.0%, écrit c (correction) 0.0%, autre 0.0% ; après la bonne réponse : recopie c 100.0%
+1991.8s 62 [PROFIL] Qwen3-1.7B-Base W − C par tranches de k (1–5 | 6–15 | 16–30) : +0.0000  +0.0002  +0.0002
+1991.8s 63 [DURÉE] Qwen3-1.7B-Base : 32.8 min
+1992.2s 64 
+1992.2s 65 [CHARGEMENT] SmolLM3-3B-Base : téléchargement / chargement de HuggingFaceTB/SmolLM3-3B-Base…
+2022.8s 66 [CHARGEMENT] SmolLM3-3B-Base : HuggingFaceTB/SmolLM3-3B-Base en fp16 1 GPU
+2032.5s 67 [transformers] Ignoring clean_up_tokenization_spaces=True for BPE tokenizer TokenizersBackend. The clean_up_tokenization post-processing step is designed for WordPiece tokenizers and is destructive for BPE (it strips spaces before punctuation). Set clean_up_tokenization_spaces=False to suppress this warning, or set clean_up_tokenization_spaces_for_bpe_even_though_it_will_corrupt_output=True to force cleanup anyway.
+2032.5s 68 
+2032.5s 69 [transformers] Ignoring clean_up_tokenization_spaces=True for BPE tokenizer TokenizersBackend. The clean_up_tokenization post-processing step is designed for WordPiece tokenizers and is destructive for BPE (it strips spaces before punctuation). Set clean_up_tokenization_spaces=False to suppress this warning, or set clean_up_tokenization_spaces_for_bpe_even_though_it_will_corrupt_output=True to force cleanup anyway.
+2032.5s 70 [PROGRESSION] SmolLM3-3B-Base sélection : premier lot en 9.0 s ; estimation ~75 min
+3985.0s 71 [SÉLECTION] SmolLM3-3B-Base : réponses lisibles 100.0%, exactes 63.6% (2x2 84.3%, 3x2 42.9%) ; problèmes avec au moins une bonne et une mauvaise réponse : 753 sur 2000 ; 1961 s
+3985.7s 72 [SÉLECTION] SmolLM3-3B-Base : 600 problèmes retenus (au plus 600) ; découpage en jetons incohérent : 0
+4704.2s 73 [VÉRIF] SmolLM3-3B-Base reprise (C régénérée dans d'autres lots) : premier jeton identique 100.0%, chaîne entière identique 100.0%, écart max d'entropie au jeton 1 0.0e+00 ; longueur médiane de la fenêtre C 22, W 22 ; branches : 613 s
+4704.4s 74 
+4704.4s 75 ====================================================================================================
+4704.4s 76 [RÉSULTATS] SmolLM3-3B-Base (T = 0.6) : 600 problèmes
+4704.4s 77 [SURPRISE] SmolLM3-3B-Base : s(c) médiane 1.16 nats, s(w) médiane 1.61 nats ; Δs médian +0.34 ; erreur plus probable que la bonne réponse (Δs < 0) : 37%
+4704.4s 78 [MESURE] SmolLM3-3B-Base : H(C) = 0.0335, H(W) = 0.0325 ; T = H(W) − H(C) = -0.0010 IC95 [-0.0027 ; +0.0007] ; Spearman(Δs, T) +0.013 ; T > 0 dans 47.3% des problèmes
+4704.4s 79 [TÉMOIN NÉGATIF] SmolLM3-3B-Base T(nul) (bonne réponse, autre bruit) = -0.0003 IC95 [-0.0010 ; +0.0003] → SANS BIAIS
+4704.4s 80 [E1] SmolLM3-3B-Base T = a + b·Δs : a = -0.0010 IC95 [-0.0029 ; +0.0009] ; b = -0.0001 IC95 [-0.0015 ; +0.0013] par nat ; Δs < 0 : 37%, Δs > 0 : 63% → INDÉTERMINÉ
+4704.4s 81 [E2] SmolLM3-3B-Base erreur plus probable que la bonne réponse (223 problèmes) : T = -0.0001 IC95 [-0.0028 ; +0.0026] → INDÉTERMINÉ
+4704.4s 82 [APPARIÉ] SmolLM3-3B-Base |Δs| ≤ 0.5 (213 problèmes) : T = -0.0016 IC95 [-0.0048 ; +0.0014]
+4704.4s 83 [FENÊTRE COMMUNE] SmolLM3-3B-Base : a = -0.0010 IC95 [-0.0029 ; +0.0009] → INDÉTERMINÉ
+4704.5s 84 [SUITE] SmolLM3-3B-Base après l'erreur : recopie w (propagation) 100.0%, écrit c (correction) 0.0%, autre 0.0% ; après la bonne réponse : recopie c 100.0%
+4704.5s 85 [PROFIL] SmolLM3-3B-Base W − C par tranches de k (1–5 | 6–15 | 16–30) : -0.0000  -0.0000  -0.0019
+4704.5s 86 [DURÉE] SmolLM3-3B-Base : 45.2 min
+4704.8s 87 
+4704.8s 88 ====================================================================================================
+4704.8s 89 [SYNTHÈSE] B1 — le modèle réagit-il à sa propre erreur, au-delà de la surprise ?
+4704.8s 90 [SYNTHÈSE] Qwen3-1.7B-Base        : E1 INDÉTERMINÉ                                      ; E2 INDÉTERMINÉ
+4704.8s 91 [SYNTHÈSE] SmolLM3-3B-Base        : E1 INDÉTERMINÉ                                      ; E2 INDÉTERMINÉ
+4704.8s 92 [SYNTHÈSE] thèse « le modèle réagit à sa propre erreur au-delà de la surprise » : INDÉTERMINÉE (prédiction SOUTENUE 25 %, RÉFUTÉE 25 %)
+4704.8s 93 [SORTIE] fichiers dans /kaggle/working/sgz_b1 : ['Qwen3-1.7B-Base_b1.npz', 'SmolLM3-3B-Base_b1.npz', 'resume_b1.json']
+4710.4s 94 /usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\|'
+4710.4s 95 cells[i][c] = re.sub('\\\\\|', '|', cell)
+4710.5s 96 /usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\_'
+4710.5s 97 text = re.sub(r'_', '\_', text) # Escape underscores in display text
+4711.3s 98 [NbConvertApp] Converting notebook __notebook__.ipynb to notebook
+4711.4s 99 [NbConvertApp] Writing 290820 bytes to __notebook__.ipynb
+4713.8s 100 [NbConvertApp] Converting notebook __notebook__.ipynb to html
+4714.5s 101 [NbConvertApp] Writing 672366 bytes to __results__.html
