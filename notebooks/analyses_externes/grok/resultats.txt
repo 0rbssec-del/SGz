@@ -1,0 +1,22 @@
+[JOUET] Qwen3 4 couches entraîné, perte finale 0.05
+[T1] Zipf V=151936 q=0.5: S_q complète  343.949 ; top-128 renormalisée   15.179 ; rapport 0.04
+[T1] Zipf V=151936 q=1.0: S_q complète    6.889 ; top-128 renormalisée    3.602 ; rapport 0.52
+[T1] Zipf V=151936 q=1.5: S_q complète    1.792 ; top-128 renormalisée    1.551 ; rapport 0.87
+[T1] Zipf V=151936 q=2.5: S_q complète    0.661 ; top-128 renormalisée    0.646 ; rapport 0.98
+[Atlas] Découverte des tokens critiques...
+[Atlas] 0 tokens critiques identifiés.
+[T2] injection vide (aucun jeton ajouté) déclarée critique : False {}
+[Atlas] Découverte des tokens critiques...
+[Atlas] 1 tokens critiques identifiés.
+[Atlas] Découverte des tokens critiques...
+[Atlas] 1 tokens critiques identifiés.
+[T2] même jeton, deux exécutions : sensibilité 0.4269184172153473 puis 0.42871981859207153 (aucune graine fixée)
+[Atlas] 5 attracteurs construits.
+[T3] 5 « attracteurs », 0% de bruit ; accord avec l'identité du prompt (indice de Rand ajusté) : 1.00
+[T3] corrélation moyenne entre les 41 colonnes S_q de la « surface » : 0.989 ; part de variance du premier axe : 0.988
+[T3] pas de génération où S_q croît avec q quelque part : 0 sur 2880
+[T4] fit_projector sur le flux tel qu'écrit : ÉCHEC ValueError: need at least one array to concatenate
+[Navigation] Projecteur ajusté (UMAP)
+[T4] bassins de l'Atlas transmis au visualiseur : 0 (code : « pass »)
+[T4] rendu 3D : ÉCHEC ValueError: Invalid property specified for object of type plotly.graph_objs.layout.scene.XAxis: 'titlefont'
+[T4] corrélations entre S_0.7, S_1.0, S_1.5 (3 des 6 coordonnées) : [0.963, 0.935, 0.994]
