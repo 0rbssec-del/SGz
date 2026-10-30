@@ -1,0 +1,34 @@
+
+=== Qwen3-1.7B-Base
+[CONTRÔLE] ρ_a choc 0.102, témoin 0.061 (doit égaler resume_a1z2.json)
+[1] σ²_a premier jeton  : choc 2.56e-03, témoin 1.07e-03, rapport ×2.40 IC95 [0.84 ; 5.18]
+[1] σ²_b bruit          : choc 1.11e-02, témoin 1.12e-02, rapport ×0.99 IC95 [0.81 ; 1.21]
+[1] σ²_e reste          : choc 1.15e-02, témoin 5.26e-03, rapport ×2.20 IC95 [1.76 ; 2.78]
+[1] variance totale entre les 9 suites : rapport ×1.44 IC95 [1.28 ; 1.62]
+[2] choc  : premiers jetons différents dans 64% des prompts (2 distincts 36%, 3 distincts 28%) ; σ²_a parmi eux 4.00e-03
+[2] témoin: premiers jetons différents dans 42% des prompts (2 distincts 29%, 3 distincts 13%) ; σ²_a parmi eux 2.54e-03
+[2] rapport σ²_a ×2.40 = ×1.52 (plus de prompts concernés) × ×1.58 (effet par prompt concerné) ; part du log-rapport due à la diversité des premiers jetons : 48%
+[2] strate 2 premiers jetons distincts : ρ_a choc 0.141 (n = 279), témoin 0.091 (n = 223)
+[2] strate 3 premiers jetons distincts : ρ_a choc 0.156 (n = 213), témoin 0.213 (n = 100)
+[2] Δρ avec le témoin repondéré sur la répartition du choc (1, 2 ou 3 premiers jetons distincts) : +0.001 IC95 [-0.075 ; +0.075] (Δρ brut +0.041)
+[3] choc  : pente intra-prompt entropie (k = 3–31) / surprise du premier jeton +0.0044 IC95 [-0.0044 ; +0.0133]
+[3] témoin: pente intra-prompt entropie (k = 3–31) / surprise du premier jeton +0.0109 IC95 [+0.0046 ; +0.0170]
+[4] Δρ (Z2a)       : IC95 naïf [-0.027 ; +0.107] ; par grappes de thème [-0.024 ; +0.110] (×1.00)
+[4] ρ_a choc (Z2b) : IC95 naïf [+0.042 ; +0.160] ; par grappes de thème [+0.050 ; +0.163] (×0.95)
+
+=== SmolLM3-3B-Base
+[CONTRÔLE] ρ_a choc 0.116, témoin 0.059 (doit égaler resume_a1z2.json)
+[1] σ²_a premier jeton  : choc 2.68e-03, témoin 9.55e-04, rapport ×2.80 IC95 [1.12 ; 8.84]
+[1] σ²_b bruit          : choc 1.03e-02, témoin 1.01e-02, rapport ×1.02 IC95 [0.86 ; 1.21]
+[1] σ²_e reste          : choc 1.02e-02, témoin 5.04e-03, rapport ×2.02 IC95 [1.58 ; 2.55]
+[1] variance totale entre les 9 suites : rapport ×1.44 IC95 [1.27 ; 1.65]
+[2] choc  : premiers jetons différents dans 63% des prompts (2 distincts 39%, 3 distincts 25%) ; σ²_a parmi eux 4.24e-03
+[2] témoin: premiers jetons différents dans 41% des prompts (2 distincts 28%, 3 distincts 13%) ; σ²_a parmi eux 2.34e-03
+[2] rapport σ²_a ×2.80 = ×1.54 (plus de prompts concernés) × ×1.81 (effet par prompt concerné) ; part du log-rapport due à la diversité des premiers jetons : 42%
+[2] strate 2 premiers jetons distincts : ρ_a choc 0.159 (n = 296), témoin 0.107 (n = 213)
+[2] strate 3 premiers jetons distincts : ρ_a choc 0.172 (n = 189), témoin 0.148 (n = 101)
+[2] Δρ avec le témoin repondéré sur la répartition du choc (1, 2 ou 3 premiers jetons distincts) : +0.029 IC95 [-0.051 ; +0.106] (Δρ brut +0.056)
+[3] choc  : pente intra-prompt entropie (k = 3–31) / surprise du premier jeton +0.0065 IC95 [+0.0000 ; +0.0134]
+[3] témoin: pente intra-prompt entropie (k = 3–31) / surprise du premier jeton +0.0139 IC95 [+0.0049 ; +0.0242]
+[4] Δρ (Z2a)       : IC95 naïf [-0.015 ; +0.125] ; par grappes de thème [-0.007 ; +0.129] (×0.97)
+[4] ρ_a choc (Z2b) : IC95 naïf [+0.063 ; +0.175] ; par grappes de thème [+0.064 ; +0.181] (×1.04)

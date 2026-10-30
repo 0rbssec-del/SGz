@@ -1,0 +1,94 @@
+7.8s 1 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+7.8s 2 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+7.8s 3 0.00s - to python to disable frozen modules.
+7.8s 4 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+8.4s 5 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+8.4s 6 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+8.4s 7 0.00s - to python to disable frozen modules.
+8.4s 8 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+31.4s 9 [CONFIG] SMOKE_TEST=False DEVICE=cuda N_GPU=2 OUT=/kaggle/working/sgz_a1z2
+31.4s 10 [CONFIG] T=[0.6] prompts=768 longueur=96 t₀=64 fenêtre F k=2–31, plan factoriel k=3–31 ; modèles=['Qwen3-1.7B-Base', 'SmolLM3-3B-Base']
+31.4s 11 [CONFIG] torch 2.11.0+cu128, transformers 5.16.1
+31.5s 12 [PROMPTS] 768 prompts (64 écrits à la main, 704 gabarits), mêmes que A1c–A1k
+31.6s 13 [TÉMOIN POSITIF] parts synthétiques : fort ρ_a = 0.74 (attendu 0,75), faible 0.08 (0,08), nul 0.005 (0,002)
+31.6s 14 [TÉMOIN POSITIF] Z2a pèse plus            : PÈSE PLUS APRÈS UN CHOC                    (attendu PÈSE PLUS APRÈS UN CHOC)
+31.6s 15 [TÉMOIN POSITIF] Z2a pas plus             : PAS PLUS QU'APRÈS UN JETON NORMAL          (attendu PAS PLUS QU'APRÈS UN JETON NORMAL)
+31.6s 16 [TÉMOIN POSITIF] Z2a pèse moins           : PÈSE MOINS APRÈS UN CHOC                   (attendu PÈSE MOINS APRÈS UN CHOC)
+31.6s 17 [TÉMOIN POSITIF] Z2a petit écart          : PAS PLUS QU'APRÈS UN JETON NORMAL          (attendu PAS PLUS QU'APRÈS UN JETON NORMAL)
+31.6s 18 [TÉMOIN POSITIF] Z2a sans amplification   : NON TESTABLE (I₀ n'est pas AMPLIFICATION)  (attendu NON TESTABLE (I₀ n'est pas AMPLIFICATION))
+31.6s 19 [TÉMOIN POSITIF] Z2b déterminant          : DÉTERMINANT                                (attendu DÉTERMINANT)
+31.6s 20 [TÉMOIN POSITIF] Z2b modéré               : MODÉRÉ                                     (attendu MODÉRÉ)
+31.6s 21 [TÉMOIN POSITIF] Z2b négligeable          : NÉGLIGEABLE                                (attendu NÉGLIGEABLE)
+31.6s 22 [TÉMOIN POSITIF] nul équivalent           : ÉQUIVALENT À 0                             (attendu ÉQUIVALENT À 0)
+31.6s 23 [TÉMOIN POSITIF] nul biaisé               : BIAISÉ                                     (attendu BIAISÉ)
+31.6s 24 [TÉMOIN POSITIF] synthèse soutenue        : SOUTENUE                                   (attendu SOUTENUE)
+31.6s 25 [TÉMOIN POSITIF] synthèse réfutée         : RÉFUTÉE                                    (attendu RÉFUTÉE)
+31.6s 26 [TÉMOIN POSITIF] synthèse dépend          : DÉPEND DU MODÈLE                           (attendu DÉPEND DU MODÈLE)
+31.6s 27 [TÉMOIN POSITIF] synthèse indéterminée    : INDÉTERMINÉE                               (attendu INDÉTERMINÉE)
+31.6s 28 [TÉMOIN POSITIF] RÉUSSI
+31.7s 29 
+31.7s 30 [CHARGEMENT] Qwen3-1.7B-Base : téléchargement / chargement de Qwen/Qwen3-1.7B-Base…
+41.3s 31 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+41.3s 32 
+41.3s 33 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+67.9s 34 [CHARGEMENT] Qwen3-1.7B-Base : Qwen/Qwen3-1.7B-Base en fp16 sur 2 GPU
+299.0s 35 [MESURE] Qwen3-1.7B-Base génération témoin + choc : 231 s ; rang médian du choc 3103, surprise médiane 16.73 nats
+346.9s 36 [VÉRIF] Qwen3-1.7B-Base reprise (jeton du témoin, même bruit) : premier jeton identique au témoin 100.0% ; suite entière identique 94.7% (en fp16, un quasi-ex aequo peut basculer sans erreur)
+346.9s 37 [PROGRESSION] Qwen3-1.7B-Base suites libres : estimation ~14 min pour 17 suites
+418.6s 38 [VÉRIF] Qwen3-1.7B-Base retirage du premier jeton avec le bruit du témoin : identique au choix du choc 100.0%, au choix du témoin 100.0%
+1220.8s 39 [MESURE] Qwen3-1.7B-Base suites libres : 922 s
+1639.2s 40 [MESURE] Qwen3-1.7B-Base passes rejouées (19 textes) : 418 s
+1639.4s 41 [VÉRIF] Qwen3-1.7B-Base : témoin rejoué contre généré, écart moyen 1.4e-03 (max 2.1e-02) ; entropie de la loi du jeton t₀ identique entre textes : max 0.0e+00 ; loi du jeton t₀ + 1 identique entre les suites du choc : max 0.0e+00
+1639.4s 42 
+1639.4s 43 ====================================================================================================
+1639.4s 44 [RÉSULTATS] Qwen3-1.7B-Base (T = 0.6) : 768 prompts
+1639.4s 45 [F] Qwen3-1.7B-Base : D₀ = +0.0773 IC95 [+0.0730 ; +0.0820] ; I₀ = +0.0396 IC95 [+0.0239 ; +0.0555] → AMPLIFICATION (A1z : D +0.0773, I +0.0396)
+1639.4s 46 [TÉMOIN NÉGATIF] Qwen3-1.7B-Base 8 autres suites après le jeton du témoin − témoin = +0.0002 IC95 [-0.0081 ; +0.0085] ; marge ±0.0232 → ÉQUIVALENT À 0
+1639.4s 47 [SURPRISE] Qwen3-1.7B-Base premiers jetons dans leur propre loi (aucun transplant) : après le choc c₁ 1.51, c₁′ 1.43, c₁″ 1.47 nats ; après le témoin w₁ 0.61, w₁′ 0.60, w₁″ 0.62 nats (médianes) ; trois tirages identiques : après le choc 35.9%, après le témoin 57.9%
+1639.4s 48 [COMPOSANTES] Qwen3-1.7B-Base après le choc   (k = 3–31) : σ²_a = 2.56e-03 (premier jeton), σ²_b = 1.11e-02 (bruit), σ²_e = 1.15e-02 (reste) ; ρ_a = 0.102, ρ_b = 0.441
+1639.4s 49 [COMPOSANTES] Qwen3-1.7B-Base après le témoin (k = 3–31) : σ²_a = 1.07e-03 (premier jeton), σ²_b = 1.12e-02 (bruit), σ²_e = 5.26e-03 (reste) ; ρ_a = 0.061, ρ_b = 0.639
+1639.4s 50 [Z2a] Qwen3-1.7B-Base Δρ = ρ_a(choc) − ρ_a(témoin) = 0.102 − 0.061 = +0.041 IC95 [-0.019 ; +0.098] → PAS PLUS QU'APRÈS UN JETON NORMAL
+1639.4s 51 [Z2b] Qwen3-1.7B-Base ρ_a(choc) = 0.102 IC95 [0.047 ; 0.157] → INDÉTERMINÉ
+1639.4s 52 [DESCRIPTIF] Qwen3-1.7B-Base ρ_a quand au moins deux premiers jetons diffèrent : choc 0.148 (64% des prompts), témoin 0.133 (42%) ; fenêtre k = 2–31 : choc 0.111, témoin 0.063
+1639.4s 53 [PROFIL] Qwen3-1.7B-Base ρ_a par tranches de k (3–7 | 8–15 | 16–31) : choc 0.205  0.051  0.050 ; témoin 0.214  0.061  0.032
+1639.4s 54 [DESCRIPTIF] Qwen3-1.7B-Base amplification estimée sur les neuf suites après le choc : I = +0.0411 IC95 [+0.0283 ; +0.0543] (une seule suite : +0.0396)
+1640.3s 55 [DURÉE] Qwen3-1.7B-Base : 26.8 min
+1640.4s 56 
+1640.4s 57 [CHARGEMENT] SmolLM3-3B-Base : téléchargement / chargement de HuggingFaceTB/SmolLM3-3B-Base…
+1676.1s 58 [CHARGEMENT] SmolLM3-3B-Base : HuggingFaceTB/SmolLM3-3B-Base en fp16 1 GPU
+1982.8s 59 [MESURE] SmolLM3-3B-Base génération témoin + choc : 307 s ; rang médian du choc 3103, surprise médiane 17.09 nats
+2055.9s 60 [VÉRIF] SmolLM3-3B-Base reprise (jeton du témoin, même bruit) : premier jeton identique au témoin 99.9% ; suite entière identique 95.6% (en fp16, un quasi-ex aequo peut basculer sans erreur)
+2055.9s 61 [PROGRESSION] SmolLM3-3B-Base suites libres : estimation ~21 min pour 17 suites
+2175.3s 62 [VÉRIF] SmolLM3-3B-Base retirage du premier jeton avec le bruit du témoin : identique au choix du choc 100.0%, au choix du témoin 99.9%
+3412.4s 63 [MESURE] SmolLM3-3B-Base suites libres : 1430 s
+4100.2s 64 [MESURE] SmolLM3-3B-Base passes rejouées (19 textes) : 688 s
+4100.4s 65 [VÉRIF] SmolLM3-3B-Base : témoin rejoué contre généré, écart moyen 1.1e-03 (max 2.0e-02) ; entropie de la loi du jeton t₀ identique entre textes : max 0.0e+00 ; loi du jeton t₀ + 1 identique entre les suites du choc : max 0.0e+00
+4100.4s 66 
+4100.4s 67 ====================================================================================================
+4100.4s 68 [RÉSULTATS] SmolLM3-3B-Base (T = 0.6) : 768 prompts
+4100.4s 69 [F] SmolLM3-3B-Base : D₀ = +0.0751 IC95 [+0.0707 ; +0.0795] ; I₀ = +0.0428 IC95 [+0.0281 ; +0.0579] → AMPLIFICATION (A1z : D +0.0751, I +0.0428)
+4100.4s 70 [TÉMOIN NÉGATIF] SmolLM3-3B-Base 8 autres suites après le jeton du témoin − témoin = -0.0013 IC95 [-0.0098 ; +0.0071] ; marge ±0.0225 → ÉQUIVALENT À 0
+4100.4s 71 [SURPRISE] SmolLM3-3B-Base premiers jetons dans leur propre loi (aucun transplant) : après le choc c₁ 1.41, c₁′ 1.45, c₁″ 1.42 nats ; après le témoin w₁ 0.51, w₁′ 0.48, w₁″ 0.49 nats (médianes) ; trois tirages identiques : après le choc 36.8%, après le témoin 59.1%
+4100.4s 72 [COMPOSANTES] SmolLM3-3B-Base après le choc   (k = 3–31) : σ²_a = 2.68e-03 (premier jeton), σ²_b = 1.03e-02 (bruit), σ²_e = 1.02e-02 (reste) ; ρ_a = 0.116, ρ_b = 0.445
+4100.4s 73 [COMPOSANTES] SmolLM3-3B-Base après le témoin (k = 3–31) : σ²_a = 9.55e-04 (premier jeton), σ²_b = 1.01e-02 (bruit), σ²_e = 5.04e-03 (reste) ; ρ_a = 0.059, ρ_b = 0.627
+4100.4s 74 [Z2a] SmolLM3-3B-Base Δρ = ρ_a(choc) − ρ_a(témoin) = 0.116 − 0.059 = +0.056 IC95 [-0.012 ; +0.129] → INDÉTERMINÉ
+4100.4s 75 [Z2b] SmolLM3-3B-Base ρ_a(choc) = 0.116 IC95 [0.062 ; 0.177] → INDÉTERMINÉ
+4100.4s 76 [DESCRIPTIF] SmolLM3-3B-Base ρ_a quand au moins deux premiers jetons diffèrent : choc 0.164 (63% des prompts), témoin 0.120 (41%) ; fenêtre k = 2–31 : choc 0.126, témoin 0.061
+4100.4s 77 [PROFIL] SmolLM3-3B-Base ρ_a par tranches de k (3–7 | 8–15 | 16–31) : choc 0.212  0.058  0.055 ; témoin 0.219  0.057  0.012
+4100.4s 78 [DESCRIPTIF] SmolLM3-3B-Base amplification estimée sur les neuf suites après le choc : I = +0.0430 IC95 [+0.0298 ; +0.0549] (une seule suite : +0.0428)
+4101.0s 79 [DURÉE] SmolLM3-3B-Base : 41.0 min
+4101.4s 80 
+4101.4s 81 ====================================================================================================
+4101.4s 82 [SYNTHÈSE] A1z2 — après un choc, le premier jeton choisi détermine-t-il l'incertitude qui suit ?
+4101.4s 83 [SYNTHÈSE] Qwen3-1.7B-Base    : Z2a PAS PLUS QU'APRÈS UN JETON NORMAL  ; Z2b INDÉTERMINÉ
+4101.4s 84 [SYNTHÈSE] SmolLM3-3B-Base    : Z2a INDÉTERMINÉ                        ; Z2b INDÉTERMINÉ
+4101.4s 85 [SYNTHÈSE] thèse « l'amplification passe par le premier jeton choisi après le choc » : INDÉTERMINÉE (prédiction SOUTENUE 30 %, RÉFUTÉE 30 %)
+4101.4s 86 [SORTIE] fichiers dans /kaggle/working/sgz_a1z2 : ['Qwen3-1.7B-Base_a1z2.npz', 'SmolLM3-3B-Base_a1z2.npz', 'resume_a1z2.json']
+4107.4s 87 /usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\|'
+4107.4s 88 cells[i][c] = re.sub('\\\\\|', '|', cell)
+4107.6s 89 /usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\_'
+4107.6s 90 text = re.sub(r'_', '\_', text) # Escape underscores in display text
+4108.4s 91 [NbConvertApp] Converting notebook __notebook__.ipynb to notebook
+4108.5s 92 [NbConvertApp] Writing 306455 bytes to __notebook__.ipynb
+4110.8s 93 [NbConvertApp] Converting notebook __notebook__.ipynb to html
+4111.6s 94 [NbConvertApp] Writing 732994 bytes to __results__.html
