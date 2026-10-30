@@ -61,6 +61,7 @@ import json
 import os
 import re
 import sys
+import threading
 import time
 
 import numpy as np
@@ -465,7 +466,7 @@ def transformers_major():
     return int(transformers.__version__.split(".")[0])
 
 
-def load_model(model_id):
+def load_model(model_id, gpu=0):
     from transformers import AutoModelForCausalLM, AutoTokenizer
     if model_id == "smoke-qwen3-random":
         from transformers import Qwen3Config, Qwen3ForCausalLM
@@ -497,7 +498,7 @@ def load_model(model_id):
     if DEVICE == "cpu":
         kw[dkey], mode = torch.float32, "fp32 CPU"
     else:
-        kw[dkey], kw["device_map"], mode = torch.float16, {"": 0}, "fp16 1 GPU"
+        kw[dkey], kw["device_map"], mode = torch.float16, {"": gpu}, f"fp16 GPU {gpu}"
     model = AutoModelForCausalLM.from_pretrained(model_id, **kw).eval()
     if DEVICE == "cuda":
         assert next(model.parameters()).dtype == torch.float16, "type de poids inattendu"
@@ -631,8 +632,11 @@ class TropPeu(Exception):
     pass
 
 
+VERROU_RESUME, VERROU_CHARGEMENT = threading.Lock(), threading.Lock()
+
+
 def ecrire_resume():
-    with open(os.path.join(OUT, "resume_b1c.json"), "w") as fh:
+    with VERROU_RESUME, open(os.path.join(OUT, "resume_b1c.json"), "w") as fh:
         json.dump({"smoke": SMOKE_TEST, "positive_control_ok": POSITIVE_CONTROL_OK, **ALL}, fh,
                   ensure_ascii=False, indent=1, default=str)
 
@@ -641,14 +645,18 @@ def fmt_auc(r):
     return f"{r['auc']:.3f} IC95 [{r['ci'][0]:.3f} ; {r['ci'][1]:.3f}]"
 
 
-for label, ids_m in MODELS:
+def traiter(label, ids_m, gpu=0):
+    """Un modèle, de bout en bout, sur le GPU « gpu » (corps de l'ancienne boucle sur MODELS)."""
+    if DEVICE == "cuda":
+        torch.cuda.set_device(gpu)
     t_start = time.time()
     model = tok = g = None
     try:
         for mid in ids_m:
             print(f"\n[CHARGEMENT] {label} : téléchargement / chargement de {mid}…", flush=True)
             try:
-                model, tok, mode = load_model(mid)
+                with VERROU_CHARGEMENT:                # un chargement à la fois (état global de transformers)
+                    model, tok, mode = load_model(mid, gpu)
                 print(f"[CHARGEMENT] {label} : {mid} en {mode}")
                 break
             except Exception as e:
@@ -772,6 +780,31 @@ for label, ids_m in MODELS:
     if DEVICE == "cuda":
         torch.cuda.empty_cache()
     ecrire_resume()
+
+
+def file_gpu(gpu, travaux):
+    for label, ids_m in travaux:
+        traiter(label, ids_m, gpu)
+
+
+# Un modèle par GPU, en même temps (Kaggle T4 × 2) : environ deux fois moins de quota que l'un après l'autre.
+# Mêmes calculs, mêmes graines : seul l'ordre des lignes du journal change (chaque ligne porte le nom du modèle).
+# PARALLELE=0 pour l'ancien ordre séquentiel.
+N_PAR = min(N_GPU, len(MODELS)) if DEVICE == "cuda" and os.environ.get("PARALLELE", "1") == "1" else 1
+if N_PAR > 1:
+    print(f"[CONFIG] {len(MODELS)} modèles en parallèle sur {N_PAR} GPU : "
+          + " ; ".join(f"{l} → GPU {i % N_PAR}" for i, (l, _) in enumerate(MODELS)), flush=True)
+    fils = [threading.Thread(target=file_gpu, args=(j, MODELS[j::N_PAR])) for j in range(N_PAR)]
+    for f in fils:
+        f.start()
+    for f in fils:
+        f.join()
+    ordre = {l: ALL.pop(l) for l, _ in MODELS if l in ALL}       # ordre du résumé : celui de MODELS
+    ALL.update(ordre)
+    ecrire_resume()
+else:
+    for label, ids_m in MODELS:
+        traiter(label, ids_m)
 
 # %%
 # ---------- Synthèse ----------
