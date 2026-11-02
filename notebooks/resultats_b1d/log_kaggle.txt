@@ -1,0 +1,106 @@
+8.3s 1 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+8.3s 2 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+8.3s 3 0.00s - to python to disable frozen modules.
+8.3s 4 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+8.9s 5 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+8.9s 6 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+8.9s 7 0.00s - to python to disable frozen modules.
+8.9s 8 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+33.7s 9 [CONFIG] SMOKE_TEST=False DEVICE=cuda N_GPU=2 OUT=/kaggle/working/sgz_b1d
+33.7s 10 [CONFIG] sondes : 5 plis externes, 3 internes, C = 0.05 ; modèles=['Qwen3-1.7B-Base', 'SmolLM3-3B-Base']
+33.7s 11 [CONFIG] torch 2.11.0+cu130, transformers 5.20.2
+33.8s 12 [CONFIG] exemple de prompt :
+33.8s 13 Calcul : 89 * 43 + 957 - 61
+33.8s 14 Étapes : 89 * 43 = 3827 ; 3827 + 957 = 4784 ; 4784 - 61 = 4723
+33.8s 15 
+33.8s 16 Calcul : 381 * 23 + 143 - 71
+33.8s 17 Étapes : 381 * 23 = 8763 ; 8763 + 143 = 8906 ; 8906 - 71 = 8835
+33.8s 18 
+33.8s 19 Calcul : 29 * 89 + 602 - 71
+33.8s 20 Étapes : 29 * 89 = 2581 ; 2581 + 602 = 3183 ; 3183 - 71 = 3112
+33.8s 21 
+33.8s 22 Calcul : 125 * 51 + 873 - 71
+33.8s 23 Étapes : 125 * 51 = 6375 ; 6375 + 873 = 7248 ; 7248 - 71 = 7177
+33.8s 24 
+33.8s 25 Calcul : 76 * 83 + 730 - 73
+33.8s 26 Étapes : 76 * 83 = …
+33.8s 27 [VÉRIF] empreinte des prompts : 653e5b7dff900c6395fd5ab3b4278e92 (B1 : 653e5b7dff900c6395fd5ab3b4278e92)
+45.1s 28 [TÉMOIN POSITIF] sonde synthétique : AUC 0.784 IC95 [0.748 ; 0.820], couches choisies [2, 2, 2, 2, 2] (signal en couche 2) ; sans signal : AUC 0.499
+45.1s 29 [TÉMOIN POSITIF] sonde : couche du signal choisie   : True                                                       (attendu True)
+45.1s 30 [TÉMOIN POSITIF] S1 sait                            : SAIT                                                       (attendu SAIT)
+45.1s 31 [TÉMOIN POSITIF] S1 ne sait pas                     : NE SAIT PAS                                                (attendu NE SAIT PAS)
+45.1s 32 [TÉMOIN POSITIF] S1 contrôle raté                   : NON INTERPRÉTABLE (contrôle des étiquettes permutées raté) (attendu NON INTERPRÉTABLE (contrôle des étiquettes permutées raté))
+45.1s 33 [TÉMOIN POSITIF] S2 sans doute                      : SANS DOUTE                                                 (attendu SANS DOUTE)
+45.1s 34 [TÉMOIN POSITIF] S2 doute                           : DOUTE                                                      (attendu DOUTE)
+45.1s 35 [TÉMOIN POSITIF] S2 certitude accrue                : CERTITUDE ACCRUE                                           (attendu CERTITUDE ACCRUE)
+45.1s 36 [TÉMOIN POSITIF] synthèse soutenue                  : SOUTENUE                                                   (attendu SOUTENUE)
+45.1s 37 [TÉMOIN POSITIF] synthèse savoir et douter          : SAVOIR ET DOUTER                                           (attendu SAVOIR ET DOUTER)
+45.1s 38 [TÉMOIN POSITIF] synthèse réfutée                   : RÉFUTÉE                                                    (attendu RÉFUTÉE)
+45.1s 39 [TÉMOIN POSITIF] synthèse dépend                    : DÉPEND DU MODÈLE                                           (attendu DÉPEND DU MODÈLE)
+45.1s 40 [TÉMOIN POSITIF] synthèse indéterminée              : INDÉTERMINÉE                                               (attendu INDÉTERMINÉE)
+45.1s 41 [TÉMOIN POSITIF] RÉUSSI
+45.6s 42 [TÉMOIN POSITIF] B1d comparaison                    : COMPARAISON                                                (attendu COMPARAISON)
+45.6s 43 [TÉMOIN POSITIF] B1d forme                          : FORME                                                      (attendu FORME)
+45.6s 44 [TÉMOIN POSITIF] B1d non reproduite                 : NON INTERPRÉTABLE (sonde de B1c non reproduite)            (attendu NON INTERPRÉTABLE (sonde de B1c non reproduite))
+45.6s 45 [TÉMOIN POSITIF] B1d indéterminé                    : INDÉTERMINÉ                                                (attendu INDÉTERMINÉ)
+45.6s 46 [TÉMOIN POSITIF] synthèse soutenue                  : SOUTENUE                                                   (attendu SOUTENUE)
+45.6s 47 [TÉMOIN POSITIF] synthèse réfutée                   : RÉFUTÉE                                                    (attendu RÉFUTÉE)
+45.6s 48 [TÉMOIN POSITIF] synthèse dépend                    : DÉPEND DU MODÈLE                                           (attendu DÉPEND DU MODÈLE)
+45.6s 49 [TÉMOIN POSITIF] synthèse indéterminée              : INDÉTERMINÉE                                               (attendu INDÉTERMINÉE)
+45.6s 50 [TÉMOIN POSITIF] B1d RÉUSSI
+45.7s 51 [CONFIG] 2 modèles en parallèle sur 2 GPU : Qwen3-1.7B-Base → GPU 0 ; SmolLM3-3B-Base → GPU 1
+46.1s 52 
+46.1s 53 [CHARGEMENT] Qwen3-1.7B-Base : téléchargement / chargement de Qwen/Qwen3-1.7B-Base…
+46.1s 54 
+46.1s 55 [CHARGEMENT] SmolLM3-3B-Base : téléchargement / chargement de HuggingFaceTB/SmolLM3-3B-Base…
+53.5s 56 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+53.5s 57 
+53.5s 58 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+81.1s 59 [CHARGEMENT] Qwen3-1.7B-Base : Qwen/Qwen3-1.7B-Base en fp16 GPU 0
+98.4s 60 [SÉLECTION] Qwen3-1.7B-Base : 472 problèmes (problèmes retenus par B1) ; retenus 231 ; découpage incohérent 0 ; recopie sans divergence 0 ; sans produit étranger 1 ; sans erreur miroir 240
+98.4s 61 [VALEURS] Qwen3-1.7B-Base écart relatif médian à C : W 0.0040, F 0.0041, R 0.0040 ; exemple : C 15895, W 15995, F 15994, R 15795
+122.6s 62 [CHARGEMENT] SmolLM3-3B-Base : HuggingFaceTB/SmolLM3-3B-Base en fp16 GPU 1
+123.3s 63 [transformers] Ignoring clean_up_tokenization_spaces=True for BPE tokenizer TokenizersBackend. The clean_up_tokenization post-processing step is designed for WordPiece tokenizers and is destructive for BPE (it strips spaces before punctuation). Set clean_up_tokenization_spaces=False to suppress this warning, or set clean_up_tokenization_spaces_for_bpe_even_though_it_will_corrupt_output=True to force cleanup anyway.
+123.3s 64 
+123.3s 65 [transformers] Ignoring clean_up_tokenization_spaces=True for BPE tokenizer TokenizersBackend. The clean_up_tokenization post-processing step is designed for WordPiece tokenizers and is destructive for BPE (it strips spaces before punctuation). Set clean_up_tokenization_spaces=False to suppress this warning, or set clean_up_tokenization_spaces_for_bpe_even_though_it_will_corrupt_output=True to force cleanup anyway.
+127.2s 66 [SÉLECTION] SmolLM3-3B-Base : 600 problèmes (problèmes retenus par B1) ; retenus 497 ; découpage incohérent 0 ; recopie sans divergence 0 ; sans produit étranger 0 ; sans erreur miroir 103
+127.2s 67 [VALEURS] SmolLM3-3B-Base écart relatif médian à C : W 0.0028, F 0.0028, R 0.0028 ; exemple : C 6308, W 6318, F 6319, R 6298
+173.3s 68 [MESURE] Qwen3-1.7B-Base passe (924 textes) : 75 s
+267.2s 69 [MESURE] SmolLM3-3B-Base passe (1988 textes) : 140 s
+337.3s 70 [MESURE] Qwen3-1.7B-Base sondes : 164 s
+337.5s 71 
+337.5s 72 ====================================================================================================
+337.5s 73 [RÉSULTATS] Qwen3-1.7B-Base : 231 problèmes, couche L18 (fixée d'avance)
+337.5s 74 [REPRODUCTION] Qwen3-1.7B-Base W contre C (comme B1c) : AUC appariée 0.723 IC95 [0.662 ; 0.784]
+337.5s 75 [F] Qwen3-1.7B-Base produit étranger contre C : AUC appariée 0.935 IC95 [0.900 ; 0.965] ; écart W − F -0.212 IC95 [-0.273 ; -0.156]
+337.5s 76 [R] Qwen3-1.7B-Base erreur miroir contre C (descriptif) : AUC appariée 0.732 IC95 [0.667 ; 0.784]
+337.5s 77 [SURFACE] Qwen3-1.7B-Base sonde de surface (entraînée sur C contre W) : W 0.506 IC95 [0.500 ; 0.515] ; F 1.000 IC95 [1.000 ; 1.000]
+337.5s 78 [COUCHES] Qwen3-1.7B-Base AUC appariée par couche, W | F : L1 0.61|0.51 L2 0.59|0.56 L3 0.55|0.55 L4 0.59|0.60 L5 0.61|0.60 L6 0.62|0.59 L7 0.58|0.55 L8 0.56|0.55 L9 0.59|0.58 L10 0.59|0.55 L11 0.62|0.56 L12 0.59|0.52 L13 0.58|0.62 L14 0.67|0.93 L15 0.71|0.94 L16 0.71|0.95 L17 0.69|0.92 L18 0.72|0.94 L19 0.72|0.94 L20 0.64|0.85 L21 0.65|0.78 L22 0.63|0.73 L23 0.61|0.71 L24 0.64|0.71 L25 0.60|0.69 L26 0.62|0.67 L27 0.65|0.68 L28 0.62|0.99
+337.5s 79 [VERDICT] Qwen3-1.7B-Base : COMPARAISON
+337.8s 80 [DURÉE] Qwen3-1.7B-Base : 4.9 min
+528.1s 81 [MESURE] SmolLM3-3B-Base sondes : 261 s
+528.3s 82 
+528.3s 83 ====================================================================================================
+528.3s 84 [RÉSULTATS] SmolLM3-3B-Base : 497 problèmes, couche L18 (fixée d'avance)
+528.3s 85 [REPRODUCTION] SmolLM3-3B-Base W contre C (comme B1c) : AUC appariée 0.666 IC95 [0.626 ; 0.708]
+528.3s 86 [F] SmolLM3-3B-Base produit étranger contre C : AUC appariée 0.873 IC95 [0.845 ; 0.901] ; écart W − F -0.207 IC95 [-0.247 ; -0.165]
+528.3s 87 [R] SmolLM3-3B-Base erreur miroir contre C (descriptif) : AUC appariée 0.692 IC95 [0.650 ; 0.730]
+528.3s 88 [SURFACE] SmolLM3-3B-Base sonde de surface (entraînée sur C contre W) : W 0.565 IC95 [0.549 ; 0.581] ; F 0.996 IC95 [0.992 ; 0.999]
+528.3s 89 [COUCHES] SmolLM3-3B-Base AUC appariée par couche, W | F : L1 0.53|0.56 L2 0.54|0.55 L3 0.54|0.53 L4 0.53|0.52 L5 0.52|0.51 L6 0.49|0.54 L7 0.56|0.62 L8 0.56|0.63 L9 0.60|0.70 L10 0.60|0.70 L11 0.61|0.75 L12 0.61|0.77 L13 0.62|0.75 L14 0.63|0.80 L15 0.65|0.82 L16 0.64|0.83 L17 0.65|0.85 L18 0.67|0.87 L19 0.65|0.86 L20 0.62|0.85 L21 0.64|0.83 L22 0.64|0.83 L23 0.63|0.84 L24 0.62|0.81 L25 0.63|0.83 L26 0.57|0.71 L27 0.56|0.67 L28 0.55|0.62 L29 0.54|0.59 L30 0.52|0.55 L31 0.49|0.54 L32 0.50|0.53 L33 0.53|0.54 L34 0.53|0.54 L35 0.54|0.71 L36 0.54|0.68
+528.3s 90 [VERDICT] SmolLM3-3B-Base : COMPARAISON
+528.5s 91 [DURÉE] SmolLM3-3B-Base : 8.0 min
+528.9s 92 
+528.9s 93 ====================================================================================================
+528.9s 94 [SYNTHÈSE] B1d — l'état caché compare-t-il la valeur écrite au produit vrai ?
+528.9s 95 [SYNTHÈSE] Qwen3-1.7B-Base        : COMPARAISON
+528.9s 96 [SYNTHÈSE] SmolLM3-3B-Base        : COMPARAISON
+528.9s 97 [SYNTHÈSE] thèse « l'état caché compare la valeur écrite au produit vrai » : SOUTENUE (prédiction SOUTENUE 25 %, RÉFUTÉE 25 %)
+528.9s 98 [SORTIE] fichiers dans /kaggle/working/sgz_b1d : ['Qwen3-1.7B-Base_b1d.npz', 'SmolLM3-3B-Base_b1d.npz', 'resume_b1d.json']
+534.7s 99 /usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\|'
+534.7s 100 cells[i][c] = re.sub('\\\\\|', '|', cell)
+534.8s 101 /usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\_'
+534.8s 102 text = re.sub(r'_', '\_', text) # Escape underscores in display text
+535.7s 103 [NbConvertApp] Converting notebook __notebook__.ipynb to notebook
+535.8s 104 [NbConvertApp] Writing 312976 bytes to __notebook__.ipynb
+538.4s 105 [NbConvertApp] Converting notebook __notebook__.ipynb to html
+539.3s 106 [NbConvertApp] Writing 821393 bytes to __results__.html

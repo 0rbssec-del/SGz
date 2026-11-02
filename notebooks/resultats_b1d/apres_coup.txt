@@ -1,0 +1,25 @@
+== qwen n=231
+  W: dernier chiffre cohérent 0.99 ; |v-C| médian 100 ; signe + 0.56
+  F: dernier chiffre cohérent 0.00 ; |v-C| médian 101 ; signe + 0.56
+  R: dernier chiffre cohérent 0.92 ; |v-C| médian 100 ; signe + 0.44
+  AUC appariée W cohérent   n=228 : 0.719 [0.662 ; 0.776]
+  AUC appariée F incohérent n=231 : 0.935 [0.900 ; 0.965]
+  AUC appariée R cohérent   n=213 : 0.714 [0.652 ; 0.775]
+  AUC appariée R incohérent n= 18 : 0.944 [0.833 ; 1.000]
+  AUC W v>C n=130 : 0.746
+  AUC W v<C n=101 : 0.693
+  AUC R v>C n=101 : 0.762
+  AUC R v<C n=130 : 0.708
+== smol n=497
+  W: dernier chiffre cohérent 0.87 ; |v-C| médian 20 ; signe + 0.40
+  F: dernier chiffre cohérent 0.01 ; |v-C| médian 21 ; signe + 0.40
+  R: dernier chiffre cohérent 0.84 ; |v-C| médian 20 ; signe + 0.60
+  AUC appariée W cohérent   n=433 : 0.661 [0.617 ; 0.704]
+  AUC appariée W incohérent n= 64 : 0.703 [0.594 ; 0.812]
+  AUC appariée F incohérent n=493 : 0.872 [0.842 ; 0.901]
+  AUC appariée R cohérent   n=419 : 0.690 [0.644 ; 0.735]
+  AUC appariée R incohérent n= 78 : 0.705 [0.603 ; 0.795]
+  AUC W v>C n=199 : 0.673
+  AUC W v<C n=298 : 0.661
+  AUC R v>C n=298 : 0.678
+  AUC R v<C n=199 : 0.714
