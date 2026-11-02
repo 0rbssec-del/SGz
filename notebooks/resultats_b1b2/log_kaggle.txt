@@ -1,0 +1,128 @@
+8.3s 1 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+8.3s 2 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+8.3s 3 0.00s - to python to disable frozen modules.
+8.3s 4 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+9.0s 5 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+9.0s 6 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+9.0s 7 0.00s - to python to disable frozen modules.
+9.0s 8 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+31.5s 9 [CONFIG] SMOKE_TEST=False DEVICE=cuda N_GPU=2 OUT=/kaggle/working/sgz_b1b2
+31.5s 10 [CONFIG] T=0.6 tirages=32 ; explication 40 jetons, fenêtre k = 1–30 ; modèles=['Qwen3-1.7B-Base', 'SmolLM3-3B-Base']
+31.5s 11 [CONFIG] torch 2.11.0+cu130, transformers 5.20.2
+31.6s 12 [QUESTIONS] 1352 questions : Z 232, sym 232, cap 212, Zinv 232, syminv 232, capinv 212 ; 106 pays
+31.6s 13 [QUESTIONS] exemple de prompt :
+31.6s 14 Élément : fer
+31.6s 15 Numéro atomique : 26. Le fer est un métal de transition, principal constituant de l'acier.
+31.6s 16 
+31.6s 17 Élément : sodium
+31.6s 18 Symbole chimique : Na. Ce symbole vient du latin natrium ; le sodium est un métal alcalin très réactif.
+31.6s 19 
+31.6s 20 Pays : Japon
+31.6s 21 Capitale : Tokyo. Tokyo est la plus grande agglomération du pays et le siège du gouvernement.
+31.6s 22 
+31.6s 23 Élément : hydrogène
+31.6s 24 Numéro atomique :…
+31.7s 25 [TÉMOIN POSITIF] E1 réaction                : RÉACTION À L'ERREUR                                      (attendu RÉACTION À L'ERREUR)
+31.7s 26 [TÉMOIN POSITIF] E1 absente                 : ABSENTE                                                  (attendu ABSENTE)
+31.7s 27 [TÉMOIN POSITIF] E1 absente sans pente      : ABSENTE                                                  (attendu ABSENTE)
+31.7s 28 [TÉMOIN POSITIF] E1 engagement              : ENGAGEMENT (moins d'incertitude après l'erreur)          (attendu ENGAGEMENT (moins d'incertitude après l'erreur))
+31.7s 29 [TÉMOIN POSITIF] E1 plancher                : NON TESTABLE (plancher : explication presque déterministe) (attendu NON TESTABLE (plancher : explication presque déterministe))
+31.7s 30 [TÉMOIN POSITIF] E1 extrapolation           : NON TESTABLE (Δs ne couvre pas 0 : extrapolation)        (attendu NON TESTABLE (Δs ne couvre pas 0 : extrapolation))
+31.7s 31 [TÉMOIN POSITIF] E1 trop peu                : NON TESTABLE (trop peu de questions)                     (attendu NON TESTABLE (trop peu de questions))
+31.7s 32 [TÉMOIN POSITIF] E2 l'erreur l'emporte      : L'ERREUR L'EMPORTE                                       (attendu L'ERREUR L'EMPORTE)
+31.7s 33 [TÉMOIN POSITIF] E2 la surprise l'emporte   : LA SURPRISE L'EMPORTE                                    (attendu LA SURPRISE L'EMPORTE)
+31.7s 34 [TÉMOIN POSITIF] nul sans biais             : SANS BIAIS                                               (attendu SANS BIAIS)
+31.7s 35 [TÉMOIN POSITIF] nul biaisé                 : BIAISÉ                                                   (attendu BIAISÉ)
+31.7s 36 [TÉMOIN POSITIF] synthèse soutenue          : SOUTENUE                                                 (attendu SOUTENUE)
+31.7s 37 [TÉMOIN POSITIF] synthèse réfutée           : RÉFUTÉE                                                  (attendu RÉFUTÉE)
+31.7s 38 [TÉMOIN POSITIF] synthèse dépend            : DÉPEND DU MODÈLE                                         (attendu DÉPEND DU MODÈLE)
+31.7s 39 [TÉMOIN POSITIF] synthèse surprise          : INDÉTERMINÉE                                             (attendu INDÉTERMINÉE)
+31.7s 40 [TÉMOIN POSITIF] RÉUSSI
+31.9s 41 [CONFIG] 2 modèles en parallèle sur 2 GPU : Qwen3-1.7B-Base → GPU 0 ; SmolLM3-3B-Base → GPU 1
+32.2s 42 
+32.2s 43 [CHARGEMENT] Qwen3-1.7B-Base : téléchargement / chargement de Qwen/Qwen3-1.7B-Base…
+32.2s 44 
+32.2s 45 [CHARGEMENT] SmolLM3-3B-Base : téléchargement / chargement de HuggingFaceTB/SmolLM3-3B-Base…
+42.1s 46 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+42.1s 47 
+42.1s 48 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+70.0s 49 [CHARGEMENT] Qwen3-1.7B-Base : Qwen/Qwen3-1.7B-Base en fp16 GPU 0
+75.9s 50 [PROGRESSION] Qwen3-1.7B-Base sélection : premier lot en 5.5 s ; estimation ~82 min
+111.1s 51 [CHARGEMENT] SmolLM3-3B-Base : HuggingFaceTB/SmolLM3-3B-Base en fp16 GPU 1
+113.1s 52 [transformers] Ignoring clean_up_tokenization_spaces=True for BPE tokenizer TokenizersBackend. The clean_up_tokenization post-processing step is designed for WordPiece tokenizers and is destructive for BPE (it strips spaces before punctuation). Set clean_up_tokenization_spaces=False to suppress this warning, or set clean_up_tokenization_spaces_for_bpe_even_though_it_will_corrupt_output=True to force cleanup anyway.
+113.1s 53 
+113.1s 54 [transformers] Ignoring clean_up_tokenization_spaces=True for BPE tokenizer TokenizersBackend. The clean_up_tokenization post-processing step is designed for WordPiece tokenizers and is destructive for BPE (it strips spaces before punctuation). Set clean_up_tokenization_spaces=False to suppress this warning, or set clean_up_tokenization_spaces_for_bpe_even_though_it_will_corrupt_output=True to force cleanup anyway.
+113.1s 55 [PROGRESSION] SmolLM3-3B-Base sélection : premier lot en 1.8 s ; estimation ~41 min
+508.2s 56 [PILOTE] Qwen3-1.7B-Base : 100 questions retenues sur les 339 premières ; projection 399 sur 1352 (minimum 80)
+834.1s 57 [PILOTE] SmolLM3-3B-Base : 71 questions retenues sur les 338 premières ; projection 284 sur 1352 (minimum 80)
+1757.4s 58 [ERREURS] Qwen3-1.7B-Base Zinv : 80 → radium (55) ; 74 → plutonium (48) ; 86 → radium (44) ; 59 → cerium (41) ; 116 → oganesson (36) ; 32 → sélénium (32) ; 114 → oganesson (32) ; 4 → carbone (31) ; 12 → carbone (30) ; 54 → neodyme (30) ; 13 → phosphore (29) ; 81 → bismuth (28)
+1757.4s 59 [ERREURS] Qwen3-1.7B-Base syminv : Fl → fluorine (33) ; Nh → néon (32) ; Ac → acide chlorhydrique (30) ; Tm → terbium (29) ; W → wolfram (29) ; Cm → cerium (29) ; Cf → cerium (29) ; Ho → hafnium (26) ; Cn → cerium (24) ; B → bêta (23) ; Md → meitnerium (22) ; Fl → fluor (21)
+1757.4s 60 [ERREURS] Qwen3-1.7B-Base capinv : Khartoum → Érythrée (31) ; Minsk → Bulgarie (27) ; Tachkent → Turquie (23) ; Katmandou → Nepale (22) ; Kuala Lumpur → Brunei (21) ; Vilnius → Lettonie (21) ; Bakou → Russie (21) ; Abou Dabi → Arabie Saoudite (18) ; Achgabat → Turquie (17) ; Quito → Pérou (13) ; Addis-Abeba → Érythrée (13) ; Kampala → République démocratique du Congo (12)
+1757.4s 61 [ERREURS] Qwen3-1.7B-Base cap : Ivory Coast → Abidjan (31) ; Algérie → Oran (16) ; Suisse → Genève (12) ; Birmanie → Yangon (10) ; Côte d'Ivoire → Abidjan (8) ; Turkménistan → Astana (7) ; Tanzanie → Dar es Salaam (4) ; Égypte → Alexandrie (4) ; Équateur → Nouméa (4) ; Équateur → La Nouvelle-Calédonie (4) ; Irak → Baqoua (4) ; Afghanistan → Kandahar (4)
+1757.8s 62 [SÉLECTION] Qwen3-1.7B-Base : réponses lisibles 99.5%, exactes 82.6% (Z 96.0%, sym 97.5%, cap 96.7%, Zinv 35.8%, syminv 80.1%, capinv 91.6%) ; questions retenues (au moins une bonne et une mauvaise réponse) : 374 sur 1352 (Z 30, sym 29, cap 44, Zinv 133, syminv 86, capinv 52) ; découpage incohérent 0 ; 1688 s
+1907.3s 63 [VÉRIF] Qwen3-1.7B-Base reprise (C régénérée dans d'autres lots) : premier jeton identique 100.0%, explication entière identique 99.2%, écart max d'entropie au jeton 1 1.3e-02 ; longueur médiane de la fenêtre C 20, W 20 ; branches : 133 s
+1907.5s 64 
+1907.5s 65 ====================================================================================================
+1907.5s 66 [RÉSULTATS] Qwen3-1.7B-Base (T = 0.6) : 374 questions
+1907.5s 67 [PLANCHER] Qwen3-1.7B-Base entropie de l'explication après la bonne réponse : médiane 0.7312, moyenne 0.7380 (seuil 0.02) → franchi ; marge d'équivalence ±0.0738
+1907.5s 68 [SURPRISE] Qwen3-1.7B-Base : s(C) médiane 0.87 nats, s(W) médiane 2.32 nats ; Δs médian +1.44 ; erreur plus probable que la bonne réponse (Δs < 0) : 26%
+1907.5s 69 [MESURE] Qwen3-1.7B-Base : H(C) = 0.7380, H(W) = 0.7455 ; T = H(W) − H(C) = +0.0076 IC95 [-0.0115 ; +0.0256] ; Spearman(Δs, T) +0.077 ; T > 0 dans 54.8% des questions
+1907.5s 70 [TÉMOIN NÉGATIF] Qwen3-1.7B-Base T(nul) (bonne réponse, autre bruit) = +0.0079 IC95 [-0.0105 ; +0.0252] → SANS BIAIS
+1907.5s 71 [E1] Qwen3-1.7B-Base T = a + b·Δs : a = -0.0001 IC95 [-0.0255 ; +0.0214] (marge ±0.0738) ; b = +0.0056 IC95 [-0.0019 ; +0.0135] par nat ; Δs < 0 : 26%, Δs > 0 : 74% → ABSENTE
+1907.5s 72 [E2] Qwen3-1.7B-Base erreur plus probable que la bonne réponse (96 questions) : T = -0.0110 IC95 [-0.0509 ; +0.0300] → INDÉTERMINÉ
+1907.5s 73 [APPARIÉ] Qwen3-1.7B-Base |Δs| ≤ 0.5 (53 questions) : T = +0.0074 IC95 [-0.0353 ; +0.0450]
+1907.5s 74 [DOMAINE] Qwen3-1.7B-Base Z    (30 questions) : T = +0.0187 IC95 [-0.0005 ; +0.0393]
+1907.5s 75 [DOMAINE] Qwen3-1.7B-Base sym  (29 questions) : T = +0.0188 IC95 [-0.0464 ; +0.0781]
+1907.5s 76 [DOMAINE] Qwen3-1.7B-Base cap  (44 questions) : T = +0.0120 IC95 [-0.0286 ; +0.0578]
+1907.6s 77 [DOMAINE] Qwen3-1.7B-Base Zinv (133 questions) : T = -0.0039 IC95 [-0.0380 ; +0.0296]
+1907.6s 78 [DOMAINE] Qwen3-1.7B-Base syminv (86 questions) : T = +0.0041 IC95 [-0.0473 ; +0.0527]
+1907.6s 79 [DOMAINE] Qwen3-1.7B-Base capinv (52 questions) : T = +0.0262 IC95 [-0.0060 ; +0.0584]
+1907.6s 80 [EXPLICATION] Qwen3-1.7B-Base après W : cite la bonne réponse 4.5% ; numéros et symboles (59) : parle de l'élément de la mauvaise réponse 0.0%, de l'élément demandé 71.2%
+1907.6s 81 [EXEMPLE] Qwen3-1.7B-Base syminv « Rh » : C « rhodium » → « Ce métal est extrait de la mine de Rhodia, situé à 30 km de la ville de Rhodia, en Bretagne. » | W « rhénium » → « Ce symbole vient du latin rhenius ; le rhénium est un métal de transition rare. » (T -0.606)
+1907.6s 82 [EXEMPLE] Qwen3-1.7B-Base syminv « Cs » : C « césium » → « Le césium est un métal alcalin très réactif. » | W « cerium » → « Ce symbole vient du grec, ceram, cire. Cerium est un métal rare de transition qui se trouve dans les céram » (T +0.580)
+1907.6s 83 [EXEMPLE] Qwen3-1.7B-Base Zinv « 92 » : C « uranium » → « Le symbole chimique est le même qu'en anglais (Uranium), le nom en français est Uranium. » | W « plutonium » → « Le plutonium est un métal radioactif synthétique. » (T -0.559)
+1907.6s 84 [PROFIL] Qwen3-1.7B-Base W − C par tranches de k (1–5 | 6–15 | 16–30) : +0.0104  +0.0029  +0.0078
+1907.6s 85 [DURÉE] Qwen3-1.7B-Base : 31.3 min
+3003.9s 86 [ERREURS] SmolLM3-3B-Base Zinv : 62 → niobium (64) ; 48 → cobalt (48) ; 70 → germanium (47) ; 117 → ununseptium (44) ; 51 → cobalt (42) ; 106 → rhenium (41) ; 41 → potassium (37) ; 55 → rubidium (34) ; 35 → chlorine (32) ; 46 → chromium (32) ; 20 → titane (31) ; 63 → copper (31)
+3003.9s 87 [ERREURS] SmolLM3-3B-Base syminv : Rg → rhenium (49) ; Nh → nitrogen (32) ; Fl → fluor (31) ; Os → or (29) ; Lv → lithium (29) ; Es → europium (28) ; Ce → césium (27) ; Ta → titane (27) ; Ts → technetium (27) ; Mt → molybdène (26) ; Mt → molybdenum (26) ; Tm → terbium (25)
+3003.9s 88 [ERREURS] SmolLM3-3B-Base capinv : Achgabat → Ouzbékistan (8) ; London → England (8) ; Douchanbé → Ouzbékistan (4) ; Harare → Zambie (2) ; Vientiane → Lao People's Democratic Republic (2) ; La Havane → République de Cuba (1) ; Nairobi → Kenia (1) ; Antananarivo → Madécasse (1) ; Harare → Rhodésie (1) ; Bangkok → Royaume de Thaïlande (1) ; Moscou → Fédération de Russie (1) ; Dublin → République d’Irlande (1)
+3003.9s 89 [ERREURS] SmolLM3-3B-Base cap : Birmanie → Rangoun (22) ; Birmanie → Rangoon (7) ; Myanmar → Yangon (7) ; Tanzania → Dar es Salaam (4) ; Tanzanie → Dar es Salam (3) ; Inde → Delhi (3) ; Tanzanie → Dar es Salaam (2) ; Tanzanie → Dar-es-Salaam (2) ; Tanzanie → Dar es-Salaam (2) ; Arabie saoudite → Ryad (2) ; India → Delhi (2) ; Kazakhstan → Alma-Ata (1)
+3004.3s 90 [SÉLECTION] SmolLM3-3B-Base : réponses lisibles 99.3%, exactes 86.6% (Z 97.4%, sym 97.9%, cap 97.9%, Zinv 47.3%, syminv 82.3%, capinv 99.1%) ; questions retenues (au moins une bonne et une mauvaise réponse) : 282 sur 1352 (Z 11, sym 17, cap 19, Zinv 141, syminv 75, capinv 19) ; découpage incohérent 0 ; 2893 s
+3177.7s 91 [VÉRIF] SmolLM3-3B-Base reprise (C régénérée dans d'autres lots) : premier jeton identique 100.0%, explication entière identique 96.5%, écart max d'entropie au jeton 1 1.1e-02 ; longueur médiane de la fenêtre C 20, W 20 ; branches : 152 s
+3177.9s 92 
+3177.9s 93 ====================================================================================================
+3177.9s 94 [RÉSULTATS] SmolLM3-3B-Base (T = 0.6) : 282 questions
+3177.9s 95 [PLANCHER] SmolLM3-3B-Base entropie de l'explication après la bonne réponse : médiane 0.7049, moyenne 0.6998 (seuil 0.02) → franchi ; marge d'équivalence ±0.0700
+3177.9s 96 [SURPRISE] SmolLM3-3B-Base : s(C) médiane 0.86 nats, s(W) médiane 2.20 nats ; Δs médian +1.23 ; erreur plus probable que la bonne réponse (Δs < 0) : 24%
+3177.9s 97 [MESURE] SmolLM3-3B-Base : H(C) = 0.6998, H(W) = 0.7121 ; T = H(W) − H(C) = +0.0123 IC95 [-0.0090 ; +0.0350] ; Spearman(Δs, T) -0.044 ; T > 0 dans 55.0% des questions
+3177.9s 98 [TÉMOIN NÉGATIF] SmolLM3-3B-Base T(nul) (bonne réponse, autre bruit) = -0.0150 IC95 [-0.0350 ; +0.0078] → SANS BIAIS
+3177.9s 99 [E1] SmolLM3-3B-Base T = a + b·Δs : a = +0.0082 IC95 [-0.0187 ; +0.0369] (marge ±0.0700) ; b = +0.0025 IC95 [-0.0067 ; +0.0095] par nat ; Δs < 0 : 24%, Δs > 0 : 76% → ABSENTE
+3177.9s 100 [E2] SmolLM3-3B-Base erreur plus probable que la bonne réponse (68 questions) : T = +0.0174 IC95 [-0.0294 ; +0.0591] → INDÉTERMINÉ
+3177.9s 101 [APPARIÉ] SmolLM3-3B-Base |Δs| ≤ 0.5 (46 questions) : T = +0.0656 IC95 [+0.0007 ; +0.1377]
+3177.9s 102 [DOMAINE] SmolLM3-3B-Base Z    (11 questions) : T = -0.0023 IC95 [-0.0328 ; +0.0231]
+3177.9s 103 [DOMAINE] SmolLM3-3B-Base sym  (17 questions) : T = +0.0248 IC95 [-0.0184 ; +0.0645]
+3177.9s 104 [DOMAINE] SmolLM3-3B-Base cap  (19 questions) : T = -0.0065 IC95 [-0.0660 ; +0.0605]
+3177.9s 105 [DOMAINE] SmolLM3-3B-Base Zinv (141 questions) : T = +0.0147 IC95 [-0.0183 ; +0.0470]
+3177.9s 106 [DOMAINE] SmolLM3-3B-Base syminv (75 questions) : T = +0.0227 IC95 [-0.0160 ; +0.0623]
+3177.9s 107 [DOMAINE] SmolLM3-3B-Base capinv (19 questions) : T = -0.0305 IC95 [-0.0885 ; +0.0218]
+3177.9s 108 [EXPLICATION] SmolLM3-3B-Base après W : cite la bonne réponse 6.7% ; numéros et symboles (28) : parle de l'élément de la mauvaise réponse 3.6%, de l'élément demandé 71.4%
+3177.9s 109 [EXEMPLE] SmolLM3-3B-Base Zinv « 115 » : C « moscovium » → « Moscovium is a synthetic, radioactive chemical element with the symbol Mc and atomic number 115. » | W « ununpentium » → « The atomic number is a snappy way to say "atomic weight." » (T +0.740)
+3177.9s 110 [EXEMPLE] SmolLM3-3B-Base Zinv « 12 » : C « magnésium » → « Le magnésium est un métal alcalino-terreux. » | W « carbonate » → « Le carbonate est un composé chimique qui contient le groupe ionique CO3. » (T +0.556)
+3177.9s 111 [EXEMPLE] SmolLM3-3B-Base syminv « Yb » : C « ytterbium » → « Ce symbole vient du latin ytterbium, parfois écrit ytterbium, et du grec εύρυθμος (eur » | W « yttrium » → « Ce symbole vient du latin yttrium ; le yttrium est un métal rare de la famille des terres rares. » (T -0.512)
+3177.9s 112 [PROFIL] SmolLM3-3B-Base W − C par tranches de k (1–5 | 6–15 | 16–30) : -0.0067  +0.0302  -0.0072
+3177.9s 113 [DURÉE] SmolLM3-3B-Base : 52.4 min
+3178.2s 114 
+3178.2s 115 ====================================================================================================
+3178.2s 116 [SYNTHÈSE] B1b2 — après une erreur factuelle, l'explication devient-elle plus incertaine, au-delà de la surprise ?
+3178.2s 117 [SYNTHÈSE] Qwen3-1.7B-Base        : E1 ABSENTE                                                  ; E2 INDÉTERMINÉ
+3178.2s 118 [SYNTHÈSE] SmolLM3-3B-Base        : E1 ABSENTE                                                  ; E2 INDÉTERMINÉ
+3178.2s 119 [SYNTHÈSE] thèse « le modèle réagit à sa propre erreur au-delà de la surprise » : RÉFUTÉE (prédiction SOUTENUE 20 %, RÉFUTÉE 30 %)
+3178.2s 120 [SORTIE] fichiers dans /kaggle/working/sgz_b1b2 : ['Qwen3-1.7B-Base_b1b2.npz', 'SmolLM3-3B-Base_b1b2.npz', 'resume_b1b2.json']
+3184.0s 121 /usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\|'
+3184.0s 122 cells[i][c] = re.sub('\\\\\|', '|', cell)
+3184.2s 123 /usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\_'
+3184.2s 124 text = re.sub(r'_', '\_', text) # Escape underscores in display text
+3185.0s 125 [NbConvertApp] Converting notebook __notebook__.ipynb to notebook
+3185.1s 126 [NbConvertApp] Writing 322829 bytes to __notebook__.ipynb
+3187.5s 127 [NbConvertApp] Converting notebook __notebook__.ipynb to html
+3188.3s 128 [NbConvertApp] Writing 793271 bytes to __results__.html
