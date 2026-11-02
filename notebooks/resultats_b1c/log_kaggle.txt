@@ -1,0 +1,89 @@
+7.6s 1 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+7.6s 2 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+7.6s 3 0.00s - to python to disable frozen modules.
+7.6s 4 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+8.2s 5 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+8.2s 6 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+8.2s 7 0.00s - to python to disable frozen modules.
+8.2s 8 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+33.3s 9 [CONFIG] SMOKE_TEST=False DEVICE=cuda N_GPU=2 OUT=/kaggle/working/sgz_b1c
+33.3s 10 [CONFIG] sondes : 5 plis externes, 3 internes, C = 0.05 ; modèles=['Qwen3-1.7B-Base', 'SmolLM3-3B-Base']
+33.3s 11 [CONFIG] torch 2.11.0+cu128, transformers 5.16.1
+33.4s 12 [CONFIG] exemple de prompt :
+33.4s 13 Calcul : 89 * 43 + 957 - 61
+33.4s 14 Étapes : 89 * 43 = 3827 ; 3827 + 957 = 4784 ; 4784 - 61 = 4723
+33.4s 15 
+33.4s 16 Calcul : 381 * 23 + 143 - 71
+33.4s 17 Étapes : 381 * 23 = 8763 ; 8763 + 143 = 8906 ; 8906 - 71 = 8835
+33.4s 18 
+33.4s 19 Calcul : 29 * 89 + 602 - 71
+33.4s 20 Étapes : 29 * 89 = 2581 ; 2581 + 602 = 3183 ; 3183 - 71 = 3112
+33.4s 21 
+33.4s 22 Calcul : 125 * 51 + 873 - 71
+33.4s 23 Étapes : 125 * 51 = 6375 ; 6375 + 873 = 7248 ; 7248 - 71 = 7177
+33.4s 24 
+33.4s 25 Calcul : 76 * 83 + 730 - 73
+33.4s 26 Étapes : 76 * 83 = …
+33.4s 27 [VÉRIF] empreinte des prompts : 653e5b7dff900c6395fd5ab3b4278e92 (B1 : 653e5b7dff900c6395fd5ab3b4278e92)
+44.0s 28 [TÉMOIN POSITIF] sonde synthétique : AUC 0.784 IC95 [0.748 ; 0.820], couches choisies [2, 2, 2, 2, 2] (signal en couche 2) ; sans signal : AUC 0.499
+44.0s 29 [TÉMOIN POSITIF] sonde : couche du signal choisie   : True                                                       (attendu True)
+44.0s 30 [TÉMOIN POSITIF] S1 sait                            : SAIT                                                       (attendu SAIT)
+44.0s 31 [TÉMOIN POSITIF] S1 ne sait pas                     : NE SAIT PAS                                                (attendu NE SAIT PAS)
+44.0s 32 [TÉMOIN POSITIF] S1 contrôle raté                   : NON INTERPRÉTABLE (contrôle des étiquettes permutées raté) (attendu NON INTERPRÉTABLE (contrôle des étiquettes permutées raté))
+44.0s 33 [TÉMOIN POSITIF] S2 sans doute                      : SANS DOUTE                                                 (attendu SANS DOUTE)
+44.0s 34 [TÉMOIN POSITIF] S2 doute                           : DOUTE                                                      (attendu DOUTE)
+44.0s 35 [TÉMOIN POSITIF] S2 certitude accrue                : CERTITUDE ACCRUE                                           (attendu CERTITUDE ACCRUE)
+44.0s 36 [TÉMOIN POSITIF] synthèse soutenue                  : SOUTENUE                                                   (attendu SOUTENUE)
+44.0s 37 [TÉMOIN POSITIF] synthèse savoir et douter          : SAVOIR ET DOUTER                                           (attendu SAVOIR ET DOUTER)
+44.0s 38 [TÉMOIN POSITIF] synthèse réfutée                   : RÉFUTÉE                                                    (attendu RÉFUTÉE)
+44.0s 39 [TÉMOIN POSITIF] synthèse dépend                    : DÉPEND DU MODÈLE                                           (attendu DÉPEND DU MODÈLE)
+44.0s 40 [TÉMOIN POSITIF] synthèse indéterminée              : INDÉTERMINÉE                                               (attendu INDÉTERMINÉE)
+44.0s 41 [TÉMOIN POSITIF] RÉUSSI
+44.1s 42 
+44.1s 43 [CHARGEMENT] Qwen3-1.7B-Base : téléchargement / chargement de Qwen/Qwen3-1.7B-Base…
+50.9s 44 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+50.9s 45 
+50.9s 46 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+76.9s 47 [CHARGEMENT] Qwen3-1.7B-Base : Qwen/Qwen3-1.7B-Base en fp16 1 GPU
+78.8s 48 [SÉLECTION] Qwen3-1.7B-Base : 472 problèmes (problèmes retenus par B1) ; retenus 472 ; découpage incohérent 0 ; recopie sans divergence 0 ; position de divergence dans la recopie : médiane 3
+139.0s 49 [VÉRIF] Qwen3-1.7B-Base : passe aux positions de divergence 60 s ; le jeton le plus probable est le jeton de la recopie dans 100.0% des cas (B1 : recopie dans 100 % des suites)
+882.7s 50 [MESURE] Qwen3-1.7B-Base sondes : 740 s
+882.9s 51 
+882.9s 52 ====================================================================================================
+882.9s 53 [RÉSULTATS] Qwen3-1.7B-Base : 472 problèmes (erreur et bonne réponse)
+882.9s 54 [CONTRÔLE] Qwen3-1.7B-Base sonde sur étiquettes permutées (couche 18) : AUC 0.490 → OK
+882.9s 55 [S1] Qwen3-1.7B-Base sonde sur les états cachés (couches choisies par validation interne : [18, 18, 18, 18, 15]) : AUC 0.642 IC95 [0.615 ; 0.668] ; surface 0.509 IC95 [0.497 ; 0.521] ; écart +0.133 IC95 [+0.106 ; +0.162] → INDÉTERMINÉ
+882.9s 56 [COUCHES] Qwen3-1.7B-Base AUC par couche (1 … 28) : 0.54 0.56 0.56 0.54 0.55 0.54 0.54 0.54 0.54 0.56 0.56 0.56 0.57 0.63 0.63 0.64 0.63 0.64 0.62 0.62 0.61 0.62 0.60 0.60 0.60 0.59 0.58 0.60
+882.9s 57 [S2] Qwen3-1.7B-Base sortie : log-probabilité de l'autre valeur, AUC 0.485 IC95 [0.455 ; 0.515] → SANS DOUTE ; médianes : après l'erreur -12.64, après la bonne réponse -12.59 nats
+882.9s 58 [DESCRIPTIF] Qwen3-1.7B-Base entropie de la loi à la position mesurée : erreur 0.00009, bonne réponse 0.00008 (AUC 0.540 IC95 [0.517 ; 0.563]) ; log-probabilité du jeton recopié : erreur -0.0000, bonne réponse -0.0000
+882.9s 59 [DURÉE] Qwen3-1.7B-Base : 14.0 min
+883.2s 60 
+883.2s 61 [CHARGEMENT] SmolLM3-3B-Base : téléchargement / chargement de HuggingFaceTB/SmolLM3-3B-Base…
+915.8s 62 [CHARGEMENT] SmolLM3-3B-Base : HuggingFaceTB/SmolLM3-3B-Base en fp16 1 GPU
+921.8s 63 [SÉLECTION] SmolLM3-3B-Base : 600 problèmes (problèmes retenus par B1) ; retenus 600 ; découpage incohérent 0 ; recopie sans divergence 0 ; position de divergence dans la recopie : médiane 1
+1019.1s 64 [VÉRIF] SmolLM3-3B-Base : passe aux positions de divergence 97 s ; le jeton le plus probable est le jeton de la recopie dans 100.0% des cas (B1 : recopie dans 100 % des suites)
+1942.0s 65 [MESURE] SmolLM3-3B-Base sondes : 920 s
+1942.2s 66 
+1942.2s 67 ====================================================================================================
+1942.2s 68 [RÉSULTATS] SmolLM3-3B-Base : 600 problèmes (erreur et bonne réponse)
+1942.2s 69 [CONTRÔLE] SmolLM3-3B-Base sonde sur étiquettes permutées (couche 18) : AUC 0.508 → OK
+1942.2s 70 [S1] SmolLM3-3B-Base sonde sur les états cachés (couches choisies par validation interne : [19, 17, 18, 18, 18]) : AUC 0.596 IC95 [0.571 ; 0.620] ; surface 0.584 IC95 [0.565 ; 0.603] ; écart +0.012 IC95 [-0.021 ; +0.041] → INDÉTERMINÉ
+1942.2s 71 [COUCHES] SmolLM3-3B-Base AUC par couche (1 … 36) : 0.49 0.49 0.50 0.50 0.49 0.49 0.52 0.54 0.55 0.56 0.57 0.55 0.55 0.57 0.58 0.58 0.59 0.60 0.59 0.58 0.57 0.57 0.58 0.57 0.57 0.54 0.51 0.51 0.49 0.48 0.48 0.49 0.50 0.50 0.51 0.51
+1942.2s 72 [S2] SmolLM3-3B-Base sortie : log-probabilité de l'autre valeur, AUC 0.493 IC95 [0.467 ; 0.518] → SANS DOUTE ; médianes : après l'erreur -11.60, après la bonne réponse -11.53 nats
+1942.2s 73 [DESCRIPTIF] SmolLM3-3B-Base entropie de la loi à la position mesurée : erreur 0.00082, bonne réponse 0.00086 (AUC 0.484 IC95 [0.461 ; 0.508]) ; log-probabilité du jeton recopié : erreur -0.0002, bonne réponse -0.0002
+1942.2s 74 [DURÉE] SmolLM3-3B-Base : 17.6 min
+1942.6s 75 
+1942.6s 76 ====================================================================================================
+1942.6s 77 [SYNTHÈSE] B1c — savoir sans douter : le modèle sait-il qu'il s'est trompé, sans que sa sortie hésite ?
+1942.6s 78 [SYNTHÈSE] Qwen3-1.7B-Base        : S1 INDÉTERMINÉ                                  ; S2 SANS DOUTE
+1942.6s 79 [SYNTHÈSE] SmolLM3-3B-Base        : S1 INDÉTERMINÉ                                  ; S2 SANS DOUTE
+1942.6s 80 [SYNTHÈSE] thèse « savoir sans douter » : INDÉTERMINÉE (prédiction SOUTENUE 35 %)
+1942.6s 81 [SORTIE] fichiers dans /kaggle/working/sgz_b1c : ['Qwen3-1.7B-Base_b1c.npz', 'SmolLM3-3B-Base_b1c.npz', 'resume_b1c.json']
+1947.7s 82 /usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\|'
+1947.7s 83 cells[i][c] = re.sub('\\\\\|', '|', cell)
+1947.8s 84 /usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\_'
+1947.8s 85 text = re.sub(r'_', '\_', text) # Escape underscores in display text
+1948.6s 86 [NbConvertApp] Converting notebook __notebook__.ipynb to notebook
+1948.7s 87 [NbConvertApp] Writing 302052 bytes to __notebook__.ipynb
+1951.1s 88 [NbConvertApp] Converting notebook __notebook__.ipynb to html
+1951.9s 89 [NbConvertApp] Writing 774330 bytes to __results__.html

@@ -1,0 +1,73 @@
+7.1s 1 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+7.1s 2 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+7.1s 3 0.00s - to python to disable frozen modules.
+7.1s 4 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+7.7s 5 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+7.7s 6 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+7.7s 7 0.00s - to python to disable frozen modules.
+7.7s 8 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+28.7s 9 [CONFIG] SMOKE_TEST=False DEVICE=cuda N_GPU=2 OUT=/kaggle/working/sgz_b1b
+28.7s 10 [CONFIG] T=0.6 tirages=8 ; explication 40 jetons, fenêtre k = 1–30 ; modèles=['Qwen3-1.7B-Base', 'SmolLM3-3B-Base']
+28.7s 11 [CONFIG] torch 2.11.0+cu128, transformers 5.16.1
+28.8s 12 [QUESTIONS] 676 questions : Z 232, sym 232, cap 212 ; 106 pays
+28.8s 13 [QUESTIONS] exemple de prompt :
+28.8s 14 Élément : fer
+28.8s 15 Numéro atomique : 26. Le fer est un métal de transition, principal constituant de l'acier.
+28.8s 16 
+28.8s 17 Élément : sodium
+28.8s 18 Symbole chimique : Na. Ce symbole vient du latin natrium ; le sodium est un métal alcalin très réactif.
+28.8s 19 
+28.8s 20 Pays : Japon
+28.8s 21 Capitale : Tokyo. Tokyo est la plus grande agglomération du pays et le siège du gouvernement.
+28.8s 22 
+28.8s 23 Élément : hydrogène
+28.8s 24 Numéro atomique :…
+28.9s 25 [TÉMOIN POSITIF] E1 réaction                : RÉACTION À L'ERREUR                                      (attendu RÉACTION À L'ERREUR)
+28.9s 26 [TÉMOIN POSITIF] E1 absente                 : ABSENTE                                                  (attendu ABSENTE)
+28.9s 27 [TÉMOIN POSITIF] E1 absente sans pente      : ABSENTE                                                  (attendu ABSENTE)
+28.9s 28 [TÉMOIN POSITIF] E1 engagement              : ENGAGEMENT (moins d'incertitude après l'erreur)          (attendu ENGAGEMENT (moins d'incertitude après l'erreur))
+28.9s 29 [TÉMOIN POSITIF] E1 plancher                : NON TESTABLE (plancher : explication presque déterministe) (attendu NON TESTABLE (plancher : explication presque déterministe))
+28.9s 30 [TÉMOIN POSITIF] E1 extrapolation           : NON TESTABLE (Δs ne couvre pas 0 : extrapolation)        (attendu NON TESTABLE (Δs ne couvre pas 0 : extrapolation))
+28.9s 31 [TÉMOIN POSITIF] E1 trop peu                : NON TESTABLE (trop peu de questions)                     (attendu NON TESTABLE (trop peu de questions))
+28.9s 32 [TÉMOIN POSITIF] E2 l'erreur l'emporte      : L'ERREUR L'EMPORTE                                       (attendu L'ERREUR L'EMPORTE)
+28.9s 33 [TÉMOIN POSITIF] E2 la surprise l'emporte   : LA SURPRISE L'EMPORTE                                    (attendu LA SURPRISE L'EMPORTE)
+28.9s 34 [TÉMOIN POSITIF] nul sans biais             : SANS BIAIS                                               (attendu SANS BIAIS)
+28.9s 35 [TÉMOIN POSITIF] nul biaisé                 : BIAISÉ                                                   (attendu BIAISÉ)
+28.9s 36 [TÉMOIN POSITIF] synthèse soutenue          : SOUTENUE                                                 (attendu SOUTENUE)
+28.9s 37 [TÉMOIN POSITIF] synthèse réfutée           : RÉFUTÉE                                                  (attendu RÉFUTÉE)
+28.9s 38 [TÉMOIN POSITIF] synthèse dépend            : DÉPEND DU MODÈLE                                         (attendu DÉPEND DU MODÈLE)
+28.9s 39 [TÉMOIN POSITIF] synthèse surprise          : INDÉTERMINÉE                                             (attendu INDÉTERMINÉE)
+28.9s 40 [TÉMOIN POSITIF] RÉUSSI
+29.0s 41 
+29.0s 42 [CHARGEMENT] Qwen3-1.7B-Base : téléchargement / chargement de Qwen/Qwen3-1.7B-Base…
+37.6s 43 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+37.6s 44 
+37.6s 45 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+63.1s 46 [CHARGEMENT] Qwen3-1.7B-Base : Qwen/Qwen3-1.7B-Base en fp16 1 GPU
+65.7s 47 [PROGRESSION] Qwen3-1.7B-Base sélection : premier lot en 2.6 s ; estimation ~5 min
+249.7s 48 [SÉLECTION] Qwen3-1.7B-Base : réponses lisibles 99.7%, exactes 96.7% (Z 96.6%, sym 97.7%, cap 95.9%) ; questions retenues (au moins une bonne et une mauvaise réponse) : 66 sur 676 (Z 18, sym 16, cap 32) ; découpage incohérent 0 ; 187 s
+250.0s 49 [E1] Qwen3-1.7B-Base : NON TESTABLE (trop peu de questions)
+250.0s 50 
+250.0s 51 [CHARGEMENT] SmolLM3-3B-Base : téléchargement / chargement de HuggingFaceTB/SmolLM3-3B-Base…
+285.0s 52 [CHARGEMENT] SmolLM3-3B-Base : HuggingFaceTB/SmolLM3-3B-Base en fp16 1 GPU
+287.0s 53 [transformers] Ignoring clean_up_tokenization_spaces=True for BPE tokenizer TokenizersBackend. The clean_up_tokenization post-processing step is designed for WordPiece tokenizers and is destructive for BPE (it strips spaces before punctuation). Set clean_up_tokenization_spaces=False to suppress this warning, or set clean_up_tokenization_spaces_for_bpe_even_though_it_will_corrupt_output=True to force cleanup anyway.
+287.0s 54 
+287.0s 55 [transformers] Ignoring clean_up_tokenization_spaces=True for BPE tokenizer TokenizersBackend. The clean_up_tokenization post-processing step is designed for WordPiece tokenizers and is destructive for BPE (it strips spaces before punctuation). Set clean_up_tokenization_spaces=False to suppress this warning, or set clean_up_tokenization_spaces_for_bpe_even_though_it_will_corrupt_output=True to force cleanup anyway.
+287.0s 56 [PROGRESSION] SmolLM3-3B-Base sélection : premier lot en 2.1 s ; estimation ~6 min
+583.8s 57 [SÉLECTION] SmolLM3-3B-Base : réponses lisibles 98.9%, exactes 97.7% (Z 97.4%, sym 97.6%, cap 98.2%) ; questions retenues (au moins une bonne et une mauvaise réponse) : 16 sur 676 (Z 6, sym 6, cap 4) ; découpage incohérent 0 ; 299 s
+584.1s 58 [E1] SmolLM3-3B-Base : NON TESTABLE (trop peu de questions)
+584.1s 59 
+584.1s 60 ====================================================================================================
+584.1s 61 [SYNTHÈSE] B1b — après une erreur factuelle, l'explication devient-elle plus incertaine, au-delà de la surprise ?
+584.1s 62 [SYNTHÈSE] Qwen3-1.7B-Base        : E1 NON TESTABLE (trop peu de questions)                     ; E2 NON TESTABLE (trop peu de questions)
+584.1s 63 [SYNTHÈSE] SmolLM3-3B-Base        : E1 NON TESTABLE (trop peu de questions)                     ; E2 NON TESTABLE (trop peu de questions)
+584.1s 64 [SYNTHÈSE] thèse « le modèle réagit à sa propre erreur au-delà de la surprise » : INDÉTERMINÉE (prédiction SOUTENUE 20 %, RÉFUTÉE 30 %)
+584.1s 65 [SORTIE] fichiers dans /kaggle/working/sgz_b1b : ['resume_b1b.json']
+589.8s 66 /usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\|'
+589.8s 67 cells[i][c] = re.sub('\\\\\|', '|', cell)
+589.9s 68 /usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\_'
+589.9s 69 text = re.sub(r'_', '\_', text) # Escape underscores in display text
+590.8s 70 [NbConvertApp] Converting notebook __notebook__.ipynb to notebook
+590.9s 71 [NbConvertApp] Writing 304376 bytes to __notebook__.ipynb
+593.5s 72 [NbConvertApp] Converting notebook __notebook__.ipynb to html
+594.3s 73 [NbConvertApp] Writing 748710 bytes to __results__.html

@@ -1,0 +1,4 @@
+Qwen3-1.7B-Base : AUC appariée sonde 0.678 IC95 [0.636 0.718] ; surface 0.496
+  Spearman(score erreur − score bonne réponse, erreur relative) = +0.050 (p = 0.274)
+SmolLM3-3B-Base : AUC appariée sonde 0.637 IC95 [0.6   0.675] ; surface 0.555
+  Spearman(score erreur − score bonne réponse, erreur relative) = -0.039 (p = 0.337)
