@@ -1,0 +1,135 @@
+8.1s 1 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+8.1s 2 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+8.1s 3 0.00s - to python to disable frozen modules.
+8.1s 4 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+8.7s 5 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+8.7s 6 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+8.7s 7 0.00s - to python to disable frozen modules.
+8.7s 8 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+33.2s 9 [CONFIG] SMOKE_TEST=False DEVICE=cuda N_GPU=2 OUT=/kaggle/working/sgz_b1e
+33.2s 10 [CONFIG] sondes : 5 plis externes, 3 internes, C = 0.05 ; modèles=['Qwen3-1.7B-Base', 'SmolLM3-3B-Base']
+33.2s 11 [CONFIG] torch 2.11.0+cu130, transformers 5.20.2
+33.2s 12 [CONFIG] exemple de prompt :
+33.2s 13 Calcul : 89 * 43 + 957 - 61
+33.2s 14 Étapes : 89 * 43 = 3827 ; 3827 + 957 = 4784 ; 4784 - 61 = 4723
+33.2s 15 
+33.2s 16 Calcul : 381 * 23 + 143 - 71
+33.2s 17 Étapes : 381 * 23 = 8763 ; 8763 + 143 = 8906 ; 8906 - 71 = 8835
+33.2s 18 
+33.2s 19 Calcul : 29 * 89 + 602 - 71
+33.2s 20 Étapes : 29 * 89 = 2581 ; 2581 + 602 = 3183 ; 3183 - 71 = 3112
+33.2s 21 
+33.2s 22 Calcul : 125 * 51 + 873 - 71
+33.2s 23 Étapes : 125 * 51 = 6375 ; 6375 + 873 = 7248 ; 7248 - 71 = 7177
+33.2s 24 
+33.2s 25 Calcul : 76 * 83 + 730 - 73
+33.2s 26 Étapes : 76 * 83 = …
+33.2s 27 [VÉRIF] empreinte des prompts : 653e5b7dff900c6395fd5ab3b4278e92 (B1 : 653e5b7dff900c6395fd5ab3b4278e92)
+43.8s 28 [TÉMOIN POSITIF] sonde synthétique : AUC 0.784 IC95 [0.748 ; 0.820], couches choisies [2, 2, 2, 2, 2] (signal en couche 2) ; sans signal : AUC 0.499
+43.8s 29 [TÉMOIN POSITIF] sonde : couche du signal choisie   : True                                                       (attendu True)
+43.8s 30 [TÉMOIN POSITIF] S1 sait                            : SAIT                                                       (attendu SAIT)
+43.8s 31 [TÉMOIN POSITIF] S1 ne sait pas                     : NE SAIT PAS                                                (attendu NE SAIT PAS)
+43.8s 32 [TÉMOIN POSITIF] S1 contrôle raté                   : NON INTERPRÉTABLE (contrôle des étiquettes permutées raté) (attendu NON INTERPRÉTABLE (contrôle des étiquettes permutées raté))
+43.8s 33 [TÉMOIN POSITIF] S2 sans doute                      : SANS DOUTE                                                 (attendu SANS DOUTE)
+43.8s 34 [TÉMOIN POSITIF] S2 doute                           : DOUTE                                                      (attendu DOUTE)
+43.8s 35 [TÉMOIN POSITIF] S2 certitude accrue                : CERTITUDE ACCRUE                                           (attendu CERTITUDE ACCRUE)
+43.8s 36 [TÉMOIN POSITIF] synthèse soutenue                  : SOUTENUE                                                   (attendu SOUTENUE)
+43.8s 37 [TÉMOIN POSITIF] synthèse savoir et douter          : SAVOIR ET DOUTER                                           (attendu SAVOIR ET DOUTER)
+43.8s 38 [TÉMOIN POSITIF] synthèse réfutée                   : RÉFUTÉE                                                    (attendu RÉFUTÉE)
+43.8s 39 [TÉMOIN POSITIF] synthèse dépend                    : DÉPEND DU MODÈLE                                           (attendu DÉPEND DU MODÈLE)
+43.8s 40 [TÉMOIN POSITIF] synthèse indéterminée              : INDÉTERMINÉE                                               (attendu INDÉTERMINÉE)
+43.8s 41 [TÉMOIN POSITIF] RÉUSSI
+44.5s 42 [TÉMOIN POSITIF] B1e comparaison                    : COMPARAISON                                                (attendu COMPARAISON)
+44.5s 43 [TÉMOIN POSITIF] B1e forme                          : FORME                                                      (attendu FORME)
+44.5s 44 [TÉMOIN POSITIF] B1e surface                        : NON INTERPRÉTABLE (G lisible en surface)                   (attendu NON INTERPRÉTABLE (G lisible en surface))
+44.5s 45 [TÉMOIN POSITIF] B1e non reproduite                 : NON INTERPRÉTABLE (sonde de B1c non reproduite)            (attendu NON INTERPRÉTABLE (sonde de B1c non reproduite))
+44.5s 46 [TÉMOIN POSITIF] B1e indéterminé                    : INDÉTERMINÉ                                                (attendu INDÉTERMINÉ)
+44.5s 47 [TÉMOIN POSITIF] pilotage corrige                   : CORRIGE                                                    (attendu CORRIGE)
+44.5s 48 [TÉMOIN POSITIF] pilotage perturbe                  : PERTURBE                                                   (attendu PERTURBE)
+44.5s 49 [TÉMOIN POSITIF] pilotage inerte                    : INERTE                                                     (attendu INERTE)
+44.5s 50 [TÉMOIN POSITIF] pilotage crochet raté              : NON INTERPRÉTABLE (témoin du crochet raté)                 (attendu NON INTERPRÉTABLE (témoin du crochet raté))
+44.5s 51 [TÉMOIN POSITIF] synthèse 1 soutenue                : SOUTENUE                                                   (attendu SOUTENUE)
+44.5s 52 [TÉMOIN POSITIF] synthèse 1 réfutée                 : RÉFUTÉE                                                    (attendu RÉFUTÉE)
+44.5s 53 [TÉMOIN POSITIF] synthèse 1 indéterminée            : INDÉTERMINÉE                                               (attendu INDÉTERMINÉE)
+44.5s 54 [TÉMOIN POSITIF] synthèse 2 soutenue                : SOUTENUE                                                   (attendu SOUTENUE)
+44.5s 55 [TÉMOIN POSITIF] synthèse 2 réfutée                 : RÉFUTÉE                                                    (attendu RÉFUTÉE)
+44.5s 56 [TÉMOIN POSITIF] synthèse 2 dépend                  : DÉPEND DU MODÈLE                                           (attendu DÉPEND DU MODÈLE)
+44.5s 57 [TÉMOIN POSITIF] synthèse 2 indéterminée            : INDÉTERMINÉE                                               (attendu INDÉTERMINÉE)
+44.5s 58 [TÉMOIN POSITIF] B1e RÉUSSI
+44.6s 59 [CONFIG] 2 modèles en parallèle sur 2 GPU : Qwen3-1.7B-Base → GPU 0 ; SmolLM3-3B-Base → GPU 1
+45.0s 60 
+45.0s 61 [CHARGEMENT] Qwen3-1.7B-Base : téléchargement / chargement de Qwen/Qwen3-1.7B-Base…
+45.0s 62 
+45.0s 63 [CHARGEMENT] SmolLM3-3B-Base : téléchargement / chargement de HuggingFaceTB/SmolLM3-3B-Base…
+52.1s 64 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+52.1s 65 
+52.1s 66 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+78.1s 67 [CHARGEMENT] Qwen3-1.7B-Base : Qwen/Qwen3-1.7B-Base en fp16 GPU 0
+84.9s 68 [SÉLECTION] Qwen3-1.7B-Base : 472 problèmes (problèmes retenus par B1) ; erreur à dernier chiffre incohérent (exclue) 11 ; retenus 459 ; découpage incohérent 0 ; recopie sans divergence 0 ; sans produit étranger cohérent 2
+84.9s 69 [VALEURS] Qwen3-1.7B-Base écart relatif médian à C : W 0.0044, G 0.0043 ; exemple : C 15895, W 15995, G 15985
+117.8s 70 [CHARGEMENT] SmolLM3-3B-Base : HuggingFaceTB/SmolLM3-3B-Base en fp16 GPU 1
+118.4s 71 [transformers] Ignoring clean_up_tokenization_spaces=True for BPE tokenizer TokenizersBackend. The clean_up_tokenization post-processing step is designed for WordPiece tokenizers and is destructive for BPE (it strips spaces before punctuation). Set clean_up_tokenization_spaces=False to suppress this warning, or set clean_up_tokenization_spaces_for_bpe_even_though_it_will_corrupt_output=True to force cleanup anyway.
+118.4s 72 
+118.4s 73 [transformers] Ignoring clean_up_tokenization_spaces=True for BPE tokenizer TokenizersBackend. The clean_up_tokenization post-processing step is designed for WordPiece tokenizers and is destructive for BPE (it strips spaces before punctuation). Set clean_up_tokenization_spaces=False to suppress this warning, or set clean_up_tokenization_spaces_for_bpe_even_though_it_will_corrupt_output=True to force cleanup anyway.
+120.4s 74 [SÉLECTION] SmolLM3-3B-Base : 600 problèmes (problèmes retenus par B1) ; erreur à dernier chiffre incohérent (exclue) 65 ; retenus 534 ; découpage incohérent 0 ; recopie sans divergence 0 ; sans produit étranger cohérent 1
+120.4s 75 [VALEURS] SmolLM3-3B-Base écart relatif médian à C : W 0.0027, G 0.0032 ; exemple : C 6308, W 6318, G 6328
+204.5s 76 [MESURE] Qwen3-1.7B-Base passe (1377 textes) : 120 s
+258.2s 77 [MESURE] SmolLM3-3B-Base passe (1602 textes) : 138 s
+482.8s 78 [MESURE] Qwen3-1.7B-Base sondes : 278 s
+483.0s 79 
+483.0s 80 ====================================================================================================
+483.0s 81 [RÉSULTATS 1] Qwen3-1.7B-Base : 459 problèmes, couche L18 (fixée d'avance)
+483.0s 82 [REPRODUCTION] Qwen3-1.7B-Base W contre C (dernier chiffre cohérent) : AUC appariée 0.673 IC95 [0.632 ; 0.715]
+483.0s 83 [G] Qwen3-1.7B-Base produit étranger cohérent contre C : AUC appariée 0.854 IC95 [0.819 ; 0.887] ; écart W − G -0.181 IC95 [-0.229 ; -0.133]
+483.0s 84 [SURFACE] Qwen3-1.7B-Base sonde de surface (entraînée sur C contre W) : W 0.495 IC95 [0.483 ; 0.505] ; G 0.495 IC95 [0.485 ; 0.505]
+483.0s 85 [COUCHES] Qwen3-1.7B-Base AUC appariée par couche, W | G : L1 0.56|0.52 L2 0.56|0.57 L3 0.55|0.57 L4 0.58|0.54 L5 0.58|0.56 L6 0.56|0.55 L7 0.54|0.54 L8 0.54|0.54 L9 0.54|0.55 L10 0.55|0.51 L11 0.57|0.53 L12 0.56|0.53 L13 0.60|0.61 L14 0.68|0.83 L15 0.70|0.84 L16 0.69|0.86 L17 0.68|0.85 L18 0.67|0.85 L19 0.66|0.83 L20 0.65|0.77 L21 0.63|0.74 L22 0.64|0.69 L23 0.61|0.65 L24 0.62|0.64 L25 0.60|0.64 L26 0.59|0.61 L27 0.60|0.63 L28 0.62|0.85
+483.0s 86 [VERDICT 1] Qwen3-1.7B-Base : COMPARAISON
+502.8s 87 [PROGRESSION] Qwen3-1.7B-Base pilotage : premier passage en 17 s ; estimation ~12 min
+577.6s 88 [MESURE] SmolLM3-3B-Base sondes : 319 s
+577.8s 89 
+577.8s 90 ====================================================================================================
+577.8s 91 [RÉSULTATS 1] SmolLM3-3B-Base : 534 problèmes, couche L18 (fixée d'avance)
+577.8s 92 [REPRODUCTION] SmolLM3-3B-Base W contre C (dernier chiffre cohérent) : AUC appariée 0.642 IC95 [0.603 ; 0.684]
+577.8s 93 [G] SmolLM3-3B-Base produit étranger cohérent contre C : AUC appariée 0.676 IC95 [0.635 ; 0.714] ; écart W − G -0.034 IC95 [-0.079 ; +0.015]
+577.8s 94 [SURFACE] SmolLM3-3B-Base sonde de surface (entraînée sur C contre W) : W 0.501 IC95 [0.496 ; 0.506] ; G 0.502 IC95 [0.495 ; 0.507]
+577.8s 95 [COUCHES] SmolLM3-3B-Base AUC appariée par couche, W | G : L1 0.49|0.52 L2 0.53|0.52 L3 0.51|0.53 L4 0.53|0.52 L5 0.53|0.52 L6 0.52|0.54 L7 0.58|0.59 L8 0.57|0.59 L9 0.60|0.60 L10 0.60|0.65 L11 0.61|0.62 L12 0.61|0.63 L13 0.59|0.64 L14 0.62|0.65 L15 0.64|0.68 L16 0.60|0.66 L17 0.63|0.67 L18 0.64|0.68 L19 0.61|0.66 L20 0.61|0.64 L21 0.60|0.65 L22 0.59|0.65 L23 0.60|0.65 L24 0.59|0.61 L25 0.59|0.62 L26 0.55|0.59 L27 0.56|0.57 L28 0.52|0.57 L29 0.50|0.54 L30 0.49|0.54 L31 0.51|0.55 L32 0.49|0.51 L33 0.48|0.51 L34 0.50|0.52 L35 0.51|0.56 L36 0.49|0.54
+577.8s 96 [VERDICT 1] SmolLM3-3B-Base : COMPARAISON
+598.8s 97 [PROGRESSION] SmolLM3-3B-Base pilotage : premier passage en 19 s ; estimation ~14 min
+1220.4s 98 [MESURE] Qwen3-1.7B-Base pilotage (44 conditions × 240 problèmes) : 738 s
+1220.5s 99 
+1220.5s 100 [RÉSULTATS 2] Qwen3-1.7B-Base : 240 problèmes pilotés à L18, α = 4, d médiane 2.91, norme ajoutée / norme de l'état 0.033
+1220.5s 101 [BASE] Qwen3-1.7B-Base runs W : M médian -12.59 nat, D médian 2.71e-05
+1220.5s 102 [CROCHET] Qwen3-1.7B-Base remplacement de la dernière couche par celle du run C : ΔM +25.18 nat (seuil > 1.0)
+1220.5s 103 [ΔM] Qwen3-1.7B-Base runs W, direction de l'erreur : +0.054 (aléatoires -0.077 à +0.050) ; écart +0.062 IC95 [+0.056 ; +0.068]
+1220.5s 104 [ΔD] Qwen3-1.7B-Base runs W, direction de l'erreur : +0.000 (aléatoires -0.000 à +0.000) ; écart +0.000 IC95 [+0.000 ; +0.000]
+1220.5s 105 [DOSE] Qwen3-1.7B-Base runs W : base ΔM +0.000 ΔD +0.000 bascule 0.00 ; crochet ΔM +25.177 ΔD +12.587 bascule 1.00 ; remplace_L18 ΔM +0.110 ΔD +0.000 bascule 0.00 ; erreur_+1 ΔM +0.014 ΔD +0.000 bascule 0.00 ; erreur_+2 ΔM +0.026 ΔD +0.000 bascule 0.00 ; erreur_+4 ΔM +0.054 ΔD +0.000 bascule 0.00 ; erreur_+8 ΔM +0.112 ΔD +0.000 bascule 0.00 ; erreur_+16 ΔM +0.229 ΔD +0.000 bascule 0.00 ; erreur_-4 ΔM -0.052 ΔD -0.000 bascule 0.00 ; sonde_+4 ΔM +0.029 ΔD +0.000 bascule 0.00
+1220.5s 106 [RUNS C] Qwen3-1.7B-Base direction de l'erreur sur les runs C : ΔM +0.057 (aléatoires -0.082 à +0.053) ; écart +0.066 IC95 [+0.060 ; +0.072] ; ΔD +0.000 (aléatoires -0.000 à +0.000) ; écart +0.000 IC95 [+0.000 ; +0.000]
+1220.5s 107 [VERDICT 2] Qwen3-1.7B-Base : CORRIGE
+1220.5s 108 [DURÉE] Qwen3-1.7B-Base : 19.6 min
+1508.5s 109 [MESURE] SmolLM3-3B-Base pilotage (44 conditions × 240 problèmes) : 931 s
+1508.6s 110 
+1508.6s 111 [RÉSULTATS 2] SmolLM3-3B-Base : 240 problèmes pilotés à L18, α = 4, d médiane 0.04, norme ajoutée / norme de l'état 0.026
+1508.6s 112 [BASE] SmolLM3-3B-Base runs W : M médian -11.67 nat, D médian 1.77e-04
+1508.6s 113 [CROCHET] SmolLM3-3B-Base remplacement de la dernière couche par celle du run C : ΔM +23.45 nat (seuil > 1.0)
+1508.6s 114 [ΔM] SmolLM3-3B-Base runs W, direction de l'erreur : +0.004 (aléatoires -0.030 à +0.033) ; écart +0.004 IC95 [+0.000 ; +0.007]
+1508.6s 115 [ΔD] SmolLM3-3B-Base runs W, direction de l'erreur : +0.000 (aléatoires -0.000 à +0.000) ; écart +0.000 IC95 [+0.000 ; +0.000]
+1508.6s 116 [DOSE] SmolLM3-3B-Base runs W : base ΔM +0.000 ΔD +0.000 bascule 0.00 ; crochet ΔM +23.454 ΔD +11.675 bascule 1.00 ; remplace_L18 ΔM +0.059 ΔD +0.000 bascule 0.00 ; erreur_+1 ΔM +0.000 ΔD +0.000 bascule 0.00 ; erreur_+2 ΔM +0.002 ΔD +0.000 bascule 0.00 ; erreur_+4 ΔM +0.004 ΔD +0.000 bascule 0.00 ; erreur_+8 ΔM +0.009 ΔD +0.000 bascule 0.00 ; erreur_+16 ΔM +0.019 ΔD +0.000 bascule 0.00 ; erreur_-4 ΔM -0.003 ΔD -0.000 bascule 0.00 ; sonde_+4 ΔM -0.014 ΔD -0.000 bascule 0.00
+1508.6s 117 [RUNS C] SmolLM3-3B-Base direction de l'erreur sur les runs C : ΔM +0.008 (aléatoires -0.029 à +0.031) ; écart +0.008 IC95 [+0.005 ; +0.011] ; ΔD +0.000 (aléatoires -0.000 à +0.000) ; écart +0.000 IC95 [+0.000 ; +0.000]
+1508.6s 118 [VERDICT 2] SmolLM3-3B-Base : INDÉTERMINÉ
+1508.6s 119 [DURÉE] SmolLM3-3B-Base : 24.4 min
+1508.9s 120 
+1508.9s 121 ====================================================================================================
+1508.9s 122 [SYNTHÈSE] B1e — comparaison au-delà du dernier chiffre ; le modèle se sert-il du signal ?
+1508.9s 123 [SYNTHÈSE] Qwen3-1.7B-Base        : partie 1 COMPARAISON ; partie 2 CORRIGE
+1508.9s 124 [SYNTHÈSE] SmolLM3-3B-Base        : partie 1 COMPARAISON ; partie 2 INDÉTERMINÉ
+1508.9s 125 [SYNTHÈSE] thèse 1 « l'état caché compare la valeur écrite au produit vrai au-delà du dernier chiffre » : SOUTENUE (prédiction SOUTENUE 25 %, RÉFUTÉE 15 %)
+1508.9s 126 [SYNTHÈSE] thèse 2 « le modèle se sert de la direction de l'erreur pour corriger » : INDÉTERMINÉE (prédiction SOUTENUE 5 %, RÉFUTÉE 55 %)
+1508.9s 127 [SORTIE] fichiers dans /kaggle/working/sgz_b1e : ['Qwen3-1.7B-Base_b1e.npz', 'SmolLM3-3B-Base_b1e.npz', 'resume_b1e.json']
+1514.4s 128 /usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\|'
+1514.4s 129 cells[i][c] = re.sub('\\\\\|', '|', cell)
+1514.6s 130 /usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\_'
+1514.6s 131 text = re.sub(r'_', '\_', text) # Escape underscores in display text
+1515.4s 132 [NbConvertApp] Converting notebook __notebook__.ipynb to notebook
+1515.5s 133 [NbConvertApp] Writing 333874 bytes to __notebook__.ipynb
+1517.9s 134 [NbConvertApp] Converting notebook __notebook__.ipynb to html
+1518.8s 135 [NbConvertApp] Writing 900154 bytes to __results__.html

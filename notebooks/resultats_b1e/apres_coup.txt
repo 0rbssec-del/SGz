@@ -1,0 +1,16 @@
+== qwen n=459 ; chiffres faux : W moyenne 1.76 (1 chiffre : 0.35) ; G moyenne 1.99 (1 chiffre : 0.17)
+  AUC appariée W 1 chiffre     n=160 : 0.706 [0.637 ; 0.775]
+  AUC appariée W ≥ 2 chiffres  n=299 : 0.656 [0.599 ; 0.709]
+  AUC appariée G 1 chiffre     n= 78 : 0.846 [0.769 ; 0.923]
+  AUC appariée G ≥ 2 chiffres  n=381 : 0.856 [0.819 ; 0.890]
+  pilotage α=4 : ΔM runs W +0.0545, runs C +0.0565 ; part de ΔM nuls : W 0.03, C 0.05 ; corrélation par problème ΔM(W)–ΔM(C) -0.01
+  |M| de base médian 12.59 nat ; ΔM / |M| médian +0.0038 ; plus petit écart non nul de M entre problèmes 0.0156 nat
+  remplacement de tout l'état L18 par celui du run C : ΔM moyen +0.110 nat, maximum +1.891
+== smol n=534 ; chiffres faux : W moyenne 1.44 (1 chiffre : 0.60) ; G moyenne 1.57 (1 chiffre : 0.50)
+  AUC appariée W 1 chiffre     n=319 : 0.687 [0.633 ; 0.737]
+  AUC appariée W ≥ 2 chiffres  n=215 : 0.577 [0.512 ; 0.642]
+  AUC appariée G 1 chiffre     n=266 : 0.684 [0.628 ; 0.741]
+  AUC appariée G ≥ 2 chiffres  n=268 : 0.668 [0.612 ; 0.720]
+  pilotage α=4 : ΔM runs W +0.0040, runs C +0.0085 ; part de ΔM nuls : W 0.25, C 0.28 ; corrélation par problème ΔM(W)–ΔM(C) -0.53
+  |M| de base médian 11.67 nat ; ΔM / |M| médian +0.0000 ; plus petit écart non nul de M entre problèmes 0.0156 nat
+  remplacement de tout l'état L18 par celui du run C : ΔM moyen +0.059 nat, maximum +1.031
